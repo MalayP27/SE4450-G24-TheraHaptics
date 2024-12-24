@@ -1,25 +1,45 @@
+using DotNetEnv;
 using Server.Models;
 using Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Load environment variables from .env file
+Env.Load();
+
 // Add services to the container.
-builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
+// Binds MongoDB credentials to MongoDBSettings.cs
+builder.Services.Configure<MongoDBSettings>(options =>
+{
+    options.ConnectionURI = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_URI");
+    options.DatabaseName = builder.Configuration.GetSection("MongoDB:DatabaseName").Value;
+    options.CollectionName = builder.Configuration.GetSection("MongoDB:CollectionName").Value;
+});
+
+// Registers MongoDBService.cs as a singleton, this means that the same instance will be used throughout the application
 builder.Services.AddSingleton<MongoDBService>();
-System.Console.WriteLine("Connected to Database");
+
+
+builder.Services.AddControllers();
+//System.Console.WriteLine("Connected to Database");
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// For API documentation
+// builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+// For api documentation
+// if (app.Environment.IsDevelopment())
+// {
+//     app.MapOpenApi();
+// }
 
-app.UseHttpsRedirection();
+// Redirects all http traffic to https
+// app.UseHttpsRedirection();
+
+app.MapControllers();
 
 var summaries = new[]
 {
@@ -36,6 +56,7 @@ app.MapGet("/weatherforecast", () =>
             summaries[Random.Shared.Next(summaries.Length)]
         ))
         .ToArray();
+    System.Console.WriteLine("Running an endpoint");
     return forecast;
 })
 .WithName("GetWeatherForecast");

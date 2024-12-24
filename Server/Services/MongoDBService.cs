@@ -13,6 +13,9 @@ public class MongoDBService {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
         _playlistCollection = database.GetCollection<Playlist>(mongoDBSettings.Value.CollectionName);
+        
+        var collections = database.ListCollections().ToList();
+        System.Console.WriteLine("Successfully connected to MongoDB. Collections found: " + collections.Count);
     }
 
     public async Task<List<Playlist>> GetAsync() { 
