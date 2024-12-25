@@ -6,6 +6,9 @@ using MongoDB.Bson;
 namespace Server.Services;
 
 public class MongoDBService {
+    // REFERENCE
+    // NOT ACTUAL CODE FOR PROJECT, JUST AN EXAMPLE API IMPLEMENTATION
+    //*************************************************************************
 
     private readonly IMongoCollection<Playlist> _playlistCollection;
 
@@ -36,5 +39,8 @@ public class MongoDBService {
         await _playlistCollection.DeleteOneAsync(filter);
         return;
     }
+    
+    // ******************************END OF EXAMPLE CODE********************
+
 
 }

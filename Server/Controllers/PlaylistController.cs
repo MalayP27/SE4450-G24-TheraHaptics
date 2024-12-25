@@ -1,3 +1,6 @@
+// REFERENCE CLASS
+// NOT ACTUAL CODE FOR PROJECT, JUST AN EXAMPLE API IMPLEMENTATION
+
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Server.Services;
