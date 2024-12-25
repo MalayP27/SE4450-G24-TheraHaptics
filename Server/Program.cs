@@ -13,7 +13,7 @@ builder.Services.Configure<MongoDBSettings>(options =>
 {
     options.ConnectionURI = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_URI");
     options.DatabaseName = builder.Configuration.GetSection("MongoDB:DatabaseName").Value;
-    options.CollectionName = builder.Configuration.GetSection("MongoDB:CollectionName").Value;
+    options.PlaylistCollectionName = builder.Configuration.GetSection("MongoDB:PlaylistCollectionName").Value;
 });
 
 // Registers MongoDBService.cs as a singleton, this means that the same instance will be used throughout the application
