@@ -9,11 +9,21 @@ Env.Load();
 
 // Add services to the container.
 // Binds MongoDB credentials to MongoDBSettings.cs
-builder.Services.Configure<MongoDBSettings>(options =>
-{
-    options.ConnectionURI = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_URI");
-    options.DatabaseName = builder.Configuration.GetSection("MongoDB:DatabaseName").Value;
-    options.PlaylistCollectionName = builder.Configuration.GetSection("MongoDB:PlaylistCollectionName").Value;
+builder.Services.Configure<MongoDBSettings>(options => {
+    var connectionURI = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_URI");
+    var databaseName = builder.Configuration.GetSection("MongoDB:DatabaseName").Value;
+    var playlistCollectionName = builder.Configuration.GetSection("MongoDB:PlaylistCollectionName").Value;
+    var therapistCollectionName = builder.Configuration.GetSection("MongoDB:TherapistCollectionName").Value;
+
+    if (string.IsNullOrEmpty(connectionURI) || string.IsNullOrEmpty(databaseName) || 
+        string.IsNullOrEmpty(playlistCollectionName) || string.IsNullOrEmpty(therapistCollectionName)) {
+        throw new ArgumentNullException("One or more MongoDB settings are missing.");
+    }
+
+    options.ConnectionURI = connectionURI;
+    options.DatabaseName = databaseName;
+    options.PlaylistCollectionName = playlistCollectionName;
+    options.TherapistCollectionName = therapistCollectionName;
 });
 
 // Registers MongoDBService.cs as a singleton, this means that the same instance will be used throughout the application

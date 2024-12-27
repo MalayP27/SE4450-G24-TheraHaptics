@@ -11,12 +11,14 @@ public class MongoDBService {
     //*************************************************************************
 
     private readonly IMongoCollection<Playlist> _playlistCollection;
+    private readonly IMongoCollection<Therapist> _therapistCollection;
 
     public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
         _playlistCollection = database.GetCollection<Playlist>(mongoDBSettings.Value.PlaylistCollectionName);
-        
+        _therapistCollection = database.GetCollection<Therapist>(mongoDBSettings.Value.TherapistCollectionName);
+
         var collections = database.ListCollections().ToList();
         System.Console.WriteLine("Successfully connected to MongoDB. Collections found: " + collections.Count);
     }
@@ -42,5 +44,13 @@ public class MongoDBService {
     
     // ******************************END OF EXAMPLE CODE********************
 
+    public async Task CreateTherapistAsync(Therapist therapist) { 
+        await _therapistCollection.InsertOneAsync(therapist);
+        return;
+    }
+
+    public async Task<Therapist> GetTherapistAsync(string therapistId) { 
+        return await _therapistCollection.Find(t => t.therapistId == therapistId).FirstOrDefaultAsync();
+    }
 
 }
