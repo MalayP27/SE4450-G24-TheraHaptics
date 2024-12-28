@@ -12,11 +12,13 @@ public class MongoDBService {
 
     private readonly IMongoCollection<Playlist> _playlistCollection;
     private readonly IMongoCollection<Therapist> _therapistCollection;
+    private readonly IMongoCollection<ProductKey> _productKeyCollection;
 
     public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
         _playlistCollection = database.GetCollection<Playlist>(mongoDBSettings.Value.PlaylistCollectionName);
+        _productKeyCollection = database.GetCollection<ProductKey>(mongoDBSettings.Value.ProductKeyCollectionName);
         _therapistCollection = database.GetCollection<Therapist>(mongoDBSettings.Value.TherapistCollectionName);
 
         var collections = database.ListCollections().ToList();
@@ -53,4 +55,7 @@ public class MongoDBService {
         return await _therapistCollection.Find(t => t.therapistId == therapistId).FirstOrDefaultAsync();
     }
 
+    public async Task<ProductKey> GetProductKeyAsync(string productKey) {
+        return await _productKeyCollection.Find(p => p.productKey == productKey).FirstOrDefaultAsync();
+    }
 }

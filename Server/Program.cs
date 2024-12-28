@@ -13,16 +13,19 @@ builder.Services.Configure<MongoDBSettings>(options => {
     var connectionURI = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_URI");
     var databaseName = builder.Configuration.GetSection("MongoDB:DatabaseName").Value;
     var playlistCollectionName = builder.Configuration.GetSection("MongoDB:PlaylistCollectionName").Value;
+    var productKeyCollectionName = builder.Configuration.GetSection("MongoDB:ProductKeyCollectionName").Value;
     var therapistCollectionName = builder.Configuration.GetSection("MongoDB:TherapistCollectionName").Value;
 
     if (string.IsNullOrEmpty(connectionURI) || string.IsNullOrEmpty(databaseName) || 
-        string.IsNullOrEmpty(playlistCollectionName) || string.IsNullOrEmpty(therapistCollectionName)) {
+        string.IsNullOrEmpty(playlistCollectionName) || string.IsNullOrEmpty(productKeyCollectionName) || 
+        string.IsNullOrEmpty(therapistCollectionName)) {
         throw new ArgumentNullException("One or more MongoDB settings are missing.");
     }
 
     options.ConnectionURI = connectionURI;
     options.DatabaseName = databaseName;
     options.PlaylistCollectionName = playlistCollectionName;
+    options.ProductKeyCollectionName = productKeyCollectionName;
     options.TherapistCollectionName = therapistCollectionName;
 });
 
