@@ -10,7 +10,7 @@ public class ProductKey {
     public string? productKeyId { get; set; }
 
     [BsonElement("product_key")]
-    public string productKey { get; set; }
+    public string productKey { get; set; } = null!;
 
     [BsonElement("is_activated")]
     public bool isActivated { get; set; }
