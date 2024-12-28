@@ -62,4 +62,9 @@ public class MongoDBService {
     public async Task<ProductKey> GetProductKeyAsync(string productKey) {
         return await _productKeyCollection.Find(pk => pk.productKey == productKey).FirstOrDefaultAsync();
     }
+
+    public async Task UpdateProductKeyAsync(ProductKey productKey) {
+        var filter = Builders<ProductKey>.Filter.Eq(pk => pk.productKeyId, productKey.productKeyId);
+        await _productKeyCollection.ReplaceOneAsync(filter, productKey);
+    }
 }

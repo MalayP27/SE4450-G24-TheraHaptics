@@ -15,6 +15,7 @@ public class ProductKeyController: Controller {
         _mongoDBService = mongoDBService;
     }
 
+    // Creates product key string of 8 characters
     private string GenerateRandomProductKey() {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         var random = new Random();
@@ -37,6 +38,7 @@ public class ProductKeyController: Controller {
         return CreatedAtAction(nameof(Get), new { productKey = productKey.productKey }, productKey);
     }
     
+    // Checks if product key exists and is not activated
     [HttpGet("{productKey}")]
     public async Task<IActionResult> Get(string productKey) {
         var productKeyObj = await _mongoDBService.GetProductKeyAsync(productKey);
@@ -49,9 +51,17 @@ public class ProductKeyController: Controller {
         return Ok(productKeyObj);
     }
 
-    // [HttpPut("{id}")]
-    // public async Task<IActionResult> AddToPlaylist(string id, [FromBody] string movieId) {
-    //     await _mongoDBService.AddToPlaylistAsync(id, movieId);
-    //     return NoContent();
-    // }
+    // Activates product key
+    [HttpPut("{productKey}")]
+    public async Task<IActionResult> Put(string productKey) {
+        var productKeyObj = await _mongoDBService.GetProductKeyAsync(productKey);
+        if (productKeyObj == null) {
+            return BadRequest("Something went wrong. Sorry!");
+        }
+
+        productKeyObj.isActivated = true;
+        await _mongoDBService.UpdateProductKeyAsync(productKeyObj);
+
+        return NoContent();
+    }
 }
