@@ -98,13 +98,15 @@ public class TherapistController: Controller {
             return BadRequest("Invalid therapist ID format.");
         }
         
-        var therapist = await _mongoDBService.GetTherapistAsync(therapistId);
+        var therapist = await _mongoDBService.GetTherapistByIdAsync(therapistId);
         if (therapist == null) {
             return NotFound();
         }
         return Ok(therapist);
     }
 
+    // Use when Therapist wants to update their information
+    // Modifies Therapist information
     [HttpPut("{therapistId}")]
     public async Task<IActionResult> Put(string therapistId, [FromBody] Therapist therapist) {
         // Validate therapist ID
@@ -133,5 +135,23 @@ public class TherapistController: Controller {
 
         await _mongoDBService.UpdateTherapistAsync(therapist);
         return Ok(therapist);
+    }
+
+    // Use when Therapist wants to delete their account
+    // Deletes Therapist account
+    [HttpDelete("{therapistId}")]
+    public async Task<IActionResult> Delete(string therapistId) {
+        // Validate therapist ID format
+        if (!ObjectId.TryParse(therapistId, out _)) {
+            return BadRequest("Invalid therapist ID format.");
+        }
+
+        var therapist = await _mongoDBService.GetTherapistByIdAsync(therapistId);
+        if (therapist == null) {
+            return NotFound();
+        }
+
+        await _mongoDBService.DeleteTherapistAsync(therapistId);
+        return NoContent();
     }
 }

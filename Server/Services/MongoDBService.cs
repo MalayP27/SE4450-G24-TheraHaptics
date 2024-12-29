@@ -70,7 +70,7 @@ public class MongoDBService {
         return;
     }
 
-    public async Task<Therapist> GetTherapistAsync(string therapistId) { 
+    public async Task<Therapist> GetTherapistByIdAsync(string therapistId) { 
         return await _therapistCollection.Find(t => t.therapistId == therapistId).FirstOrDefaultAsync();
     }
 
@@ -88,5 +88,10 @@ public class MongoDBService {
             .Set(t => t.productKeyId, therapist.productKeyId);
 
         await _therapistCollection.UpdateOneAsync(filter, update);
+    }
+
+    public async Task DeleteTherapistAsync(string therapistId) {
+        var filter = Builders<Therapist>.Filter.Eq(t => t.therapistId, therapistId);
+        await _therapistCollection.DeleteOneAsync(filter);
     }
 }
