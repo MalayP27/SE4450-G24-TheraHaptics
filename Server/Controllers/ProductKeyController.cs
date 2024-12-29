@@ -57,7 +57,7 @@ public class ProductKeyController: Controller {
         if (productKeyObj.isActivated) {
             return BadRequest("This product key has already been activated.");
         }
-        return Ok(productKeyObj);
+        return Ok(new { productKeyId = productKeyObj.productKeyId });
     }
 
     /*
@@ -65,16 +65,16 @@ public class ProductKeyController: Controller {
         stored productKeyId from the response body of the GET request to /api/productkey/{productKey}
     */
     // Activates product key
-    [HttpPut("{productKey}")]
-    public async Task<IActionResult> Put(string productKey) {
-        var productKeyObj = await _mongoDBService.GetProductKeyAsync(productKey);
-        if (productKeyObj == null) {
-            return BadRequest("Something went wrong. Sorry!");
-        }
+    // [HttpPut("{productKeyId}")]
+    // public async Task<IActionResult> Put(string productKeyId) {
+    //     var productKeyObj = await _mongoDBService.GetProductKeyByIdAsync(productKeyId);
+    //     if (productKeyObj == null) {
+    //         return BadRequest("Product Key not found!");
+    //     }
 
-        productKeyObj.isActivated = true;
-        await _mongoDBService.UpdateProductKeyAsync(productKeyObj);
+    //     productKeyObj.isActivated = true;
+    //     await _mongoDBService.UpdateProductKeyAsync(productKeyObj);
 
-        return NoContent();
-    }
+    //     return Ok("Product key activated successfully.");
+    // }
 }

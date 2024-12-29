@@ -55,12 +55,20 @@ public class MongoDBService {
         return await _therapistCollection.Find(t => t.therapistId == therapistId).FirstOrDefaultAsync();
     }
 
+    public async Task<Therapist> GetTherapistByEmailAsync(string emailAddress) {
+        return await _therapistCollection.Find(t => t.emailAddress == emailAddress).FirstOrDefaultAsync();
+    }
+
     public async Task CreateProductKeyAsync(ProductKey productKey) {
         await _productKeyCollection.InsertOneAsync(productKey);
     }
 
     public async Task<ProductKey> GetProductKeyAsync(string productKey) {
         return await _productKeyCollection.Find(pk => pk.productKey == productKey).FirstOrDefaultAsync();
+    }
+
+    public async Task<ProductKey> GetProductKeyByIdAsync(string productKeyId) {
+        return await _productKeyCollection.Find(pk => pk.productKeyId == productKeyId).FirstOrDefaultAsync();
     }
 
     public async Task UpdateProductKeyAsync(ProductKey productKey) {
