@@ -74,7 +74,6 @@ public class TherapistController: Controller {
         if (!IsValidPassword(therapist.password)) {
             return BadRequest("Password must be at least 8 characters long, contain at least one capital letter, one digit, and at least one special character.");
         }
-
         // Check if product key exists and is not activated
         var productKeyObj = await _mongoDBService.GetProductKeyByIdAsync(therapist.productKeyId);
         if (productKeyObj == null) {
@@ -83,6 +82,8 @@ public class TherapistController: Controller {
         if (productKeyObj.isActivated) {
             return BadRequest("Product key already activated.");
         }
+
+        // Activate the product key
         productKeyObj.isActivated = true;
         await _mongoDBService.UpdateProductKeyAsync(productKeyObj);
 
@@ -101,6 +102,36 @@ public class TherapistController: Controller {
         if (therapist == null) {
             return NotFound();
         }
+        return Ok(therapist);
+    }
+
+    [HttpPut("{therapistId}")]
+    public async Task<IActionResult> Put(string therapistId, [FromBody] Therapist therapist) {
+        // Validate therapist ID
+        if (!ObjectId.TryParse(therapistId, out _)) {
+            return BadRequest("Invalid therapist ID format.");
+        }
+        // Validate all fields are populated
+        if (therapist == null ||
+            string.IsNullOrEmpty(therapist.firstName) ||
+            string.IsNullOrEmpty(therapist.lastName) ||
+            string.IsNullOrEmpty(therapist.emailAddress) ||
+            string.IsNullOrEmpty(therapist.password) ||
+            string.IsNullOrEmpty(therapist.productKeyId)) {
+                return BadRequest("All fields are required.");
+        }
+        // Validate email address
+        if (!IsValidEmail(therapist.emailAddress)) {
+            return BadRequest("Invalid email address.");
+        }
+        // Validate password strength
+        if (!IsValidPassword(therapist.password)) {
+            return BadRequest("Password must be at least 8 characters long, contain at least one capital letter, one digit, and at least one special character.");
+        }
+
+        therapist.therapistId = therapistId;
+
+        await _mongoDBService.UpdateTherapistAsync(therapist);
         return Ok(therapist);
     }
 }

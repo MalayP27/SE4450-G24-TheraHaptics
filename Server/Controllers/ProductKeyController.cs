@@ -15,7 +15,6 @@ public class ProductKeyController: Controller {
         _mongoDBService = mongoDBService;
     }
 
-    // Internal method to generate random product key
     // Creates product key string of 8 characters
     private string GenerateRandomProductKey() {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

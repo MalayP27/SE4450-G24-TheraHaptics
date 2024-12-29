@@ -45,20 +45,8 @@ public class MongoDBService {
     }
     
     // ******************************END OF EXAMPLE CODE********************
-
-    public async Task CreateTherapistAsync(Therapist therapist) { 
-        await _therapistCollection.InsertOneAsync(therapist);
-        return;
-    }
-
-    public async Task<Therapist> GetTherapistAsync(string therapistId) { 
-        return await _therapistCollection.Find(t => t.therapistId == therapistId).FirstOrDefaultAsync();
-    }
-
-    public async Task<Therapist> GetTherapistByEmailAsync(string emailAddress) {
-        return await _therapistCollection.Find(t => t.emailAddress == emailAddress).FirstOrDefaultAsync();
-    }
-
+    
+    // Product Key Endpoints DB Integration
     public async Task CreateProductKeyAsync(ProductKey productKey) {
         await _productKeyCollection.InsertOneAsync(productKey);
     }
@@ -74,5 +62,31 @@ public class MongoDBService {
     public async Task UpdateProductKeyAsync(ProductKey productKey) {
         var filter = Builders<ProductKey>.Filter.Eq(pk => pk.productKeyId, productKey.productKeyId);
         await _productKeyCollection.ReplaceOneAsync(filter, productKey);
+    }
+
+    //Therapist Endpoints DB Integration
+    public async Task CreateTherapistAsync(Therapist therapist) { 
+        await _therapistCollection.InsertOneAsync(therapist);
+        return;
+    }
+
+    public async Task<Therapist> GetTherapistAsync(string therapistId) { 
+        return await _therapistCollection.Find(t => t.therapistId == therapistId).FirstOrDefaultAsync();
+    }
+
+    public async Task<Therapist> GetTherapistByEmailAsync(string emailAddress) {
+        return await _therapistCollection.Find(t => t.emailAddress == emailAddress).FirstOrDefaultAsync();
+    }
+
+    public async Task UpdateTherapistAsync(Therapist therapist) {
+        var filter = Builders<Therapist>.Filter.Eq(t => t.therapistId, therapist.therapistId);
+        var update = Builders<Therapist>.Update
+            .Set(t => t.firstName, therapist.firstName)
+            .Set(t => t.lastName, therapist.lastName)
+            .Set(t => t.emailAddress, therapist.emailAddress)
+            .Set(t => t.password, therapist.password)
+            .Set(t => t.productKeyId, therapist.productKeyId);
+
+        await _therapistCollection.UpdateOneAsync(filter, update);
     }
 }
