@@ -15,6 +15,7 @@ public class ProductKeyController: Controller {
         _mongoDBService = mongoDBService;
     }
 
+    // Internal method to generate random product key
     // Creates product key string of 8 characters
     private string GenerateRandomProductKey() {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -26,6 +27,7 @@ public class ProductKeyController: Controller {
         return new string(key);
     }
 
+    // Internal API endoint, not to be used by application
     // USE ONLY TO CREATE NEW PRODUCT KEYS
     [HttpPost]
     public async Task<IActionResult> Post() {
@@ -38,6 +40,13 @@ public class ProductKeyController: Controller {
         return CreatedAtAction(nameof(Get), new { productKey = productKey.productKey }, productKey);
     }
     
+    // Use this endpoint when new therapist enters product key from welcome page
+    /* 
+        If product key returns 200 OK, then save productKeyId from response body internally for when 
+        Therapist enters new account information
+
+        If product key returns 400 Bad Request, then show error message to user
+    */
     // Checks if product key exists and is not activated
     [HttpGet("{productKey}")]
     public async Task<IActionResult> Get(string productKey) {
@@ -51,6 +60,10 @@ public class ProductKeyController: Controller {
         return Ok(productKeyObj);
     }
 
+    /*
+        Use this endpoint when therapist enters new account information, should utilize the 
+        stored productKeyId from the response body of the GET request to /api/productkey/{productKey}
+    */
     // Activates product key
     [HttpPut("{productKey}")]
     public async Task<IActionResult> Put(string productKey) {
