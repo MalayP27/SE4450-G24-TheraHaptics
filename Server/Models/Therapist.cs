@@ -21,6 +21,9 @@ public class Therapist {
     [BsonElement("password")]
     public string password { get; set; }
 
+    [BsonElement("passowrd_salt")]
+    public string passwordSalt { get; set; } = null!;
+
     [BsonElement("product_key_id")]
     public string productKeyId { get; set; }
 

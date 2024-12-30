@@ -1,9 +1,11 @@
 using System;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Server.Services;
 using Server.Models;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using MongoDB.Bson;
 
 namespace Server.Controllers; 
@@ -36,6 +38,21 @@ public class TherapistController: Controller {
         // Use Regex to check if the password is valid
         var passwordRegex = new Regex(@"^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?\:{}|<>]).{8,}$");
         return passwordRegex.IsMatch(password);
+    }
+
+    private string GenerateSalt() {
+        var saltBytes = new byte[64];
+        RandomNumberGenerator.Fill(saltBytes);
+        return Convert.ToBase64String(saltBytes);
+    }
+
+    private string HashPassword(string password, string salt) {
+        using (var sha256 = SHA256.Create()) {
+            var saltedPassword = password + salt;
+            var saltedPasswordBytes = Encoding.UTF8.GetBytes(saltedPassword);
+            var hashBytes = sha256.ComputeHash(saltedPasswordBytes);
+            return Convert.ToBase64String(hashBytes);
+        }
     }
 
     public TherapistController(MongoDBService mongoDBService) {
@@ -74,6 +91,12 @@ public class TherapistController: Controller {
         if (!IsValidPassword(therapist.password)) {
             return BadRequest("Password must be at least 8 characters long, contain at least one capital letter, one digit, and at least one special character.");
         }
+
+         // Generate salt and hash the password
+        var salt = GenerateSalt();
+        therapist.passwordSalt = salt;
+        therapist.password = HashPassword(therapist.password, salt);
+
         // Check if product key exists and is not activated
         var productKeyObj = await _mongoDBService.GetProductKeyByIdAsync(therapist.productKeyId);
         if (productKeyObj == null) {
@@ -91,6 +114,7 @@ public class TherapistController: Controller {
         return CreatedAtAction(nameof(Get), new { therapistId = therapist.therapistId }, therapist);
     }
 
+    // Use when Therapist wants to view their information
     [HttpGet("{therapistId}")]
     public async Task<IActionResult> Get(string therapistId) {
         // Validate therapist ID
