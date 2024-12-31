@@ -179,7 +179,7 @@ public class UserController: Controller {
         return Ok(therapist);
     }
 
-    [HttpGet("login")]
+    [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto request) {
         if (request == null ||
             string.IsNullOrEmpty(request.emailAddress) ||
@@ -213,5 +213,13 @@ public class UserController: Controller {
         });
 
         return Ok(user);
+    }
+
+    [HttpPost("logout")]
+    public IActionResult Logout() {
+        // Clear the JWT token from the cookie
+        Response.Cookies.Delete("jwt");
+
+        return Ok("Logged out successfully.");
     }
 }
