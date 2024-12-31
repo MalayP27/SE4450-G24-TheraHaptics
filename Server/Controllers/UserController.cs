@@ -178,4 +178,40 @@ public class UserController: Controller {
         });
         return Ok(therapist);
     }
+
+    [HttpGet("login")]
+    public async Task<IActionResult> Login([FromBody] LoginDto request) {
+        if (request == null ||
+            string.IsNullOrEmpty(request.emailAddress) ||
+            string.IsNullOrEmpty(request.password)) {
+                return BadRequest("All fields are required.");
+        }
+
+        var user = await _mongoDBService.GetUserByEmailAsync(request.emailAddress);
+        if (user == null) {
+            return BadRequest("Invalid email address or password.");
+        }
+
+        var computeHashedPassword = HashPassword(request.password, user.passwordSalt);
+        if (computeHashedPassword != user.passwordHash) {
+            return BadRequest("Invalid email address or password.");
+        }
+
+        // Update lastLoggedIn field
+        user.lastLoggedIn = DateTime.UtcNow;
+        await _mongoDBService.UpdateUserAsync(user);
+
+        // Generate JWT token
+        var token = GenerateJwtToken(user);
+
+        // Set the token in a cookie
+        Response.Cookies.Append("jwt", token, new CookieOptions {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTime.UtcNow.AddDays(7)
+        });
+
+        return Ok(user);
+    }
 }

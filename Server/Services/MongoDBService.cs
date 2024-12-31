@@ -72,6 +72,15 @@ public class MongoDBService {
         return;
     }
 
+    public async Task<User> GetUserByEmailAsync(string emailAddress) {
+        return await _userCollection.Find(u => u.emailAddress == emailAddress).FirstOrDefaultAsync();
+    }
+
+    public async Task<User> UpdateUserAsync(User user) {
+        await _userCollection.ReplaceOneAsync(u => u.userId == user.userId, user);
+        return user;
+    }
+
     //Therapist Endpoints DB Integration
     public async Task CreateTherapistAsync(Therapist therapist) { 
         await _therapistCollection.InsertOneAsync(therapist);
