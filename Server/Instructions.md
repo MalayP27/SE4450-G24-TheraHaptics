@@ -16,3 +16,7 @@
 
 # Make a .env file in the Server folder and write the following in the .env file
 # MONGODB_CONNECTION_URI="mongodb+srv://<user>:<password>@therahaptics.al8ga.mongodb.net/?retryWrites=true&w=majority&appName=TheraHaptics"
+
+# JWT_SECRET_KEY=""
+# in the quotation marks enter the output of the following command ran in your terminal:
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"

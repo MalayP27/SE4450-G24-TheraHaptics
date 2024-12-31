@@ -1,16 +1,22 @@
 using DotNetEnv;
 using Server.Models;
 using Server.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Load environment variables from .env file
-Env.Load();
+DotNetEnv.Env.Load();
 
 // Add services to the container.
 // Binds MongoDB credentials to MongoDBSettings.cs
 builder.Services.Configure<MongoDBSettings>(options => {
     var connectionURI = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_URI");
+    if (string.IsNullOrEmpty(connectionURI)) {
+        throw new InvalidOperationException("MongoDB Connection URI is not set in the environment variables.");
+    }
     var databaseName = builder.Configuration.GetSection("MongoDB:DatabaseName").Value;
     var playlistCollectionName = builder.Configuration.GetSection("MongoDB:PlaylistCollectionName").Value;
     var productKeyCollectionName = builder.Configuration.GetSection("MongoDB:ProductKeyCollectionName").Value;
@@ -34,9 +40,33 @@ builder.Services.Configure<MongoDBSettings>(options => {
 // Registers MongoDBService.cs as a singleton, this means that the same instance will be used throughout the application
 builder.Services.AddSingleton<MongoDBService>();
 
+// Read the secret key from the environment variable
+var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");
+if (string.IsNullOrEmpty(secretKey)) {
+    throw new InvalidOperationException("JWT_SECRET_KEY is not set in the environment variables.");
+}
 
+var key = Encoding.ASCII.GetBytes(secretKey);
+
+// Configure JWT authentication
+builder.Services.AddAuthentication(options => {
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options => {
+    options.RequireHttpsMetadata = true;
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+});
+
+// Add services to the container.
 builder.Services.AddControllers();
-//System.Console.WriteLine("Connected to Database");
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 // For API documentation
@@ -53,6 +83,8 @@ var app = builder.Build();
 
 // Redirects all http traffic to https
 // app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

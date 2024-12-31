@@ -8,6 +8,9 @@ using Server.Services;
 using Server.Models;
 using Server.Middleware;
 using MongoDB.Bson;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Server.Controllers; 
 
@@ -62,6 +65,26 @@ public class UserController: Controller {
             var hashBytes = sha256.ComputeHash(saltedPasswordBytes);
             return Convert.ToBase64String(hashBytes);
         }
+    }
+
+    private string GenerateJwtToken(User user) {
+        var tokenHandler = new JwtSecurityTokenHandler();
+        var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");// Use a secure key
+        if (string.IsNullOrEmpty(secretKey)) {
+            throw new InvalidOperationException("JWT_SECRET_KEY is not set in the environment variables.");
+        }
+        var key = Encoding.ASCII.GetBytes(secretKey);
+        var tokenDescriptor = new SecurityTokenDescriptor {
+            Subject = new ClaimsIdentity(new[] {
+                new Claim(ClaimTypes.NameIdentifier, user.userId ?? string.Empty),
+                new Claim(ClaimTypes.Email, user.emailAddress ?? string.Empty),
+                new Claim(ClaimTypes.Role, user.role ?? string.Empty)
+            }),
+            Expires = DateTime.UtcNow.AddDays(7),
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+        };
+        var token = tokenHandler.CreateToken(tokenDescriptor);
+        return tokenHandler.WriteToken(token);
     }
 
     public UserController(MongoDBService mongoDBService) {
@@ -142,6 +165,17 @@ public class UserController: Controller {
 
         await _mongoDBService.CreateUserAsync(user);
         await _mongoDBService.CreateTherapistAsync(therapist);
+
+        // Generate JWT token
+        var token = GenerateJwtToken(user);
+
+        // Set the token in a cookie
+        Response.Cookies.Append("jwt", token, new CookieOptions {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTime.UtcNow.AddDays(7)
+        });
         return Ok(therapist);
     }
 }
