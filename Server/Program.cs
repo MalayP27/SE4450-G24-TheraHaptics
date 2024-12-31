@@ -14,11 +14,12 @@ builder.Services.Configure<MongoDBSettings>(options => {
     var databaseName = builder.Configuration.GetSection("MongoDB:DatabaseName").Value;
     var playlistCollectionName = builder.Configuration.GetSection("MongoDB:PlaylistCollectionName").Value;
     var productKeyCollectionName = builder.Configuration.GetSection("MongoDB:ProductKeyCollectionName").Value;
+    var userCollectionName = builder.Configuration.GetSection("MongoDB:UserCollectionName").Value;
     var therapistCollectionName = builder.Configuration.GetSection("MongoDB:TherapistCollectionName").Value;
 
     if (string.IsNullOrEmpty(connectionURI) || string.IsNullOrEmpty(databaseName) || 
         string.IsNullOrEmpty(playlistCollectionName) || string.IsNullOrEmpty(productKeyCollectionName) || 
-        string.IsNullOrEmpty(therapistCollectionName)) {
+        string.IsNullOrEmpty(userCollectionName) || string.IsNullOrEmpty(therapistCollectionName)) {
         throw new ArgumentNullException("One or more MongoDB settings are missing.");
     }
 
@@ -26,6 +27,7 @@ builder.Services.Configure<MongoDBSettings>(options => {
     options.DatabaseName = databaseName;
     options.PlaylistCollectionName = playlistCollectionName;
     options.ProductKeyCollectionName = productKeyCollectionName;
+    options.UserCollectionName = userCollectionName;
     options.TherapistCollectionName = therapistCollectionName;
 });
 

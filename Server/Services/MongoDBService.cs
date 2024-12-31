@@ -13,6 +13,7 @@ public class MongoDBService {
     private readonly IMongoCollection<Playlist> _playlistCollection;
     private readonly IMongoCollection<Therapist> _therapistCollection;
     private readonly IMongoCollection<ProductKey> _productKeyCollection;
+    private readonly IMongoCollection<User> _userCollection;
 
     public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
@@ -20,6 +21,7 @@ public class MongoDBService {
         _playlistCollection = database.GetCollection<Playlist>(mongoDBSettings.Value.PlaylistCollectionName);
         _productKeyCollection = database.GetCollection<ProductKey>(mongoDBSettings.Value.ProductKeyCollectionName);
         _therapistCollection = database.GetCollection<Therapist>(mongoDBSettings.Value.TherapistCollectionName);
+        _userCollection = database.GetCollection<User>(mongoDBSettings.Value.UserCollectionName);
 
         var collections = database.ListCollections().ToList();
         System.Console.WriteLine("Successfully connected to MongoDB. Collections found: " + collections.Count);
@@ -64,6 +66,12 @@ public class MongoDBService {
         await _productKeyCollection.ReplaceOneAsync(filter, productKey);
     }
 
+    //User Endpoints DB Integration
+    public async Task CreateUserAsync(User user) {
+        await _userCollection.InsertOneAsync(user);
+        return;
+    }
+
     //Therapist Endpoints DB Integration
     public async Task CreateTherapistAsync(Therapist therapist) { 
         await _therapistCollection.InsertOneAsync(therapist);
@@ -78,13 +86,12 @@ public class MongoDBService {
         return await _therapistCollection.Find(t => t.emailAddress == emailAddress).FirstOrDefaultAsync();
     }
 
-    public async Task UpdateTherapistAsync(Therapist therapist) {
+    public async Task UpdateTherapistInformationAsync(Therapist therapist) {
         var filter = Builders<Therapist>.Filter.Eq(t => t.therapistId, therapist.therapistId);
         var update = Builders<Therapist>.Update
             .Set(t => t.firstName, therapist.firstName)
             .Set(t => t.lastName, therapist.lastName)
             .Set(t => t.emailAddress, therapist.emailAddress)
-            .Set(t => t.password, therapist.password)
             .Set(t => t.productKeyId, therapist.productKeyId);
 
         await _therapistCollection.UpdateOneAsync(filter, update);

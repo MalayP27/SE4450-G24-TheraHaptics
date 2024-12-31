@@ -58,22 +58,4 @@ public class ProductKeyController: Controller {
         }
         return Ok(new { productKeyId = productKeyObj.productKeyId });
     }
-
-    /*
-        Use this endpoint when therapist enters new account information, should utilize the 
-        stored productKeyId from the response body of the GET request to /api/productkey/{productKey}
-    */
-    // Activates product key
-    // [HttpPut("{productKeyId}")]
-    // public async Task<IActionResult> Put(string productKeyId) {
-    //     var productKeyObj = await _mongoDBService.GetProductKeyByIdAsync(productKeyId);
-    //     if (productKeyObj == null) {
-    //         return BadRequest("Product Key not found!");
-    //     }
-
-    //     productKeyObj.isActivated = true;
-    //     await _mongoDBService.UpdateProductKeyAsync(productKeyObj);
-
-    //     return Ok("Product key activated successfully.");
-    // }
 }

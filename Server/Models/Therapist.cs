@@ -18,12 +18,6 @@ public class Therapist {
     [BsonElement("email_address")]
     public string emailAddress { get; set; }
 
-    [BsonElement("password")]
-    public string password { get; set; }
-
-    [BsonElement("passowrd_salt")]
-    public string passwordSalt { get; set; } = null!;
-
     [BsonElement("product_key_id")]
     public string productKeyId { get; set; }
 
@@ -32,12 +26,12 @@ public class Therapist {
     public List<string> assignedPatients { get; set; } = null!;
 
     [JsonConstructor]
-    public Therapist(string firstName, string lastName, string emailAddress, string password, string productKeyId)
-        {
-            this.firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
-            this.lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
-            this.emailAddress = emailAddress ?? throw new ArgumentNullException(nameof(emailAddress));
-            this.password = password ?? throw new ArgumentNullException(nameof(password));
-            this.productKeyId = productKeyId ?? throw new ArgumentNullException(nameof(productKeyId));
-        }
+    public Therapist(string therapistId, string firstName, string lastName, string emailAddress, string productKeyId, List<string> assignedPatients) {
+        this.therapistId = therapistId ?? throw new ArgumentNullException(nameof(therapistId));
+        this.firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
+        this.lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
+        this.emailAddress = emailAddress ?? throw new ArgumentNullException(nameof(emailAddress));
+        this.productKeyId = productKeyId ?? throw new ArgumentNullException(nameof(productKeyId));
+        this.assignedPatients = assignedPatients ?? throw new ArgumentNullException(nameof(assignedPatients));
+    }
 }
