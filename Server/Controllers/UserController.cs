@@ -142,6 +142,6 @@ public class UserController: Controller {
 
         await _mongoDBService.CreateUserAsync(user);
         await _mongoDBService.CreateTherapistAsync(therapist);
-        return Ok("Therapist created successfully.");
+        return Ok(therapist);
     }
 }
