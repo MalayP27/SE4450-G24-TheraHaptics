@@ -7,10 +7,10 @@ import os
 ports = list_ports.comports()
 for port in ports: print(port)
 
-output_dir = "Hardware/Data Processing"
+output_dir = "Hardware/Data_Extracting"
 os.makedirs(output_dir, exist_ok=True)
 
-f = open(os.path.join(output_dir, "output.csv"), mode="w", newline='')
+f = open(os.path.join(output_dir, "training_data.csv"), mode="w", newline='')
 f.truncate()
 
 serialCom = serial.Serial("COM12", 9600)
