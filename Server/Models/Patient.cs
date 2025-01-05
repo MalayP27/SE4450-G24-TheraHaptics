@@ -19,25 +19,25 @@ public class Patient {
     public string emailAddress { get; set; }
 
     [BsonElement("phone_number")]
-    public string phoneNumber { get; set; }
+    public string phoneNumber { get; set; } = null!;
 
     [BsonElement("address")]
-    public string address { get; set; }
+    public string address { get; set; } = null!;
 
     [BsonElement("date_of_birth")]
-    public string dateOfBirth { get; set; }
+    public string dateOfBirth { get; set; } = null!;
 
     [BsonElement("gender")]
-    public string gender { get; set; }
+    public string gender { get; set; } = null!;
 
     [BsonElement("diagnosis")]
     public string diagnosis { get; set; }
 
     [BsonElement("date_joined")]
-    public string dateJoined { get; set; }
+    public string dateJoined { get; set; } = null!;
 
     [BsonElement("patient_goal_id")]
-    public string patientGoalId { get; set; }
+    public string patientGoalId { get; set; } = null!;
 
     //[JsonPropertyName("items")]
     //public List<string> assignedPatients { get; set; } = null!;

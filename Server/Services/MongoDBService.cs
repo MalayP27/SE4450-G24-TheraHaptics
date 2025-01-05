@@ -11,17 +11,19 @@ public class MongoDBService {
     //*************************************************************************
 
     private readonly IMongoCollection<Playlist> _playlistCollection;
-    private readonly IMongoCollection<Therapist> _therapistCollection;
     private readonly IMongoCollection<ProductKey> _productKeyCollection;
     private readonly IMongoCollection<User> _userCollection;
+    private readonly IMongoCollection<Therapist> _therapistCollection;
+    private readonly IMongoCollection<Patient> _patientCollection;
 
     public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
         _playlistCollection = database.GetCollection<Playlist>(mongoDBSettings.Value.PlaylistCollectionName);
         _productKeyCollection = database.GetCollection<ProductKey>(mongoDBSettings.Value.ProductKeyCollectionName);
-        _therapistCollection = database.GetCollection<Therapist>(mongoDBSettings.Value.TherapistCollectionName);
         _userCollection = database.GetCollection<User>(mongoDBSettings.Value.UserCollectionName);
+        _therapistCollection = database.GetCollection<Therapist>(mongoDBSettings.Value.TherapistCollectionName);
+        _patientCollection = database.GetCollection<Patient>(mongoDBSettings.Value.PatientCollectionName);
 
         var collections = database.ListCollections().ToList();
         System.Console.WriteLine("Successfully connected to MongoDB. Collections found: " + collections.Count);
