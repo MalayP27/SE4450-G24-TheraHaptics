@@ -79,4 +79,10 @@ public class TherapistController: Controller {
     //     await _mongoDBService.DeleteTherapistAsync(therapistId);
     //     return NoContent();
     // }
+
+    // Use when Therapist wants to add a new patient
+    [HttpPost("newPatient")]
+    public async Task<IActionResult> Post([FromBody] Patient patient) {
+        //Stil needs to be implemented
+    }
 }
