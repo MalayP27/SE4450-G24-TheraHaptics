@@ -18,6 +18,9 @@ public class User {
     [BsonElement("password_hash")]
     public string passwordHash { get; set; } = null!;
 
+    [BsonElement("is_temporary_password")]
+    public bool? isTemporaryPassword { get; set; } = null; 
+
     public string role { get; set; } = null!;
 
     [BsonElement("account_created")]
