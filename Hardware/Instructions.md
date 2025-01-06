@@ -10,7 +10,7 @@
 # Type in all of the dependencies you want for the project, don't worry about the version yet
 
 # Enter the following command, this will create a txt file with all of the dependency versions you will need:
-# pip-compile
+# pip-compile dependencies.in
 
 # Then enter the following command to install all of the dependencies from the txt file:
 # pip install -r dependencies.txt

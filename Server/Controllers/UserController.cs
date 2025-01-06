@@ -147,6 +147,7 @@ public class UserController: Controller {
             hashedPassword,
             "therapist",
             DateTime.UtcNow,
+            false,
             DateTime.UtcNow
         );
 
@@ -177,6 +178,13 @@ public class UserController: Controller {
             Expires = DateTime.UtcNow.AddDays(7)
         });
         return Ok(therapist);
+    }
+
+    // Use this endpoint when new patients click on the link in their email and enter their information in the form and click submit
+    [HttpPut("patient")]
+    public async Task<IActionResult> Put([FromBody] Patient request) {
+        // Still needs to be implemented
+        return Ok();
     }
 
     [HttpPost("login")]
