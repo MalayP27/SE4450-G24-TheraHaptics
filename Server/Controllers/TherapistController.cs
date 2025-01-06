@@ -187,6 +187,10 @@ public class TherapistController: Controller {
 
         await _mongoDBService.CreateUserAsync(user);
         await _mongoDBService.CreatePatientAsync(patient);
+
+        // Need to send email to patient with temp password
+
+        // Need to adjust therapist tuple in db to append patient to patient list
         return Ok();
     }
 }
