@@ -112,4 +112,14 @@ public class MongoDBService {
         var filter = Builders<Therapist>.Filter.Eq(t => t.therapistId, therapistId);
         await _therapistCollection.DeleteOneAsync(filter);
     }
+
+    //Patient Endpoints DB Integration
+    public async Task CreatePatientAsync(Patient patient) {
+        await _patientCollection.InsertOneAsync(patient);
+        return;
+    }
+
+    public async Task<Patient> GetPatientByEmailAsync(string emailAddress) {
+        return await _patientCollection.Find(p => p.emailAddress == emailAddress).FirstOrDefaultAsync();
+    }
 }

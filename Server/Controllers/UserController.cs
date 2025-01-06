@@ -147,6 +147,7 @@ public class UserController: Controller {
             hashedPassword,
             "therapist",
             DateTime.UtcNow,
+            false,
             DateTime.UtcNow
         );
 
