@@ -177,7 +177,16 @@ public class TherapistController: Controller {
             null
         );
 
-        //await _mongoDBService.CreateUserAsync(patient);
+        var patient = new Patient(
+            objectId,
+            request.firstName,
+            request.lastName,
+            request.emailAddress,
+            request.diagnosis
+        );
+
+        await _mongoDBService.CreateUserAsync(user);
+        await _mongoDBService.CreatePatientAsync(patient);
         return Ok();
     }
 }
