@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Server.Services;
 using Server.Models;
+using Server.Middleware;
 using MongoDB.Bson;
 
 namespace Server.Controllers; 
@@ -82,7 +83,8 @@ public class TherapistController: Controller {
 
     // Use when Therapist wants to add a new patient
     [HttpPost("newPatient")]
-    public async Task<IActionResult> Post([FromBody] Patient patient) {
+    public async Task<IActionResult> Post([FromBody] PatientPostDto request) {
         //Stil needs to be implemented
+        return Ok();
     }
 }

@@ -181,8 +181,9 @@ public class UserController: Controller {
 
     // Use this endpoint when new patients click on the link in their email and enter their information in the form and click submit
     [HttpPut("patient")]
-    public async Task<IActionResult> Post([FromBody] PatientPutDto request) {
+    public async Task<IActionResult> Put([FromBody] Patient request) {
         // Still needs to be implemented
+        return Ok();
     }
 
     [HttpPost("login")]

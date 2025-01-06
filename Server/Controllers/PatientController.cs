@@ -16,7 +16,7 @@ namespace Server.Controllers;
 public class PatientController: Controller {
     private readonly MongoDBService _mongoDBService;
 
-    public TherapistController(MongoDBService mongoDBService) {
+    public PatientController(MongoDBService mongoDBService) {
         _mongoDBService = mongoDBService;
     }
 

@@ -25,7 +25,7 @@ public class Patient {
     public string address { get; set; } = null!;
 
     [BsonElement("date_of_birth")]
-    public string dateOfBirth { get; set; } = null!;
+    public DateTime? dateOfBirth { get; set; }
 
     [BsonElement("gender")]
     public string gender { get; set; } = null!;
@@ -34,7 +34,7 @@ public class Patient {
     public string diagnosis { get; set; }
 
     [BsonElement("date_joined")]
-    public string dateJoined { get; set; } = null!;
+    public DateTime? dateJoined { get; set; }
 
     [BsonElement("patient_goal_id")]
     public string patientGoalId { get; set; } = null!;
