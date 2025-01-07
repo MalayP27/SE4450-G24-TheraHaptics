@@ -8,6 +8,7 @@ using Server.Services;
 using Server.Models;
 using Server.Middleware;
 using MongoDB.Bson;
+using EmailServiceManager;
 
 namespace Server.Controllers; 
 
@@ -16,6 +17,7 @@ namespace Server.Controllers;
 
 public class TherapistController: Controller {
     private readonly MongoDBService _mongoDBService;
+    private readonly EmailService _emailService;
 
     private bool IsValidEmail(string email) {
         if (string.IsNullOrWhiteSpace(email)) {
@@ -74,6 +76,7 @@ public class TherapistController: Controller {
 
     public TherapistController(MongoDBService mongoDBService) {
         _mongoDBService = mongoDBService;
+        _emailService = new EmailService();
     }
 
     // Use when Therapist wants to view their information
@@ -189,8 +192,39 @@ public class TherapistController: Controller {
         await _mongoDBService.CreatePatientAsync(patient);
 
         // Need to send email to patient with temp password
-
+        try
+        {
+            SendWelcomeEmail(request.emailAddress, request.firstName, request.lastName, tempPassword);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+        
         // Need to adjust therapist tuple in db to append patient to patient list
         return Ok();
     }
+
+    private void SendWelcomeEmail(string emailAddress, string firstName, string lastName, string tempPassword)
+    {
+        try
+        {
+            string emailSubject = $"Welcome to TheraHaptics, {firstName}!";
+            string emailBody = $@"
+                <p>Hello {firstName} {lastName}!</p>
+                <p>Welcome to TheraHaptics! Your account has been created successfully.</p>
+                <p>Your temporary password is: <strong>{tempPassword}</strong></p>
+                <p>Please log in and change your password as soon as possible.</p>
+                <p>Thank you,</p>
+                <p>The TheraHaptics Team</p>
+            ";
+
+            _emailService.SendEmail(emailAddress, emailSubject, emailBody);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException($"Failed to send email to {emailAddress}: {ex.Message}", ex);
+        }
+    }
+
 }

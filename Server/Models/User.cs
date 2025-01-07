@@ -37,7 +37,8 @@ public class User {
         this.passwordHash = passwordHash ?? throw new ArgumentNullException(nameof(passwordHash));
         this.role = role ?? throw new ArgumentNullException(nameof(role));
         this.accountCreated = accountCreated != default ? accountCreated : throw new ArgumentException("Invalid account creation date", nameof(accountCreated));
-        this.lastLoggedIn = lastLoggedIn != default ? lastLoggedIn : throw new ArgumentException("Invalid last logged in date", nameof(lastLoggedIn));
+        //this.lastLoggedIn = lastLoggedIn != default ? lastLoggedIn : throw new ArgumentException("Invalid last logged in date", nameof(lastLoggedIn));
+        this.lastLoggedIn = lastLoggedIn == null || lastLoggedIn == default ? null : lastLoggedIn;
         this.isTemporaryPassword = isTemporaryPassword ?? throw new ArgumentNullException(nameof(isTemporaryPassword));
     }
 }
