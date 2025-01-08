@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Server.Services;
 using Server.Models;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Server.Controllers; 
 
+//[Authorize(Policy = "PatientOnly")]
 [Controller]
 [Route("api/[controller]")]
 
@@ -18,6 +20,12 @@ public class PatientController: Controller {
 
     public PatientController(MongoDBService mongoDBService) {
         _mongoDBService = mongoDBService;
+    }
+
+    [HttpGet("dashboard")]
+    public IActionResult GetDashboard()
+    {
+        return Ok("Patient Dashboard Accessed");
     }
 
 }

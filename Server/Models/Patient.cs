@@ -39,15 +39,19 @@ public class Patient {
     [BsonElement("patient_goal_id")]
     public string patientGoalId { get; set; } = null!;
 
+    [BsonElement("therapist_id")]
+    public string therapistId { get; set; } = null!;
+
     //[JsonPropertyName("items")]
     //public List<string> assignedPatients { get; set; } = null!;
 
     [JsonConstructor]
-    public Patient(string patientId, string firstName, string lastName, string emailAddress, string diagnosis) {
+    public Patient(string patientId, string firstName, string lastName, string emailAddress, string diagnosis, string therapistId) {
         this.patientId = patientId ?? throw new ArgumentNullException(nameof(patientId));
         this.firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
         this.lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
         this.emailAddress = emailAddress ?? throw new ArgumentNullException(nameof(emailAddress));
         this.diagnosis = diagnosis ?? throw new ArgumentNullException(nameof(diagnosis));
+        this.therapistId = therapistId ?? throw new ArgumentNullException(nameof(therapistId));
     }
 }
