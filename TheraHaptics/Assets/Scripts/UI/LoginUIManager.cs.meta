@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:TheraHaptics/Assets/Scripts/UI/LoginUIManager.cs.meta
 guid: 445205cfb5bb8a44380b2309cf0c9735
+========
+guid: 34826a32e30853b44920dfd625af7352
+>>>>>>>> main:TheraHaptics/Assets/Scripts/Test2.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
