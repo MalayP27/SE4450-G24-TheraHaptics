@@ -1,0 +1,6 @@
+# .gitignore for APIs
+[Oo]bj/
+[Bb]in/
+
+# to ensure that private credentials do not save to the repository
+.env
