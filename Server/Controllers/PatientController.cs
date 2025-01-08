@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Server.Controllers; 
 
-//[Authorize(Policy = "PatientOnly")]
+[Authorize(Policy = "PatientOnly")]
 [Controller]
 [Route("api/[controller]")]
 
@@ -26,6 +26,13 @@ public class PatientController: Controller {
     public IActionResult GetDashboard()
     {
         return Ok("Patient Dashboard Accessed");
+    }
+
+    // Use this endpoint when new patients click on the link in their email and enter their information in the form and click submit
+    [HttpPut("patientRegistration")]
+    public async Task<IActionResult> Put([FromBody] Patient request) {
+        // Still needs to be implemented
+        return Ok();
     }
 
 }

@@ -70,7 +70,6 @@ var key = Encoding.ASCII.GetBytes(secretKey);
 // });
 builder.Services.AddControllers();
 
-// Configure authentication and authorization
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -80,20 +79,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? throw new InvalidOperationException("JWT_SECRET_KEY not set"))
             ),
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidIssuer = builder.Configuration["JWT_ISSUER"],
-            ValidAudience = builder.Configuration["JWT_AUDIENCE"],
-            ValidateLifetime = true
+            ValidateIssuer = false, // Not validating issuer
+            ValidateAudience = false, // Not validating audience
+            ValidateLifetime = true // Still validate expiration
         };
-    }); 
-
+    });
     builder.Services.AddAuthorization(options =>
     {
         options.AddPolicy("PatientOnly", policy =>
-            policy.RequireClaim(ClaimTypes.Role, "Patient"));
+            policy.RequireClaim(ClaimTypes.Role, "patient"));
         options.AddPolicy("TherapistOnly", policy =>
-            policy.RequireClaim(ClaimTypes.Role, "Therapist"));
+            policy.RequireClaim(ClaimTypes.Role, "therapist"));
     });
 
 // Add services to the container.

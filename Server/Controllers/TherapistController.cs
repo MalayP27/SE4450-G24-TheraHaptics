@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Server.Controllers; 
 
-//[Authorize(Policy = "TherapistOnly")]
+[Authorize(Policy = "TherapistOnly")]
 [Controller]
 [Route("api/[controller]")]
 
@@ -222,10 +222,16 @@ public class TherapistController: Controller {
         await _mongoDBService.CreateUserAsync(user);
         await _mongoDBService.CreatePatientAsync(patient);
 
-        //TODO:
+        
         // Append patient to therapist's patient list
         therapist.assignedPatients.Add(objectId);
-        //Console.WriteLine($"Assigned Patients: {string.Join(", ", therapist.assignedPatients)}"); 
+        // Print assignedPatients from the Therapist object
+        Console.WriteLine("Assigned Patients:");
+        foreach (var patientId in therapist.assignedPatients) {
+            Console.WriteLine(patientId);
+        }
+
+        Console.WriteLine(therapist);
         await _mongoDBService.UpdateTherapistInformationAsync(therapist);
        
         // Need to send email to patient with temp password

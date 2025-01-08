@@ -103,7 +103,8 @@ public class MongoDBService {
             .Set(t => t.firstName, therapist.firstName)
             .Set(t => t.lastName, therapist.lastName)
             .Set(t => t.emailAddress, therapist.emailAddress)
-            .Set(t => t.productKeyId, therapist.productKeyId);
+            .Set(t => t.productKeyId, therapist.productKeyId)
+            .Set(t => t.assignedPatients, therapist.assignedPatients);
 
         await _therapistCollection.UpdateOneAsync(filter, update);
     }
