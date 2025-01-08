@@ -9,9 +9,11 @@ using Server.Models;
 using Server.Middleware;
 using MongoDB.Bson;
 using EmailServiceManager;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Server.Controllers; 
 
+//[Authorize(Policy = "TherapistOnly")]
 [Controller]
 [Route("api/[controller]")]
 
@@ -71,6 +73,28 @@ public class TherapistController: Controller {
             var saltedPasswordBytes = Encoding.UTF8.GetBytes(saltedPassword);
             var hashBytes = sha256.ComputeHash(saltedPasswordBytes);
             return Convert.ToBase64String(hashBytes);
+        }
+    }
+
+    private void SendWelcomeEmail(string emailAddress, string firstName, string lastName, string tempPassword)
+    {
+        try
+        {
+            string emailSubject = $"Welcome to TheraHaptics, {firstName}!";
+            string emailBody = $@"
+                <p>Hello {firstName} {lastName}!</p>
+                <p>Welcome to TheraHaptics! Your account has been created successfully.</p>
+                <p>Your temporary password is: <strong>{tempPassword}</strong></p>
+                <p>Please log in and change your password as soon as possible.</p>
+                <p>Thank you,</p>
+                <p>The TheraHaptics Team</p>
+            ";
+
+            _emailService.SendEmail(emailAddress, emailSubject, emailBody);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException($"Failed to send email to {emailAddress}: {ex.Message}", ex);
         }
     }
 
@@ -161,6 +185,12 @@ public class TherapistController: Controller {
         if (existingPatient != null) {
             return BadRequest("The email address you entered is already associated with an existing account. Please try using a different email address to register patient.");
         }
+       
+        // Need to adjust therapist tuple in db to append patient to patient list
+        var therapist = await _mongoDBService.GetTherapistByIdAsync(request.therapistId);
+        if (therapist == null) {
+            return NotFound("Therapist not found.");
+        }
 
         var tempPassword = GenerateTemporaryPassword();
         var salt = GenerateSalt();
@@ -185,12 +215,19 @@ public class TherapistController: Controller {
             request.firstName,
             request.lastName,
             request.emailAddress,
-            request.diagnosis
+            request.diagnosis,
+            request.therapistId
         );
 
         await _mongoDBService.CreateUserAsync(user);
         await _mongoDBService.CreatePatientAsync(patient);
 
+        //TODO:
+        // Append patient to therapist's patient list
+        therapist.assignedPatients.Add(objectId);
+        //Console.WriteLine($"Assigned Patients: {string.Join(", ", therapist.assignedPatients)}"); 
+        await _mongoDBService.UpdateTherapistInformationAsync(therapist);
+       
         // Need to send email to patient with temp password
         try
         {
@@ -200,31 +237,6 @@ public class TherapistController: Controller {
         {
             return StatusCode(500, ex.Message);
         }
-        
-        // Need to adjust therapist tuple in db to append patient to patient list
         return Ok();
     }
-
-    private void SendWelcomeEmail(string emailAddress, string firstName, string lastName, string tempPassword)
-    {
-        try
-        {
-            string emailSubject = $"Welcome to TheraHaptics, {firstName}!";
-            string emailBody = $@"
-                <p>Hello {firstName} {lastName}!</p>
-                <p>Welcome to TheraHaptics! Your account has been created successfully.</p>
-                <p>Your temporary password is: <strong>{tempPassword}</strong></p>
-                <p>Please log in and change your password as soon as possible.</p>
-                <p>Thank you,</p>
-                <p>The TheraHaptics Team</p>
-            ";
-
-            _emailService.SendEmail(emailAddress, emailSubject, emailBody);
-        }
-        catch (Exception ex)
-        {
-            throw new InvalidOperationException($"Failed to send email to {emailAddress}: {ex.Message}", ex);
-        }
-    }
-
 }

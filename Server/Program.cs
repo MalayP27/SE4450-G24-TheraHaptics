@@ -4,6 +4,7 @@ using Server.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,25 +52,52 @@ if (string.IsNullOrEmpty(secretKey)) {
 
 var key = Encoding.ASCII.GetBytes(secretKey);
 
-// Configure JWT authentication
-builder.Services.AddAuthentication(options => {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options => {
-    options.RequireHttpsMetadata = true;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
+// // Configure JWT authentication /////////////////////////////////////////////////
+// builder.Services.AddAuthentication(options => {
+//     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+// })
+// .AddJwtBearer(options => {
+//     options.RequireHttpsMetadata = true;
+//     options.SaveToken = true;
+//     options.TokenValidationParameters = new TokenValidationParameters
+//     {
+//         ValidateIssuerSigningKey = true,
+//         IssuerSigningKey = new SymmetricSecurityKey(key),
+//         ValidateIssuer = false,
+//         ValidateAudience = false
+//     };
+// });
+builder.Services.AddControllers();
+
+// Configure authentication and authorization
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
     {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = false,
-        ValidateAudience = false
-    };
-});
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? throw new InvalidOperationException("JWT_SECRET_KEY not set"))
+            ),
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidIssuer = builder.Configuration["JWT_ISSUER"],
+            ValidAudience = builder.Configuration["JWT_AUDIENCE"],
+            ValidateLifetime = true
+        };
+    }); 
+
+    builder.Services.AddAuthorization(options =>
+    {
+        options.AddPolicy("PatientOnly", policy =>
+            policy.RequireClaim(ClaimTypes.Role, "Patient"));
+        options.AddPolicy("TherapistOnly", policy =>
+            policy.RequireClaim(ClaimTypes.Role, "Therapist"));
+    });
 
 // Add services to the container.
-builder.Services.AddControllers();
+
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 // For API documentation
@@ -86,10 +114,15 @@ var app = builder.Build();
 
 // Redirects all http traffic to https
 // app.UseHttpsRedirection();
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
+
+
+
+
+
 
 var summaries = new[]
 {

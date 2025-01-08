@@ -11,6 +11,7 @@ using MongoDB.Bson;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
+using EmailServiceManager;
 
 namespace Server.Controllers; 
 
@@ -27,7 +28,9 @@ namespace Server.Controllers;
 */
 public class UserController: Controller {
     private readonly MongoDBService _mongoDBService;
+    private readonly EmailService _emailService;
 
+    //Input Validation
     private bool IsValidEmail(string email) {
         if (string.IsNullOrWhiteSpace(email)) {
             return false;
@@ -52,6 +55,31 @@ public class UserController: Controller {
         return passwordRegex.IsMatch(password);
     }
 
+    private string GenerateTemporaryPassword() {
+        const string upperCase = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
+        const string lowerCase = "abcdefghijklmnopqrstuvwxyz";
+        const string digits = "0123456789";
+        const string specialChars = "!@#$%^&*()";
+        const string allChars = upperCase + lowerCase + digits + specialChars;
+
+        var random = new Random();
+        var password = new char[12];
+
+        // Ensure at least one character from each required set
+        password[0] = upperCase[random.Next(upperCase.Length)];
+        password[1] = lowerCase[random.Next(lowerCase.Length)];
+        password[2] = digits[random.Next(digits.Length)];
+        password[3] = specialChars[random.Next(specialChars.Length)];
+
+        // Fill the remaining characters with random characters from all sets
+        for (int i = 4; i < password.Length; i++) {
+            password[i] = allChars[random.Next(allChars.Length)];
+        }
+
+        // Shuffle the password to ensure randomness
+        return new string(password.OrderBy(x => random.Next()).ToArray());
+    }
+
     private string GenerateSalt() {
         var saltBytes = new byte[64];
         RandomNumberGenerator.Fill(saltBytes);
@@ -67,28 +95,89 @@ public class UserController: Controller {
         }
     }
 
-    private string GenerateJwtToken(User user) {
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");// Use a secure key
-        if (string.IsNullOrEmpty(secretKey)) {
+    // private string GenerateJwtToken(User user) {
+    //     var tokenHandler = new JwtSecurityTokenHandler();
+    //     var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");// Use a secure key
+    //     if (string.IsNullOrEmpty(secretKey)) {
+    //         throw new InvalidOperationException("JWT_SECRET_KEY is not set in the environment variables.");
+    //     }
+    //     var key = Encoding.ASCII.GetBytes(secretKey);
+    //     var tokenDescriptor = new SecurityTokenDescriptor {
+    //         Subject = new ClaimsIdentity(new[] {
+    //             new Claim(ClaimTypes.NameIdentifier, user.userId ?? string.Empty),
+    //             new Claim(ClaimTypes.Email, user.emailAddress ?? string.Empty),
+    //             new Claim(ClaimTypes.Role, user.role ?? string.Empty)
+    //         }),
+    //         Expires = DateTime.UtcNow.AddDays(7),
+    //         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+    //     };
+    //     var token = tokenHandler.CreateToken(tokenDescriptor);
+    //     return tokenHandler.WriteToken(token);
+    // }
+
+    private string GenerateJwtToken(User user)
+    {
+        // Retrieve the secret key from environment variables
+        var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY");
+        if (string.IsNullOrEmpty(secretKey))
+        {
             throw new InvalidOperationException("JWT_SECRET_KEY is not set in the environment variables.");
         }
+
+        // Convert the key to bytes
         var key = Encoding.ASCII.GetBytes(secretKey);
-        var tokenDescriptor = new SecurityTokenDescriptor {
-            Subject = new ClaimsIdentity(new[] {
-                new Claim(ClaimTypes.NameIdentifier, user.userId ?? string.Empty),
-                new Claim(ClaimTypes.Email, user.emailAddress ?? string.Empty),
-                new Claim(ClaimTypes.Role, user.role ?? string.Empty)
-            }),
-            Expires = DateTime.UtcNow.AddDays(7),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+
+        // Define the token's claims
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.userId ?? string.Empty), // User ID
+            new Claim(ClaimTypes.Email, user.emailAddress ?? string.Empty),    // Email Address
+            new Claim(ClaimTypes.Role, user.role ?? string.Empty)             // Role (Patient or Therapist)
         };
+
+        // Configure token descriptor
+        var tokenDescriptor = new SecurityTokenDescriptor
+        {
+            Subject = new ClaimsIdentity(claims), // Attach claims
+            Expires = DateTime.UtcNow.AddDays(7), // Token expiration
+            SigningCredentials = new SigningCredentials(
+                new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature) // Signing credentials
+        };
+
+        // Generate the token
+        var tokenHandler = new JwtSecurityTokenHandler();
         var token = tokenHandler.CreateToken(tokenDescriptor);
+
+        // Return the token as a string
         return tokenHandler.WriteToken(token);
+    }
+
+    private void SendForgotPasswordEmail(string emailAddress, string tempPassword)
+    {
+        try
+        {
+            string emailSubject = "Reset Your TheraHaptics Password";
+            string emailBody = $@"
+                <p>Dear User,</p>
+                <p>We received a request to reset your password for your TheraHaptics account.</p>
+                <p>Your temporary password is: <strong>{tempPassword}</strong></p>
+                <p>Please log in with this temporary password and change it immediately to secure your account.</p>
+                <p>If you did not request a password reset, please contact our support team immediately.</p>
+                <p>Thank you,</p>
+                <p>The TheraHaptics Team</p>
+            ";
+
+            _emailService.SendEmail(emailAddress, emailSubject, emailBody);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException($"Failed to send forgot password email to {emailAddress}: {ex.Message}", ex);
+        }
     }
 
     public UserController(MongoDBService mongoDBService) {
         _mongoDBService = mongoDBService;
+        _emailService = new EmailService();
     }
 
     // Use this endpoint when new therapists enter their information in the form and click submit
@@ -188,21 +277,28 @@ public class UserController: Controller {
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginDto request) {
+    public async Task<IActionResult> Login([FromBody] LoginDto request)
+    {
+        // Validate input
         if (request == null ||
             string.IsNullOrEmpty(request.emailAddress) ||
-            string.IsNullOrEmpty(request.password)) {
-                return BadRequest("All fields are required.");
+            string.IsNullOrEmpty(request.password))
+        {
+            return BadRequest("All fields are required.");
         }
 
+        // Retrieve the user from the database
         var user = await _mongoDBService.GetUserByEmailAsync(request.emailAddress);
-        if (user == null) {
-            return BadRequest("Invalid email address or password.");
+        if (user == null)
+        {
+            return Unauthorized("Invalid email address or password.");
         }
 
+        // Verify the password
         var computeHashedPassword = HashPassword(request.password, user.passwordSalt);
-        if (computeHashedPassword != user.passwordHash) {
-            return BadRequest("Invalid email address or password.");
+        if (computeHashedPassword != user.passwordHash)
+        {
+            return Unauthorized("Invalid email address or password.");
         }
 
         // Update lastLoggedIn field
@@ -212,16 +308,19 @@ public class UserController: Controller {
         // Generate JWT token
         var token = GenerateJwtToken(user);
 
-        // Set the token in a cookie
-        Response.Cookies.Append("jwt", token, new CookieOptions {
+        // Set the token in a secure, HTTP-only cookie
+        Response.Cookies.Append("jwt", token, new CookieOptions
+        {
             HttpOnly = true,
-            Secure = true,
+            Secure = true, // Ensure Secure flag is set for HTTPS
             SameSite = SameSiteMode.Strict,
             Expires = DateTime.UtcNow.AddDays(7)
         });
 
-        return Ok(user);
+        // Return the JWT token as part of the response
+        return Ok(new { Token = token, Role = user.role });
     }
+
 
     [HttpPost("logout")]
     public IActionResult Logout() {
@@ -230,4 +329,46 @@ public class UserController: Controller {
 
         return Ok("Logged out successfully.");
     }
+
+    [HttpPost("forgotPassword")]
+    public async Task<IActionResult> ForgotPassword([FromBody] string emailAddress)
+    {   
+        System.Console.WriteLine(emailAddress);
+
+        // Validate email input
+        if (string.IsNullOrEmpty(emailAddress)) //|| !IsValidEmail(emailAddress))
+        {
+            return BadRequest("Invalid email address.");
+        }
+
+        // Check if user exists
+        var user = await _mongoDBService.GetUserByEmailAsync(emailAddress);
+        if (user == null)
+        {
+            return BadRequest("Email address not associated with any account.");
+        }
+
+        // Generate a temporary password
+        var tempPassword = GenerateTemporaryPassword();
+        var salt = GenerateSalt();
+        var hashedPassword = HashPassword(tempPassword, salt);
+
+        // Update the user's password and set isTemporaryPassword flag
+        user.passwordSalt = salt;
+        user.passwordHash = hashedPassword;
+        user.isTemporaryPassword = true;
+        await _mongoDBService.UpdateUserAsync(user);
+
+       try
+        {
+            SendForgotPasswordEmail(emailAddress, tempPassword);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"Failed to send email: {ex.Message}");
+        }
+
+        return Ok("A temporary password has been sent to your email address.");
+    }
+
 }

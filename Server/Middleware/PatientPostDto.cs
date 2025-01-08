@@ -5,4 +5,5 @@ public class PatientPostDto {
     public string lastName { get; set; } = null!;
     public string emailAddress { get; set; } = null!;
     public string diagnosis { get; set; } = null!;
+    public string therapistId { get; set; } = null!;
 }
