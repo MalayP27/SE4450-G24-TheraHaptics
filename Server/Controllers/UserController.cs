@@ -269,13 +269,6 @@ public class UserController: Controller {
         return Ok(therapist);
     }
 
-    // Use this endpoint when new patients click on the link in their email and enter their information in the form and click submit
-    [HttpPut("patient")]
-    public async Task<IActionResult> Put([FromBody] Patient request) {
-        // Still needs to be implemented
-        return Ok();
-    }
-
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto request)
     {
