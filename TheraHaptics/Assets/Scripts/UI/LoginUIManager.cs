@@ -162,4 +162,15 @@ public class LoginUIManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void SendVerificationEmail(){
+        email = emailInput.text;
+        // Insert Input Verification and then API here
+
+    }
+    public void ChangePassword(){
+        password = newPassInput.text;
+        confirmPassword = confirmPassInput.text;
+        // Insert Input Verification and then API here
+
+    }
 }
