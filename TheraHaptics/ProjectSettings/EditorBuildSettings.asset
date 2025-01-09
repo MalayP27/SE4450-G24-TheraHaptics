@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoginScenes/SignInScene.unity
     guid: 7031e9d2b57b4dc41bb42a11b3bf04fe
+  - enabled: 1
+    path: Assets/Scenes/DashBoardScenes/PhysioDashboard.unity
+    guid: 4052e9bbaf62a1d409e40d723adba555
+  - enabled: 1
+    path: Assets/Scenes/DashBoardScenes/PhysioAccount.unity
+    guid: a652300ddd7c18845b6c336b7e319431
+  - enabled: 1
+    path: Assets/Scenes/DashBoardScenes/PhysioPatients.unity
+    guid: 7d516706a1118974f99922e1bed16c35
+  - enabled: 1
+    path: Assets/Scenes/DashBoardScenes/Support.unity
+    guid: b59917ebb8e0d79439cf0efa41373e75
   m_configObjects: {}
