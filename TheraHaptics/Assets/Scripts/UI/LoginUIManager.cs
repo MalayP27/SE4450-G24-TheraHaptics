@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 public class LoginUIManager : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class LoginUIManager : MonoBehaviour
     // Getting input fields
     [SerializeField] private TMP_InputField userEmail;
     [SerializeField] private TMP_InputField userPassword;
+    [SerializeField] private TMP_InputField productKey;
     [SerializeField] private Toggle showPassword;
     [SerializeField] private Toggle keepLoggedIn;
     
@@ -22,6 +25,11 @@ public class LoginUIManager : MonoBehaviour
     private string email;
     private string password;
     private bool loginAccepted;
+
+    private string regKey;
+
+    public string productKeyId;
+    private static readonly HttpClient client = new HttpClient();
 
     // Awake is called before the first frame update
     private void Awake()
@@ -87,6 +95,23 @@ public class LoginUIManager : MonoBehaviour
         }
     }
 
+    public async void RegisterKey(){
+        regKey = productKey.text;
+        string url = $"http://localhost:5089/api/productKey/{regKey}";
+
+        HttpResponseMessage response = await client.GetAsync(url);
+
+        if (response.IsSuccessStatusCode)
+        {
+            string responseBody = await response.Content.ReadAsStringAsync();
+            Debug.Log($"Response: {responseBody}");
+        }
+        else
+        {
+            Debug.Log($"Error: {response.StatusCode}");
+        }
+    }
+    
     public void ForgotPassword(){
         // Load Forgot Password Scene
     }

@@ -103,7 +103,8 @@ public class MongoDBService {
             .Set(t => t.firstName, therapist.firstName)
             .Set(t => t.lastName, therapist.lastName)
             .Set(t => t.emailAddress, therapist.emailAddress)
-            .Set(t => t.productKeyId, therapist.productKeyId);
+            .Set(t => t.productKeyId, therapist.productKeyId)
+            .Set(t => t.assignedPatients, therapist.assignedPatients);
 
         await _therapistCollection.UpdateOneAsync(filter, update);
     }
@@ -121,5 +122,17 @@ public class MongoDBService {
 
     public async Task<Patient> GetPatientByEmailAsync(string emailAddress) {
         return await _patientCollection.Find(p => p.emailAddress == emailAddress).FirstOrDefaultAsync();
+    }
+
+    public async Task<Patient> GetPatientByIdAsync(string patientId)
+    {
+        var filter = Builders<Patient>.Filter.Eq(p => p.patientId, patientId);
+        return await _patientCollection.Find(filter).FirstOrDefaultAsync();
+    }
+
+    public async Task UpdatePatientAsync(Patient patient)
+    {
+        var filter = Builders<Patient>.Filter.Eq(p => p.patientId, patient.patientId);
+        await _patientCollection.ReplaceOneAsync(filter, patient);
     }
 }

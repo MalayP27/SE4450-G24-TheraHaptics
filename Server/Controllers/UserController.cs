@@ -269,13 +269,6 @@ public class UserController: Controller {
         return Ok(therapist);
     }
 
-    // Use this endpoint when new patients click on the link in their email and enter their information in the form and click submit
-    [HttpPut("patient")]
-    public async Task<IActionResult> Put([FromBody] Patient request) {
-        // Still needs to be implemented
-        return Ok();
-    }
-
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto request)
     {
@@ -330,13 +323,18 @@ public class UserController: Controller {
         return Ok("Logged out successfully.");
     }
 
+
+
     [HttpPost("forgotPassword")]
-    public async Task<IActionResult> ForgotPassword([FromBody] string emailAddress)
-    {   
+    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)
+    {
+        var emailAddress = request.EmailAddress; // Extract email from DTO
+
+        // Debug log
         System.Console.WriteLine(emailAddress);
 
         // Validate email input
-        if (string.IsNullOrEmpty(emailAddress)) //|| !IsValidEmail(emailAddress))
+        if (string.IsNullOrEmpty(emailAddress) || !IsValidEmail(emailAddress))
         {
             return BadRequest("Invalid email address.");
         }
@@ -359,7 +357,7 @@ public class UserController: Controller {
         user.isTemporaryPassword = true;
         await _mongoDBService.UpdateUserAsync(user);
 
-       try
+        try
         {
             SendForgotPasswordEmail(emailAddress, tempPassword);
         }
@@ -370,5 +368,4 @@ public class UserController: Controller {
 
         return Ok("A temporary password has been sent to your email address.");
     }
-
 }
