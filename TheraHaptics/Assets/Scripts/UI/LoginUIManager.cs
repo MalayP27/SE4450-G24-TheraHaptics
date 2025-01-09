@@ -7,6 +7,8 @@ using TMPro;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
+
 
 public class LoginUIManager : MonoBehaviour
 {
@@ -15,6 +17,11 @@ public class LoginUIManager : MonoBehaviour
     [SerializeField] private TMP_InputField userEmail;
     [SerializeField] private TMP_InputField userPassword;
     [SerializeField] private TMP_InputField productKey;
+    [SerializeField] private TMP_InputField firstNameInput;
+    [SerializeField] private TMP_InputField lastNameInput;
+    [SerializeField] private TMP_InputField emailInput;
+    [SerializeField] private TMP_InputField newPassInput;
+    [SerializeField] private TMP_InputField confirmPassInput;
     [SerializeField] private Toggle showPassword;
     [SerializeField] private Toggle keepLoggedIn;
     
@@ -24,6 +31,9 @@ public class LoginUIManager : MonoBehaviour
     // Make Necessary Variables
     private string email;
     private string password;
+    private string confirmPassword;
+    private string firstName;
+    private string lastName;
     private bool loginAccepted;
 
     private string regKey;
@@ -37,10 +47,8 @@ public class LoginUIManager : MonoBehaviour
         loginAccepted = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ReturnToHome() {
+        SceneManager.LoadScene(0);
     }
 
     // Method for the Show Password Toggle
@@ -94,7 +102,39 @@ public class LoginUIManager : MonoBehaviour
             errorMessage.SetActive(true);
         }
     }
+    public void RegisterAccount(){
+        // Deactivate error message
+        errorMessage.SetActive(false);
+        // Get text input field data
+        firstName = firstNameInput.text;
+        lastName = lastNameInput.text;
+        email = emailInput.text;
+        password = newPassInput.text;
+        confirmPassword = confirmPassInput.text;
 
+        // Insert Input Verification and then API here
+        // return loginAccepted = true/false
+
+        loginAccepted = false; // For Testing Only
+        if (loginAccepted)
+        {
+            Debug.Log(email + ", " + password); // For Testing Only
+
+            /* if (isPatient){
+            Load Patient Account Scene
+            }
+            elseif (isDoctor){
+            Load Doctor Account Scene
+            }
+            */
+        }
+        else{
+            // Activate error message
+            errorMessage.SetActive(true);
+        }
+    }
+
+    // Make sure to save values and move to next scene (index: 2)
     public async void RegisterKey(){
         regKey = productKey.text;
         string url = $"http://localhost:5089/api/productKey/{regKey}";
@@ -112,12 +152,14 @@ public class LoginUIManager : MonoBehaviour
         }
     }
     
+    // Load Forgot Password Scene
     public void ForgotPassword(){
-        // Load Forgot Password Scene
+        SceneManager.LoadScene(3);
     }
 
+    // Load Sign Up Scene starting with Key Registration
     public void SignUp(){
-        // Load Sign Up Scene starting with Key Registration
+        SceneManager.LoadScene(1);
     }
 
 }
