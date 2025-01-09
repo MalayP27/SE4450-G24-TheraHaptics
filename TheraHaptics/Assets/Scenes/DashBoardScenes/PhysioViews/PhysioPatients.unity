@@ -2623,7 +2623,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1224689402}
         m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Account
+        m_MethodName: PHAccount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4501,8 +4501,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4292904960
+  m_fontColor: {r: 0, g: 0.53333336, b: 0.8784314, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5577,6 +5577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchBox: {fileID: 1604512872}
+  personalInfoScreen: {fileID: 0}
 --- !u!1 &1241325846
 GameObject:
   m_ObjectHideFlags: 0
@@ -6913,7 +6914,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1224689402}
         m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Patients
+        m_MethodName: PHPatients
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7564,8 +7565,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292904960
-  m_fontColor: {r: 0, g: 0.53333336, b: 0.8784314, a: 1}
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9302,7 +9303,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1224689402}
         m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Dashboard
+        m_MethodName: PHDashboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

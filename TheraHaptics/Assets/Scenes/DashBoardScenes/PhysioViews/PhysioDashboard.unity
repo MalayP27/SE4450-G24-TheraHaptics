@@ -2623,7 +2623,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1224689402}
         m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Account
+        m_MethodName: PHAccount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5577,6 +5577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchBox: {fileID: 1604512872}
+  personalInfoScreen: {fileID: 0}
 --- !u!1 &1241325846
 GameObject:
   m_ObjectHideFlags: 0
@@ -6913,7 +6914,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1224689402}
         m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Patients
+        m_MethodName: PHPatients
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9302,7 +9303,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1224689402}
         m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Dashboard
+        m_MethodName: PHDashboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

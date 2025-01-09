@@ -20,23 +20,37 @@ public class DashBoardUIManager : MonoBehaviour
     private void Awake(){
         personalInfoScreen.SetActive(false);
     }
-    public void Dashboard(){
+    public void PHDashboard(){
         SceneManager.LoadScene(1);
     }
 
     // Called by clicking My Account; goes to account scene
-    public void Account(){
+    public void PHAccount(){
         SceneManager.LoadScene(2);
     }
 
     // Called by clicking My Patients; goes to patients scene
-    public void Patients(){
+    public void PHPatients(){
         SceneManager.LoadScene(3);
+    }
+
+    public void PDashboard(){
+        SceneManager.LoadScene(5);
+    }
+
+    // Called by clicking My Patients; goes to patients scene
+    public void PReports(){
+        SceneManager.LoadScene(6);
+    }
+
+    // Called by clicking My Account; goes to account scene
+    public void PAccount(){
+        SceneManager.LoadScene(7);
     }
 
     // Called when Clicking Support; goes to support scene
     public void Support(){
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(9);
     }
 
     // Logs the user out
@@ -76,4 +90,19 @@ public class DashBoardUIManager : MonoBehaviour
         personalInfoScreen.SetActive(false);
     }
 
+    public void ShowChart(){
+        
+    }
+
+    public void ReportPain(){
+        
+    }
+
+    public void ViewReport(){
+        
+    }
+
+    public void StartSession(){
+        SceneManager.LoadScene(8);
+    }
 }
