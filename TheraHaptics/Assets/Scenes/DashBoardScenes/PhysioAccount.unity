@@ -241,7 +241,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 24394885}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatientMore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &28383219
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +696,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 81075624}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &81075624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2044,8 +2068,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292904960
-  m_fontColor: {r: 0, g: 0.53398436, b: 0.8792453, a: 1}
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2596,7 +2620,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 402742685}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: Account
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &402742685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2757,7 +2793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 433323336}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &433323336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3280,7 +3328,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 508610008}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: OpenPatientChat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &508610008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3401,7 +3461,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 513191851}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: Support
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &513191851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3522,7 +3594,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 563250020}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &563250020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3643,7 +3727,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 596967332}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &596967332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4082,7 +4178,7 @@ GameObject:
   - component: {fileID: 709508208}
   - component: {fileID: 709508207}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: HelloMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4286,7 +4382,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 771122116}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: OpenPatientChat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &771122116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4580,7 +4688,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 888217311}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatientMore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &899051311
 GameObject:
   m_ObjectHideFlags: 0
@@ -4663,7 +4783,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 899051314}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: LogOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &899051314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4955,7 +5087,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1015130095}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatientMore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1031057503
 GameObject:
   m_ObjectHideFlags: 0
@@ -5328,7 +5472,6 @@ GameObject:
   - component: {fileID: 1224689399}
   - component: {fileID: 1224689398}
   - component: {fileID: 1224689397}
-  - component: {fileID: 1224689401}
   - component: {fileID: 1224689402}
   m_Layer: 5
   m_Name: UICanvas
@@ -5421,23 +5564,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1224689401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224689396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 445205cfb5bb8a44380b2309cf0c9735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  userEmail: {fileID: 0}
-  userPassword: {fileID: 0}
-  showPassword: {fileID: 0}
-  keepLoggedIn: {fileID: 0}
-  errorMessage: {fileID: 0}
 --- !u!114 &1224689402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5450,6 +5576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2743cc61af8c2da418f1d982b08ee2d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  searchBox: {fileID: 1604512872}
 --- !u!1 &1241325846
 GameObject:
   m_ObjectHideFlags: 0
@@ -5703,7 +5830,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1260483924}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatientMore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1269823652
 GameObject:
   m_ObjectHideFlags: 0
@@ -5786,7 +5925,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1269823655}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1269823655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6217,7 +6368,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1478173450}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: OpenPatientChat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1478173450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6413,7 +6576,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1518044110}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: OpenPatientChat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1518044110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6602,7 +6777,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1564220047}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: OpenPatientChat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1564220047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6723,7 +6910,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1580526134}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: Patients
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1580526134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6775,7 +6974,7 @@ GameObject:
   - component: {fileID: 1604512873}
   - component: {fileID: 1604512872}
   m_Layer: 0
-  m_Name: InputField (TMP)
+  m_Name: Search
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6862,7 +7061,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: PatientSearch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -7353,8 +7564,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4292904960
+  m_fontColor: {r: 0, g: 0.53333336, b: 0.8784314, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8545,7 +8756,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1891845017}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: ViewPatientMore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1929462840
 GameObject:
   m_ObjectHideFlags: 0
@@ -8628,7 +8851,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1929462843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: AddPatient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1929462843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8838,9 +9073,9 @@ RectTransform:
   - {fileID: 1823084229}
   - {fileID: 602184266}
   - {fileID: 1635395561}
-  - {fileID: 161573834}
   - {fileID: 1604512871}
   - {fileID: 1214928402}
+  - {fileID: 161573834}
   m_Father: {fileID: 1224689400}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9064,7 +9299,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2000120066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
+        m_MethodName: Dashboard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2000120066
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,7 +33,31 @@ public class DashBoardUIManager : MonoBehaviour
 
     // Logs the user out
     public void LogOut(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
+    }
+
+    public void PatientSearch(){
+        
+    }
+
+    public void ViewAll(){
+        
+    }
+    
+    public void ViewPatient(){
+        
+    }
+
+    public void OpenPatientChat(){
+        
+    }
+
+    public void ViewPatientMore(){
+        
+    }
+
+    public void AddPatient(){
+        
     }
 
 }
