@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/LoginScenes/SignInScene.unity
     guid: 7031e9d2b57b4dc41bb42a11b3bf04fe
   - enabled: 1
-    path: Assets/Scenes/LoginScenes/ProductKeyScene.unity
-    guid: b33ace726e5dee947b534a4e37d5acc6
+    path: Assets/Scenes/LoginScenes/RegisterSerialKey.unity
+    guid: 53b5f9cf1b89ebe42bda9ae003a2d74e
   - enabled: 1
     path: Assets/Scenes/LoginScenes/RegisterAccount.unity
     guid: 32dd7d55cda4fe44185fb1ab3e093444
+  - enabled: 1
+    path: Assets/Scenes/LoginScenes/ForgotPassword1.unity
+    guid: b33ace726e5dee947b534a4e37d5acc6
+  - enabled: 1
+    path: Assets/Scenes/LoginScenes/ForgotPassword2.unity
+    guid: 3b4a15ed6c1a87046b14bebf2fad1eb1
   - enabled: 1
     path: Assets/Scenes/DashBoardScenes/PhysioViews/PhysioDashboard.unity
     guid: 4052e9bbaf62a1d409e40d723adba555
@@ -37,7 +43,7 @@ EditorBuildSettings:
     guid: 9b64903c65f07f24f820d7df1d106200
   - enabled: 1
     path: Assets/Scenes/SessionScene.unity
-    guid: 12fb4d6d281d8ae4d8c0f67e8156b730
+    guid: 2b291aed96b43d14a8ee210c3cd5576e
   - enabled: 1
     path: Assets/Scenes/Support.unity
     guid: b59917ebb8e0d79439cf0efa41373e75

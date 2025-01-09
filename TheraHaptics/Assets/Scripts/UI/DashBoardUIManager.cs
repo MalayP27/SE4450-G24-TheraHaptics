@@ -21,36 +21,36 @@ public class DashBoardUIManager : MonoBehaviour
         personalInfoScreen.SetActive(false);
     }
     public void PHDashboard(){
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(5);
     }
 
     // Called by clicking My Account; goes to account scene
     public void PHAccount(){
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(6);
     }
 
     // Called by clicking My Patients; goes to patients scene
     public void PHPatients(){
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(7);
     }
 
     public void PDashboard(){
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(9);
     }
 
     // Called by clicking My Patients; goes to patients scene
     public void PReports(){
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(10);
     }
 
     // Called by clicking My Account; goes to account scene
     public void PAccount(){
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(11);
     }
 
     // Called when Clicking Support; goes to support scene
     public void Support(){
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(13);
     }
 
     // Logs the user out
@@ -68,7 +68,7 @@ public class DashBoardUIManager : MonoBehaviour
     
     public void ViewPatient(){
         // Check which patient here and save to staticdata
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(8);
     }
 
     public void OpenPatientChat(){
@@ -103,6 +103,6 @@ public class DashBoardUIManager : MonoBehaviour
     }
 
     public void StartSession(){
-        SceneManager.LoadScene(10);
+        SceneManager.LoadScene(12);
     }
 }
