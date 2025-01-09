@@ -2476,11 +2476,11 @@ MonoBehaviour:
   userEmail: {fileID: 0}
   userPassword: {fileID: 0}
   productKey: {fileID: 0}
-  firstNameInput: {fileID: 0}
-  lastNameInput: {fileID: 0}
-  emailInput: {fileID: 0}
-  newPassInput: {fileID: 0}
-  confirmPassInput: {fileID: 0}
+  firstNameInput: {fileID: 1848195578}
+  lastNameInput: {fileID: 157144342}
+  emailInput: {fileID: 53201887}
+  newPassInput: {fileID: 2103247868}
+  confirmPassInput: {fileID: 71141264}
   showPassword: {fileID: 0}
   keepLoggedIn: {fileID: 0}
   errorMessage: {fileID: 1384414383}
