@@ -465,3 +465,9 @@ public class ProductKeyResponse
 {
     public string productKeyId;
 }
+
+[Serializable]
+public class ProductKeyResponse
+{
+    public string productKeyId;
+}
