@@ -8,7 +8,8 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Networking;
+using System.Text;
 
 public class LoginUIManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class LoginUIManager : MonoBehaviour
 
     private string regKey;
 
+    public static string ProductKeyValue;
     public string productKeyId;
     private static readonly HttpClient client = new HttpClient();
 
@@ -134,27 +136,310 @@ public class LoginUIManager : MonoBehaviour
         }
     }
 
-    // Make sure to save values and move to next scene (index: 2)
-    public async void RegisterKey(){
-        regKey = productKey.text;
-        string url = $"http://localhost:5089/api/productKey/{regKey}";
+public static string ProductKeyId; // To save the productKeyId from the response
 
+public async void RegisterKey()
+{
+    regKey = productKey.text;
+    string url = $"http://localhost:5089/api/productKey/{regKey}";
+
+    try
+    {
         HttpResponseMessage response = await client.GetAsync(url);
 
         if (response.IsSuccessStatusCode)
         {
             string responseBody = await response.Content.ReadAsStringAsync();
-            Debug.Log($"Response: {responseBody}");
+            var responseJson = JsonUtility.FromJson<ProductKeyResponse>(responseBody);
+            ProductKeyId = responseJson.productKeyId; // Save productKeyId
+            Debug.Log($"Saved ProductKeyId: {ProductKeyId}");
+            SceneManager.LoadScene(2);
         }
         else
         {
             Debug.Log($"Error: {response.StatusCode}");
+            if (errorMessage != null) errorMessage.SetActive(true);
         }
     }
+    catch (HttpRequestException e)
+    {
+        Debug.LogError($"Request exception: {e.Message}");
+        if (errorMessage != null) errorMessage.SetActive(true);
+    }
+}
+
+
+[Serializable]
+public class TherapistPayload
+{
+    public string firstName;
+    public string lastName;
+    public string emailAddress;
+    public string productKeyId;
+    public string userPw;
+    public List<string> assignedPatients; // Include this to match Postman
+}
+/*public async void RegisterTherapist()
+{
+    // Hardcoded values for testing
+    var payload = new TherapistPayload
+    {
+        firstName = "test",
+        lastName = "test",
+        emailAddress = "zaiyanazeem@gmail.com",
+        productKeyId = "677353cdb9738f4068ce8ae2",
+        userPw = "T@st12345"
+    };
+
+    // Serialize payload to JSON
+    string jsonPayload = JsonUtility.ToJson(payload);
+    Debug.Log($"Hardcoded Payload: {jsonPayload}");
+
+    // API URL
+    string url = "http://localhost:5089/api/user/therapist";
+
+    using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+    {
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonPayload);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        // Send the request
+        var operation = request.SendWebRequest();
+        while (!operation.isDone)
+            await Task.Yield();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log($"Therapist registered successfully: {request.downloadHandler.text}");
+            SceneManager.LoadScene(2); // Move to the next scene
+        }
+        else
+        {
+            Debug.LogError($"Registration failed: {request.error}");
+            Debug.LogError($"Response: {request.downloadHandler.text}");
+            //ShowErrorMessage($"Registration failed: {request.downloadHandler.text}");
+        }
+    }
+}
+
+/* public async void RegisterTherapist()
+{
+    // Validate input fields
+    if (string.IsNullOrWhiteSpace(firstNameInput.text) ||
+        string.IsNullOrWhiteSpace(lastNameInput.text) ||
+        string.IsNullOrWhiteSpace(emailInput.text) ||
+        string.IsNullOrWhiteSpace(ProductKeyId) ||
+        string.IsNullOrWhiteSpace(userPassword.text)) 
+    {
+        ShowErrorMessage("All fields are required.");
+        return;
+    }
+
+    // Create the payload
+    var payload = new TherapistPayload
+    {
+        firstName = firstNameInput.text.Trim(),
+        lastName = lastNameInput.text.Trim(),
+        emailAddress = emailInput.text.Trim(),
+        userPw = userPassword.text.Trim(),
+        productKeyId = ProductKeyId,
+        assignedPatients = new List<string>() // Always include this
+    };
+
+    // Serialize payload to JSON
+    string jsonPayload = JsonUtility.ToJson(payload);
+    Debug.Log($"Payload: {jsonPayload}");
+
+    // API URL
+    string url = "http://localhost:5089/api/user/therapist";
+
+    using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+    {
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonPayload);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        // Send the request
+        var operation = request.SendWebRequest();
+        while (!operation.isDone)
+            await Task.Yield();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log($"Therapist registered successfully: {request.downloadHandler.text}");
+            SceneManager.LoadScene(2); // Move to the next scene
+        }
+        else
+        {
+            Debug.LogError($"Registration failed: {request.error}");
+            Debug.LogError($"Response: {request.downloadHandler.text}");
+            ShowErrorMessage($"Registration failed: {request.downloadHandler.text}");
+        }
+    }
+}
+
+// Helper method to show error messages
+private void ShowErrorMessage(string message)
+{
+    if (errorMessage != null)
+    {
+        errorMessage.SetActive(true);
+        TMP_Text errorText = errorMessage.GetComponentInChildren<TMP_Text>();
+        if (errorText != null)
+        {
+            errorText.text = message;
+        }
+    }
+} */
+
+
+    // Make sure to save values and move to next scene (index: 2)
+/*
+public async void RegisterKey()
+    {
+        // Get the key entered by the user
+        regKey = productKey.text;
+
+        // Define the API endpoint
+        string url = $"http://localhost:5089/api/productKey/{regKey}";
+
+        try
+        {
+            // Make the HTTP GET request
+            HttpResponseMessage response = await client.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Parse the response from the server
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Debug.Log($"Response: {responseBody}");
+
+                // Assuming the server response indicates success
+                // Hide the error message (if it's currently displayed)
+                if (errorMessage != null)
+                {
+                    errorMessage.SetActive(false);
+                }
+                ProductKeyValue = productKey.text;
+                SceneManager.LoadScene(2);
+            }
+            else
+            {
+                // Handle the error case
+                Debug.Log($"Error: {response.StatusCode}");
+
+                // Show the error message
+                if (errorMessage != null)
+                {
+                    errorMessage.SetActive(true);
+                }
+            }
+        }
+        catch (HttpRequestException e)
+        {
+            Debug.LogError($"Request exception: {e.Message}");
+
+            // Show the error message in case of request failure
+            if (errorMessage != null)
+            {
+                errorMessage.SetActive(true);
+            }
+        }
+    }
+
+public async void RegisterTherapist()
+{
+    string retrievedProductKey = LoginUIManager.ProductKeyValue;
+    // Deactivate the error message initially
+    errorMessage.SetActive(false);
     
+    // Collect input data
+    firstName = firstNameInput.text;
+    lastName = lastNameInput.text;
+    email = emailInput.text;
+    password = newPassInput.text;
+    confirmPassword = confirmPassInput.text;
+    regKey = retrievedProductKey;
+
+    // Validate inputs
+    if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
+        string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) ||
+        string.IsNullOrEmpty(confirmPassword) || string.IsNullOrEmpty(regKey))
+    {
+        ShowErrorMessage("All fields are required.");
+        return;
+    }
+
+    if (password != confirmPassword)
+    {
+        ShowErrorMessage("Passwords do not match.");
+        return;
+    }
+
+    // Create payload
+    var payload = new
+    {
+        firstName = firstName,
+        lastName = lastName,
+        emailAddress = email,
+        password = password,
+        productKeyId = regKey
+    };
+
+    // Serialize payload to JSON
+    string jsonPayload = JsonUtility.ToJson(payload);
+
+    // API URL
+    string url = "http://localhost:5089/api/user/therapist";
+
+    using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+    {
+        // Set request content
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonPayload);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        // Send request
+        var operation = request.SendWebRequest();
+
+        while (!operation.isDone)
+            await Task.Yield();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log($"Therapist registered successfully: {request.downloadHandler.text}");
+            SceneManager.LoadScene(2); // Move to the next scene
+        }
+        else
+        {
+            Debug.LogError($"Registration failed: {request.error}");
+            ShowErrorMessage("Registration failed. Please check your inputs.");
+        }
+    }
+}
+
+// Helper method to show error messages
+private void ShowErrorMessage(string message)
+{
+    if (errorMessage != null)
+    {
+        errorMessage.SetActive(true);
+        TMP_Text errorText = errorMessage.GetComponentInChildren<TMP_Text>();
+        if (errorText != null)
+        {
+            errorText.text = message;
+        }
+    }
+}
+*/
+
     // Load Forgot Password Scene
     public void ForgotPassword(){
-        SceneManager.LoadScene(3);
+       
     }
 
     // Load Sign Up Scene starting with Key Registration
@@ -173,4 +458,10 @@ public class LoginUIManager : MonoBehaviour
         // Insert Input Verification and then API here
 
     }
+}
+
+[Serializable]
+public class ProductKeyResponse
+{
+    public string productKeyId;
 }
