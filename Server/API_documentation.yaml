@@ -26,7 +26,35 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/postProductKey"
-
+    
+  /productkey/{productKey}:
+    parameters:
+        - name: productKey
+          in: path
+          required: true
+          description: Product Key to retrieve
+          schema:
+            type: string
+    get:
+      summary: Get a product key by ID
+      description: Retrieves the product key ID if and only if the given product key is not already activated.
+      tags:
+        - Product Key
+      operationId: get-productkey
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getProductKey"
+        "404":
+          description: "Not Found"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Product key not found."
   # Single square operations
   # /board/{row}/{column}:
   #   parameters:
@@ -102,6 +130,10 @@ components:
   #     schema:
   #       $ref: "#/components/schemas/coordinate"
   schemas:
+    errorMessage:
+      type: string
+      maxLength: 256
+      description: A text message describing an error
     postProductKey:
       type: object
       properties:
@@ -117,6 +149,13 @@ components:
           type: boolean
           description: Whether the product key has been activated
           example: false
+    getProductKey:
+      type: object
+      properties:
+        productKeyId:
+          type: string
+          description: Unique identifier for the product key
+          example: "6781de2113239b332eefca4e"
     # errorMessage:
     #   type: string
     #   maxLength: 256
