@@ -20,19 +20,12 @@ paths:
         - Product Key
       operationId: post-productkey
       responses:
-        "200":
-          description: "OK"
+        "201":
+          description: "Created"
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/status"
-        # "500":
-        #   description: "Internal Server Error"
-        #   content:
-        #     application/json:
-        #       schema:
-        #         $ref: "#/components/schemas/errorMessage"
-        #       example: "Internal Server Error"
+                $ref: "#/components/schemas/postProductKey"
 
   # Single square operations
   # /board/{row}/{column}:
@@ -108,7 +101,22 @@ components:
   #     required: true
   #     schema:
   #       $ref: "#/components/schemas/coordinate"
-  # schemas:
+  schemas:
+    postProductKey:
+      type: object
+      properties:
+        productKeyId:
+          type: string
+          description: Unique identifier for the product key
+          example: "6781de2113239b332eefca4e"
+        productKey:
+          type: string
+          description: 8-character alphanumeric product key
+          example: "PT4HWAQR"
+        is_Activated:
+          type: boolean
+          description: Whether the product key has been activated
+          example: false
     # errorMessage:
     #   type: string
     #   maxLength: 256
