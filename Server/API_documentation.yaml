@@ -48,6 +48,13 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/getProductKey"
+        "400":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "This product key has already been activated."
         "404":
           description: "Not Found"
           content:
