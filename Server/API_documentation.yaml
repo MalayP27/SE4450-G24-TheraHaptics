@@ -35,6 +35,7 @@ paths:
           description: Product Key to retrieve
           schema:
             type: string
+            example: "BEO5PNPR"
     get:
       summary: Get a product key by ID
       description: Retrieves the product key ID if and only if the given product key is not already activated.
@@ -62,6 +63,45 @@ paths:
               schema:
                 $ref: "#/components/schemas/errorMessage"
               example: "Product key not found."
+  
+  /user/therapist:
+    parameters:
+      - name: therapistPostDto
+        in: query
+        required: true
+        description: The therapist to create
+        schema:
+          type: object
+          properties:
+            firstName:
+              type: string
+              example: "John"
+            lastName:
+              type: string
+              example: "Doe"
+            email:
+              type: string
+              example: "john.doe@example.com"
+            password:
+              type: string
+              example: "password"
+            productKeyId:
+              type: string
+              example: "677353cab9738f4068ce8adf"
+    post:
+      summary: Creates a new therapist
+      description: Creates a new therapist with the given information
+      tags:
+        - User
+      operationId: post-user-therapist
+      responses:
+        "201":
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/postUserTherapist"
+
   # Single square operations
   # /board/{row}/{column}:
   #   parameters:
@@ -163,6 +203,30 @@ components:
           type: string
           description: Unique identifier for the product key
           example: "6781de2113239b332eefca4e"
+    postUserTherapist:
+      type: object
+      properties:
+        therapistId:
+          type: string
+          description: Unique identifier for the therapist
+          example: "677eb2e8d55cc2e7a7bb29b3"
+        firstName:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "john.doe@example.com"
+        productKeyId:
+          type: string
+          example: "677353cab9738f4068ce8adf"
+        assignedPatients:
+          type: array
+          items:
+            type: string
+          example: []
     # errorMessage:
     #   type: string
     #   maxLength: 256
