@@ -145,6 +145,28 @@ paths:
                 $ref: "#/components/schemas/errorMessage"
               example: "Invalid email address or password."
 
+  /user/logout:
+    post:
+      summary: Logs out a user
+      description: Logs out a user with the given token
+      tags:
+        - User
+      operationId: post-user-logout
+      responses:
+        "200":
+          description: "OK"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Successfully logged out."
+        "400":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid token."
   # Single square operations
   # /board/{row}/{column}:
   #   parameters:
