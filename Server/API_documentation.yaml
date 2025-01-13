@@ -102,6 +102,49 @@ paths:
               schema:
                 $ref: "#/components/schemas/postUserTherapist"
 
+  /user/login:
+    parameters:
+      - name: loginDto
+        in: query
+        required: true
+        description: The user to login
+        schema:
+          type: object
+          properties:
+            emailAddress:
+              type: string
+              example: "john.doe@example.com"
+            password:
+              type: string
+              example: "Pas!sw1ord"
+    put:
+      summary: Logs in a user
+      description: Logs in a user with the given email and password
+      tags:
+        - User
+      operationId: put-user-login
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/loginUser"
+        "400":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "All fields are required."
+        "401":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid email address or password."
+
   # Single square operations
   # /board/{row}/{column}:
   #   parameters:
@@ -227,6 +270,19 @@ components:
           items:
             type: string
           example: []
+    loginUser:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Unique session token for the user
+          example: "677eb2e8d55cc2e7a7bb29b3"
+        role:
+          type: string
+          description: Role of the user
+          example: "therapist"
+  
+
     # errorMessage:
     #   type: string
     #   maxLength: 256
