@@ -167,6 +167,37 @@ paths:
               schema:
                 $ref: "#/components/schemas/errorMessage"
               example: "Invalid token."
+  
+  /user/therapist/{therapistId}:
+    parameters:
+      - name: therapistId
+        in: path
+        required: true
+        description: The therapist to retrieve
+        schema:
+          type: string
+          example: "677eb2e8d55cc2e7a7bb29b3"
+    get:
+      summary: Get a therapist by ID
+      description: Retrieves the therapist with the given ID
+      tags:
+        - Therapist
+      operationId: get-therapist
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/postUserTherapist"
+        "404":
+          description: "Not Found"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Therapist not found."
+
   # Single square operations
   # /board/{row}/{column}:
   #   parameters:
