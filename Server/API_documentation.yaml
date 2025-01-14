@@ -203,6 +203,30 @@ paths:
                 $ref: "#/components/schemas/errorMessage"
               example: "Invalid token."
   
+  /user/forgotpassword:
+    parameters:
+      - name: emailAddress
+        in: query
+        required: true
+        description: The email address of the account
+        schema:
+          type: string
+          example: "john.doe@example.com"
+    post:
+      summary: User forgets their password
+      description: Sends new temporary password to user's email
+      tags:
+        - User
+      operationId: post-user-forgot-password
+      responses:
+        "200":
+          description: "Ok"
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Temporary password sent to email successfully."
+
   /user/therapist/{therapistId}:
     parameters:
       - name: therapistId
