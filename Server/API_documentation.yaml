@@ -101,6 +101,41 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/postUserTherapist"
+        "400":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "All fields are required."
+        "401":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid email address."
+        "402":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register."
+        "403":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid product key ID format."
+        "405":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Password must be at least 8 characters long, contain at least one capital letter, one digit, and at least one special character."
 
   /user/login:
     parameters:
