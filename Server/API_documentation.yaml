@@ -227,7 +227,7 @@ paths:
                 type: string
                 example: "Temporary password sent to email successfully."
 
-  /user/therapist/{therapistId}:
+  /therapist/{therapistId}:
     parameters:
       - name: therapistId
         in: path
@@ -256,6 +256,59 @@ paths:
               schema:
                 $ref: "#/components/schemas/errorMessage"
               example: "Therapist not found."
+
+  /therapist/newpatient:
+    parameters:
+      - name: patientPostDto
+        in: query
+        required: true
+        description: The patient to create
+        schema:
+          type: object
+          properties:
+            firstName:
+              type: string
+              example: "Jane"
+            lastName:
+              type: string
+              example: "Doe"
+            emailAddress:
+              type: string
+              example: "john.doe@gmail.com"
+      post:
+        summary: Creates a new patient
+        description: Creates a new patient with the given information
+        tags:
+          - Patient
+        operationId: post-patient
+        responses:
+          "201":
+            description: "Created"
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/postUserTherapist"
+          "400":
+            description: "Bad Request"
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  $ref: "#/components/schemas/errorMessage"
+                example: "All fields are required."
+          "401":
+            description: "Bad Request"
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  $ref: "#/components/schemas/errorMessage"
+                example: "Invalid email address."
+          "402":
+            description: "Bad Request"
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  $ref: "#/components/schemas/errorMessage"
+                example: "The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register."
 
   # Single square operations
   # /board/{row}/{column}:
