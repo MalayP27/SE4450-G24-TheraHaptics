@@ -101,6 +101,41 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/postUserTherapist"
+        "400":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "All fields are required."
+        "401":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid email address."
+        "402":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register."
+        "403":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid product key ID format."
+        "405":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Password must be at least 8 characters long, contain at least one capital letter, one digit, and at least one special character."
 
   /user/login:
     parameters:
@@ -167,6 +202,114 @@ paths:
               schema:
                 $ref: "#/components/schemas/errorMessage"
               example: "Invalid token."
+  
+  /user/forgotpassword:
+    parameters:
+      - name: emailAddress
+        in: query
+        required: true
+        description: The email address of the account
+        schema:
+          type: string
+          example: "john.doe@example.com"
+    post:
+      summary: User forgets their password
+      description: Sends new temporary password to user's email
+      tags:
+        - User
+      operationId: post-user-forgot-password
+      responses:
+        "200":
+          description: "Ok"
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Temporary password sent to email successfully."
+
+  /therapist/{therapistId}:
+    parameters:
+      - name: therapistId
+        in: path
+        required: true
+        description: The therapist to retrieve
+        schema:
+          type: string
+          example: "677eb2e8d55cc2e7a7bb29b3"
+    get:
+      summary: Get a therapist by ID
+      description: Retrieves the therapist with the given ID
+      tags:
+        - Therapist
+      operationId: get-therapist
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/postUserTherapist"
+        "404":
+          description: "Not Found"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Therapist not found."
+
+  /therapist/newpatient:
+    parameters:
+      - name: patientPostDto
+        in: query
+        required: true
+        description: The patient to create
+        schema:
+          type: object
+          properties:
+            firstName:
+              type: string
+              example: "Jane"
+            lastName:
+              type: string
+              example: "Doe"
+            emailAddress:
+              type: string
+              example: "john.doe@gmail.com"
+      post:
+        summary: Creates a new patient
+        description: Creates a new patient with the given information
+        tags:
+          - Patient
+        operationId: post-patient
+        responses:
+          "201":
+            description: "Created"
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/postUserTherapist"
+          "400":
+            description: "Bad Request"
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  $ref: "#/components/schemas/errorMessage"
+                example: "All fields are required."
+          "401":
+            description: "Bad Request"
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  $ref: "#/components/schemas/errorMessage"
+                example: "Invalid email address."
+          "402":
+            description: "Bad Request"
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  $ref: "#/components/schemas/errorMessage"
+                example: "The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register."
+
   # Single square operations
   # /board/{row}/{column}:
   #   parameters:
