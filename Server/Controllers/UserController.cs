@@ -269,6 +269,7 @@ public class UserController: Controller {
         return Ok(therapist);
     }
 
+    // When user's try to login they will use this endpoint
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto request)
     {
@@ -314,7 +315,7 @@ public class UserController: Controller {
         return Ok(new { Token = token, Role = user.role });
     }
 
-
+    // When users log out, this endpoint deletes the cookies
     [HttpPost("logout")]
     public IActionResult Logout() {
         // Clear the JWT token from the cookie
@@ -324,7 +325,7 @@ public class UserController: Controller {
     }
 
 
-
+    // When a user isn't authenticated yet, they will use this endpoint to reset password.
     [HttpPost("forgotPassword")]
     public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)
     {
