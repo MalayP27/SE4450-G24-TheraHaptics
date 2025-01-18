@@ -201,7 +201,7 @@ public class UserController: Controller {
         // Check if email address is already registered
         var existingTherapist = await _mongoDBService.GetTherapistByEmailAsync(request.emailAddress);
         if (existingTherapist != null) {
-            return BadRequest("The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register.");
+            return Conflict("The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register.");
         }
 
         // Validate product key ID
@@ -220,10 +220,10 @@ public class UserController: Controller {
         // Check if product key exists and is not activated
         var productKeyObj = await _mongoDBService.GetProductKeyByIdAsync(request.productKeyId);
         if (productKeyObj == null) {
-            return BadRequest("Product key not found.");
+            return NotFound("Product key not found.");
         }
         if (productKeyObj.isActivated) {
-            return BadRequest("Product key already activated.");
+            return Conflict("Product key already activated.");
         }
 
         // Creating objects to save into DB
@@ -285,7 +285,7 @@ public class UserController: Controller {
         var user = await _mongoDBService.GetUserByEmailAsync(request.emailAddress);
         if (user == null)
         {
-            return Unauthorized("Invalid email address or password.");
+            return NotFound("Invalid email address or password.");
         }
 
         // Verify the password
@@ -331,9 +331,6 @@ public class UserController: Controller {
     {
         var emailAddress = request.EmailAddress; // Extract email from DTO
 
-        // Debug log
-        System.Console.WriteLine(emailAddress);
-
         // Validate email input
         if (string.IsNullOrEmpty(emailAddress) || !IsValidEmail(emailAddress))
         {
@@ -344,7 +341,7 @@ public class UserController: Controller {
         var user = await _mongoDBService.GetUserByEmailAsync(emailAddress);
         if (user == null)
         {
-            return BadRequest("Email address not associated with any account.");
+            return NotFound("Email address not associated with any account.");
         }
 
         // Generate a temporary password
@@ -364,7 +361,7 @@ public class UserController: Controller {
         }
         catch (Exception ex)
         {
-            return StatusCode(500, $"Failed to send email: {ex.Message}");
+            return StatusCode(StatusCodes.Status500InternalServerError, new { error = "Failed to send email. Please try again later." });
         }
 
         return Ok("A temporary password has been sent to your email address.");
