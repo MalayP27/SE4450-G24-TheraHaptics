@@ -271,27 +271,23 @@ public class UserController: Controller {
 
     // When user's try to login they will use this endpoint
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginDto request)
-    {
+    public async Task<IActionResult> Login([FromBody] LoginDto request) {
         // Validate input
         if (request == null ||
             string.IsNullOrEmpty(request.emailAddress) ||
-            string.IsNullOrEmpty(request.password))
-        {
+            string.IsNullOrEmpty(request.password)) {
             return BadRequest(new { error = "All fields are required." });
         }
 
         // Retrieve the user from the database
         var user = await _mongoDBService.GetUserByEmailAsync(request.emailAddress);
-        if (user == null)
-        {
+        if (user == null) {
             return NotFoundnew { error = "User not found. Please check your email or sign up." });
         }
 
         // Verify the password
         var computeHashedPassword = HashPassword(request.password, user.passwordSalt);
-        if (computeHashedPassword != user.passwordHash)
-        {
+        if (computeHashedPassword != user.passwordHash) {
             return Unauthorized(new { error = "Invalid email or password." });
         }
 
@@ -303,8 +299,7 @@ public class UserController: Controller {
         var token = GenerateJwtToken(user);
 
         // Set the token in a secure, HTTP-only cookie
-        Response.Cookies.Append("jwt", token, new CookieOptions
-        {
+        Response.Cookies.Append("jwt", token, new CookieOptions {
             HttpOnly = true,
             Secure = true, // Ensure Secure flag is set for HTTPS
             SameSite = SameSiteMode.Strict,
@@ -327,20 +322,17 @@ public class UserController: Controller {
 
     // When a user isn't authenticated yet, they will use this endpoint to reset password.
     [HttpPost("forgotPassword")]
-    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)
-    {
+    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request) {
         var emailAddress = request.EmailAddress; // Extract email from DTO
 
         // Validate email input
-        if (string.IsNullOrEmpty(emailAddress) || !IsValidEmail(emailAddress))
-        {
+        if (string.IsNullOrEmpty(emailAddress) || !IsValidEmail(emailAddress)) {
             return BadRequest(new { error = "Invalid email address format." });
         }
 
         // Check if user exists
         var user = await _mongoDBService.GetUserByEmailAsync(emailAddress);
-        if (user == null)
-        {
+        if (user == null) {
             return NotFound(new { error = "Email address not associated with any account." });
         }
 
@@ -355,12 +347,10 @@ public class UserController: Controller {
         user.isTemporaryPassword = true;
         await _mongoDBService.UpdateUserAsync(user);
 
-        try
-        {
+        try {
             SendForgotPasswordEmail(emailAddress, tempPassword);
         }
-        catch (Exception ex)
-        {
+        catch (Exception ex) {
             return StatusCode(StatusCodes.Status500InternalServerError, new { error = "Failed to send email. Please try again later." });
         }
 
