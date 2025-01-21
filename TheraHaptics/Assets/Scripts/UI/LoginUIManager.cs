@@ -466,7 +466,7 @@ public class ProductKeyResponse
     public string productKeyId;
 }
 
-[Serializable]
+/*[Serializable]
 public class ProductKeyResponse
 {
     public string productKeyId;
@@ -477,3 +477,4 @@ public class ProductKeyResponse
 {
     public string productKeyId;
 }
+*/
