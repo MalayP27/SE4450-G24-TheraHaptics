@@ -105,12 +105,12 @@ public class TherapistController: Controller {
     public async Task<IActionResult> Get(string therapistId) {
         // Validate therapist ID
         if (!ObjectId.TryParse(therapistId, out ObjectId _)) {
-            return BadRequest("Invalid therapist ID format.");
+            return BadRequest(new { error = "Invalid therapist ID format." });
         }
         
         var therapist = await _mongoDBService.GetTherapistByIdAsync(therapistId);
         if (therapist == null) {
-            return NotFound();
+            return NotFound(new { error = "Therapist not found." });
         }
         return Ok(therapist);
     }
