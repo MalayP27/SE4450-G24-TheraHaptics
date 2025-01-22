@@ -241,7 +241,7 @@ paths:
           example: "677eb2e8d55cc2e7a7bb29b3"
     get:
       summary: Get a therapist by ID
-      description: Retrieves the therapist with the given ID
+      description: Retrieves the therapist with the given ID.
       tags:
         - Therapist
       operationId: get-therapist
@@ -251,68 +251,76 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/postUserTherapist"
-        "404":
-          description: "Not Found"
-          content:
-            text/plain; charset=utf-8:
-              schema:
-                $ref: "#/components/schemas/errorMessage"
-              example: "Therapist not found."
-
-  /therapist/newpatient:
-    parameters:
-      - name: patientPostDto
-        in: query
-        required: true
-        description: The patient to create
-        schema:
-          type: object
-          properties:
-            firstName:
-              type: string
-              example: "Jane"
-            lastName:
-              type: string
-              example: "Doe"
-            emailAddress:
-              type: string
-              example: "john.doe@gmail.com"
-    post:
-      summary: Creates a new patient
-      description: Creates a new patient with the given information
-      tags:
-        - Patient
-      operationId: post-patient
-      responses:
-        "201":
-          description: "Created"
+                $ref: "#/components/schemas/Therapist"
+        "400":
+          description: "Bad Request - Invalid therapist ID format."
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/postUserTherapist"
-        "400":
-          description: "Bad Request"
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Invalid therapist ID format."
+        "404":
+          description: "Not Found - Therapist not found."
           content:
-            text/plain; charset=utf-8:
+            application/json:
               schema:
-                $ref: "#/components/schemas/errorMessage"
-              example: "All fields are required."
-        "401":
-          description: "Bad Request"
-          content:
-            text/plain; charset=utf-8:
-              schema:
-                $ref: "#/components/schemas/errorMessage"
-              example: "Invalid email address."
-        "402":
-          description: "Bad Request"
-          content:
-            text/plain; charset=utf-8:
-              schema:
-                $ref: "#/components/schemas/errorMessage"
-              example: "The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register."
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Therapist not found."
 
+  /therapist/newpatient:
+    post:
+      summary: Adds a new patient to the therapist's list
+      description: Adds a new patient to the therapist's patient list. The patient's account is created, and a welcome email is sent with a temporary password.
+      tags:
+        - Therapist
+      operationId: add-patient-to-therapist
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatientPostDto"
+      responses:
+        "200":
+          description: "Patient added successfully."
+        "400":
+          description: "Bad Request - Invalid input."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                missingFields:
+                  value: { error: "All fields are required." }
+                invalidEmail:
+                  value: { error: "Invalid email address." }
+        "409":
+          description: "Conflict - Email already registered."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "The email address you entered is already associated with an existing account. Please try using a different email address to register patient."
+        "404":
+          description: "Not Found - Therapist not found."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Therapist not found."
+        "500":
+          description: "Internal Server Error - Failed to send email."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Failed to send email. Please try again later."
+  
   # Single square operations
   # /board/{row}/{column}:
   #   parameters:
@@ -456,6 +464,24 @@ components:
         productKeyId:
           type: string
           example: "677353cab9738f4068ce8adf"
+    PatientPostDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: "Jane"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "john.doe@gmail.com"
+        diagnosis:
+          type: string
+          example: "Diagnosis details"
+        therapistId:
+          type: string
+          example: "677eb2e8d55cc2e7a7bb29b3"
     LoginDto:
       type: object
       properties:
@@ -518,7 +544,7 @@ components:
           items:
             type: string
           example: []
-
+  
     # errorMessage:
     #   type: string
     #   maxLength: 256
