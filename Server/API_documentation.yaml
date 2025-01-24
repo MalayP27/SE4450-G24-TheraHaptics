@@ -15,7 +15,7 @@ paths:
   /productkey:
     post:
       summary: Creates a new, unactivated product key
-      description: Generates 8-character alphanumeric product key and stores it in the database with the field "is_Activated" as false.
+      description: Generates an 8-character alphanumeric product key and stores it in the database with the field "isActivated" set to false.
       tags:
         - Product Key
       operationId: post-productkey
@@ -29,16 +29,16 @@ paths:
     
   /productkey/{productKey}:
     parameters:
-        - name: productKey
-          in: path
-          required: true
-          description: Product Key to retrieve
-          schema:
-            type: string
-            example: "BEO5PNPR"
+      - name: productKey
+        in: path
+        required: true
+        description: Product Key to retrieve
+        schema:
+          type: string
+          example: "BEO5PNPR"
     get:
       summary: Get a product key by ID
-      description: Retrieves the product key ID if and only if the given product key is not already activated.
+      description: Retrieves the product key ID if and only if the given product key exists and is not activated.
       tags:
         - Product Key
       operationId: get-productkey
@@ -49,20 +49,22 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/getProductKey"
-        "400":
-          description: "Bad Request"
+        "409":
+          description: "Conflict - This product key has already been activated."
           content:
-            text/plain; charset=utf-8:
+            application/json:
               schema:
-                $ref: "#/components/schemas/errorMessage"
-              example: "This product key has already been activated."
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "This product key has already been activated."
         "404":
-          description: "Not Found"
+          description: "Not Found - Product key not found."
           content:
-            text/plain; charset=utf-8:
+            application/json:
               schema:
-                $ref: "#/components/schemas/errorMessage"
-              example: "Product key not found."
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Product key not found."
   
   /user/therapist:
     post:
@@ -400,28 +402,6 @@ components:
       type: string
       maxLength: 256
       description: A text message describing an error
-    postProductKey:
-      type: object
-      properties:
-        productKeyId:
-          type: string
-          description: Unique identifier for the product key
-          example: "6781de2113239b332eefca4e"
-        productKey:
-          type: string
-          description: 8-character alphanumeric product key
-          example: "PT4HWAQR"
-        is_Activated:
-          type: boolean
-          description: Whether the product key has been activated
-          example: false
-    getProductKey:
-      type: object
-      properties:
-        productKeyId:
-          type: string
-          description: Unique identifier for the product key
-          example: "6781de2113239b332eefca4e"
     Therapist:
       type: object
       properties:
@@ -544,7 +524,28 @@ components:
           items:
             type: string
           example: []
-  
+    postProductKey:
+      type: object
+      properties:
+        productKeyId:
+          type: string
+          description: Unique identifier for the product key
+          example: "6781de2113239b332eefca4e"
+        productKey:
+          type: string
+          description: 8-character alphanumeric product key
+          example: "PT4HWAQR"
+        isActivated:
+          type: boolean
+          description: Indicates whether the product key has been activated
+          example: false
+    getProductKey:
+      type: object
+      properties:
+        productKeyId:
+          type: string
+          description: Unique identifier for the product key
+          example: "6781de2113239b332eefca4e"
     # errorMessage:
     #   type: string
     #   maxLength: 256
