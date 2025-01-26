@@ -34,20 +34,30 @@ public class PatientController: Controller {
             return BadRequest(new { error = "Invalid patient ID format." });
         }
 
+        if (request == null ||
+            string.IsNullOrEmpty(request.firstName) ||
+            string.IsNullOrEmpty(request.lastName) ||
+            string.IsNullOrEmpty(request.emailAddress) ||
+            string.IsNullOrEmpty(request.phoneNumber) ||
+            string.IsNullOrEmpty(request.address) ||
+            string.IsNullOrEmpty(request.gender) ||
+            request.dateOfBirth == null) {
+            return BadRequest(new { error = "All fields are required." });
+        }
+
         // Fetch the existing patient using patientId
         var patient = await _mongoDBService.GetPatientByIdAsync(patientId);
         if (patient == null) {
             return NotFound(new { error = "Patient not found." });
         }
 
-        // Pre-fill the existing fields
-        patient.firstName = string.IsNullOrEmpty(request.firstName) ? patient.firstName : request.firstName;
-        patient.lastName = string.IsNullOrEmpty(request.lastName) ? patient.lastName : request.lastName;
-        patient.emailAddress = string.IsNullOrEmpty(request.emailAddress) ? patient.emailAddress : request.emailAddress;
-        patient.phoneNumber = string.IsNullOrEmpty(request.phoneNumber) ? patient.phoneNumber : request.phoneNumber;
-        patient.address = string.IsNullOrEmpty(request.address) ? patient.address : request.address;
-        patient.gender = string.IsNullOrEmpty(request.gender) ? patient.gender : request.gender;
-        patient.dateOfBirth = request.dateOfBirth ?? patient.dateOfBirth;
+        patient.firstName = request.firstName;
+        patient.lastName = request.lastName;
+        patient.emailAddress = request.emailAddress;
+        patient.phoneNumber = request.phoneNumber;
+        patient.address = request.address;
+        patient.gender = request.gender;
+        patient.dateOfBirth = request.dateOfBirth.Value;
 
         // Save the updated patient back to the database
         await _mongoDBService.UpdatePatientAsync(patient);
