@@ -323,6 +323,78 @@ paths:
               example:
                 error: "Failed to send email. Please try again later."
   
+  /patient/dashboard:
+    get:
+      summary: Get patient dashboard
+      description: Retrieves a confirmation message that the patient dashboard has been accessed.
+      tags:
+        - Patient
+      operationId: get-patient-dashboard
+      responses:
+        "200":
+          description: "Patient dashboard accessed successfully."
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Patient Dashboard Accessed"
+
+  /patient/patientRegistration/{patientId}:
+    put:
+      summary: Update patient registration information
+      description: >
+        Updates a patient's registration details after they click the registration link
+        in their email. **All fields are required.**
+      tags:
+        - Patient
+      operationId: update-patient-registration
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          description: Unique identifier for the patient.
+          schema:
+            type: string
+            example: "1234567890abcdef"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatientUpdateDto"
+      responses:
+        "200":
+          description: "Patient information updated successfully."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Patient information updated successfully."
+                  updatedPatient:
+                    $ref: "#/components/schemas/Patient"
+        "400":
+          description: "Bad Request - Either the patient ID format is invalid or not all fields are provided."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                invalidId:
+                  value: { error: "Invalid patient ID format." }
+                missingFields:
+                  value: { error: "All fields are required." }
+        "404":
+          description: "Not Found - Patient not found."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Patient not found."
+  
   # Single square operations
   # /board/{row}/{column}:
   #   parameters:
@@ -546,6 +618,60 @@ components:
           type: string
           description: Unique identifier for the product key
           example: "6781de2113239b332eefca4e"
+    PatientUpdateDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: "Jane"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "jane.doe@example.com"
+        phoneNumber:
+          type: string
+          example: "123-456-7890"
+        address:
+          type: string
+          example: "123 Main St"
+        gender:
+          type: string
+          example: "Female"
+        dateOfBirth:
+          type: string
+          format: date
+          example: "1990-01-01"
+
+    Patient:
+      type: object
+      properties:
+        patientId:
+          type: string
+          example: "1234567890abcdef"
+        firstName:
+          type: string
+          example: "Jane"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "jane.doe@example.com"
+        phoneNumber:
+          type: string
+          example: "123-456-7890"
+        address:
+          type: string
+          example: "123 Main St"
+        gender:
+          type: string
+          example: "Female"
+        dateOfBirth:
+          type: string
+          format: date
+          example: "1990-01-01"
     # errorMessage:
     #   type: string
     #   maxLength: 256
