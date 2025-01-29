@@ -193,6 +193,10 @@ public class UserController: Controller {
             string.IsNullOrEmpty(request.productKeyId)) {
                 return BadRequest(new { error = "All fields are required." });
         }
+
+        // Canonicalize the email address
+        request.emailAddress = request.emailAddress.ToLower();
+
         // Validate email address
         if (!IsValidEmail(request.emailAddress)) {
             return BadRequest(new { error = "Invalid email address."});
@@ -279,6 +283,9 @@ public class UserController: Controller {
             return BadRequest(new { error = "All fields are required." });
         }
 
+        // Canonicalize the email address
+        request.emailAddress = request.emailAddress.ToLower();
+
         // Retrieve the user from the database
         var user = await _mongoDBService.GetUserByEmailAsync(request.emailAddress);
         if (user == null) {
@@ -329,6 +336,9 @@ public class UserController: Controller {
         if (string.IsNullOrEmpty(emailAddress) || !IsValidEmail(emailAddress)) {
             return BadRequest(new { error = "Invalid email address format." });
         }
+
+        // Canonicalize the email address
+        request.emailAddress = request.emailAddress.ToLower();
 
         // Check if user exists
         var user = await _mongoDBService.GetUserByEmailAsync(emailAddress);
