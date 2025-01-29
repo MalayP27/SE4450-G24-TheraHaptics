@@ -13,7 +13,7 @@ os.makedirs(output_dir, exist_ok=True)
 f = open(os.path.join(output_dir, "training_data.csv"), mode="w", newline='')
 f.truncate()
 
-serialCom = serial.Serial("COM12", 9600)
+serialCom = serial.Serial("COM11", 9600)
 
 serialCom.setDTR(False)
 time.sleep(1)

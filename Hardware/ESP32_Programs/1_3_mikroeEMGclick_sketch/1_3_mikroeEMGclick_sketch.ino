@@ -7,12 +7,12 @@ void setup() {
 void loop() {
   // Read raw analog value (12-bit ADC: 0-4095)
   Serial.print(analogRead(EMG_PIN));
-  Serial.print(" ");
+  Serial.print(", ");
 
   // Temporary, for use with Serial Plotter
-  Serial.print("900");
+  Serial.print(", 900");
   Serial.print(" ");
-  Serial.print("1100");
+  Serial.print(", 1100");
   Serial.println();
   
   delay(50);

@@ -1,0 +1,486 @@
+openapi: 3.1.0
+info:
+  title: TheraHaptics
+  description: |
+    This API allows for the TheraHaptics local application to communicate 
+    with the cloud database to access/modify various Patient/Therapist information.
+  version: 1.0.0
+tags:
+  - name: Product Key
+  - name: User
+  - name: Therapist
+  - name: Patient
+paths:
+  # All Product Key operations
+  /productkey:
+    post:
+      summary: Creates a new, unactivated product key
+      description: Generates 8-character alphanumeric product key and stores it in the database with the field "is_Activated" as false.
+      tags:
+        - Product Key
+      operationId: post-productkey
+      responses:
+        "201":
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/postProductKey"
+    
+  /productkey/{productKey}:
+    parameters:
+        - name: productKey
+          in: path
+          required: true
+          description: Product Key to retrieve
+          schema:
+            type: string
+            example: "BEO5PNPR"
+    get:
+      summary: Get a product key by ID
+      description: Retrieves the product key ID if and only if the given product key is not already activated.
+      tags:
+        - Product Key
+      operationId: get-productkey
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getProductKey"
+        "400":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "This product key has already been activated."
+        "404":
+          description: "Not Found"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Product key not found."
+  
+  /user/therapist:
+    parameters:
+      - name: therapistPostDto
+        in: query
+        required: true
+        description: The therapist to create
+        schema:
+          type: object
+          properties:
+            firstName:
+              type: string
+              example: "John"
+            lastName:
+              type: string
+              example: "Doe"
+            email:
+              type: string
+              example: "john.doe@example.com"
+            password:
+              type: string
+              example: "password"
+            productKeyId:
+              type: string
+              example: "677353cab9738f4068ce8adf"
+    post:
+      summary: Creates a new therapist
+      description: Creates a new therapist with the given information
+      tags:
+        - User
+      operationId: post-user-therapist
+      responses:
+        "201":
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/postUserTherapist"
+        "400":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "All fields are required."
+        "401":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid email address."
+        "402":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register."
+        "403":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid product key ID format."
+        "405":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Password must be at least 8 characters long, contain at least one capital letter, one digit, and at least one special character."
+
+  /user/login:
+    parameters:
+      - name: loginDto
+        in: query
+        required: true
+        description: The user to login
+        schema:
+          type: object
+          properties:
+            emailAddress:
+              type: string
+              example: "john.doe@example.com"
+            password:
+              type: string
+              example: "Pas!sw1ord"
+    put:
+      summary: Logs in a user
+      description: Logs in a user with the given email and password
+      tags:
+        - User
+      operationId: put-user-login
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/loginUser"
+        "400":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "All fields are required."
+        "401":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid email address or password."
+
+  /user/logout:
+    post:
+      summary: Logs out a user
+      description: Logs out a user with the given token
+      tags:
+        - User
+      operationId: post-user-logout
+      responses:
+        "200":
+          description: "OK"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Successfully logged out."
+        "400":
+          description: "Bad Request"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Invalid token."
+  
+  /user/forgotpassword:
+    parameters:
+      - name: emailAddress
+        in: query
+        required: true
+        description: The email address of the account
+        schema:
+          type: string
+          example: "john.doe@example.com"
+    post:
+      summary: User forgets their password
+      description: Sends new temporary password to user's email
+      tags:
+        - User
+      operationId: post-user-forgot-password
+      responses:
+        "200":
+          description: "Ok"
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Temporary password sent to email successfully."
+
+  /therapist/{therapistId}:
+    parameters:
+      - name: therapistId
+        in: path
+        required: true
+        description: The therapist to retrieve
+        schema:
+          type: string
+          example: "677eb2e8d55cc2e7a7bb29b3"
+    get:
+      summary: Get a therapist by ID
+      description: Retrieves the therapist with the given ID
+      tags:
+        - Therapist
+      operationId: get-therapist
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/postUserTherapist"
+        "404":
+          description: "Not Found"
+          content:
+            text/plain; charset=utf-8:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+              example: "Therapist not found."
+
+  /therapist/newpatient:
+    parameters:
+      - name: patientPostDto
+        in: query
+        required: true
+        description: The patient to create
+        schema:
+          type: object
+          properties:
+            firstName:
+              type: string
+              example: "Jane"
+            lastName:
+              type: string
+              example: "Doe"
+            emailAddress:
+              type: string
+              example: "john.doe@gmail.com"
+      post:
+        summary: Creates a new patient
+        description: Creates a new patient with the given information
+        tags:
+          - Patient
+        operationId: post-patient
+        responses:
+          "201":
+            description: "Created"
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/postUserTherapist"
+          "400":
+            description: "Bad Request"
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  $ref: "#/components/schemas/errorMessage"
+                example: "All fields are required."
+          "401":
+            description: "Bad Request"
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  $ref: "#/components/schemas/errorMessage"
+                example: "Invalid email address."
+          "402":
+            description: "Bad Request"
+            content:
+              text/plain; charset=utf-8:
+                schema:
+                  $ref: "#/components/schemas/errorMessage"
+                example: "The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register."
+
+  # Single square operations
+  # /board/{row}/{column}:
+  #   parameters:
+  #     - $ref: "#/components/parameters/rowParam"
+  #     - $ref: "#/components/parameters/columnParam"
+  #   get:
+  #     summary: Get a single board square
+  #     description: Retrieves the requested square.
+  #     tags:
+  #       - Gameplay
+  #     operationId: get-square
+  #     responses:
+  #       "200":
+  #         description: "OK"
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/mark"
+  #       "400":
+  #         description: The provided parameters are incorrect
+  #         content:
+  #           text/html:
+  #             schema:
+  #               $ref: "#/components/schemas/errorMessage"
+  #             example: "Illegal coordinates"
+  #   put:
+  #     summary: Set a single board square
+  #     description: Places a mark on the board and retrieves the whole board and the winner (if any).
+  #     tags:
+  #       - Gameplay
+  #     operationId: put-square
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: "#/components/schemas/mark"
+  #     responses:
+  #       "200":
+  #         description: "OK"
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/status"
+  #       "400":
+  #         description: The provided parameters are incorrect
+  #         content:
+  #           text/html:
+  #             schema:
+  #               $ref: "#/components/schemas/errorMessage"
+  #             examples:
+  #               illegalCoordinates:
+  #                 value: "Illegal coordinates."
+  #               notEmpty:
+  #                 value: "Square is not empty."
+  #               invalidMark:
+  #                 value: "Invalid Mark (X or O)."
+
+components:
+  # parameters:
+  #   rowParam:
+  #     description: Board row (vertical coordinate)
+  #     name: row
+  #     in: path
+  #     required: true
+  #     schema:
+  #       $ref: "#/components/schemas/coordinate"
+  #   columnParam:
+  #     description: Board column (horizontal coordinate)
+  #     name: column
+  #     in: path
+  #     required: true
+  #     schema:
+  #       $ref: "#/components/schemas/coordinate"
+  schemas:
+    errorMessage:
+      type: string
+      maxLength: 256
+      description: A text message describing an error
+    postProductKey:
+      type: object
+      properties:
+        productKeyId:
+          type: string
+          description: Unique identifier for the product key
+          example: "6781de2113239b332eefca4e"
+        productKey:
+          type: string
+          description: 8-character alphanumeric product key
+          example: "PT4HWAQR"
+        is_Activated:
+          type: boolean
+          description: Whether the product key has been activated
+          example: false
+    getProductKey:
+      type: object
+      properties:
+        productKeyId:
+          type: string
+          description: Unique identifier for the product key
+          example: "6781de2113239b332eefca4e"
+    postUserTherapist:
+      type: object
+      properties:
+        therapistId:
+          type: string
+          description: Unique identifier for the therapist
+          example: "677eb2e8d55cc2e7a7bb29b3"
+        firstName:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "john.doe@example.com"
+        productKeyId:
+          type: string
+          example: "677353cab9738f4068ce8adf"
+        assignedPatients:
+          type: array
+          items:
+            type: string
+          example: []
+    loginUser:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Unique session token for the user
+          example: "677eb2e8d55cc2e7a7bb29b3"
+        role:
+          type: string
+          description: Role of the user
+          example: "therapist"
+  
+
+    # errorMessage:
+    #   type: string
+    #   maxLength: 256
+    #   description: A text message describing an error
+    # coordinate:
+    #   type: integer
+    #   minimum: 1
+    #   maximum: 3
+    #   example: 1
+    # mark:
+    #   type: string
+    #   enum: [".", "X", "O"]
+    #   description: Possible values for a board square. `.` means empty square.
+    #   example: "."
+    # board:
+    #   type: array
+    #   maxItems: 3
+    #   minItems: 3
+    #   items:
+    #     type: array
+    #     maxItems: 3
+    #     minItems: 3
+    #     items:
+    #       $ref: "#/components/schemas/mark"
+    # winner:
+    #   type: string
+    #   enum: [".", "X", "O"]
+    #   description: Winner of the game. `.` means nobody has won yet.
+    #   example: "."
+    # status:
+    #   type: object
+    #   properties:
+    #     winner:
+    #       $ref: "#/components/schemas/winner"
+    #     board:
+    #       $ref: "#/components/schemas/board"

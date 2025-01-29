@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Server.Controllers; 
 
-[Authorize(Policy = "TherapistOnly")]
+//[Authorize(Policy = "TherapistOnly")]
 [Controller]
 [Route("api/[controller]")]
 
