@@ -13,7 +13,7 @@ public class LoginView : MonoBehaviour
     [SerializeField] private TMP_InputField userEmail;
     [SerializeField] private TMP_InputField userPassword;
     [SerializeField] private TMP_InputField confirmPassword;
-    [SerializeField] private TMP_InputField serialKey;
+    [SerializeField] private TMP_InputField productKey;
     [SerializeField] private TMP_InputField firstNameInput;
     [SerializeField] private TMP_InputField lastNameInput;
 
@@ -21,12 +21,12 @@ public class LoginView : MonoBehaviour
     [SerializeField] private Toggle keepLoggedIn; // Functionality not done yet
     [SerializeField] private Toggle showPassword;
 
+    // Buttons
+    [SerializeField] private Button submitProductKeyButton;
+
     // Accessing Error Message object and Component
     [SerializeField] private GameObject errorMessage;
     [SerializeField] private TMP_Text errorMessageText;
-
-    // Model Class
-    public static LoginModel loginModel = new LoginModel();
 
     public LoginView(){
 
@@ -49,12 +49,10 @@ public class LoginView : MonoBehaviour
 
     // Method for sign in Button on SignInScene
     public void SignInButtonClicked () {
-        loginModel.SetEmail(userEmail.text);
-        loginModel.SetPassword(userPassword.text);
-        LoginController.SignIn(loginModel);
+        LoginController.SignIn(userEmail.text, userPassword.text);
     }
     public void HandleError(String errorMessageTextReturn){
-        Debug.Log("this was run");
+        // Debug.Log("this was run");
         userPassword.text = "";
         userPassword.ForceLabelUpdate();
         errorMessageText.text = errorMessageTextReturn;
@@ -71,9 +69,34 @@ public class LoginView : MonoBehaviour
     }
 
     public void ForgotPasswordPressed(){
+        // LoginController.xyz(userEmail.text);
         SceneManager.LoadScene("ForgotPassword1");
     }
     public void SignUpPressed(){
         SceneManager.LoadScene("RegisterSerialKey");
+    }
+    public void ReturnHomePressed(){
+        SceneManager.LoadScene("SignInScene");
+    }
+    public void ProductKeySubmitPressed(){
+        //LoginController.xyz(productKey.text)
+    }
+    public void IsProductKeyLongEnough (){
+        if(productKey.text.Length == 8){
+            submitProductKeyButton.interactable = true;
+        }
+        else if (productKey.text.Length > 8){
+            productKey.text = productKey.text.Substring(0, 8);
+        }
+        else{
+            submitProductKeyButton.interactable = false;
+        }
+    }
+    public void HandleProductKeyFail (String errorMessageTextReturn){
+        errorMessageText.text = errorMessageTextReturn;
+        errorMessage.SetActive(true);
+    }
+    public void HandleProductKeySuccess (){
+        SceneManager.LoadScene("RegisterAccount");
     }
 }
