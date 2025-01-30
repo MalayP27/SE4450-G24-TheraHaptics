@@ -63,7 +63,7 @@ public class LoginView : MonoBehaviour
 
     public void HandleSignInSuccess (bool userType){
         if(userType == false){
-            SceneManager.LoadScene("PhysioDashboard");
+            SceneManager.LoadScene("TherapistDashboard");
         }
         else{
             SceneManager.LoadScene("PatientDashboard");

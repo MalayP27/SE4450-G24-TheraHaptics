@@ -539,9 +539,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LoginUIManager, Assembly-CSharp
-        m_MethodName: SignUp
+      - m_Target: {fileID: 1224689404}
+        m_TargetAssemblyTypeName: LoginView, Assembly-CSharp
+        m_MethodName: SignUpPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
