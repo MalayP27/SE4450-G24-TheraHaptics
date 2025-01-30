@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LoginScenes/SignInScene.unity
+    path: Assets/Scenes/LoginScenes/SignIn.unity
     guid: 7031e9d2b57b4dc41bb42a11b3bf04fe
   - enabled: 1
     path: Assets/Scenes/LoginScenes/RegisterSerialKey.unity
@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DashBoardScenes/TherapistViews/TherapistPatients.unity
     guid: eb61da24549088e4a929134cac8882af
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/TherapistViews/TherapistSinglePatientView.unity
+    path: Assets/Scenes/DashBoardScenes/TherapistViews/TherapistSinglePatient.unity
     guid: c3a706d93ba7c354e9529b9b6d485994
   - enabled: 1
     path: Assets/Scenes/DashBoardScenes/PatientViews/PatientDashboard.unity

@@ -51,7 +51,7 @@ public class LoginView : MonoBehaviour
     public void SignInButtonClicked () {
         LoginController.SignIn(userEmail.text, userPassword.text);
     }
-    public void HandleError(String errorMessageTextReturn){
+    public void HandleSignInError(String errorMessageTextReturn){
         // Debug.Log("this was run");
         userPassword.text = "";
         userPassword.ForceLabelUpdate();
@@ -76,7 +76,7 @@ public class LoginView : MonoBehaviour
         SceneManager.LoadScene("RegisterSerialKey");
     }
     public void ReturnHomePressed(){
-        SceneManager.LoadScene("SignInScene");
+        SceneManager.LoadScene("SignIn");
     }
     public void ProductKeySubmitPressed(){
         //LoginController.xyz(productKey.text)
