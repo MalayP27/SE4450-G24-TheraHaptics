@@ -28,11 +28,13 @@ public class LoginView : MonoBehaviour
     [SerializeField] private GameObject errorMessage;
     [SerializeField] private TMP_Text errorMessageText;
 
+    // Constructor
     public LoginView(){
 
     }
 
-     // Method for the Show Password Toggle
+    // ==========Common Methods===========
+    // Method for the Show Password Toggles
     public void HideShowPassword(){
         // Get Toggle value
         bool isShown = showPassword.isOn;
@@ -46,11 +48,17 @@ public class LoginView : MonoBehaviour
         // Update input field
         userPassword.ForceLabelUpdate();
     }
+    public void HandleGenericFail (String errorMessageTextReturn){
+        errorMessageText.text = errorMessageTextReturn;
+        errorMessage.SetActive(true);
+    }
 
     // Method for sign in Button on SignInScene
     public void SignInButtonClicked () {
         LoginController.SignIn(userEmail.text, userPassword.text);
     }
+
+    // Method for SuccessFul Sign In
     public void HandleSignInError(String errorMessageTextReturn){
         // Debug.Log("this was run");
         userPassword.text = "";
@@ -80,6 +88,7 @@ public class LoginView : MonoBehaviour
     }
     public void ProductKeySubmitPressed(){
         //LoginController.xyz(productKey.text)
+        Debug.Log("Submit Product Key Pressed");
     }
     public void IsProductKeyLongEnough (){
         if(productKey.text.Length == 8){
@@ -92,11 +101,25 @@ public class LoginView : MonoBehaviour
             submitProductKeyButton.interactable = false;
         }
     }
-    public void HandleProductKeyFail (String errorMessageTextReturn){
-        errorMessageText.text = errorMessageTextReturn;
-        errorMessage.SetActive(true);
-    }
+
     public void HandleProductKeySuccess (){
         SceneManager.LoadScene("RegisterAccount");
+    }
+
+    public void SendEmailPressed(){
+        Debug.Log("Send Email Pressed");
+        // LoginController.xyz(userEmail.text);
+    }
+    public void HandleForgotPassSubmitSuccess(){
+        SceneManager.LoadScene("ForgotPassword2");
+    }
+
+    public void SaveNewPasswordPressed(){
+        Debug.Log("Save Password Pressed");
+        // LoginController.xyz(userPassword.text, confirmPassword.text);
+    }
+
+    public void HandleSavePasswordSuccess(){
+        SceneManager.LoadScene("SignIn");
     }
 }
