@@ -91,56 +91,70 @@ public class LoginView : MonoBehaviour
 
     // Method for Pressing the Sign Up as new Physiotherapist Link on the SignIn Scene
     public void SignUpPressed(){
-        SceneManager.LoadScene("RegisterSerialKey");
+        SceneManager.LoadScene("RegisterProductKey");
     }
 
+    // ==========ProductKey Scene Methods==========
+    // Method for Pressing the Submit Button on the ProductKeyScene
     public void ProductKeySubmitPressed(){
         //LoginController.xyz(productKey.text)
         Debug.Log("Submit Product Key Pressed");
     }
+
+    // Method for activating and deactivating button if product key is not exactly 8 characters long
     public void IsProductKeyLongEnough (){
+        // Activates button on exactly 8 characters
         if(productKey.text.Length == 8){
             submitProductKeyButton.interactable = true;
         }
+        // Limits the Length of the Input and doesn't allow any more characters to be put in
         else if (productKey.text.Length > 8){
             productKey.text = productKey.text.Substring(0, 8);
         }
+        // Makes button uninteractable if length is less than 8
         else{
             submitProductKeyButton.interactable = false;
         }
     }
 
+    // Method for successful product key submission and moves to the Account creation Page
     public void HandleProductKeySuccess (){
         SceneManager.LoadScene("RegisterAccount");
     }
 
+    // ==========Password recovery send email Scene Methods==========
+    // Method for when the send email button is pressed on the ForgotPassword1 Scene
     public void SendEmailPressed(){
         Debug.Log("Send Email Pressed");
         // LoginController.xyz(userEmail.text);
     }
+
+    // Method for when the email is sent correctly to go to the next step
     public void HandleForgotPassSubmitSuccess(){
         SceneManager.LoadScene("ForgotPassword2");
     }
 
+    // ==========Create new password Scene Methods==========
+    // Method for when the save new Password button is pressed on the ForgotPassword2 Scene
     public void SaveNewPasswordPressed(){
         Debug.Log("Save Password Pressed");
         // LoginController.xyz(userPassword.text, confirmPassword.text);
     }
 
+    // Method for new password saved successfully
     public void HandleSavePasswordSuccess(){
         SceneManager.LoadScene("SignIn");
     }
 
+    // ==========Register New Account Scene methods==========
+    // Method for when the Register button is pressed on the RegisterAccount Scene
     public void RegisterSubmitPressed(){
         Debug.Log("Register Submit Pressed");
         // LoginController.xyz(firstNameInput.text, lastNameInput.text, userEmail.text, userPassword.text, confirmPassword.text);
     }
-    public void HandleRegisterSuccess(bool userType){
-        if(userType == false){
+
+    // Method for Handling a successful account Registration
+    public void HandleRegisterSuccess(){
             SceneManager.LoadScene("TherapistDashboard");
-        }
-        else{
-            SceneManager.LoadScene("PatientDashboard");
-        }
     }
 }
