@@ -53,12 +53,18 @@ public class LoginView : MonoBehaviour
         errorMessage.SetActive(true);
     }
 
-    // Method for sign in Button on SignInScene
+    // Method for Pressing the Return Home Link
+    public void ReturnHomePressed(){
+        SceneManager.LoadScene("SignIn");
+    }
+
+    // ==========SignIn Scene Methods==========
+    // Method for sign in Button on SignIn Scene
     public void SignInButtonClicked () {
         LoginController.SignIn(userEmail.text, userPassword.text);
     }
 
-    // Method for SuccessFul Sign In
+    // Method for Failed Sign In
     public void HandleSignInError(String errorMessageTextReturn){
         // Debug.Log("this was run");
         userPassword.text = "";
@@ -67,6 +73,7 @@ public class LoginView : MonoBehaviour
         errorMessage.SetActive(true);
     }
 
+    // Method for Successful Sign In
     public void HandleSignInSuccess (bool userType){
         if(userType == false){
             SceneManager.LoadScene("TherapistDashboard");
@@ -76,16 +83,17 @@ public class LoginView : MonoBehaviour
         }
     }
 
+    // Method for Pressing the Forgot Password Link on the SignIn Scene
     public void ForgotPasswordPressed(){
         // LoginController.xyz(userEmail.text);
         SceneManager.LoadScene("ForgotPassword1");
     }
+
+    // Method for Pressing the Sign Up as new Physiotherapist Link on the SignIn Scene
     public void SignUpPressed(){
         SceneManager.LoadScene("RegisterSerialKey");
     }
-    public void ReturnHomePressed(){
-        SceneManager.LoadScene("SignIn");
-    }
+
     public void ProductKeySubmitPressed(){
         //LoginController.xyz(productKey.text)
         Debug.Log("Submit Product Key Pressed");
@@ -121,5 +129,18 @@ public class LoginView : MonoBehaviour
 
     public void HandleSavePasswordSuccess(){
         SceneManager.LoadScene("SignIn");
+    }
+
+    public void RegisterSubmitPressed(){
+        Debug.Log("Register Submit Pressed");
+        // LoginController.xyz(firstNameInput.text, lastNameInput.text, userEmail.text, userPassword.text, confirmPassword.text);
+    }
+    public void HandleRegisterSuccess(bool userType){
+        if(userType == false){
+            SceneManager.LoadScene("TherapistDashboard");
+        }
+        else{
+            SceneManager.LoadScene("PatientDashboard");
+        }
     }
 }
