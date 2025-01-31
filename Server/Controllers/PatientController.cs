@@ -45,6 +45,9 @@ public class PatientController: Controller {
             return BadRequest(new { error = "All fields are required." });
         }
 
+        // Canonicalize the email address
+        request.emailAddress = request.emailAddress.ToLower();
+
         // Fetch the existing patient using patientId
         var patient = await _mongoDBService.GetPatientByIdAsync(patientId);
         if (patient == null) {
