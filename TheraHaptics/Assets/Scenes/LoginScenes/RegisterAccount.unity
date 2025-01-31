@@ -2098,9 +2098,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1224689401}
-        m_TargetAssemblyTypeName: LoginUIManager, Assembly-CSharp
-        m_MethodName: RegisterTherapist
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: LoginView, Assembly-CSharp
+        m_MethodName: RegisterSubmitPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2369,8 +2369,8 @@ GameObject:
   - component: {fileID: 1224689399}
   - component: {fileID: 1224689398}
   - component: {fileID: 1224689397}
-  - component: {fileID: 1224689401}
   - component: {fileID: 1224689402}
+  - component: {fileID: 1224689401}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -2471,21 +2471,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1224689396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 445205cfb5bb8a44380b2309cf0c9735, type: 3}
+  m_Script: {fileID: 11500000, guid: b4bbe64b8a05aa34c80a1efc5e9ed428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userEmail: {fileID: 0}
-  userPassword: {fileID: 0}
-  productKey: {fileID: 0}
-  firstNameInput: {fileID: 1848195578}
-  lastNameInput: {fileID: 157144342}
-  emailInput: {fileID: 53201887}
-  newPassInput: {fileID: 2103247868}
-  confirmPassInput: {fileID: 71141264}
-  showPassword: {fileID: 0}
-  keepLoggedIn: {fileID: 0}
-  errorMessage: {fileID: 1384414383}
-  productKeyId: 
 --- !u!114 &1224689402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2495,14 +2483,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1224689396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b73b588512bfb04b8f060c0a5fdf8b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2347d0f7cc77c1d40a8a8312a6c78df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userEmail: {fileID: 53201887}
+  userPassword: {fileID: 2103247868}
+  confirmPassword: {fileID: 71141264}
+  productKey: {fileID: 0}
   firstNameInput: {fileID: 1848195578}
   lastNameInput: {fileID: 157144342}
-  emailInput: {fileID: 53201887}
-  passwordInput: {fileID: 2103247868}
+  keepLoggedIn: {fileID: 0}
+  showPassword: {fileID: 0}
+  submitProductKeyButton: {fileID: 0}
   errorMessage: {fileID: 1384414383}
+  errorMessageText: {fileID: 1384414384}
 --- !u!1 &1384414383
 GameObject:
   m_ObjectHideFlags: 0
@@ -3700,9 +3694,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1224689401}
-        m_TargetAssemblyTypeName: LoginUIManager, Assembly-CSharp
-        m_MethodName: ForgotPassword
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: LoginView, Assembly-CSharp
+        m_MethodName: ReturnHomePressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -679,14 +679,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1002470277}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1224689401}
-        m_TargetAssemblyTypeName: LoginUIManager, Assembly-CSharp
-        m_MethodName: RegisterKey
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: LoginView, Assembly-CSharp
+        m_MethodName: ProductKeySubmitPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 1224689399}
   - component: {fileID: 1224689398}
   - component: {fileID: 1224689397}
+  - component: {fileID: 1224689402}
   - component: {fileID: 1224689401}
   m_Layer: 5
   m_Name: UICanvas
@@ -1056,21 +1057,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1224689396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 445205cfb5bb8a44380b2309cf0c9735, type: 3}
+  m_Script: {fileID: 11500000, guid: b4bbe64b8a05aa34c80a1efc5e9ed428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1224689402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224689396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2347d0f7cc77c1d40a8a8312a6c78df6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   userEmail: {fileID: 0}
   userPassword: {fileID: 0}
+  confirmPassword: {fileID: 0}
   productKey: {fileID: 1848195578}
   firstNameInput: {fileID: 0}
   lastNameInput: {fileID: 0}
-  emailInput: {fileID: 0}
-  newPassInput: {fileID: 0}
-  confirmPassInput: {fileID: 0}
-  showPassword: {fileID: 0}
   keepLoggedIn: {fileID: 0}
+  showPassword: {fileID: 0}
+  submitProductKeyButton: {fileID: 1002470276}
   errorMessage: {fileID: 1384414383}
-  productKeyId: 
+  errorMessageText: {fileID: 1384414384}
 --- !u!1 &1384414383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,7 +1798,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: LoginView, Assembly-CSharp
+        m_MethodName: IsProductKeyLongEnough
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1925,9 +1949,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1224689401}
-        m_TargetAssemblyTypeName: LoginUIManager, Assembly-CSharp
-        m_MethodName: ReturnToHome
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: LoginView, Assembly-CSharp
+        m_MethodName: ReturnHomePressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2044,7 +2068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983218414}
   m_Layer: 0
-  m_Name: SignInMenu
+  m_Name: RegisterMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

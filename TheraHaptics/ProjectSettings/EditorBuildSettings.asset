@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LoginScenes/SignInScene.unity
+    path: Assets/Scenes/LoginScenes/SignIn.unity
     guid: 7031e9d2b57b4dc41bb42a11b3bf04fe
   - enabled: 1
     path: Assets/Scenes/LoginScenes/RegisterSerialKey.unity
@@ -21,16 +21,16 @@ EditorBuildSettings:
     path: Assets/Scenes/LoginScenes/ForgotPassword2.unity
     guid: 3b4a15ed6c1a87046b14bebf2fad1eb1
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PhysioViews/PhysioDashboard.unity
+    path: Assets/Scenes/DashBoardScenes/TherapistViews/TherapistDashboard.unity
     guid: 4052e9bbaf62a1d409e40d723adba555
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PhysioViews/PhysioAccount.unity
+    path: Assets/Scenes/DashBoardScenes/TherapistViews/TherapistAccount.unity
     guid: 8ee9ab6df17903e4ba36fcbadbd2cb0e
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PhysioViews/PhysioPatients.unity
+    path: Assets/Scenes/DashBoardScenes/TherapistViews/TherapistPatients.unity
     guid: eb61da24549088e4a929134cac8882af
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PhysioViews/PhysioSinglePatientView.unity
+    path: Assets/Scenes/DashBoardScenes/TherapistViews/TherapistSinglePatient.unity
     guid: c3a706d93ba7c354e9529b9b6d485994
   - enabled: 1
     path: Assets/Scenes/DashBoardScenes/PatientViews/PatientDashboard.unity
