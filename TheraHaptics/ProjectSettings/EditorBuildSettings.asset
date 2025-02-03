@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LoginScenes/SignInScene.unity
+    path: Assets/Scenes/LoginScenes/SignIn.unity
     guid: 7031e9d2b57b4dc41bb42a11b3bf04fe
   - enabled: 1
-    path: Assets/Scenes/LoginScenes/RegisterSerialKey.unity
+    path: Assets/Scenes/LoginScenes/RegisterProductKey.unity
     guid: 53b5f9cf1b89ebe42bda9ae003a2d74e
   - enabled: 1
     path: Assets/Scenes/LoginScenes/RegisterAccount.unity
@@ -21,25 +21,25 @@ EditorBuildSettings:
     path: Assets/Scenes/LoginScenes/ForgotPassword2.unity
     guid: 3b4a15ed6c1a87046b14bebf2fad1eb1
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PhysioViews/PhysioDashboard.unity
+    path: Assets/Scenes/TherapistScenes/TherapistDashboard.unity
     guid: 4052e9bbaf62a1d409e40d723adba555
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PhysioViews/PhysioAccount.unity
+    path: Assets/Scenes/TherapistScenes/TherapistAccount.unity
     guid: 8ee9ab6df17903e4ba36fcbadbd2cb0e
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PhysioViews/PhysioPatients.unity
+    path: Assets/Scenes/TherapistScenes/TherapistPatients.unity
     guid: eb61da24549088e4a929134cac8882af
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PhysioViews/PhysioSinglePatientView.unity
+    path: Assets/Scenes/TherapistScenes/TherapistSinglePatient.unity
     guid: c3a706d93ba7c354e9529b9b6d485994
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PatientViews/PatientDashboard.unity
+    path: Assets/Scenes/PatientScenes/PatientDashboard.unity
     guid: 0ebbed8bdcfe5e64ea139a87c8c590df
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PatientViews/PatientReports.unity
+    path: Assets/Scenes/PatientScenes/PatientReports.unity
     guid: f41e0c793aba3ae4db5ee31e20e903af
   - enabled: 1
-    path: Assets/Scenes/DashBoardScenes/PatientViews/PatientAccount.unity
+    path: Assets/Scenes/PatientScenes/PatientAccount.unity
     guid: 9b64903c65f07f24f820d7df1d106200
   - enabled: 1
     path: Assets/Scenes/SessionScene.unity
