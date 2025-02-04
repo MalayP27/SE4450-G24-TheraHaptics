@@ -1,41 +1,57 @@
-from serial.tools import list_ports
 import serial
-import time
 import csv
-import os
+import time
 
-ports = list_ports.comports()
-for port in ports: print(port)
+# Configuration
+PORT = "COM3"  # Change this to match your ESP32's serial port
+BAUD_RATE = 115200
+SAMPLE_COUNT = 50  # Number of readings per sensor (adjust as needed)
+NUM_SENSORS = 6  # Number of EMG sensors
+GESTURE_LABEL = "neutral"  # Label for the gesture being recorded
+FILENAME = "emg_training_data_neutral.csv"
 
-output_dir = "Hardware/Data_Extracting"
-os.makedirs(output_dir, exist_ok=True)
+# Connect to Serial
+ser = serial.Serial(PORT, BAUD_RATE, timeout=1)
+time.sleep(2)  # Allow time for ESP32 to initialize
 
-f = open(os.path.join(output_dir, "training_data.csv"), mode="w", newline='')
-f.truncate()
+# Prepare CSV file
+header = [f"sensor{i+1}_reading{j+1}" for i in range(NUM_SENSORS) for j in range(SAMPLE_COUNT)]
+header.append("gesture")  # Last column for label
 
-serialCom = serial.Serial("COM11", 9600)
+with open(FILENAME, mode="a", newline="") as file:
+    writer = csv.writer(file)
+    
+    # Write header only if the file is empty
+    if file.tell() == 0:
+        writer.writerow(header)
 
-serialCom.setDTR(False)
-time.sleep(1)
-serialCom.flushInput()
-serialCom.setDTR(True)
+    while True:
+        input("Press Enter to start recording a new sample...")
+        print(f"Recording {SAMPLE_COUNT} samples per sensor...")
 
-kmax = 15
-for k in range(kmax):
-    try:
-        s_bytes = serialCom.readline()
-        decoded_bytes = s_bytes.decode("utf-8").strip('\r\n')
-        #print(decoded_bytes)
+        sample_data = []  # Store all sensor readings
 
-        if k == 0:
-            values = decoded_bytes.split(",")
+        for _ in range(SAMPLE_COUNT):
+            try:
+                line = ser.readline().decode("utf-8").strip()
+                values = list(map(int, line.split(",")))  # Convert readings to integers
+
+                if len(values) == NUM_SENSORS:
+                    sample_data.extend(values)  # Append readings
+                else:
+                    print("Invalid data received, skipping...")
+                    continue
+
+                time.sleep(0.02)  # 20ms delay (adjust as needed)
+
+            except Exception as e:
+                print(f"Error: {e}")
+                break
+
+        if len(sample_data) == SAMPLE_COUNT * NUM_SENSORS:
+            sample_data.append(GESTURE_LABEL)  # Append gesture label
+            writer.writerow(sample_data)
+            print(f"Sample saved for gesture: {GESTURE_LABEL}")
         else:
-            values = [float(x) for x in decoded_bytes.split()]
-        print(values)
+            print("Incomplete sample, retrying...")
 
-        writer = csv.writer(f, delimiter=",")
-        writer.writerow(values)
-    except:
-        print("Failed to read from serial port")
-
-f.close()
