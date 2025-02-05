@@ -76,10 +76,8 @@ public class TherapistController: Controller {
         }
     }
 
-    private void SendWelcomeEmail(string emailAddress, string firstName, string lastName, string tempPassword)
-    {
-        try
-        {
+    private void SendWelcomeEmail(string emailAddress, string firstName, string lastName, string tempPassword) {
+        try {
             string emailSubject = $"Welcome to TheraHaptics, {firstName}!";
             string emailBody = $@"
                 <p>Hello {firstName} {lastName}!</p>
@@ -92,8 +90,7 @@ public class TherapistController: Controller {
 
             _emailService.SendEmail(emailAddress, emailSubject, emailBody);
         }
-        catch (Exception ex)
-        {
+        catch (Exception ex) {
             throw new InvalidOperationException($"Failed to send email to {emailAddress}: {ex.Message}", ex);
         }
     }
@@ -108,12 +105,12 @@ public class TherapistController: Controller {
     public async Task<IActionResult> Get(string therapistId) {
         // Validate therapist ID
         if (!ObjectId.TryParse(therapistId, out ObjectId _)) {
-            return BadRequest("Invalid therapist ID format.");
+            return BadRequest(new { error = "Invalid therapist ID format." });
         }
         
         var therapist = await _mongoDBService.GetTherapistByIdAsync(therapistId);
         if (therapist == null) {
-            return NotFound();
+            return NotFound(new { error = "Therapist not found." });
         }
         return Ok(therapist);
     }
@@ -168,28 +165,29 @@ public class TherapistController: Controller {
     public async Task<IActionResult> Post([FromBody] PatientPostDto request) {
         // Validate all parameters are populated
         if (request == null ||
+            string.IsNullOrEmpty(request.therapistId) ||
             string.IsNullOrEmpty(request.firstName) ||
             string.IsNullOrEmpty(request.lastName) ||
             string.IsNullOrEmpty(request.emailAddress) ||
             string.IsNullOrEmpty(request.diagnosis)) {
-            return BadRequest("All fields are required.");
+            return BadRequest(new { error = "All fields are required." });
         }
 
         // Validate email address
         if (!IsValidEmail(request.emailAddress)) {
-            return BadRequest("Invalid email address.");
+            return BadRequest(new { error = "Invalid email address." });
         }
         
         // Check if email address is already registered
         var existingPatient = await _mongoDBService.GetPatientByEmailAsync(request.emailAddress);
         if (existingPatient != null) {
-            return BadRequest("The email address you entered is already associated with an existing account. Please try using a different email address to register patient.");
+            return Conflict(new { error = "The email address you entered is already associated with an existing account. Please try using a different email address to register patient." });
         }
        
         // Need to adjust therapist tuple in db to append patient to patient list
         var therapist = await _mongoDBService.GetTherapistByIdAsync(request.therapistId);
         if (therapist == null) {
-            return NotFound("Therapist not found.");
+            return NotFound(new { error = "Therapist not found." });
         }
 
         var tempPassword = GenerateTemporaryPassword();
@@ -226,22 +224,20 @@ public class TherapistController: Controller {
         // Append patient to therapist's patient list
         therapist.assignedPatients.Add(objectId);
         // Print assignedPatients from the Therapist object
-        Console.WriteLine("Assigned Patients:");
-        foreach (var patientId in therapist.assignedPatients) {
-            Console.WriteLine(patientId);
-        }
+        // Console.WriteLine("Assigned Patients:");
+        // foreach (var patientId in therapist.assignedPatients) {
+        //     Console.WriteLine(patientId);
+        // }
 
-        Console.WriteLine(therapist);
+        // Console.WriteLine(therapist);
         await _mongoDBService.UpdateTherapistInformationAsync(therapist);
        
         // Need to send email to patient with temp password
-        try
-        {
+        try {
             SendWelcomeEmail(request.emailAddress, request.firstName, request.lastName, tempPassword);
         }
-        catch (Exception ex)
-        {
-            return StatusCode(500, ex.Message);
+        catch (Exception ex) {
+            return StatusCode(StatusCodes.Status500InternalServerError, new { error = "Failed to send email. Please try again later." });
         }
         return Ok();
     }
