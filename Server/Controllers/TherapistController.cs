@@ -173,6 +173,9 @@ public class TherapistController: Controller {
             return BadRequest(new { error = "All fields are required." });
         }
 
+        // Canonicalize the email address
+        request.emailAddress = request.emailAddress.ToLower();
+
         // Validate email address
         if (!IsValidEmail(request.emailAddress)) {
             return BadRequest(new { error = "Invalid email address." });
