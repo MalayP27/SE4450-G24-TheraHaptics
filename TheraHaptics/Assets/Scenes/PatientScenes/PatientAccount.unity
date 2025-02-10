@@ -2358,6 +2358,8 @@ GameObject:
   - component: {fileID: 1224689398}
   - component: {fileID: 1224689397}
   - component: {fileID: 1224689402}
+  - component: {fileID: 1224689404}
+  - component: {fileID: 1224689403}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -2462,6 +2464,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchBox: {fileID: 0}
+  personalInfoScreen: {fileID: 0}
+--- !u!114 &1224689403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224689396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08f7cd616e36f5b428a06d01fab5bb83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1224689404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224689396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868a35a326c76b94e9c674f88a7773f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helloMessage: {fileID: 709508207}
   personalInfoScreen: {fileID: 0}
 --- !u!1 &1321501860
 GameObject:
