@@ -47,4 +47,25 @@ public class PatientView : MonoBehaviour
     public void PatientLogOut(){
         SceneManager.LoadScene("SignIn");
     }
+
+    // ==========PatientDashboard Scene Methods===========
+    // Method to populate Exercise Plan Box
+    public void populateExercisePlan(String[] exercises){
+        
+    }
+
+    // Method to populate Goal Box
+    public void populateGoalBox(){
+        
+    }
+    
+    // Method to create new Goal
+    public void createNewGoal(){
+        
+    }
+
+    // Method to Fill Pie Graph
+    public void fillPieChart(double percentageFilled){
+        
+    }
 }
