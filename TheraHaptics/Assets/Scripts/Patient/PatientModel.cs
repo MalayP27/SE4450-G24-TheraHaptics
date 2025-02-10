@@ -7,7 +7,7 @@ using UnityEngine;
 // Class Definition
 public class PatientModel : MonoBehaviour
 {
-    // Instantiating variables for the Login
+    // Instantiating variables for the Patient
     private string patientID{ get; set; }
     private string firstName{ get; set; }
     private string lastName{ get; set; }

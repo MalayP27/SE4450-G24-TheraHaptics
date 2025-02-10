@@ -7,15 +7,12 @@ using UnityEngine;
 // Class Definition
 public class TherapistModel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Instantiating variables for the Therapist
+    private string therapistID{ get; set; }
+    private string firstName{ get; set; }
+    private string lastName{ get; set; }
+    private string email{ get; set; }
+    private string productKeyID{ get; set; }
+    private List<string> AssignedPatients{ get; set; }
+    
 }
