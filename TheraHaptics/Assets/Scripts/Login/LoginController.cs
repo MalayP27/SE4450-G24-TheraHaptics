@@ -2,142 +2,116 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
-using System.Linq; //input sanitization (.Any)
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Text;
 
 public class LoginController : MonoBehaviour
 {
-
     public static LoginModel loginModel = new LoginModel();
     [SerializeField] public static LoginView loginView = new LoginView();
-    // Start is called before the first frame update
+
+    // Response model for login
+    [Serializable]
+    public class LoginResponse
+    {
+        public string token;  // The token returned by the API.
+        public string role;   // The role returned by the API (e.g., "patient" or "therapist")
+    }
+
+    // DTO class for Forgot Password payload
+    [Serializable]
+    public class ForgotPasswordDto
+    {
+        public string EmailAddress;
+    }
+
     private void Awake()
     {
+        // Assume that the LoginView component is attached to the same GameObject.
         loginView = GetComponent<LoginView>();
     }
 
-    public static void SignIn(string email, string password)
+    /// Attempts to sign in the user using the provided email and password.
+    public static async void SignIn(string email, string password)
     {
-        // Input Validation
-        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+        // Input validation: Check for empty strings.
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
         {
             loginView.HandleSignInError("Email and password cannot be empty.");
             return;
         }
 
-        if (!IsValidEmail(email))
+        // Create the JSON payload with the correct property names.
+        string jsonPayload = "{\"emailAddress\":\"" + email + "\",\"password\":\"" + password + "\"}";
+
+        Debug.Log("JSON Payload: " + jsonPayload); // Debug the payload to confirm it's correct.
+
+        // Use HttpClient to send the POST request.
+        using (var client = new HttpClient())
         {
-            loginView.HandleSignInError("Invalid email format.");
-            return;
-        }
-
-        if (!IsStrongPassword(password))
-        {
-            loginView.HandleSignInError("Password must be at least 8 characters, contain an uppercase letter, a lowercase letter, a digit, and a special character.");
-            return;
-        }
-
-        // Send API request
-        Instance.StartCoroutine(SendSignInRequest(email, password));
-    }
-
-    private static bool IsValidEmail(string email)
-    {
-        try
-        {
-            var addr = new System.Net.Mail.MailAddress(email);
-            return addr.Address == email && email.Contains("@");
-        }
-        catch
-        {
-            return false;
-        }
-    }
-
-    private static bool IsStrongPassword(string password)
-    {
-        return password.Length >= 8 &&
-            password.Any(char.IsUpper) && // Checks if password contains at least one uppercase letter
-            password.Any(char.IsLower) && // Checks if password contains at least one lowercase letter
-            password.Any(char.IsDigit); // Checks if password contains at least one digit
-           // password.Any(ch => !char.IsLetterOrDigit(ch)); // At least one special character
-    }
-
-    private static IEnumerator SendSignInRequest(string email, string password)
-    {
-        string url = "http://localhost:5089/api/user/login";
-        string jsonPayload = JsonUtility.ToJson(new LoginRequest(email, password));
-
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
-        {
-            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-
-            yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+            try
             {
-                loginView.HandleSignInError("Login failed: " + request.error);
-            }
-            else
-            {
-                // Parse response (assuming JSON)
-                LoginResponse response = JsonUtility.FromJson<LoginResponse>(request.downloadHandler.text);
+                var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("http://localhost:5089/api/user/login", content);
 
-                if (!string.IsNullOrEmpty(response.Token))
+                if (response.IsSuccessStatusCode)
                 {
-                    bool isPatient = response.Role.ToLower() == "patient";
-                    loginView.HandleSignInSuccess(isPatient);
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    LoginResponse loginResponse = JsonUtility.FromJson<LoginResponse>(responseBody);
+                    loginView.HandleSignInSuccess(loginResponse.role);
                 }
                 else
                 {
-                    loginView.HandleSignInError("Invalid email or password.");
+                    loginView.HandleSignInError("Login failed: " + response.ReasonPhrase);
                 }
             }
-        }
-    }
-
-    // Singleton instance for coroutine
-    private static LoginController _instance;
-    public static LoginController Instance
-    {
-        get
-        {
-            if (_instance == null)
+            catch (Exception ex)
             {
-                _instance = FindObjectOfType<LoginController>();
-                if (_instance == null)
+                loginView.HandleSignInError("Error during login: " + ex.Message);
+            }
+        }
+    }
+
+    /// Sends a forgot password request to the API using the provided email address. (LoginView.cs SendEmailPressed button)
+    public static async void ForgotPassword(string email)
+    {
+        // Validate the email field.
+        if (string.IsNullOrEmpty(email))
+        {
+            loginView.HandleSignInError("Email field must be filled!");
+            return;
+        }
+
+        // Create the forgot password DTO and convert it to JSON.
+        ForgotPasswordDto dto = new ForgotPasswordDto();
+        dto.EmailAddress = email;
+        string jsonData = JsonUtility.ToJson(dto);
+
+        using (var client = new HttpClient())
+        {
+            try
+            {
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("http://localhost:5089/api/user/forgotPassword", content);
+
+                if (response.IsSuccessStatusCode)
                 {
-                    GameObject obj = new GameObject("LoginController");
-                    _instance = obj.AddComponent<LoginController>();
+                    Debug.Log("Forgot password request successful!");
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Debug.Log("Response: " + responseBody);
+                }
+                else
+                {
+                    Debug.LogError("Forgot password request failed: " + response.ReasonPhrase);
+                    loginView.HandleSignInError("Forgot password request failed: " + response.ReasonPhrase);
                 }
             }
-            return _instance;
+            catch (Exception ex)
+            {
+                Debug.LogError("Error during forgot password request: " + ex.Message);
+                loginView.HandleSignInError("Error during forgot password request: " + ex.Message);
+            }
         }
     }
 }
-
-// Classes for JSON serialization
-[Serializable]
-public class LoginRequest
-{
-    public string emailAddress;
-    public string password;
-
-    public LoginRequest(string email, string pass)
-    {
-        emailAddress = email;
-        password = pass;
-    }
-}
-
-[Serializable]
-public class LoginResponse
-{
-    public string Token;
-    public string Role;
-}
-
-
