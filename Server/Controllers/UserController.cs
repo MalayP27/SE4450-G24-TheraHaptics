@@ -314,7 +314,7 @@ public class UserController: Controller {
         });
 
         // Return the JWT token as part of the response
-        return Ok(new { Token = token, Role = user.role, Is_Temporary_Password = user.isTemporaryPassword });
+        return Ok(new { Token = token, Role = user.role, IsTemporaryPassword = user.isTemporaryPassword });
     }
 
     // When users log out, this endpoint deletes the cookies
