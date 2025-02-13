@@ -366,4 +366,64 @@ public class UserController: Controller {
 
         return Ok(new { message = "A temporary password has been sent to your email address." });
     }
+
+    // When user enters a new password
+    [HttpPut("changePassword")]
+    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto request) {
+        // Validate input
+        if (request == null ||
+            string.IsNullOrEmpty(request.emailAddress) ||
+            string.IsNullOrEmpty(request.tempPassword) ||
+            string.IsNullOrEmpty(request.newPassword)) {
+            return BadRequest(new { error = "All fields are required." });
+        }
+
+        // Canonicalize the email address
+        request.emailAddress = request.emailAddress.ToLower();
+
+        // Retrieve the user from the database
+        var user = await _mongoDBService.GetUserByEmailAsync(request.emailAddress);
+        if (user == null) {
+            return NotFound (new { error = "User not found. Please check your email or sign up." });
+        }
+
+        // Verify the temp password
+        var computeHashedPassword = HashPassword(request.tempPassword, user.passwordSalt);
+        if (computeHashedPassword != user.passwordHash) {
+            return Unauthorized(new { error = "Invalid email or password." });
+        }
+
+        // Validate password strength
+        if (!IsValidPassword(request.newPassword)) {
+            return BadRequest(new { error = "Password must be at least 8 characters long, contain at least one capital letter, one digit, and one special character." });
+        }
+
+         // Generate salt and hash the password
+        var salt = GenerateSalt();
+        var hashedPassword = HashPassword(request.newPassword, salt);
+
+        // Update lastLoggedIn field
+        user.lastLoggedIn = DateTime.UtcNow;
+
+        // Update the user's password and set isTemporaryPassword flag
+        user.passwordSalt = salt;
+        user.passwordHash = hashedPassword;
+        user.isTemporaryPassword = false;
+
+        await _mongoDBService.UpdateUserAsync(user);
+
+        // Generate JWT token
+        var token = GenerateJwtToken(user);
+
+        // Set the token in a secure, HTTP-only cookie
+        Response.Cookies.Append("jwt", token, new CookieOptions {
+            HttpOnly = true,
+            Secure = true, // Ensure Secure flag is set for HTTPS
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTime.UtcNow.AddDays(7)
+        });
+
+        // Return the JWT token as part of the response
+        return Ok(new { Token = token, Role = user.role, IsTemporaryPassword = user.isTemporaryPassword });
+    }
 }
