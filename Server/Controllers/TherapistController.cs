@@ -239,7 +239,7 @@ public class TherapistController: Controller {
         try {
             SendWelcomeEmail(request.emailAddress, request.firstName, request.lastName, tempPassword);
         }
-        catch (Exception ex) {
+        catch {
             return StatusCode(StatusCodes.Status500InternalServerError, new { error = "Failed to send email. Please try again later." });
         }
         return Ok();

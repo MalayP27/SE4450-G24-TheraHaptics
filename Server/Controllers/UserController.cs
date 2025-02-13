@@ -314,7 +314,7 @@ public class UserController: Controller {
         });
 
         // Return the JWT token as part of the response
-        return Ok(new { Token = token, Role = user.role });
+        return Ok(new { Token = token, Role = user.role, Is_Temporary_Password = user.isTemporaryPassword });
     }
 
     // When users log out, this endpoint deletes the cookies
@@ -360,7 +360,7 @@ public class UserController: Controller {
         try {
             SendForgotPasswordEmail(emailAddress, tempPassword);
         }
-        catch (Exception ex) {
+        catch {
             return StatusCode(StatusCodes.Status500InternalServerError, new { error = "Failed to send email. Please try again later." });
         }
 
