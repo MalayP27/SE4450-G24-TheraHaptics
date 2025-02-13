@@ -15,15 +15,27 @@ public class LoginController : MonoBehaviour
     [Serializable]
     public class LoginResponse
     {
-        public string token;  // The token returned by the API.
-        public string role;   // The role returned by the API (e.g., "patient" or "therapist")
+        public string token;              // The token returned by the API.
+        public string role;               // The role returned by the API (e.g., "patient" or "therapist")
+        public bool isTemporaryPassword;  // Indicates whether the user has a temporary password.
     }
 
-    // DTO class for Forgot Password payload
+    // DTO class for Forgot Password payload (note: field names match server expectation)
     [Serializable]
     public class ForgotPasswordDto
     {
-        public string EmailAddress;
+        public string emailAddress;
+        public string tempPassword;
+        public string newPassword;
+    }
+
+    // DTO class for Change Password payload
+    [Serializable]
+    public class ChangePasswordDto
+    {
+        public string emailAddress;
+        public string tempPassword;
+        public string newPassword;
     }
 
     private void Awake()
@@ -33,6 +45,7 @@ public class LoginController : MonoBehaviour
     }
 
     /// Attempts to sign in the user using the provided email and password.
+    /// If the user has a temporary password, navigates to the reset password scene.
     public static async void SignIn(string email, string password)
     {
         // Input validation: Check for empty strings.
@@ -44,10 +57,8 @@ public class LoginController : MonoBehaviour
 
         // Create the JSON payload with the correct property names.
         string jsonPayload = "{\"emailAddress\":\"" + email + "\",\"password\":\"" + password + "\"}";
+        Debug.Log("JSON Payload: " + jsonPayload);
 
-        Debug.Log("JSON Payload: " + jsonPayload); // Debug the payload to confirm it's correct.
-
-        // Use HttpClient to send the POST request.
         using (var client = new HttpClient())
         {
             try
@@ -59,7 +70,18 @@ public class LoginController : MonoBehaviour
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
                     LoginResponse loginResponse = JsonUtility.FromJson<LoginResponse>(responseBody);
-                    loginView.HandleSignInSuccess(loginResponse.role);
+                    Debug.Log("isTemporaryPassword: " + loginResponse.isTemporaryPassword);
+
+                    if (loginResponse.isTemporaryPassword)
+                    {
+                        // Navigate to the password reset scene (ForgotPassword2)
+                        UnityEngine.SceneManagement.SceneManager.LoadScene("ForgotPassword2");
+                    }
+                    else
+                    {
+                        // Continue with the normal sign-in flow.
+                        loginView.HandleSignInSuccess(loginResponse.role);
+                    }
                 }
                 else
                 {
@@ -73,10 +95,9 @@ public class LoginController : MonoBehaviour
         }
     }
 
-    /// Sends a forgot password request to the API using the provided email address. (LoginView.cs SendEmailPressed button)
+    /// Sends a forgot password request to the API using the provided email address.
     public static async void ForgotPassword(string email)
     {
-        // Validate the email field.
         if (string.IsNullOrEmpty(email))
         {
             loginView.HandleSignInError("Email field must be filled!");
@@ -84,8 +105,7 @@ public class LoginController : MonoBehaviour
         }
 
         // Create the forgot password DTO and convert it to JSON.
-        ForgotPasswordDto dto = new ForgotPasswordDto();
-        dto.EmailAddress = email;
+        ForgotPasswordDto dto = new ForgotPasswordDto { emailAddress = email };
         string jsonData = JsonUtility.ToJson(dto);
 
         using (var client = new HttpClient())
@@ -111,6 +131,50 @@ public class LoginController : MonoBehaviour
             {
                 Debug.LogError("Error during forgot password request: " + ex.Message);
                 loginView.HandleSignInError("Error during forgot password request: " + ex.Message);
+            }
+        }
+    }
+
+    /// Sends a change password request to the API using the provided email, temporary password, and new password.
+    public static async void ChangePassword(string email, string tempPassword, string newPassword)
+    {
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(tempPassword) || string.IsNullOrEmpty(newPassword))
+        {
+            loginView.HandleSignInError("All fields are required for changing password.");
+            return;
+        }
+
+        // Create the ChangePassword DTO and convert it to JSON.
+        ChangePasswordDto dto = new ChangePasswordDto
+        {
+            emailAddress = email,
+            tempPassword = tempPassword,
+            newPassword = newPassword
+        };
+        string jsonPayload = JsonUtility.ToJson(dto);
+        Debug.Log("ChangePassword JSON Payload: " + jsonPayload);
+
+        using (var client = new HttpClient())
+        {
+            try
+            {
+                var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PutAsync("http://localhost:5089/api/user/changePassword", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Debug.Log("Change password successful. Response: " + responseBody);
+                    loginView.HandleSavePasswordSuccess();
+                }
+                else
+                {
+                    loginView.HandleSignInError("Change password failed: " + response.ReasonPhrase);
+                }
+            }
+            catch (Exception ex)
+            {
+                loginView.HandleSignInError("Error during change password: " + ex.Message);
             }
         }
     }
