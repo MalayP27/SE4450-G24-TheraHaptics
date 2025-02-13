@@ -1,0 +1,710 @@
+openapi: 3.0.0
+info:
+  title: TheraHaptics
+  description: |
+    This API allows for the TheraHaptics local application to communicate 
+    with the cloud database to access/modify various Patient/Therapist information.
+  version: 1.0.0
+tags:
+  - name: Product Key
+  - name: User
+  - name: Therapist
+  - name: Patient
+paths:
+  # All Product Key operations
+  /productkey:
+    post:
+      summary: Creates a new, unactivated product key
+      description: Generates an 8-character alphanumeric product key and stores it in the database with the field "isActivated" set to false.
+      tags:
+        - Product Key
+      operationId: post-productkey
+      responses:
+        "201":
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/postProductKey"
+    
+  /productkey/{productKey}:
+    parameters:
+      - name: productKey
+        in: path
+        required: true
+        description: Product Key to retrieve
+        schema:
+          type: string
+          example: "BEO5PNPR"
+    get:
+      summary: Get a product key by ID
+      description: Retrieves the product key ID if and only if the given product key exists and is not activated.
+      tags:
+        - Product Key
+      operationId: get-productkey
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/getProductKey"
+        "409":
+          description: "Conflict - This product key has already been activated."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "This product key has already been activated."
+        "404":
+          description: "Not Found - Product key not found."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Product key not found."
+  
+  /user/therapist:
+    post:
+      summary: Creates a new therapist
+      description: Creates a new therapist account if the provided product key is valid and not activated.
+      tags:
+        - User
+      operationId: create-therapist
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TherapistPostDto"
+      responses:
+        "200":
+          description: "Therapist account created successfully."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Therapist"
+        "400":
+          description: "Bad Request - Invalid input"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                missingFields:
+                  value: { error: "All fields are required." }
+                invalidEmail:
+                  value: { error: "Invalid email address." }
+                weakPassword:
+                  value: { error: "Password must be at least 8 characters long, contain at least one capital letter, one digit, and one special character." }
+                invalidProductKey:
+                  value: { error: "Invalid product key ID format." }
+        "404":
+          description: "Not Found - Product key does not exist."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Product key not found."
+        "409":
+          description: "Conflict - Email or product key already in use."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                emailExists:
+                  value: { error: "The email address is already in use. Please sign in or use a different email." }
+                productKeyActivated:
+                  value: { error: "Product key has already been activated." }
+
+  /user/login:
+    post:
+      summary: Logs in a user
+      description: Authenticates a user with an email and password, returning a JWT token.
+      tags:
+        - User
+      operationId: login-user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginDto"
+      responses:
+        "200":
+          description: "Successful login."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponse"
+        "400":
+          description: "Bad Request - Missing fields."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "All fields are required."
+        "401":
+          description: "Unauthorized - Invalid credentials."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Invalid email or password."
+        "404":
+          description: "Not Found - User does not exist."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "User not found. Please check your email or sign up."
+
+  /user/logout:
+    post:
+      summary: Logs out a user
+      description: Deletes the authentication token from the client by clearing cookies.
+      tags:
+        - User
+      operationId: logout-user
+      responses:
+        "204":
+          description: "No Content - Successfully logged out."
+        "400":
+          description: "Bad Request - Invalid token."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Invalid token."
+
+  /user/forgotpassword:
+    post:
+      summary: Resets a user's password
+      description: Sends a temporary password to the user's email if the email is associated with an existing account.
+      tags:
+        - User
+      operationId: forgot-password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ForgotPasswordDto"
+      responses:
+        "200":
+          description: "Temporary password sent to email successfully."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+              example:
+                message: "A temporary password has been sent to your email address."
+        "400":
+          description: "Bad Request - Invalid email format."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Invalid email address format."
+        "404":
+          description: "Not Found - Email not associated with any account."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Email address not associated with any account."
+        "500":
+          description: "Internal Server Error - Failed to send email."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Failed to send email. Please try again later."
+
+  /therapist/{therapistId}:
+    parameters:
+      - name: therapistId
+        in: path
+        required: true
+        description: The therapist to retrieve
+        schema:
+          type: string
+          example: "677eb2e8d55cc2e7a7bb29b3"
+    get:
+      summary: Get a therapist by ID
+      description: Retrieves the therapist with the given ID.
+      tags:
+        - Therapist
+      operationId: get-therapist
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Therapist"
+        "400":
+          description: "Bad Request - Invalid therapist ID format."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Invalid therapist ID format."
+        "404":
+          description: "Not Found - Therapist not found."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Therapist not found."
+
+  /therapist/newpatient:
+    post:
+      summary: Adds a new patient to the therapist's list
+      description: Adds a new patient to the therapist's patient list. The patient's account is created, and a welcome email is sent with a temporary password.
+      tags:
+        - Therapist
+      operationId: add-patient-to-therapist
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatientPostDto"
+      responses:
+        "200":
+          description: "Patient added successfully."
+        "400":
+          description: "Bad Request - Invalid input."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                missingFields:
+                  value: { error: "All fields are required." }
+                invalidEmail:
+                  value: { error: "Invalid email address." }
+        "409":
+          description: "Conflict - Email already registered."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "The email address you entered is already associated with an existing account. Please try using a different email address to register patient."
+        "404":
+          description: "Not Found - Therapist not found."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Therapist not found."
+        "500":
+          description: "Internal Server Error - Failed to send email."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Failed to send email. Please try again later."
+  
+  /patient/dashboard:
+    get:
+      summary: Get patient dashboard
+      description: Retrieves a confirmation message that the patient dashboard has been accessed.
+      tags:
+        - Patient
+      operationId: get-patient-dashboard
+      responses:
+        "200":
+          description: "Patient dashboard accessed successfully."
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "Patient Dashboard Accessed"
+
+  /patient/patientRegistration/{patientId}:
+    put:
+      summary: Update patient registration information
+      description: >
+        Updates a patient's registration details after they click the registration link
+        in their email. **All fields are required.**
+      tags:
+        - Patient
+      operationId: update-patient-registration
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          description: Unique identifier for the patient.
+          schema:
+            type: string
+            example: "1234567890abcdef"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatientUpdateDto"
+      responses:
+        "200":
+          description: "Patient information updated successfully."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Patient information updated successfully."
+                  updatedPatient:
+                    $ref: "#/components/schemas/Patient"
+        "400":
+          description: "Bad Request - Either the patient ID format is invalid or not all fields are provided."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                invalidId:
+                  value: { error: "Invalid patient ID format." }
+                missingFields:
+                  value: { error: "All fields are required." }
+        "404":
+          description: "Not Found - Patient not found."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Patient not found."
+  
+  # Single square operations
+  # /board/{row}/{column}:
+  #   parameters:
+  #     - $ref: "#/components/parameters/rowParam"
+  #     - $ref: "#/components/parameters/columnParam"
+  #   get:
+  #     summary: Get a single board square
+  #     description: Retrieves the requested square.
+  #     tags:
+  #       - Gameplay
+  #     operationId: get-square
+  #     responses:
+  #       "200":
+  #         description: "OK"
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/mark"
+  #       "400":
+  #         description: The provided parameters are incorrect
+  #         content:
+  #           text/html:
+  #             schema:
+  #               $ref: "#/components/schemas/errorMessage"
+  #             example: "Illegal coordinates"
+  #   put:
+  #     summary: Set a single board square
+  #     description: Places a mark on the board and retrieves the whole board and the winner (if any).
+  #     tags:
+  #       - Gameplay
+  #     operationId: put-square
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: "#/components/schemas/mark"
+  #     responses:
+  #       "200":
+  #         description: "OK"
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/status"
+  #       "400":
+  #         description: The provided parameters are incorrect
+  #         content:
+  #           text/html:
+  #             schema:
+  #               $ref: "#/components/schemas/errorMessage"
+  #             examples:
+  #               illegalCoordinates:
+  #                 value: "Illegal coordinates."
+  #               notEmpty:
+  #                 value: "Square is not empty."
+  #               invalidMark:
+  #                 value: "Invalid Mark (X or O)."
+
+components:
+  # parameters:
+  #   rowParam:
+  #     description: Board row (vertical coordinate)
+  #     name: row
+  #     in: path
+  #     required: true
+  #     schema:
+  #       $ref: "#/components/schemas/coordinate"
+  #   columnParam:
+  #     description: Board column (horizontal coordinate)
+  #     name: column
+  #     in: path
+  #     required: true
+  #     schema:
+  #       $ref: "#/components/schemas/coordinate"
+  schemas:
+    errorMessage:
+      type: string
+      maxLength: 256
+      description: A text message describing an error
+    Therapist:
+      type: object
+      properties:
+        therapistId:
+          type: string
+          description: Unique identifier for the therapist
+          example: "677eb2e8d55cc2e7a7bb29b3"
+        firstName:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "john.doe@example.com"
+        productKeyId:
+          type: string
+          example: "677353cab9738f4068ce8adf"
+        assignedPatients:
+          type: array
+          items:
+            type: string
+          example: []
+    TherapistPostDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "john.doe@example.com"
+        password:
+          type: string
+          example: "Pas!sw1ord"
+        productKeyId:
+          type: string
+          example: "677353cab9738f4068ce8adf"
+    PatientPostDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: "Jane"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "john.doe@gmail.com"
+        diagnosis:
+          type: string
+          example: "Diagnosis details"
+        therapistId:
+          type: string
+          example: "677eb2e8d55cc2e7a7bb29b3"
+    LoginDto:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+          example: "john.doe@example.com"
+        password:
+          type: string
+          example: "Pas!sw1ord"
+    ForgotPasswordDto:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+          example: "john.doe@example.com"
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: "JWT token for authentication."
+          example: "eyJhbGciOiJIUzI1NiIsInR..."
+        role:
+          type: string
+          description: "User role (therapist or patient)."
+          example: "therapist"
+    SuccessResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Success."
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "An error occurred."
+    postUserTherapist:
+      type: object
+      properties:
+        therapistId:
+          type: string
+          description: Unique identifier for the therapist
+          example: "677eb2e8d55cc2e7a7bb29b3"
+        firstName:
+          type: string
+          example: "John"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "john.doe@example.com"
+        productKeyId:
+          type: string
+          example: "677353cab9738f4068ce8adf"
+        assignedPatients:
+          type: array
+          items:
+            type: string
+          example: []
+    postProductKey:
+      type: object
+      properties:
+        productKeyId:
+          type: string
+          description: Unique identifier for the product key
+          example: "6781de2113239b332eefca4e"
+        productKey:
+          type: string
+          description: 8-character alphanumeric product key
+          example: "PT4HWAQR"
+        isActivated:
+          type: boolean
+          description: Indicates whether the product key has been activated
+          example: false
+    getProductKey:
+      type: object
+      properties:
+        productKeyId:
+          type: string
+          description: Unique identifier for the product key
+          example: "6781de2113239b332eefca4e"
+    PatientUpdateDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: "Jane"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "jane.doe@example.com"
+        phoneNumber:
+          type: string
+          example: "123-456-7890"
+        address:
+          type: string
+          example: "123 Main St"
+        gender:
+          type: string
+          example: "Female"
+        dateOfBirth:
+          type: string
+          format: date
+          example: "1990-01-01"
+
+    Patient:
+      type: object
+      properties:
+        patientId:
+          type: string
+          example: "1234567890abcdef"
+        firstName:
+          type: string
+          example: "Jane"
+        lastName:
+          type: string
+          example: "Doe"
+        emailAddress:
+          type: string
+          example: "jane.doe@example.com"
+        phoneNumber:
+          type: string
+          example: "123-456-7890"
+        address:
+          type: string
+          example: "123 Main St"
+        gender:
+          type: string
+          example: "Female"
+        dateOfBirth:
+          type: string
+          format: date
+          example: "1990-01-01"
+    # errorMessage:
+    #   type: string
+    #   maxLength: 256
+    #   description: A text message describing an error
+    # coordinate:
+    #   type: integer
+    #   minimum: 1
+    #   maximum: 3
+    #   example: 1
+    # mark:
+    #   type: string
+    #   enum: [".", "X", "O"]
+    #   description: Possible values for a board square. `.` means empty square.
+    #   example: "."
+    # board:
+    #   type: array
+    #   maxItems: 3
+    #   minItems: 3
+    #   items:
+    #     type: array
+    #     maxItems: 3
+    #     minItems: 3
+    #     items:
+    #       $ref: "#/components/schemas/mark"
+    # winner:
+    #   type: string
+    #   enum: [".", "X", "O"]
+    #   description: Winner of the game. `.` means nobody has won yet.
+    #   example: "."
+    # status:
+    #   type: object
+    #   properties:
+    #     winner:
+    #       $ref: "#/components/schemas/winner"
+    #     board:
+    #       $ref: "#/components/schemas/board"

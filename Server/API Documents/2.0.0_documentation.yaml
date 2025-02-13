@@ -1,0 +1,15 @@
+openapi: 3.0.0
+info:
+  title: TheraHaptics
+  description: |
+    This API allows for the TheraHaptics local application to communicate 
+    with the cloud database to access/modify various Patient/Therapist information.
+  version: 2.0.0
+tags:
+  - name: User
+  - name: Therapist
+  - name: Patient
+paths:
+
+components:
+  schemas:

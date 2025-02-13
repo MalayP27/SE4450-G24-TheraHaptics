@@ -191,26 +191,30 @@ public class UserController: Controller {
             string.IsNullOrEmpty(request.emailAddress) ||
             string.IsNullOrEmpty(request.password) ||
             string.IsNullOrEmpty(request.productKeyId)) {
-                return BadRequest("All fields are required.");
+                return BadRequest(new { error = "All fields are required." });
         }
+
+        // Canonicalize the email address
+        request.emailAddress = request.emailAddress.ToLower();
+
         // Validate email address
         if (!IsValidEmail(request.emailAddress)) {
-            return BadRequest("Invalid email address.");
+            return BadRequest(new { error = "Invalid email address."});
         }
         
         // Check if email address is already registered
         var existingTherapist = await _mongoDBService.GetTherapistByEmailAsync(request.emailAddress);
         if (existingTherapist != null) {
-            return BadRequest("The email address you entered is already associated with an existing account. Please try signing in or use a different email address to register.");
+            return Conflict(new { error = "The email address is already in use. Please sign in or use a different email." });
         }
 
         // Validate product key ID
         if (!ObjectId.TryParse(request.productKeyId, out ObjectId _)) {
-            return BadRequest("Invalid product key ID format.");
+            return BadRequest(new { error = "Invalid product key ID format." });
         }
         // Validate password strength
         if (!IsValidPassword(request.password)) {
-            return BadRequest("Password must be at least 8 characters long, contain at least one capital letter, one digit, and at least one special character.");
+            return BadRequest(new { error = "Password must be at least 8 characters long, contain at least one capital letter, one digit, and one special character." });
         }
 
          // Generate salt and hash the password
@@ -220,10 +224,10 @@ public class UserController: Controller {
         // Check if product key exists and is not activated
         var productKeyObj = await _mongoDBService.GetProductKeyByIdAsync(request.productKeyId);
         if (productKeyObj == null) {
-            return BadRequest("Product key not found.");
+            return NotFound(new { error = "Product key not found."});
         }
         if (productKeyObj.isActivated) {
-            return BadRequest("Product key already activated.");
+            return Conflict(new { error = "Product key has already been activated." });
         }
 
         // Creating objects to save into DB
@@ -269,29 +273,29 @@ public class UserController: Controller {
         return Ok(therapist);
     }
 
+    // When user's try to login they will use this endpoint
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginDto request)
-    {
+    public async Task<IActionResult> Login([FromBody] LoginDto request) {
         // Validate input
         if (request == null ||
             string.IsNullOrEmpty(request.emailAddress) ||
-            string.IsNullOrEmpty(request.password))
-        {
-            return BadRequest("All fields are required.");
+            string.IsNullOrEmpty(request.password)) {
+            return BadRequest(new { error = "All fields are required." });
         }
+
+        // Canonicalize the email address
+        request.emailAddress = request.emailAddress.ToLower();
 
         // Retrieve the user from the database
         var user = await _mongoDBService.GetUserByEmailAsync(request.emailAddress);
-        if (user == null)
-        {
-            return Unauthorized("Invalid email address or password.");
+        if (user == null) {
+            return NotFoundnew { error = "User not found. Please check your email or sign up." });
         }
 
         // Verify the password
         var computeHashedPassword = HashPassword(request.password, user.passwordSalt);
-        if (computeHashedPassword != user.passwordHash)
-        {
-            return Unauthorized("Invalid email address or password.");
+        if (computeHashedPassword != user.passwordHash) {
+            return Unauthorized(new { error = "Invalid email or password." });
         }
 
         // Update lastLoggedIn field
@@ -302,8 +306,7 @@ public class UserController: Controller {
         var token = GenerateJwtToken(user);
 
         // Set the token in a secure, HTTP-only cookie
-        Response.Cookies.Append("jwt", token, new CookieOptions
-        {
+        Response.Cookies.Append("jwt", token, new CookieOptions {
             HttpOnly = true,
             Secure = true, // Ensure Secure flag is set for HTTPS
             SameSite = SameSiteMode.Strict,
@@ -314,36 +317,33 @@ public class UserController: Controller {
         return Ok(new { Token = token, Role = user.role });
     }
 
-
+    // When users log out, this endpoint deletes the cookies
     [HttpPost("logout")]
     public IActionResult Logout() {
         // Clear the JWT token from the cookie
         Response.Cookies.Delete("jwt");
 
-        return Ok("Logged out successfully.");
+        return NoContent();
     }
 
 
-
+    // When a user isn't authenticated yet, they will use this endpoint to reset password.
     [HttpPost("forgotPassword")]
-    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request)
-    {
+    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request) {
         var emailAddress = request.EmailAddress; // Extract email from DTO
 
-        // Debug log
-        System.Console.WriteLine(emailAddress);
-
         // Validate email input
-        if (string.IsNullOrEmpty(emailAddress) || !IsValidEmail(emailAddress))
-        {
-            return BadRequest("Invalid email address.");
+        if (string.IsNullOrEmpty(emailAddress) || !IsValidEmail(emailAddress)) {
+            return BadRequest(new { error = "Invalid email address format." });
         }
+
+        // Canonicalize the email address
+        request.emailAddress = request.emailAddress.ToLower();
 
         // Check if user exists
         var user = await _mongoDBService.GetUserByEmailAsync(emailAddress);
-        if (user == null)
-        {
-            return BadRequest("Email address not associated with any account.");
+        if (user == null) {
+            return NotFound(new { error = "Email address not associated with any account." });
         }
 
         // Generate a temporary password
@@ -357,15 +357,13 @@ public class UserController: Controller {
         user.isTemporaryPassword = true;
         await _mongoDBService.UpdateUserAsync(user);
 
-        try
-        {
+        try {
             SendForgotPasswordEmail(emailAddress, tempPassword);
         }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Failed to send email: {ex.Message}");
+        catch (Exception ex) {
+            return StatusCode(StatusCodes.Status500InternalServerError, new { error = "Failed to send email. Please try again later." });
         }
 
-        return Ok("A temporary password has been sent to your email address.");
+        return Ok(new { message = "A temporary password has been sent to your email address." });
     }
 }

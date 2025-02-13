@@ -51,10 +51,10 @@ public class ProductKeyController: Controller {
     public async Task<IActionResult> Get(string productKey) {
         var productKeyObj = await _mongoDBService.GetProductKeyAsync(productKey);
         if (productKeyObj == null) {
-            return BadRequest("Product key not found.");
+            return NotFound(new { error = "Product key not found." });
         }
         if (productKeyObj.isActivated) {
-            return BadRequest("This product key has already been activated.");
+            return Conflict(new { error = "This product key has already been activated." });
         }
         return Ok(new { productKeyId = productKeyObj.productKeyId });
     }
