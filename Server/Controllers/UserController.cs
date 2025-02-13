@@ -289,7 +289,7 @@ public class UserController: Controller {
         // Retrieve the user from the database
         var user = await _mongoDBService.GetUserByEmailAsync(request.emailAddress);
         if (user == null) {
-            return NotFoundnew { error = "User not found. Please check your email or sign up." });
+            return NotFoundnew ({ error = "User not found. Please check your email or sign up." });
         }
 
         // Verify the password
@@ -330,7 +330,7 @@ public class UserController: Controller {
     // When a user isn't authenticated yet, they will use this endpoint to reset password.
     [HttpPost("forgotPassword")]
     public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto request) {
-        var emailAddress = request.EmailAddress; // Extract email from DTO
+        var emailAddress = request.emailAddress; // Extract email from DTO
 
         // Validate email input
         if (string.IsNullOrEmpty(emailAddress) || !IsValidEmail(emailAddress)) {
