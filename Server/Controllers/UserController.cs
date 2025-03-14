@@ -289,7 +289,7 @@ public class UserController: Controller {
         // Retrieve the user from the database
         var user = await _mongoDBService.GetUserByEmailAsync(request.emailAddress);
         if (user == null) {
-            return NotFound (new { error = "User not found. Please check your email or sign up." });
+            return NotFound(new { error = "User not found. Please check your email or sign up." });
         }
 
         // Verify the password

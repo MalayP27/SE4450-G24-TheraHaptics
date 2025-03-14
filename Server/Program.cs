@@ -24,11 +24,14 @@ builder.Services.Configure<MongoDBSettings>(options => {
     var userCollectionName = builder.Configuration.GetSection("MongoDB:UserCollectionName").Value;
     var therapistCollectionName = builder.Configuration.GetSection("MongoDB:TherapistCollectionName").Value;
     var patientCollectionName = builder.Configuration.GetSection("MongoDB:PatientCollectionName").Value;
+    var exerciseCollectionName = builder.Configuration.GetSection("MongoDB:ExerciseCollectionName").Value;
+    var exerciseProgramCollectionName = builder.Configuration.GetSection("MongoDB:ExerciseProgramCollectionName").Value;
 
     if (string.IsNullOrEmpty(connectionURI) || string.IsNullOrEmpty(databaseName) || 
         string.IsNullOrEmpty(playlistCollectionName) || string.IsNullOrEmpty(productKeyCollectionName) || 
         string.IsNullOrEmpty(userCollectionName) || string.IsNullOrEmpty(therapistCollectionName) || 
-        string.IsNullOrEmpty(patientCollectionName)) {
+        string.IsNullOrEmpty(patientCollectionName) || string.IsNullOrEmpty(exerciseCollectionName) ||
+        string.IsNullOrEmpty(exerciseProgramCollectionName)) {
         throw new ArgumentNullException("One or more MongoDB settings are missing.");
     }
 
@@ -39,6 +42,8 @@ builder.Services.Configure<MongoDBSettings>(options => {
     options.UserCollectionName = userCollectionName;
     options.TherapistCollectionName = therapistCollectionName;
     options.PatientCollectionName = patientCollectionName;
+    options.ExerciseCollectionName = exerciseCollectionName;
+    options.ExerciseProgramCollectionName = exerciseProgramCollectionName;
 });
 
 // Registers MongoDBService.cs as a singleton, this means that the same instance will be used throughout the application
@@ -90,6 +95,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             policy.RequireClaim(ClaimTypes.Role, "patient"));
         options.AddPolicy("TherapistOnly", policy =>
             policy.RequireClaim(ClaimTypes.Role, "therapist"));
+        options.AddPolicy("TherapistAndPatient", policy =>
+            policy.RequireClaim(ClaimTypes.Role, "therapist", "patient"));
     });
 
 // Add services to the container.
@@ -110,6 +117,7 @@ var app = builder.Build();
 
 // Redirects all http traffic to https
 // app.UseHttpsRedirection();
+
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

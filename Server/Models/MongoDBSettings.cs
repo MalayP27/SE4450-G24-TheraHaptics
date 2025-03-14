@@ -9,4 +9,6 @@ public class MongoDBSettings {
     public string UserCollectionName { get; set; } = null!;
     public string TherapistCollectionName { get; set; } = null!;
     public string PatientCollectionName { get; set; } = null!;
+    public string ExerciseCollectionName { get; set; } = null!;
+    public string ExerciseProgramCollectionName { get; set; } = null!;
 }

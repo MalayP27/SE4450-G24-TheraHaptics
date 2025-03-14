@@ -15,6 +15,8 @@ public class MongoDBService {
     private readonly IMongoCollection<User> _userCollection;
     private readonly IMongoCollection<Therapist> _therapistCollection;
     private readonly IMongoCollection<Patient> _patientCollection;
+    private readonly IMongoCollection<Exercise> _exerciseCollection;
+    private readonly IMongoCollection<ExerciseProgram> _exerciseProgramCollection;
 
     public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
@@ -24,6 +26,8 @@ public class MongoDBService {
         _userCollection = database.GetCollection<User>(mongoDBSettings.Value.UserCollectionName);
         _therapistCollection = database.GetCollection<Therapist>(mongoDBSettings.Value.TherapistCollectionName);
         _patientCollection = database.GetCollection<Patient>(mongoDBSettings.Value.PatientCollectionName);
+        _exerciseCollection = database.GetCollection<Exercise>(mongoDBSettings.Value.ExerciseCollectionName);
+        _exerciseProgramCollection = database.GetCollection<ExerciseProgram>(mongoDBSettings.Value.ExerciseProgramCollectionName);
 
         var collections = database.ListCollections().ToList();
         System.Console.WriteLine("Successfully connected to MongoDB. Collections found: " + collections.Count);
@@ -135,4 +139,39 @@ public class MongoDBService {
         var filter = Builders<Patient>.Filter.Eq(p => p.patientId, patient.patientId);
         await _patientCollection.ReplaceOneAsync(filter, patient);
     }
+
+    //Execise Endpoints DB Integration
+    public async Task<Exercise> GetExerciseByIdAsync(string exerciseId) {
+        return await _exerciseCollection.Find(e => e.exerciseId == exerciseId).FirstOrDefaultAsync();
+    }
+    public async Task<Exercise> GetExerciseByNameAsync(string name) {
+        return await _exerciseCollection.Find(e => e.Name == name).FirstOrDefaultAsync();
+    }
+    public async Task UpdateExerciseAsync(Exercise exercise) {
+        var filter = Builders<Exercise>.Filter.Eq(e => e.exerciseId, exercise.exerciseId);
+        await _exerciseCollection.ReplaceOneAsync(filter, exercise);
+    }
+    public async Task<List<Exercise>> GetAllExercisesAsync() {
+        return await _exerciseCollection.Find(e => true).ToListAsync();
+    }
+
+    //Exercise Program Endpoints DB Integration
+    public async Task<ExerciseProgram> GetExerciseProgramByIdAsync(string exerciseProgramId) {
+        return await _exerciseProgramCollection.Find(ep => ep.ProgramID == exerciseProgramId).FirstOrDefaultAsync();
+    }
+
+    public async Task CreateExerciseProgramAsync(ExerciseProgram exerciseProgram) {
+        await _exerciseProgramCollection.InsertOneAsync(exerciseProgram);
+    }
+
+    public async Task UpdateExerciseProgramAsync(ExerciseProgram exerciseProgram) {
+        var filter = Builders<ExerciseProgram>.Filter.Eq(ep => ep.ProgramID, exerciseProgram.ProgramID);
+        await _exerciseProgramCollection.ReplaceOneAsync(filter, exerciseProgram);
+    }
+
+    public async Task DeleteExerciseProgramAsync(string exerciseProgramId) {
+        var filter = Builders<ExerciseProgram>.Filter.Eq(ep => ep.ProgramID, exerciseProgramId);
+        await _exerciseProgramCollection.DeleteOneAsync(filter);
+    }
+    
 }
