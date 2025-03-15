@@ -74,8 +74,8 @@ public class LoginView : MonoBehaviour
     }
 
     // Method for Successful Sign In
-    public void HandleSignInSuccess (bool userType){
-        if(userType == false){
+    public void HandleSignInSuccess (string userType){
+        if(userType == "therapist"){
             SceneManager.LoadScene("TherapistDashboard");
         }
         else{
@@ -97,7 +97,7 @@ public class LoginView : MonoBehaviour
     // ==========ProductKey Scene Methods==========
     // Method for Pressing the Submit Button on the ProductKeyScene
     public void ProductKeySubmitPressed(){
-        //LoginController.xyz(productKey.text)
+        RegisterController.VerifyProductKey(productKey.text);
         Debug.Log("Submit Product Key Pressed");
     }
 
@@ -126,7 +126,8 @@ public class LoginView : MonoBehaviour
     // Method for when the send email button is pressed on the ForgotPassword1 Scene
     public void SendEmailPressed(){
         Debug.Log("Send Email Pressed");
-        // LoginController.xyz(userEmail.text);
+        LoginController.ForgotPassword(userEmail.text);
+
     }
 
     // Method for when the email is sent correctly to go to the next step
@@ -150,8 +151,15 @@ public class LoginView : MonoBehaviour
     // Method for when the Register button is pressed on the RegisterAccount Scene
     public void RegisterSubmitPressed(){
         Debug.Log("Register Submit Pressed");
-        // LoginController.xyz(firstNameInput.text, lastNameInput.text, userEmail.text, userPassword.text, confirmPassword.text);
-    }
+        // Call the Register method in RegisterController with the input values.
+    RegisterController.Register(
+        firstNameInput.text,
+        lastNameInput.text,
+        userEmail.text,
+        userPassword.text,
+        confirmPassword.text
+    );
+}
 
     // Method for Handling a successful account Registration
     public void HandleRegisterSuccess(){

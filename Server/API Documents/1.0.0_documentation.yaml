@@ -232,6 +232,54 @@ paths:
               example:
                 error: "Failed to send email. Please try again later."
 
+  /user/changepassword:
+    put:
+      summary: Change user password
+      description: Allows a user to change their password using a temporary password.
+      tags:
+        - User
+      operationId: change-password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChangePasswordDto"
+      responses:
+        "200":
+          description: "Password changed successfully."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponse"
+        "400":
+          description: "Bad Request - Invalid input."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                missingFields:
+                  value: { error: "All fields are required." }
+                weakPassword:
+                  value: { error: "Password must be at least 8 characters long, contain at least one capital letter, one digit, and one special character." }
+        "401":
+          description: "Unauthorized - Invalid temporary password."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "Invalid email or password."
+        "404":
+          description: "Not Found - User not found."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              example:
+                error: "User not found. Please check your email or sign up."
+
   /therapist/{therapistId}:
     parameters:
       - name: therapistId
@@ -549,6 +597,18 @@ components:
         emailAddress:
           type: string
           example: "john.doe@example.com"
+    ChangePasswordDto:
+      type: object
+      properties:
+        emailAddress:
+          type: string
+          example: "john.doe@example.com"
+        tempPassword:
+          type: string
+          example: "Temp!Pass123"
+        newPassword:
+          type: string
+          example: "New!Pass123"
     LoginResponse:
       type: object
       properties:
@@ -560,6 +620,10 @@ components:
           type: string
           description: "User role (therapist or patient)."
           example: "therapist"
+        isTemporaryPassword:
+          type: boolean
+          description: "Indicates if the user is using a temporary password."
+          example: true
     SuccessResponse:
       type: object
       properties:
