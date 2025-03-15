@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TherapistScenes/TherapistAccount.unity
     guid: 8ee9ab6df17903e4ba36fcbadbd2cb0e
   - enabled: 1
-    path: Assets/Scenes/TherapistScenes/TherapistPatients.unity
+    path: Assets/Scenes/TherapistScenes/TherapistAllPatients.unity
     guid: eb61da24549088e4a929134cac8882af
   - enabled: 1
     path: Assets/Scenes/TherapistScenes/TherapistSinglePatient.unity
