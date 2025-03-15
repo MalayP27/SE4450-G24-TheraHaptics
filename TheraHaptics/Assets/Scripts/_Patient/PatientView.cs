@@ -64,8 +64,8 @@ public class PatientView : MonoBehaviour
         
     }
 
-    // Method to Fill Pie Graph
-    public void fillPieChart(double percentageFilled){
+    // Method to Fill Progress Bars
+    public void fillProgressBar(double percentageFilled){
         
     }
 }

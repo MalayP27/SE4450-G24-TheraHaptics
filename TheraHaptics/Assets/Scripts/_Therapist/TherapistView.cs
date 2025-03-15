@@ -9,17 +9,43 @@ using Unity.VisualScripting;
 
 public class TherapistView : MonoBehaviour
 {
-    // Text Boxes
+
+    // Temp Variables
+    string tempString = "Placeholder";
+    // Account info text boxes
+    [Header("Therapist Account Boxes")]
+    [SerializeField] private TMP_Text nameDataBox;
+    [SerializeField] private TMP_Text dobDataBox;
+    [SerializeField] private TMP_Text phoneDataBox;
+    [SerializeField] private TMP_Text emailDataBox;
+    [SerializeField] private TMP_Text addressDataBox;
+    
+    // Patient text boxes
+    [Header("Patient Info Boxes")]
     [SerializeField] private TMP_Text helloMessage;
     [SerializeField] private TMP_Text[] patientNames;
     [SerializeField] private TMP_Text[] patientJoinDates;
 
-    // Array for Holding which patients are in slots 1 to 5
+    // Array for Holding which patients are in slots 1 to x
     private string[] patientIDs;
 
     // Constructor
     public TherapistView(){
 
+    }
+
+    // ==========Awake Method==========
+    public void Awake()
+    {
+        Scene currentScene = SceneManager.GetActiveScene ();
+        if (currentScene.name=="TherapistAccount"){
+            Debug.Log("This is the TherapistAccount Scene");
+            FillName(tempString/*Zaiyan's Return Therapist Name Function*/);
+            FillDob(tempString/*Zaiyan's Return Therapist DOB Function*/);
+            FillPhoneNum(tempString/*Zaiyan's Return Therapist PhoneNum Function*/);
+            FillEmail(tempString/*Zaiyan's Return Therapist Email Function*/);
+            FillAddress(tempString/*Zaiyan's Return Therapist Address Function*/);
+        }
     }
 
     // ==========Common Methods===========
@@ -35,7 +61,7 @@ public class TherapistView : MonoBehaviour
 
     // Method for "My Patients" Button click
     public void TherapistPatients(){
-        SceneManager.LoadScene("TherapistPatients");
+        SceneManager.LoadScene("TherapistAllPatients");
     }
 
     // Method for "My Account" Button click
@@ -51,6 +77,29 @@ public class TherapistView : MonoBehaviour
     // Method for "Log Out" Button click
     public void TherapistLogOut(){
         SceneManager.LoadScene("SignIn");
+    }
+
+    // ==========TherapistAccount Scene Methods==========
+    // Methods for Populating Therapist info
+
+    public void FillName(string name){
+        nameDataBox.text = "<cspace=-2>Dr.\n<cspace=-2>" + name;
+    }
+    public void FillDob(string dob){
+        dobDataBox.text = dob;
+    }
+    public void FillPhoneNum(string phoneNum){
+        phoneDataBox.text = phoneNum;
+    }
+    public void FillEmail(string email){
+        emailDataBox.text = email;
+    }
+    public void FillAddress(string address){
+        addressDataBox.text = address;
+    }
+
+    public void TherapistChangePassword(){
+        SceneManager.LoadScene("ForgotPassword1");
     }
 
     // ==========TherapistPatients Scene Methods===========

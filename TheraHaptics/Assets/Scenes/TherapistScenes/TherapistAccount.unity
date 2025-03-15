@@ -156,8 +156,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.7, y: 62.9}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: -23.2, y: 52.3787}
+  m_SizeDelta: {x: 352.6275, y: 30.4542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &80354500
 MonoBehaviour:
@@ -206,8 +206,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -501,8 +501,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 117.32489, y: 62.899994}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: 118.824905, y: 52.3788}
+  m_SizeDelta: {x: 352.6275, y: 30.4542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &187067574
 MonoBehaviour:
@@ -551,8 +551,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1041,7 +1041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 70}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402742684
@@ -1089,8 +1089,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1224689402}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PHAccount
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistAccount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1222,8 +1222,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1224689402}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Support
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistSupport
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1305,7 +1305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -41.4}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &870710487
@@ -1491,8 +1491,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1224689402}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: LogOut
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistLogOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1707,9 +1707,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: StartSession
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistChangePassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1791,8 +1791,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.70001, y: 42.491993}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: -23.199995, y: 21.9249}
+  m_SizeDelta: {x: 352.6275, y: 30.4542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018270766
 MonoBehaviour:
@@ -1841,8 +1841,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2000,8 +2000,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 117.32489, y: -20.227295}
-  m_SizeDelta: {x: 352.6275, y: 63.4778}
+  m_AnchoredPosition: {x: 118.824905, y: -39.533}
+  m_SizeDelta: {x: 352.6275, y: 30.454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188334750
 MonoBehaviour:
@@ -2050,8 +2050,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2134,8 +2134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 117.32489, y: 42.491993}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: 118.824905, y: 21.9249}
+  m_SizeDelta: {x: 352.6275, y: 30.4542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1192290863
 MonoBehaviour:
@@ -2184,8 +2184,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2251,7 +2251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1216073931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2322,6 +2322,7 @@ GameObject:
   - component: {fileID: 1224689398}
   - component: {fileID: 1224689397}
   - component: {fileID: 1224689402}
+  - component: {fileID: 1224689401}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -2413,6 +2414,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1224689401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224689396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95766650fdcb3b1488f9a58e8d286365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1224689402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2422,11 +2435,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1224689396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2743cc61af8c2da418f1d982b08ee2d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ad2e8774e3afca4d893e64484873076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchBox: {fileID: 0}
-  personalInfoScreen: {fileID: 0}
+  nameDataBox: {fileID: 114633656}
+  dobDataBox: {fileID: 187067574}
+  phoneDataBox: {fileID: 1192290863}
+  emailDataBox: {fileID: 2013025728}
+  addressDataBox: {fileID: 1188334750}
+  helloMessage: {fileID: 0}
+  patientNames: []
+  patientJoinDates: []
 --- !u!1 &1321501860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2742,7 +2761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 50}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580526133
@@ -2790,8 +2809,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1224689402}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PHPatients
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistPatients
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2873,7 +2892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -19.8}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652415572
@@ -3143,8 +3162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.70001, y: 1.3074951}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: -23.199995, y: -39.53289}
+  m_SizeDelta: {x: 352.6275, y: 30.4542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1777643810
 MonoBehaviour:
@@ -3193,8 +3212,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3402,7 +3421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 90}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000120065
@@ -3450,8 +3469,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1224689402}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PHDashboard
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistDashboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3533,8 +3552,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 117.32489, y: 22.083794}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: 118.824905, y: -8.5293}
+  m_SizeDelta: {x: 352.6275, y: 30.4542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013025728
 MonoBehaviour:
@@ -3583,8 +3602,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3667,8 +3686,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.70001, y: 22.083794}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: -23.199995, y: -8.5293}
+  m_SizeDelta: {x: 352.6275, y: 30.4542}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083538951
 MonoBehaviour:
@@ -3717,8 +3736,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
