@@ -4694,9 +4694,20 @@ MonoBehaviour:
   phoneDataBox: {fileID: 0}
   emailDataBox: {fileID: 0}
   addressDataBox: {fileID: 0}
-  helloMessage: {fileID: 709508207}
   patientNames: []
   patientJoinDates: []
+  patientProgressBars: []
+  patientProgressBarFills: []
+  patientContactButtons: []
+  addPatientScreen: {fileID: 1677491143}
+  firstName: {fileID: 1795162203}
+  lastName: {fileID: 223107963}
+  email: {fileID: 1974817442}
+  diagnosis: {fileID: 152487227}
+  addPatientButton: {fileID: 1048436835}
+  closeButton: {fileID: 1275630607}
+  helloMessage: {fileID: 709508207}
+  searchBar: {fileID: 1604512872}
 --- !u!1 &1253407170
 GameObject:
   m_ObjectHideFlags: 0
@@ -6377,17 +6388,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1677491143}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1621922323
 MonoBehaviour:
