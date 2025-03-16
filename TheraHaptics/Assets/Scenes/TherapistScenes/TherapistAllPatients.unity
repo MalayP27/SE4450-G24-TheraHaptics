@@ -3432,7 +3432,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4516,6 +4516,10 @@ MonoBehaviour:
   lastName: {fileID: 1659805509}
   email: {fileID: 1435805372}
   diagnosis: {fileID: 364920533}
+  reportPatientNames: []
+  reportDates: []
+  reportTypes: []
+  reportViewButtons: []
   helloMessage: {fileID: 0}
   searchBar: {fileID: 1604512872}
 --- !u!114 &1224689403
