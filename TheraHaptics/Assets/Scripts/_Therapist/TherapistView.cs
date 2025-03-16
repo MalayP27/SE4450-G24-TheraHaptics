@@ -46,6 +46,8 @@ public class TherapistView : MonoBehaviour
     [Header("Misc")]
     [SerializeField] private TMP_Text helloMessage;
     [SerializeField] private TMP_InputField searchBar;
+    
+    int listLength;
 
 
     // Array for Holding which patients are in slots 1 to x
@@ -142,7 +144,14 @@ public class TherapistView : MonoBehaviour
     // =====Patient Box=====
     // Method to Populate Patient Names, Dates Joined, IDS, and Progress Bars
     public void FillAllPatients(string[] names, string[] dates, string[] IDs, float[] fills){
-        if(names.Length < 10){
+        if (SceneManager.GetActiveScene ().name == "TherapistAllPatients"){
+            listLength = 10;
+        }
+        if (SceneManager.GetActiveScene ().name == "TherapistDashboard"){
+            listLength = 5;
+
+        }
+        if(names.Length < listLength){
             for (int i = 0; i < names.Length; i++) {
                 patientNames[i].text = names[i];
                 patientJoinDates[i].text = dates[i];
@@ -150,7 +159,7 @@ public class TherapistView : MonoBehaviour
                 Debug.Log(fills[i]);
                 patientIDs[i] = IDs[i];
             }
-            for (int i = names.Length; i < 10; i++) {
+            for (int i = names.Length; i < listLength; i++) {
                 patientNames[i].text = "";
                 patientJoinDates[i].text = "";
                 patientProgressBars[i].SetActive(false);
@@ -158,7 +167,7 @@ public class TherapistView : MonoBehaviour
             }
         }
         else{
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < listLength; i++) {
                 patientNames[i].text = names[i];
                 patientJoinDates[i].text = dates[i];
                 patientProgressBarFills[i].fillAmount = fills[i]/100;
@@ -213,5 +222,6 @@ public class TherapistView : MonoBehaviour
         string searParams = searchBar.text;
         Debug.Log("Search: " + searParams);
         // TherapistController.Search(searchParams);
+        // then call the FillAllPatients
     }
 }
