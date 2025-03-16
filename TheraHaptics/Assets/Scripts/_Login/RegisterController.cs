@@ -11,6 +11,9 @@ public class RegisterController : MonoBehaviour
     public static LoginModel loginModel = new LoginModel();
     [SerializeField] public static LoginView loginView = new LoginView();
 
+    // Static variable to store the therapistId
+    public static string TherapistId { get; private set; }
+
     // This class is used to deserialize the GET response from the product key verification endpoint.
     [Serializable]
     public class ProductKeyResponse
@@ -25,8 +28,9 @@ public class RegisterController : MonoBehaviour
     [Serializable]
     public class RegisterResponse
     {
-        public string token;  // The token returned by the API (if any)
-        public string role;   // Expected to be "therapist" (if provided)
+        public string therapistId;  // The therapist ID returned by the API
+        public string token;        // The token returned by the API (if any)
+        public string role;         // Expected to be "therapist" (if provided)
     }
 
     private void Awake()
@@ -115,18 +119,18 @@ public class RegisterController : MonoBehaviour
         {
             try
             {
-                // *** Updated Endpoint URL ***
                 var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-                // Change the endpoint to call the correct registration route for therapists.
                 HttpResponseMessage response = await client.PostAsync("http://localhost:5089/api/user/therapist", content);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // You can choose to deserialize the response if needed.
-                    // string responseBody = await response.Content.ReadAsStringAsync();
-                    // RegisterResponse registerResponse = JsonUtility.FromJson<RegisterResponse>(responseBody);
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    RegisterResponse registerResponse = JsonUtility.FromJson<RegisterResponse>(responseBody);
 
-                    // Since only therapists can register, we assume success means the therapist was created.
+                    // Assuming the response contains a therapistId field
+                    TherapistId = registerResponse.therapistId;
+                    Debug.Log("Therapist ID: " + TherapistId);
+
                     loginView.HandleRegisterSuccess();
                 }
                 else

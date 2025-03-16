@@ -40,6 +40,8 @@ public class TherapistView : MonoBehaviour
     [SerializeField] private TMP_InputField lastName;
     [SerializeField] private TMP_InputField email;
     [SerializeField] private TMP_InputField diagnosis;
+    [SerializeField] private Button addPatientButton; // Added from TherapistController
+    [SerializeField] private Button closeButton; // Added from TherapistController
 
     [Header("Misc")]
     [SerializeField] private TMP_Text helloMessage;
@@ -77,6 +79,9 @@ public class TherapistView : MonoBehaviour
             FillAllPatients(tempNames, tempDates, tempIDs, tempProgress);
         }
 
+        // Add listeners for buttons
+        addPatientButton.onClick.AddListener(AddPatientButtonPressed);
+        closeButton.onClick.AddListener(CloseAddPatientScreen);
     }
 
     // ==========Common Methods===========
@@ -179,9 +184,28 @@ public class TherapistView : MonoBehaviour
     }
 
     // Method to Confirm Adding Patient
-    public void AddPatientButtonPressed(){
-        // TherapistController.AddPatient(firstName.text, lastName.text, email.text, diagnosis.text);
-        // If it succeeds, call CloseAddPatientScreen();
+    public void AddPatientButtonPressed()
+    {
+        Debug.LogError(RegisterController.TherapistId);
+        string therapistId = RegisterController.TherapistId; // Use the actual therapist ID from RegisterController
+        string firstNameText = firstName.text;
+        string lastNameText = lastName.text;
+        string emailText = email.text;
+        string diagnosisText = diagnosis.text;
+
+        TherapistController.AddPatient(therapistId, firstNameText, lastNameText, emailText, diagnosisText);
+    }
+
+    public void HandleAddPatientError(string errorMessage)
+    {
+        Debug.LogError("Error adding patient: " + errorMessage);
+        // Display error message to the user
+    }
+
+    public void HandleAddPatientSuccess()
+    {
+        Debug.Log("Patient added successfully");
+        CloseAddPatientScreen();
     }
 
     // Method to Search Patients
