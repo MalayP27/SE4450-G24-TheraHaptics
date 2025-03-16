@@ -244,4 +244,38 @@ public class TherapistController: Controller {
         }
         return Ok();
     }
+
+    // View all Reports 
+    [HttpGet("getPatientReports/{patientId}")]
+    public async Task<IActionResult> GetPatientReports(string patientId) {
+        // Validate patient ID format
+        if (!ObjectId.TryParse(patientId, out ObjectId _)) {
+            return BadRequest(new { error = "Invalid patient ID format." });
+        }
+
+        var patient = await _mongoDBService.GetPatientByIdAsync(patientId);
+        if (patient == null) {
+            return NotFound(new { error = "Patient not found." });
+        }
+
+        var reports = await _mongoDBService.GetPatientReportsAsync(patientId);
+        return Ok(reports);
+    }
+
+    // Get Patient List
+    [HttpGet("getPatientList/{therapistId}")]
+    public async Task<IActionResult> GetPatientList(string therapistId) {
+        // Validate therapist ID format
+        if (!ObjectId.TryParse(therapistId, out ObjectId _)) {
+            return BadRequest(new { error = "Invalid therapist ID format." });
+        }
+
+        var therapist = await _mongoDBService.GetTherapistByIdAsync(therapistId);
+        if (therapist == null) {
+            return NotFound(new { error = "Therapist not found." });
+        }
+
+        var patients = await _mongoDBService.GetPatientsByTherapistIdAsync(therapistId);
+        return Ok(patients);
+    }
 }
