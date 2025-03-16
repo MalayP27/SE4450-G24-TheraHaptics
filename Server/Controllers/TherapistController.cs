@@ -245,6 +245,23 @@ public class TherapistController: Controller {
         return Ok();
     }
 
+    // Get Patient List
+    [HttpGet("getPatientList/{therapistId}")]
+    public async Task<IActionResult> GetPatientList(string therapistId) {
+        // Validate therapist ID format
+        if (!ObjectId.TryParse(therapistId, out ObjectId _)) {
+            return BadRequest(new { error = "Invalid therapist ID format." });
+        }
+
+        var therapist = await _mongoDBService.GetTherapistByIdAsync(therapistId);
+        if (therapist == null) {
+            return NotFound(new { error = "Therapist not found." });
+        }
+
+        var patients = await _mongoDBService.GetPatientsByTherapistIdAsync(therapistId);
+        return Ok(patients);
+    }
+    
     // View all Reports 
     [HttpGet("getPatientReports/{patientId}")]
     public async Task<IActionResult> GetPatientReports(string patientId) {
@@ -262,20 +279,5 @@ public class TherapistController: Controller {
         return Ok(reports);
     }
 
-    // Get Patient List
-    [HttpGet("getPatientList/{therapistId}")]
-    public async Task<IActionResult> GetPatientList(string therapistId) {
-        // Validate therapist ID format
-        if (!ObjectId.TryParse(therapistId, out ObjectId _)) {
-            return BadRequest(new { error = "Invalid therapist ID format." });
-        }
-
-        var therapist = await _mongoDBService.GetTherapistByIdAsync(therapistId);
-        if (therapist == null) {
-            return NotFound(new { error = "Therapist not found." });
-        }
-
-        var patients = await _mongoDBService.GetPatientsByTherapistIdAsync(therapistId);
-        return Ok(patients);
-    }
+    
 }

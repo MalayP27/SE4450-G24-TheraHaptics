@@ -6,25 +6,54 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Server.Services;
 using Server.Models;
+using Server.Middleware;
 using MongoDB.Bson;
 using Microsoft.AspNetCore.Authorization;
+using EmailServiceManager;
 
-namespace Server.Controllers; 
-
+namespace Server.Controllers;
 
 [Controller]
 [Route("api/[controller]")]
-
-public class PatientController: Controller {
+public class PatientController : Controller {
     private readonly MongoDBService _mongoDBService;
+    private readonly EmailService _emailService;
 
     public PatientController(MongoDBService mongoDBService) {
         _mongoDBService = mongoDBService;
+        _emailService = new EmailService();
     }
 
+    // Pain Report Email Notification
+    private async Task SendPainReportEmail(string therapistId, Patient patient, PainReport painReport) {
+        try {
+            // Retrieve the therapist using therapistId
+            var therapist = await _mongoDBService.GetTherapistByIdAsync(therapistId);
+            if (therapist == null) {
+                throw new InvalidOperationException($"Therapist with ID {therapistId} not found.");
+            }
 
-    //Patient Registration and Profile Update
-    //[Authorize(Policy = "PatientOnly")]
+            string emailSubject = "New Pain Report from Patient";
+            string emailBody = $@"
+                <p>Dear {therapist.firstName} {therapist.lastName},</p>
+                <p>Your patient, {patient.firstName} {patient.lastName}, has reported a new pain.</p>
+                <p><strong>Description:</strong> {painReport.Description}</p>
+                <p><strong>Pain Level:</strong> {painReport.PainLevel}</p>
+                <p><strong>Date Reported:</strong> {painReport.DateReported}</p>
+                <p>Please log in to the TheraHaptics system to review the full report and take necessary actions.</p>
+                <p>Thank you,</p>
+                <p>The TheraHaptics Team</p>
+            ";
+
+            _emailService.SendEmail(therapist.emailAddress, emailSubject, emailBody);
+        }
+        catch (Exception ex) {
+            throw new InvalidOperationException($"Failed to send pain report email: {ex.Message}", ex);
+        }
+    }
+
+    // Patient Registration and Profile Update
+    [Authorize(Policy = "PatientOnly")]
     [HttpPut("patientRegistration/{patientId}")]
     public async Task<IActionResult> Put(string patientId, [FromBody] PatientUpdateDto request) {
         // Validate patient ID format
@@ -70,14 +99,14 @@ public class PatientController: Controller {
     }
 
     // Get patient by ID
-    [Authorize (Policy = "PatientOnly")]
-    [HttpGet("getPatient/{patientId}")] 
+    [Authorize(Policy = "PatientOnly")]
+    [HttpGet("getPatient/{patientId}")]
     public async Task<IActionResult> Get(string patientId) {
         // Validate patient ID
         if (!ObjectId.TryParse(patientId, out ObjectId _)) {
             return BadRequest(new { error = "Invalid patient ID format." });
         }
-        
+
         var patient = await _mongoDBService.GetPatientByIdAsync(patientId);
         if (patient == null) {
             return NotFound(new { error = "Patient not found." });
@@ -85,10 +114,10 @@ public class PatientController: Controller {
         return Ok(patient);
     }
 
-    // Report Pain -- //TODO: Email notification to therapist
-    [Authorize(Policy = "PatientOnly")]
+    // Report Pain -- Email notification to therapist
+    //[Authorize(Policy = "PatientOnly")]
     [HttpPost("reportPain/{patientId}")]
-    public async Task<IActionResult> Post(string patientId, [FromBody] PainReport request) {
+    public async Task<IActionResult> Post(string patientId, [FromBody] PainReportCreateDto request) {
         // Validate patient ID format
         if (!ObjectId.TryParse(patientId, out _)) {
             return BadRequest(new { error = "Invalid patient ID format." });
@@ -107,23 +136,26 @@ public class PatientController: Controller {
         }
 
         // Create a new PainReport object
-        var painReport = new PainReport(
-            ObjectId.GenerateNewId().ToString(),
-            patientId,
-            request.Description,
-            request.PainLevel,
-            DateTime.Now
-        );
+        var painReport = new PainReport {
+            PainReportID = ObjectId.GenerateNewId().ToString(),
+            PatientID = patientId,
+            Description = request.Description,
+            PainLevel = request.PainLevel,
+            DateReported = DateTime.Now
+        };
 
         // Save the new pain report to the database
         await _mongoDBService.CreatePainReportAsync(painReport);
 
+        // Send email notification to the therapist
+        await SendPainReportEmail(patient.therapistId, patient, painReport);
+
         return Ok(new {
-            message = "Pain report created successfully.",
+            message = "Pain report created and sent successfully.",
             painReport
         });
     }
-    
+
     // View All Patient's Reports
     [Authorize(Policy = "PatientOnly")]
     [HttpGet("getPainReports/{patientId}")]
@@ -141,5 +173,4 @@ public class PatientController: Controller {
         var painReports = await _mongoDBService.GetPainReportsByPatientIdAsync(patientId);
         return Ok(painReports);
     }
-    
 }

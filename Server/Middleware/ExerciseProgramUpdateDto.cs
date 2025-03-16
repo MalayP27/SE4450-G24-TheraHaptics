@@ -6,7 +6,7 @@ public class ExerciseProgramUpdateDto {
     public List<string> Exercises { get; set; } = new List<string>();
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public string DoctorsNotes { get; set; } = null!;
+    public string PlanGoals { get; set; } = null!;
     public string Intensity { get; set; } = null!;
     public int EstimatedTime { get; set; } // Estimated time in minutes
 }

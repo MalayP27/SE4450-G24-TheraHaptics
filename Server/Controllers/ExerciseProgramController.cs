@@ -44,7 +44,7 @@ public class ExerciseProgramController : Controller {
             request.Exercises == null ||
             request.StartDate == default ||
             request.EndDate == default ||
-            string.IsNullOrEmpty(request.DoctorsNotes) ||
+            string.IsNullOrEmpty(request.PlanGoals) ||
             string.IsNullOrEmpty(request.Intensity) ||
             request.EstimatedTime <= 0) {
             return BadRequest(new { error = "All fields are required and must be valid." });
@@ -57,7 +57,7 @@ public class ExerciseProgramController : Controller {
             request.Exercises,
             request.StartDate,
             request.EndDate,
-            request.DoctorsNotes,
+            request.PlanGoals,
             request.Intensity,
             request.EstimatedTime
         );
@@ -85,7 +85,13 @@ public class ExerciseProgramController : Controller {
             return NotFound(new { error = "Exercise not found." });
         }
 
-        exerciseProgram.Exercises.Add(exercise.exerciseId);
+        if (exercise.exerciseId != null) {
+            exerciseProgram.Exercises.Add(exercise.exerciseId);
+        } 
+        else 
+        {
+            return BadRequest(new { error = "Exercise ID is null." });
+        }
         await _mongoDBService.UpdateExerciseProgramAsync(exerciseProgram);
 
         return Ok(new { message = "Exercise added to program successfully.", exerciseProgram });
@@ -146,7 +152,7 @@ public class ExerciseProgramController : Controller {
             request.Exercises == null ||
             request.StartDate == default ||
             request.EndDate == default ||
-            string.IsNullOrEmpty(request.DoctorsNotes) ||
+            string.IsNullOrEmpty(request.PlanGoals) ||
             string.IsNullOrEmpty(request.Intensity) ||
             request.EstimatedTime <= 0) {
             return BadRequest(new { error = "All fields are required and must be valid." });
@@ -162,7 +168,7 @@ public class ExerciseProgramController : Controller {
         exerciseProgram.Exercises = request.Exercises;
         exerciseProgram.StartDate = request.StartDate;
         exerciseProgram.EndDate = request.EndDate;
-        exerciseProgram.DoctorsNotes = request.DoctorsNotes;
+        exerciseProgram.PlanGoals = request.PlanGoals;
         exerciseProgram.Intensity = request.Intensity;
         exerciseProgram.EstimatedTime = request.EstimatedTime;
 

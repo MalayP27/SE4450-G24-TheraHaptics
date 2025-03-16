@@ -303,11 +303,20 @@ public class UserController: Controller {
         await _mongoDBService.UpdateUserAsync(user);
 
         // Retrieve the therapistId if the user is a therapist
-        string therapistId = null;
+        string? therapistId = null;
         if (user.role == "therapist") {
             var therapist = await _mongoDBService.GetTherapistByEmailAsync(request.emailAddress);
             if (therapist != null) {
                 therapistId = therapist.therapistId;
+            }
+        }
+
+        // Retrieve the patientId if the user is a patient
+        string? patientId = null;
+        if (user.role == "patient") {
+            var patient = await _mongoDBService.GetPatientByEmailAsync(request.emailAddress);
+            if (patient != null) {
+                patientId = patient.patientId;
             }
         }
 

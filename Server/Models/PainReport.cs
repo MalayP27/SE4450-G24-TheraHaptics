@@ -21,6 +21,9 @@ public class PainReport {
     [BsonElement("date_reported")]
     public DateTime DateReported { get; set; }
 
+    // Default constructor
+    public PainReport() { }
+
     [JsonConstructor]
     public PainReport(string painReportID, string patientID, string description, int painLevel, DateTime dateReported) {
         this.PainReportID = painReportID ?? throw new ArgumentNullException(nameof(painReportID));
