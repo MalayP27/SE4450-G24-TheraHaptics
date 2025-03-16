@@ -4828,6 +4828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameDataBox: {fileID: 0}
+  genderDataBox: {fileID: 0}
   dobDataBox: {fileID: 0}
   phoneDataBox: {fileID: 0}
   emailDataBox: {fileID: 0}
@@ -4867,6 +4868,7 @@ MonoBehaviour:
   lastName: {fileID: 223107963}
   email: {fileID: 1974817442}
   diagnosis: {fileID: 152487227}
+  addPatientButton: {fileID: 1048436835}
   reportPatientNames: []
   reportDates: []
   reportTypes: []
@@ -4882,6 +4884,14 @@ MonoBehaviour:
   repsBoxes: []
   XButtons: []
   intensitySlider: {fileID: 0}
+  patientExercises: {fileID: 0}
+  patientExerciseCompletions: {fileID: 0}
+  exerciseProgressBarFills: []
+  totalProgressBarFill: {fileID: 0}
+  planCompleted: {fileID: 0}
+  activityLog: {fileID: 0}
+  lastTime: {fileID: 0}
+  exercisesCompleted: {fileID: 0}
   helloMessage: {fileID: 709508207}
   searchBar: {fileID: 1604512872}
   errorMessage: {fileID: 0}
