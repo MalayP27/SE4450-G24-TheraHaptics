@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &24014082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1321196346215847962, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 414003856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &45380957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,7 +1767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 70}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402742684
@@ -1803,9 +1814,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PHAccount
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistAccount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2042,9 +2053,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Support
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistSupport
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2092,6 +2103,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513191848}
   m_CullTransparentMesh: 1
+--- !u!114 &516536728 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7851171343414670212, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 335211555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &593585192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1321196346215847962, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1126842759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &600182744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7851171343414670212, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1084225146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &666778683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2194,6 +2238,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5559880611821864433, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
   m_PrefabInstance: {fileID: 666778683}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &680313630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1321196346215847962, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1084225146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &709508205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,6 +2651,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817363006}
   m_CullTransparentMesh: 1
+--- !u!114 &838566712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 809053054552593103, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 666778683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &858339075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2785,7 +2851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -41.4}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &870710487
@@ -2887,6 +2953,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870710485}
   m_CullTransparentMesh: 1
+--- !u!114 &876771652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 809053054552593103, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1126842759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &880906259
 GameObject:
   m_ObjectHideFlags: 0
@@ -3104,9 +3181,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: LogOut
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistLogOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3501,6 +3578,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927962770}
   m_CullTransparentMesh: 1
+--- !u!1 &943994271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5007617818735405141, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1126842759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &991094239
 GameObject:
   m_ObjectHideFlags: 0
@@ -3635,6 +3717,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991094239}
   m_CullTransparentMesh: 1
+--- !u!114 &1014638584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 809053054552593103, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 414003856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1031057503
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,6 +4193,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110287083}
   m_CullTransparentMesh: 1
+--- !u!114 &1120286600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 809053054552593103, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 335211555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1126842759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4202,6 +4306,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5559880611821864433, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
   m_PrefabInstance: {fileID: 1126842759}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1129161130 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7851171343414670212, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 414003856}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1139916707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1321196346215847962, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 666778683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1168045758
 GameObject:
   m_ObjectHideFlags: 0
@@ -4551,7 +4677,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistPatients
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1214928404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4694,9 +4832,76 @@ MonoBehaviour:
   phoneDataBox: {fileID: 0}
   emailDataBox: {fileID: 0}
   addressDataBox: {fileID: 0}
+  patientNames:
+  - {fileID: 24014082}
+  - {fileID: 1139916707}
+  - {fileID: 1234692687}
+  - {fileID: 593585192}
+  - {fileID: 680313630}
+  patientJoinDates:
+  - {fileID: 1014638584}
+  - {fileID: 838566712}
+  - {fileID: 1120286600}
+  - {fileID: 876771652}
+  - {fileID: 1941820414}
+  patientProgressBars:
+  - {fileID: 1526299955}
+  - {fileID: 1838332134}
+  - {fileID: 1256195889}
+  - {fileID: 2080934654}
+  - {fileID: 1270844531}
+  patientProgressBarFills:
+  - {fileID: 1129161130}
+  - {fileID: 1386417131}
+  - {fileID: 516536728}
+  - {fileID: 2146536190}
+  - {fileID: 600182744}
+  patientContactButtons:
+  - {fileID: 1380885352}
+  - {fileID: 1622858882}
+  - {fileID: 1245685749}
+  - {fileID: 943994271}
+  - {fileID: 1433204040}
+  addPatientScreen: {fileID: 1677491143}
+  firstName: {fileID: 1795162203}
+  lastName: {fileID: 223107963}
+  email: {fileID: 1974817442}
+  diagnosis: {fileID: 152487227}
+  reportPatientNames: []
+  reportDates: []
+  reportTypes: []
+  reportViewButtons: []
+  exerciseChoices: []
+  planExercises: []
+  times: []
+  reps: []
+  startDate: {fileID: 0}
+  endDate: {fileID: 0}
+  doctorsNotes: {fileID: 0}
+  timeBoxes: []
+  repsBoxes: []
+  XButtons: []
+  intensitySlider: {fileID: 0}
   helloMessage: {fileID: 709508207}
-  patientNames: []
-  patientJoinDates: []
+  searchBar: {fileID: 1604512872}
+  errorMessage: {fileID: 0}
+  errorMessageText: {fileID: 0}
+--- !u!114 &1234692687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1321196346215847962, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 335211555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1245685749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5007617818735405141, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 335211555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1253407170
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,6 +4954,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &1256195889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 280156953281348092, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 335211555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1270844531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 280156953281348092, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1084225146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1275630605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4831,9 +5046,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: HidePersonalInfo
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: CloseAddPatientScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5098,13 +5313,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: CreateExerciseProgram
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5491,6 +5706,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &1380885352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5007617818735405141, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 414003856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1386417131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7851171343414670212, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 666778683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1427326927
 GameObject:
   m_ObjectHideFlags: 0
@@ -5574,13 +5805,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: ViewAllReports
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5624,6 +5855,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427326927}
   m_CullTransparentMesh: 1
+--- !u!1 &1433204040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5007617818735405141, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1084225146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1480149175
 GameObject:
   m_ObjectHideFlags: 0
@@ -5906,6 +6142,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490808478}
   m_CullTransparentMesh: 1
+--- !u!1 &1526299955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 280156953281348092, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 414003856}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1532121873
 GameObject:
   m_ObjectHideFlags: 0
@@ -6010,7 +6251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 50}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580526133
@@ -6057,9 +6298,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PHPatients
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistPatients
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6208,9 +6449,9 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PatientSearch
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: SearchPatients
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6377,13 +6618,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: AddPatient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6427,6 +6668,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621922320}
   m_CullTransparentMesh: 1
+--- !u!1 &1622858882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5007617818735405141, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 666778683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1635395560
 GameObject:
   m_ObjectHideFlags: 0
@@ -6595,7 +6841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -19.8}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652415572
@@ -7452,6 +7698,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833725322}
   m_CullTransparentMesh: 1
+--- !u!1 &1838332134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 280156953281348092, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 666778683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941820414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 809053054552593103, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1084225146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1953824233
 GameObject:
   m_ObjectHideFlags: 0
@@ -7847,7 +8109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 90}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000120065
@@ -7894,9 +8156,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PHDashboard
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: TherapistDashboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7944,6 +8206,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000120063}
   m_CullTransparentMesh: 1
+--- !u!1 &2080934654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 280156953281348092, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1126842759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2094099391
 GameObject:
   m_ObjectHideFlags: 0
@@ -8036,6 +8303,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2146536190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7851171343414670212, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+  m_PrefabInstance: {fileID: 1126842759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

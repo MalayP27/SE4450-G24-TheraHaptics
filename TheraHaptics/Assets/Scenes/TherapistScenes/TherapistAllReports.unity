@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1224689403}
         m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
         m_MethodName: TherapistAccount
         m_Mode: 1
@@ -2430,7 +2430,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1224689403}
         m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
         m_MethodName: TherapistSupport
         m_Mode: 1
@@ -3872,7 +3872,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1224689403}
         m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
         m_MethodName: TherapistLogOut
         m_Mode: 1
@@ -4014,7 +4014,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5676,6 +5676,8 @@ GameObject:
   - component: {fileID: 1224689399}
   - component: {fileID: 1224689398}
   - component: {fileID: 1224689401}
+  - component: {fileID: 1224689403}
+  - component: {fileID: 1224689402}
   m_Layer: 5
   m_Name: UICanvas
   m_TagString: Untagged
@@ -5767,6 +5769,91 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1224689402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224689396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95766650fdcb3b1488f9a58e8d286365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1224689403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224689396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad2e8774e3afca4d893e64484873076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameDataBox: {fileID: 0}
+  dobDataBox: {fileID: 0}
+  phoneDataBox: {fileID: 0}
+  emailDataBox: {fileID: 0}
+  addressDataBox: {fileID: 0}
+  patientNames: []
+  patientJoinDates: []
+  patientProgressBars: []
+  patientProgressBarFills: []
+  patientContactButtons: []
+  addPatientScreen: {fileID: 0}
+  firstName: {fileID: 0}
+  lastName: {fileID: 0}
+  email: {fileID: 0}
+  diagnosis: {fileID: 0}
+  reportPatientNames:
+  - {fileID: 131246551}
+  - {fileID: 1816989160}
+  - {fileID: 1794000911}
+  - {fileID: 1102779666}
+  - {fileID: 1105939320}
+  - {fileID: 338935346}
+  - {fileID: 471073346}
+  - {fileID: 1950442130}
+  - {fileID: 546603327}
+  - {fileID: 1023232461}
+  reportDates:
+  - {fileID: 28383221}
+  - {fileID: 1078320057}
+  - {fileID: 1424478524}
+  - {fileID: 724626108}
+  - {fileID: 1336953535}
+  - {fileID: 53630562}
+  - {fileID: 1350825438}
+  - {fileID: 436057796}
+  - {fileID: 510872995}
+  - {fileID: 1886725756}
+  reportTypes:
+  - {fileID: 1881719026}
+  - {fileID: 1426300647}
+  - {fileID: 898896021}
+  - {fileID: 1098688242}
+  - {fileID: 1625683052}
+  - {fileID: 1169951537}
+  - {fileID: 880489005}
+  - {fileID: 1529180634}
+  - {fileID: 1821486899}
+  - {fileID: 1948755395}
+  reportViewButtons:
+  - {fileID: 596967329}
+  - {fileID: 1303710078}
+  - {fileID: 740201365}
+  - {fileID: 1515714103}
+  - {fileID: 1764623681}
+  - {fileID: 2030440525}
+  - {fileID: 1272028195}
+  - {fileID: 1606196859}
+  - {fileID: 980687525}
+  - {fileID: 2047711648}
+  helloMessage: {fileID: 0}
+  searchBar: {fileID: 1604512872}
 --- !u!1 &1272028195
 GameObject:
   m_ObjectHideFlags: 0
@@ -7547,7 +7634,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1224689403}
         m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
         m_MethodName: TherapistPatients
         m_Mode: 1
@@ -7698,9 +7785,9 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1224689403}
         m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
-        m_MethodName: SearchPatients
+        m_MethodName: SearchReports
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10382,7 +10469,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1224689403}
         m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
         m_MethodName: TherapistDashboard
         m_Mode: 1
