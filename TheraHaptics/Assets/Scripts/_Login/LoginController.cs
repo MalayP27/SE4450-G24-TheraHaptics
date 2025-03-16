@@ -18,6 +18,7 @@ public class LoginController : MonoBehaviour
         public string token;              // The token returned by the API.
         public string role;               // The role returned by the API (e.g., "patient" or "therapist")
         public bool isTemporaryPassword;  // Indicates whether the user has a temporary password.
+        public string therapistId;        // The therapist ID returned by the API (if role is "therapist")
     }
 
     // DTO class for Forgot Password payload (note: field names match server expectation)
@@ -79,6 +80,13 @@ public class LoginController : MonoBehaviour
                     }
                     else
                     {
+                        // Store therapistId if the role is "therapist"
+                        if (loginResponse.role == "therapist")                        
+                        {
+                            RegisterController.TherapistId = loginResponse.therapistId;
+                            Debug.Log("Therapist ID: " + RegisterController.TherapistId);
+                        }
+
                         // Continue with the normal sign-in flow.
                         loginView.HandleSignInSuccess(loginResponse.role);
                     }

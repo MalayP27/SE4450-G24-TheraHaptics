@@ -195,7 +195,6 @@ public class TherapistView : MonoBehaviour
     // Method to Confirm Adding Patient
     public void AddPatientButtonPressed()
     {
-        Debug.LogError(RegisterController.TherapistId);
         string therapistId = RegisterController.TherapistId; // Use the actual therapist ID from RegisterController
         string firstNameText = firstName.text;
         string lastNameText = lastName.text;
