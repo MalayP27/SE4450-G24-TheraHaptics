@@ -302,6 +302,15 @@ public class UserController: Controller {
         user.lastLoggedIn = DateTime.UtcNow;
         await _mongoDBService.UpdateUserAsync(user);
 
+        // Retrieve the therapistId if the user is a therapist
+        string therapistId = null;
+        if (user.role == "therapist") {
+            var therapist = await _mongoDBService.GetTherapistByEmailAsync(request.emailAddress);
+            if (therapist != null) {
+                therapistId = therapist.therapistId;
+            }
+        }
+
         // Generate JWT token
         var token = GenerateJwtToken(user);
 
@@ -314,7 +323,7 @@ public class UserController: Controller {
         });
 
         // Return the JWT token as part of the response
-        return Ok(new { Token = token, Role = user.role, IsTemporaryPassword = user.isTemporaryPassword });
+        return Ok(new { Token = token, Role = user.role, IsTemporaryPassword = user.isTemporaryPassword, TherapistId = therapistId });
     }
 
     // When users log out, this endpoint deletes the cookies
