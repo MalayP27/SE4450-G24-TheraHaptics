@@ -1945,6 +1945,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7851171343414670212, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.58
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4685,6 +4689,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ad2e8774e3afca4d893e64484873076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameDataBox: {fileID: 0}
+  dobDataBox: {fileID: 0}
+  phoneDataBox: {fileID: 0}
+  emailDataBox: {fileID: 0}
+  addressDataBox: {fileID: 0}
   helloMessage: {fileID: 709508207}
   patientNames: []
   patientJoinDates: []
