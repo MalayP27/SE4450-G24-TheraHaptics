@@ -17,6 +17,7 @@ public class MongoDBService {
     private readonly IMongoCollection<Patient> _patientCollection;
     private readonly IMongoCollection<Exercise> _exerciseCollection;
     private readonly IMongoCollection<ExerciseProgram> _exerciseProgramCollection;
+    private readonly IMongoCollection<PainReport> _painReportCollection;
 
     public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
@@ -28,6 +29,7 @@ public class MongoDBService {
         _patientCollection = database.GetCollection<Patient>(mongoDBSettings.Value.PatientCollectionName);
         _exerciseCollection = database.GetCollection<Exercise>(mongoDBSettings.Value.ExerciseCollectionName);
         _exerciseProgramCollection = database.GetCollection<ExerciseProgram>(mongoDBSettings.Value.ExerciseProgramCollectionName);
+        _painReportCollection = database.GetCollection<PainReport>(mongoDBSettings.Value.PainReportCollectionName);
 
         var collections = database.ListCollections().ToList();
         System.Console.WriteLine("Successfully connected to MongoDB. Collections found: " + collections.Count);
@@ -113,6 +115,10 @@ public class MongoDBService {
         await _therapistCollection.UpdateOneAsync(filter, update);
     }
 
+    public async Task<List<Patient>> GetPatientsByTherapistIdAsync(string therapistId) {
+    return await _patientCollection.Find(p => p.therapistId == therapistId).ToListAsync();
+    }
+
     public async Task DeleteTherapistAsync(string therapistId) {
         var filter = Builders<Therapist>.Filter.Eq(t => t.therapistId, therapistId);
         await _therapistCollection.DeleteOneAsync(filter);
@@ -174,4 +180,17 @@ public class MongoDBService {
         await _exerciseProgramCollection.DeleteOneAsync(filter);
     }
     
+
+    // Pain Report Endpoints DB Integration
+    public async Task CreatePainReportAsync(PainReport painReport) {
+        await _painReportCollection.InsertOneAsync(painReport);
+    }
+
+    public async Task<List<PainReport>> GetPainReportsByPatientIdAsync(string patientId) {
+        return await _painReportCollection.Find(pr => pr.PatientID == patientId).ToListAsync();
+    }
+
+    public async Task<List<PainReport>> GetPatientReportsAsync(string patientId) {
+    return await _painReportCollection.Find(pr => pr.PatientID == patientId).ToListAsync();
+}
 }

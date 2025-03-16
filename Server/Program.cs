@@ -26,12 +26,13 @@ builder.Services.Configure<MongoDBSettings>(options => {
     var patientCollectionName = builder.Configuration.GetSection("MongoDB:PatientCollectionName").Value;
     var exerciseCollectionName = builder.Configuration.GetSection("MongoDB:ExerciseCollectionName").Value;
     var exerciseProgramCollectionName = builder.Configuration.GetSection("MongoDB:ExerciseProgramCollectionName").Value;
+    var painReportCollectionName = builder.Configuration.GetSection("MongoDB:PainReportCollectionName").Value;
 
     if (string.IsNullOrEmpty(connectionURI) || string.IsNullOrEmpty(databaseName) || 
         string.IsNullOrEmpty(playlistCollectionName) || string.IsNullOrEmpty(productKeyCollectionName) || 
         string.IsNullOrEmpty(userCollectionName) || string.IsNullOrEmpty(therapistCollectionName) || 
         string.IsNullOrEmpty(patientCollectionName) || string.IsNullOrEmpty(exerciseCollectionName) ||
-        string.IsNullOrEmpty(exerciseProgramCollectionName)) {
+        string.IsNullOrEmpty(exerciseProgramCollectionName) || string.IsNullOrEmpty(painReportCollectionName)) {
         throw new ArgumentNullException("One or more MongoDB settings are missing.");
     }
 
@@ -44,6 +45,7 @@ builder.Services.Configure<MongoDBSettings>(options => {
     options.PatientCollectionName = patientCollectionName;
     options.ExerciseCollectionName = exerciseCollectionName;
     options.ExerciseProgramCollectionName = exerciseProgramCollectionName;
+    options.PainReportCollectionName = painReportCollectionName;
 });
 
 // Registers MongoDBService.cs as a singleton, this means that the same instance will be used throughout the application

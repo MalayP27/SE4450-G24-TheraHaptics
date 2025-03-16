@@ -11,4 +11,5 @@ public class MongoDBSettings {
     public string PatientCollectionName { get; set; } = null!;
     public string ExerciseCollectionName { get; set; } = null!;
     public string ExerciseProgramCollectionName { get; set; } = null!;
+    public string PainReportCollectionName { get; set; } = null!;
 }

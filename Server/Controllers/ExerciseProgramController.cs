@@ -90,6 +90,8 @@ public class ExerciseProgramController : Controller {
 
         return Ok(new { message = "Exercise added to program successfully.", exerciseProgram });
     }
+
+
     // Remove an exercise from an exercise program
     [Authorize(Policy = "TherapistOnly")]
     [HttpDelete("removeExerciseFromProgram/{exerciseProgramId}/{exerciseId}")]
