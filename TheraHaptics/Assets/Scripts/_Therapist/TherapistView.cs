@@ -306,7 +306,7 @@ public class TherapistView : MonoBehaviour
         addPatientScreen.SetActive(false);
     }
 
-<<<<<<< HEAD
+
     // Method to Confirm Adding Patient
     public void AddPatientButtonPressed()
     {
@@ -333,8 +333,6 @@ public class TherapistView : MonoBehaviour
         // then call the FillAllPatients
     }
 
-=======
->>>>>>> main
     // ==========TherapistAllReports Scene Methods==========
     // Method to Fill All Report Info
     public void FillAllReports(string[] patientNames, string[] dates, string[] types, string[] reportIDs){
