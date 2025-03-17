@@ -3966,13 +3966,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
+        m_MethodName: AddPatientButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4896,6 +4896,7 @@ MonoBehaviour:
   searchBar: {fileID: 1604512872}
   errorMessage: {fileID: 0}
   errorMessageText: {fileID: 0}
+  patientDropdown: {fileID: 0}
 --- !u!114 &1234692687 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1321196346215847962, guid: 19c0faf0b36267149aa90a7cb533afc4, type: 3}
