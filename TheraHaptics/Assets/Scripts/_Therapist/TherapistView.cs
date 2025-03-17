@@ -67,6 +67,7 @@ public class TherapistView : MonoBehaviour
     [SerializeField] private TMP_InputField lastName;
     [SerializeField] private TMP_InputField email;
     [SerializeField] private TMP_InputField diagnosis;
+    [SerializeField] private Button addPatientButton; // Added from TherapistController
 
     [Header("All Reports Object lists")]
     [SerializeField] private TMP_Text[] reportPatientNames;
@@ -165,6 +166,7 @@ public class TherapistView : MonoBehaviour
         if (currentScene.name=="TherapistDashboard"){
             Debug.Log("This is the TherapistDashboard Scene");
             FillAllPatients(tempNames, tempDates, tempIDs, tempProgress);
+            setWelcomeMessage("Hi " + tempString/*Zaiyan's Return Therapist Name Function*/);
         }
         if (currentScene.name=="TherapistSinglePatient"){
             Debug.Log("This is the TherapistSinglePatient Scene");
@@ -187,6 +189,8 @@ public class TherapistView : MonoBehaviour
             activityLog.text = tempString;
         }
 
+        // Add listeners for buttons
+        addPatientButton.onClick.AddListener(AddPatientButtonPressed);
     }
 
     // ==========Common Methods===========
@@ -221,7 +225,7 @@ public class TherapistView : MonoBehaviour
     }
 
     // ==========TherapistAccount Scene Methods==========
-    // Methods for Populating Therapist info
+    // Methods for Populating info boxes
     public void FillName(string name, int type){
         if (type == 0){
             nameDataBox.text = "<cspace=-2>Patient: " + name;
@@ -302,10 +306,23 @@ public class TherapistView : MonoBehaviour
         addPatientScreen.SetActive(false);
     }
 
+
     // Method to Confirm Adding Patient
-    public void AddPatientButtonPressed(){
-        // TherapistController.AddPatient(firstName.text, lastName.text, email.text, diagnosis.text);
-        // If it succeeds, call CloseAddPatientScreen();
+    public void AddPatientButtonPressed()
+    {
+        string therapistId = RegisterController.TherapistId; // Use the actual therapist ID from RegisterController
+        string firstNameText = firstName.text;
+        string lastNameText = lastName.text;
+        string emailText = email.text;
+        string diagnosisText = diagnosis.text;
+        
+        TherapistController.AddPatient(therapistId, firstNameText, lastNameText, emailText, diagnosisText);
+    }
+
+    // Method to Confirm Adding Patient
+    public void HandleAddPatientError(string errorMessageTextReturn){
+        errorMessageText.text = errorMessageTextReturn;
+        errorMessage.SetActive(true);
     }
 
     // Method to Search Patients
