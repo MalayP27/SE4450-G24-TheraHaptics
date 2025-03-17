@@ -67,6 +67,7 @@ public class TherapistView : MonoBehaviour
     [SerializeField] private TMP_InputField lastName;
     [SerializeField] private TMP_InputField email;
     [SerializeField] private TMP_InputField diagnosis;
+    [SerializeField] private Button addPatientButton; // Added from TherapistController
 
     [Header("All Reports Object lists")]
     [SerializeField] private TMP_Text[] reportPatientNames;
@@ -188,6 +189,8 @@ public class TherapistView : MonoBehaviour
             activityLog.text = tempString;
         }
 
+        // Add listeners for buttons
+        addPatientButton.onClick.AddListener(AddPatientButtonPressed);
     }
 
     // ==========Common Methods===========
@@ -303,10 +306,17 @@ public class TherapistView : MonoBehaviour
         addPatientScreen.SetActive(false);
     }
 
+<<<<<<< HEAD
     // Method to Confirm Adding Patient
-    public void AddPatientButtonPressed(){
-        // TherapistController.AddPatient(firstName.text, lastName.text, email.text, diagnosis.text);
-        // If it succeeds, call CloseAddPatientScreen();
+    public void AddPatientButtonPressed()
+    {
+        string therapistId = RegisterController.TherapistId; // Use the actual therapist ID from RegisterController
+        string firstNameText = firstName.text;
+        string lastNameText = lastName.text;
+        string emailText = email.text;
+        string diagnosisText = diagnosis.text;
+        
+        TherapistController.AddPatient(therapistId, firstNameText, lastNameText, emailText, diagnosisText);
     }
 
     // Method to Confirm Adding Patient
@@ -323,6 +333,8 @@ public class TherapistView : MonoBehaviour
         // then call the FillAllPatients
     }
 
+=======
+>>>>>>> main
     // ==========TherapistAllReports Scene Methods==========
     // Method to Fill All Report Info
     public void FillAllReports(string[] patientNames, string[] dates, string[] types, string[] reportIDs){
