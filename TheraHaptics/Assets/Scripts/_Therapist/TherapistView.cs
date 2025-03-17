@@ -165,6 +165,7 @@ public class TherapistView : MonoBehaviour
         if (currentScene.name=="TherapistDashboard"){
             Debug.Log("This is the TherapistDashboard Scene");
             FillAllPatients(tempNames, tempDates, tempIDs, tempProgress);
+            setWelcomeMessage("Hi " + tempString/*Zaiyan's Return Therapist Name Function*/);
         }
         if (currentScene.name=="TherapistSinglePatient"){
             Debug.Log("This is the TherapistSinglePatient Scene");
@@ -221,7 +222,7 @@ public class TherapistView : MonoBehaviour
     }
 
     // ==========TherapistAccount Scene Methods==========
-    // Methods for Populating Therapist info
+    // Methods for Populating info boxes
     public void FillName(string name, int type){
         if (type == 0){
             nameDataBox.text = "<cspace=-2>Patient: " + name;
@@ -306,6 +307,12 @@ public class TherapistView : MonoBehaviour
     public void AddPatientButtonPressed(){
         // TherapistController.AddPatient(firstName.text, lastName.text, email.text, diagnosis.text);
         // If it succeeds, call CloseAddPatientScreen();
+    }
+
+    // Method to Confirm Adding Patient
+    public void HandleAddPatientError(string errorMessageTextReturn){
+        errorMessageText.text = errorMessageTextReturn;
+        errorMessage.SetActive(true);
     }
 
     // Method to Search Patients
