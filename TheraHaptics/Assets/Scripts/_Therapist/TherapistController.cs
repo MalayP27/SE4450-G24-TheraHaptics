@@ -59,7 +59,7 @@ public class TherapistController : MonoBehaviour
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
                     Debug.Log("Add patient successful. Response: " + responseBody);
-                    therapistView.HandleAddPatientSuccess();
+                    therapistView.CloseAddPatientScreen();                
                 }
                 else
                 {
