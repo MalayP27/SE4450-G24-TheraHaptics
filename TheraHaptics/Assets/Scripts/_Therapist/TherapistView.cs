@@ -23,7 +23,7 @@ public class TherapistView : MonoBehaviour
 
     // Permanent Variables
     //Number of exercise choices
-    static int numExerciseChoices = 6;
+    static int numExerciseChoices = 3;
 
     // List of exercise choices
     string[] exercises = new string[numExerciseChoices];
@@ -125,13 +125,13 @@ public class TherapistView : MonoBehaviour
     public void Awake()
     {
         // Defining exercises (rename these as you program the different gesture in)
-        exercises[0] = "exercise 1";
+     /*   exercises[0] = "exercise 1";
         exercises[1] = "exercise 2";
         exercises[2] = "exercise 3";
         exercises[3] = "exercise 4";
         exercises[4] = "exercise 5";
         exercises[5] = "exercise 6";
-
+*/
         // Temp list tests
         for(int i = 0; i < tempListLength; i++) {
             tempNames[i] = "name " + i;
@@ -207,7 +207,7 @@ public class TherapistView : MonoBehaviour
         // Start the coroutine to get the patient list
         StartCoroutine(TherapistController.GetPatientListDropdownCoroutine());
         StartCoroutine(TherapistController.GetPatientListDashboardCoroutine());
-
+        StartCoroutine(TherapistController.GetAllExercisesCoroutine());
     }
 
     // ==========Common Methods===========
@@ -390,7 +390,44 @@ public class TherapistView : MonoBehaviour
 
     // ==========TherapistCreateExercisePlan Scene Methods==========
 
-    // Method to add an exercise to the list
+    [Serializable]
+    public class ExerciseListResponse
+    {
+        public Exercise[] exercises;
+    }
+
+    [Serializable]
+    public class Exercise
+    {
+        public string name;
+        // You can add additional properties if needed (instructions, target_reps, etc.)
+    }
+
+    public void HandleGetAllExercisesSuccess(string responseBody)
+    {
+        Debug.Log("Exercises retrieved successfully: " + responseBody);
+
+        // Wrap the JSON array in an object since JsonUtility doesn't support top-level arrays.
+        string wrappedJson = "{\"exercises\":" + responseBody + "}";
+        ExerciseListResponse exerciseList = JsonUtility.FromJson<ExerciseListResponse>(wrappedJson);
+        
+        // Populate the exercises array with the exercise names.
+        for (int i = 0; i < exerciseList.exercises.Length && i < exercises.Length; i++)
+        {
+            exercises[i] = exerciseList.exercises[i].name;
+        }
+
+        // Optionally update the UI elements (e.g., the exercise choices text) with the new data.
+        for (int i = 0; i < exercises.Length; i++)
+        {
+            exerciseChoices[i].text = exercises[i];
+        }
+    }
+
+
+    public void LoadExercises(){
+            StartCoroutine(TherapistController.GetAllExercisesCoroutine());
+    }
     public void AddExercise(int indexOfExercise){
         if (numOfCurrentExercises < 5){
             planExercises[numOfCurrentExercises].text = exercises[indexOfExercise];

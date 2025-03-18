@@ -396,7 +396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &39286997
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6001,7 +6001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &713500932
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7980,7 +7980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &996606993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9270,9 +9270,6 @@ MonoBehaviour:
   - {fileID: 102735431}
   - {fileID: 1481876188}
   - {fileID: 1467176397}
-  - {fileID: 700710833}
-  - {fileID: 135176442}
-  - {fileID: 1421860891}
   planExercises:
   - {fileID: 779599878}
   - {fileID: 609759249}
@@ -9326,6 +9323,8 @@ MonoBehaviour:
   errorMessage: {fileID: 1810170295}
   errorMessageText: {fileID: 1810170296}
   patientDropdown: {fileID: 394702614}
+  patientListContainer: {fileID: 0}
+  patientPrefab: {fileID: 0}
 --- !u!114 &1224689403
 MonoBehaviour:
   m_ObjectHideFlags: 0
