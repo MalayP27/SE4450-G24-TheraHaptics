@@ -169,4 +169,29 @@ public class TherapistController : MonoBehaviour
             }
        }   
     }
+
+        public static IEnumerator GetAllExercisesCoroutine()
+        {
+            // Corrected URL:
+            string url = "http://localhost:5089/api/exercise/getAllExercises";
+
+            using (UnityWebRequest request = UnityWebRequest.Get(url))
+            {
+                request.SetRequestHeader("Content-Type", "application/json");
+                request.SetRequestHeader("Accept", "application/json");
+
+                yield return request.SendWebRequest();
+
+                if (request.result == UnityWebRequest.Result.Success)
+                {
+                    string responseBody = request.downloadHandler.text;
+                    Debug.Log("Get all exercises successful. Response: " + responseBody);
+                    therapistView.HandleGetAllExercisesSuccess(responseBody);
+                }
+                else
+                {
+                    Debug.LogError("Get all exercises failed: " + request.error);
+                }
+            }
+        }
 }
