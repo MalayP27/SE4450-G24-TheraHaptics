@@ -109,6 +109,13 @@ public class TherapistView : MonoBehaviour
     [Header("Patient Dropdown")]
     [SerializeField] private TMP_Dropdown patientDropdown;
 
+    [Header("Patient List")]
+    [SerializeField] private Transform patientListContainer;
+    [SerializeField] private GameObject patientPrefab;
+
+    // List to store patient IDs
+    private List<string> patientIds = new List<string>();
+
     // Constructor
     public TherapistView(){
 
@@ -166,11 +173,13 @@ public class TherapistView : MonoBehaviour
                 XButtons[i].SetActive(false);
             }
         }
+        /*
         if (currentScene.name=="TherapistDashboard"){
             Debug.Log("This is the TherapistDashboard Scene");
             FillAllPatients(tempNames, tempDates, tempIDs, tempProgress);
-            setWelcomeMessage("Hi " + tempString/*Zaiyan's Return Therapist Name Function*/);
+            setWelcomeMessage("Hi " + tempString);
         }
+        */
         if (currentScene.name=="TherapistSinglePatient"){
             Debug.Log("This is the TherapistSinglePatient Scene");
             FillName(tempString, 0/*Zaiyan's Return Patient Name Function*/);
@@ -196,7 +205,9 @@ public class TherapistView : MonoBehaviour
     private void Start()
     {
         // Start the coroutine to get the patient list
-        StartCoroutine(TherapistController.GetPatientListCoroutine());
+        StartCoroutine(TherapistController.GetPatientListDropdownCoroutine());
+        StartCoroutine(TherapistController.GetPatientListDashboardCoroutine());
+
     }
 
     // ==========Common Methods===========
@@ -464,7 +475,7 @@ public class TherapistView : MonoBehaviour
         CloseAddPatientScreen();
     }
 
-    public void HandleGetPatientListSuccess(string responseBody)
+    public void HandleGetPatientListDropdownSuccess(string responseBody)
     {
         Debug.Log("Patient list retrieved successfully: " + responseBody);
 
@@ -493,28 +504,74 @@ public class TherapistView : MonoBehaviour
         Debug.Log("Dropdown options updated.");
     }
 
+    public void HandleGetPatientListDashboardSuccess(string responseBody)
+    {
+        Debug.Log("DASHBOARD Raw responseBody:\n" + responseBody);
+
+        // Wrap the JSON
+        string wrappedJson = "{\"patients\":" + responseBody + "}";
+        Debug.Log("DASHBOARD Wrapped JSON:\n" + wrappedJson);
+
+        // Deserialize
+        PatientListResponse patientList = JsonUtility.FromJson<PatientListResponse>(wrappedJson);
+
+        // Log how many patients we got
+        Debug.Log("DASHBOARD # of patients from server: " + patientList.patients.Length);
+
+        // Clear existing
+        foreach (Transform child in patientListContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Iterate through each patient
+        foreach (var patient in patientList.patients)
+        {
+            Debug.Log($"DASHBOARD Loop: {patient.firstName} {patient.lastName} (ID: {patient.patientId})");
+
+            GameObject patientItem = Instantiate(patientPrefab, patientListContainer);
+            TMP_Text nameText = patientItem.transform.Find("Name").GetComponent<TMP_Text>();
+            nameText.text = patient.firstName + " " + patient.lastName;
+
+ //          Image progressBar = patientItem.transform.Find("ProgressBar").GetComponent<Image>();
+ //           progressBar.fillAmount = 0.5f; // or your real data
+
+            Button contactButton = patientItem.transform.Find("ContactButton").GetComponent<Button>();
+            contactButton.onClick.AddListener(() => ContactPatient(patient.patientId));
+        }
+    }
+
+
     public void HandleGetPatientListError(string errorMessage)
     {
         Debug.LogError(errorMessage);
+    }
+   
+    private void ContactPatient(string patientId)
+    {
+        Debug.Log("Contacting patient with ID: " + patientId);
+        // Implement contact logic here
     }
     
     [Serializable]
     public class PatientListResponse
     {
-        public List<Patient> patients;
+        public Patient[] patients;
+
     }
 
     [Serializable]
     public class Patient
     {
+        public string patientId;
         public string firstName;
         public string lastName;
+    //    public DateTime dateJoined;
     }
 
     [Serializable]
     public class PatientListWrapper
     {
-        public List<Patient> patients;
+        public Patient[] patients;
     }
 }
-
