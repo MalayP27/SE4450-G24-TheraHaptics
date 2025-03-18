@@ -173,8 +173,8 @@ public class TherapistView : MonoBehaviour
                 XButtons[i].SetActive(false);
             }
         }
-        /*
-        if (currentScene.name=="TherapistDashboard"){
+        
+       /* if (currentScene.name=="TherapistDashboard"){
             Debug.Log("This is the TherapistDashboard Scene");
             FillAllPatients(tempNames, tempDates, tempIDs, tempProgress);
             setWelcomeMessage("Hi " + tempString);
