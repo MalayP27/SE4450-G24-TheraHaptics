@@ -174,12 +174,12 @@ public class TherapistView : MonoBehaviour
             }
         }
         
-       /* if (currentScene.name=="TherapistDashboard"){
+        if (currentScene.name=="TherapistDashboard"){
             Debug.Log("This is the TherapistDashboard Scene");
-            FillAllPatients(tempNames, tempDates, tempIDs, tempProgress);
-            setWelcomeMessage("Hi " + tempString);
+       //     FillAllPatients(tempNames, tempDates, tempIDs, tempProgress);
+            TherapistController.GetTherapist();
         }
-        */
+        
         if (currentScene.name=="TherapistSinglePatient"){
             Debug.Log("This is the TherapistSinglePatient Scene");
             FillName(tempString, 0/*Zaiyan's Return Patient Name Function*/);
