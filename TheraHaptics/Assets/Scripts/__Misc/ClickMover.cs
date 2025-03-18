@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class ClickMover : MonoBehaviour
 {
-    int x;
-    int y;
+    [SerializeField] private static ClickMover painLocation;
+    int x = 395;
+    int y = 475;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +27,11 @@ public class ClickMover : MonoBehaviour
             y = Convert.ToInt32(Input.mousePosition.y);
             Debug.Log(x + ", " + y);
         }
+    }
+    public static int getX(){
+        return painLocation.x;
+    }
+    public static int getY(){
+        return painLocation.y;
     }
 }

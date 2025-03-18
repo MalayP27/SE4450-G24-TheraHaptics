@@ -1097,9 +1097,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: StartSession
+      - m_Target: {fileID: 1962272811}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientDashboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2664,9 +2664,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: StartSession
+      - m_Target: {fileID: 1962272811}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: SendPainReport
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2759,6 +2759,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868a35a326c76b94e9c674f88a7773f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameDataBox: {fileID: 0}
+  genderDataBox: {fileID: 0}
+  dobDataBox: {fileID: 0}
+  phoneDataBox: {fileID: 0}
+  emailDataBox: {fileID: 0}
+  addressDataBox: {fileID: 0}
+  patientExercises: {fileID: 0}
+  patientExerciseCompletions: {fileID: 0}
+  exerciseProgressBarFills: []
+  totalProgressBarFill: {fileID: 0}
+  planCompleted: {fileID: 0}
+  goals: {fileID: 0}
+  startDateBox: {fileID: 0}
+  endDateBox: {fileID: 0}
+  sessionsCompletedBox: {fileID: 0}
+  lastTime: {fileID: 0}
+  exercisesCompleted: {fileID: 0}
+  exerciseProgramName: {fileID: 0}
+  timeEst: {fileID: 0}
+  intensityEst: {fileID: 0}
+  currentExerciseName: {fileID: 0}
+  currentInstructions: {fileID: 0}
+  currentTargetTime: {fileID: 0}
+  currentTargetReps: {fileID: 0}
+  currentTime: {fileID: 0}
+  currentReps: {fileID: 0}
+  currentExerciseExample: {fileID: 0}
+  exerciseImages: []
+  pauseButton: {fileID: 0}
+  sessionIsPausedText: {fileID: 0}
+  painLocation: {fileID: 777222270}
+  painDescription: {fileID: 302438769}
+  painIntensitySlider: {fileID: 772256546}
+  tempExerciseImage: {fileID: 0}
   helloMessage: {fileID: 0}
 --- !u!114 &1962272812
 MonoBehaviour:

@@ -365,8 +365,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 118.10001, y: -41.26629}
-  m_SizeDelta: {x: 352.6275, y: 63.4778}
+  m_AnchoredPosition: {x: 118.10001, y: -35.553}
+  m_SizeDelta: {x: 352.6275, y: 23.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357615887
 MonoBehaviour:
@@ -415,8 +415,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -635,7 +635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 70}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402742684
@@ -682,9 +682,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PReports
+      - m_Target: {fileID: 1224689404}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientReports
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -815,9 +815,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Support
+      - m_Target: {fileID: 1224689404}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientSupport
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -899,8 +899,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.924889, y: 21.453}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: -23.924889, y: 12.698105}
+  m_SizeDelta: {x: 352.6275, y: 23.9102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527504740
 MonoBehaviour:
@@ -949,8 +949,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1033,8 +1033,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.924889, y: 41.861}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: -23.924889, y: 36.608036}
+  m_SizeDelta: {x: 352.6275, y: 23.9102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &544354769
 MonoBehaviour:
@@ -1083,8 +1083,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1389,8 +1389,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 118.10001, y: 1.0448}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: 118.10001, y: -11.2121}
+  m_SizeDelta: {x: 352.6275, y: 23.9102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839945562
 MonoBehaviour:
@@ -1439,8 +1439,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1523,7 +1523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -41.4}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &870710487
@@ -1706,9 +1706,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: LogOut
+      - m_Target: {fileID: 1224689404}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientLogOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1790,8 +1790,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.924889, y: 1.0448}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: -23.924889, y: -11.2121}
+  m_SizeDelta: {x: 352.6275, y: 23.9102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &948340510
 MonoBehaviour:
@@ -1840,8 +1840,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2048,9 +2048,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: StartSession
+      - m_Target: {fileID: 1224689404}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientChangePassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2227,6 +2227,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868a35a326c76b94e9c674f88a7773f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameDataBox: {fileID: 709508207}
+  genderDataBox: {fileID: 1483667365}
+  dobDataBox: {fileID: 1273317237}
+  phoneDataBox: {fileID: 1898372273}
+  emailDataBox: {fileID: 839945562}
+  addressDataBox: {fileID: 357615887}
   helloMessage: {fileID: 709508207}
 --- !u!1 &1273317235
 GameObject:
@@ -2262,8 +2268,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 118.10001, y: 41.861}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: 118.10001, y: 36.608036}
+  m_SizeDelta: {x: 352.6275, y: 23.9102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1273317237
 MonoBehaviour:
@@ -2312,8 +2318,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2396,8 +2402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.924889, y: -19.731499}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: -23.924889, y: -35.553463}
+  m_SizeDelta: {x: 352.6275, y: 23.9102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286696075
 MonoBehaviour:
@@ -2446,8 +2452,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2666,8 +2672,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 118.1, y: 62.269417}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: 118.1, y: 60.5184}
+  m_SizeDelta: {x: 352.6275, y: 23.9102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1483667365
 MonoBehaviour:
@@ -2716,8 +2722,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3081,7 +3087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 50}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580526133
@@ -3128,9 +3134,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PAccount
+      - m_Target: {fileID: 1224689404}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientAccount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3212,7 +3218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -19.8}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652415572
@@ -3482,8 +3488,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.924889, y: 62.269417}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: -23.924889, y: 60.5184}
+  m_SizeDelta: {x: 352.6275, y: 23.9102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742787694
 MonoBehaviour:
@@ -3532,8 +3538,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3680,7 +3686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1856166844
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3772,8 +3778,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 118.10001, y: 21.453}
-  m_SizeDelta: {x: 352.6275, y: 20.4082}
+  m_AnchoredPosition: {x: 118.10001, y: 12.698105}
+  m_SizeDelta: {x: 352.6275, y: 23.9102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1898372273
 MonoBehaviour:
@@ -3822,8 +3828,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13.4
+  m_fontSizeBase: 13.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3950,7 +3956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 90}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000120065
@@ -3997,9 +4003,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PDashboard
+      - m_Target: {fileID: 1224689404}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientDashboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

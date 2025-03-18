@@ -342,7 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 96.007
+      value: 83.99999
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -612,8 +612,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 266.5, y: -55.273}
-  m_SizeDelta: {x: 233.5535, y: 110.5451}
+  m_AnchoredPosition: {x: 166, y: -55.273}
+  m_SizeDelta: {x: 59.273, y: 110.5451}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333445488
 MonoBehaviour:
@@ -936,6 +936,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436284767}
   m_CullTransparentMesh: 1
+--- !u!114 &477693848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8957087272302062296, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
+  m_PrefabInstance: {fileID: 1581279172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &510947217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,9 +1030,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: StartSession
+      - m_Target: {fileID: 1962272811}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientRestartSession
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1155,7 +1166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 96.007
+      value: 83.99999
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1182,6 +1193,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
+--- !u!114 &930779290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8957087272302062296, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
+  m_PrefabInstance: {fileID: 1740235870}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1141673245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,6 +1464,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142045253}
   m_CullTransparentMesh: 1
+--- !u!114 &1200564014 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8957087272302062296, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
+  m_PrefabInstance: {fileID: 52788664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1213705459
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,9 +1558,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: StartSession
+      - m_Target: {fileID: 1962272811}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientReportPain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1575,6 +1608,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213705459}
   m_CullTransparentMesh: 1
+--- !u!114 &1216379862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8957087272302062296, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
+  m_PrefabInstance: {fileID: 1787201272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1335419927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,7 +2002,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 96.007, y: 60.199}
+  m_AnchoredPosition: {x: 89, y: 60.2}
   m_SizeDelta: {x: 192.01, y: 72.658}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1433358354
@@ -2414,7 +2458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 96.006996
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2451,6 +2495,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
   m_PrefabInstance: {fileID: 1740235870}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1734811753 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8957087272302062296, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
+  m_PrefabInstance: {fileID: 709257554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1740235870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2537,7 +2592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 96.007
+      value: 83.99999
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2742,7 +2797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 96.007
+      value: 83.99999
       objectReference: {fileID: 0}
     - target: {fileID: 4070295697250297536, guid: 3118157f6533c5c43b64a05f23b5888b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2852,9 +2907,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: StartSession
+      - m_Target: {fileID: 1962272811}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: SaveAndCompleteSession
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2999,6 +3054,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868a35a326c76b94e9c674f88a7773f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameDataBox: {fileID: 0}
+  genderDataBox: {fileID: 0}
+  dobDataBox: {fileID: 0}
+  phoneDataBox: {fileID: 0}
+  emailDataBox: {fileID: 0}
+  addressDataBox: {fileID: 0}
+  patientExercises: {fileID: 1964796867}
+  patientExerciseCompletions: {fileID: 333445488}
+  exerciseProgressBarFills:
+  - {fileID: 477693848}
+  - {fileID: 1200564014}
+  - {fileID: 1734811753}
+  - {fileID: 930779290}
+  - {fileID: 1216379862}
+  totalProgressBarFill: {fileID: 0}
+  planCompleted: {fileID: 0}
+  goals: {fileID: 0}
+  startDateBox: {fileID: 0}
+  endDateBox: {fileID: 0}
+  sessionsCompletedBox: {fileID: 0}
+  lastTime: {fileID: 258288066}
+  exercisesCompleted: {fileID: 1433358354}
+  exerciseProgramName: {fileID: 0}
+  timeEst: {fileID: 0}
+  intensityEst: {fileID: 0}
+  currentExerciseName: {fileID: 0}
+  currentInstructions: {fileID: 0}
+  currentTargetTime: {fileID: 0}
+  currentTargetReps: {fileID: 0}
+  currentTime: {fileID: 0}
+  currentReps: {fileID: 0}
+  currentExerciseExample: {fileID: 0}
+  exerciseImages: []
+  pauseButton: {fileID: 0}
+  sessionIsPausedText: {fileID: 0}
+  painLocation: {fileID: 0}
+  painDescription: {fileID: 0}
+  painIntensitySlider: {fileID: 0}
+  sessionFeedback: {fileID: 1141673247}
+  tempExerciseImage: {fileID: 0}
   helloMessage: {fileID: 0}
 --- !u!114 &1962272812
 MonoBehaviour:
