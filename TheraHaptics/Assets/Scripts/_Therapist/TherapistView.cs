@@ -166,16 +166,17 @@ public class TherapistView : MonoBehaviour
         if (currentScene.name=="TherapistDashboard"){
             Debug.Log("This is the TherapistDashboard Scene");
             FillAllPatients(tempNames, tempDates, tempIDs, tempProgress);
+            setWelcomeMessage("Hi " + tempString/*Zaiyan's Return Therapist Name Function*/);
         }
         if (currentScene.name=="TherapistSinglePatient"){
             Debug.Log("This is the TherapistSinglePatient Scene");
-            FillName(tempString, 0/*Zaiyan's Return Therapist Name Function*/);
-            FillGender(tempString/*Zaiyan's Return Therapist Gender Function*/);
-            FillDob(tempString/*Zaiyan's Return Therapist DOB Function*/);
-            FillPhoneNum(tempString/*Zaiyan's Return Therapist PhoneNum Function*/);
-            FillEmail(tempString/*Zaiyan's Return Therapist Email Function*/);
-            FillTimeTaken(tempString/*Zaiyan's Return Therapist Email Function*/);
-            FillExercisesCompleted(tempString/*Zaiyan's Return Therapist Email Function*/);
+            FillName(tempString, 0/*Zaiyan's Return Patient Name Function*/);
+            FillGender(tempString/*Zaiyan's Return Patient Gender Function*/);
+            FillDob(tempString/*Zaiyan's Return Patient DOB Function*/);
+            FillPhoneNum(tempString/*Zaiyan's Return Patient PhoneNum Function*/);
+            FillEmail(tempString/*Zaiyan's Return Patient Email Function*/);
+            FillTimeTaken(tempString/*Zaiyan's Return Last time taken Function*/);
+            FillExercisesCompleted(tempString/*Zaiyan's Return Exercises Completed Function*/);
             patientExercises.text = "";
             patientExerciseCompletions.text = "";
             for(int i = 0; i < 5; i++) {
@@ -224,7 +225,7 @@ public class TherapistView : MonoBehaviour
     }
 
     // ==========TherapistAccount Scene Methods==========
-    // Methods for Populating Therapist info
+    // Methods for Populating info boxes
     public void FillName(string name, int type){
         if (type == 0){
             nameDataBox.text = "<cspace=-2>Patient: " + name;
@@ -305,6 +306,33 @@ public class TherapistView : MonoBehaviour
         addPatientScreen.SetActive(false);
     }
 
+
+    // Method to Confirm Adding Patient
+    public void AddPatientButtonPressed()
+    {
+        string therapistId = RegisterController.TherapistId; // Use the actual therapist ID from RegisterController
+        string firstNameText = firstName.text;
+        string lastNameText = lastName.text;
+        string emailText = email.text;
+        string diagnosisText = diagnosis.text;
+        
+        TherapistController.AddPatient(therapistId, firstNameText, lastNameText, emailText, diagnosisText);
+    }
+
+    // Method to Confirm Adding Patient
+    public void HandleAddPatientError(string errorMessageTextReturn){
+        errorMessageText.text = errorMessageTextReturn;
+        errorMessage.SetActive(true);
+    }
+
+    // Method to Search Patients
+    public void SearchPatients(){
+        string searParams = searchBar.text;
+        Debug.Log("Search: " + searParams);
+        // TherapistController.Search(searchParams);
+        // then call the FillAllPatients
+    }
+
     // ==========TherapistAllReports Scene Methods==========
     // Method to Fill All Report Info
     public void FillAllReports(string[] patientNames, string[] dates, string[] types, string[] reportIDs){
@@ -315,7 +343,7 @@ public class TherapistView : MonoBehaviour
             for (int i = 0; i < patientNames.Length; i++) {
                 reportPatientNames[i].text = patientNames[i];
                 reportDates[i].text = dates[i];
-                reportTypes[i].text = dates[i];
+                reportTypes[i].text = types[i];
                 reportIDs[i] = reportIDs[i];
             }
             for (int i = patientNames.Length; i < listLength; i++) {
@@ -329,7 +357,7 @@ public class TherapistView : MonoBehaviour
             for (int i = 0; i < listLength; i++) {
                 reportPatientNames[i].text = patientNames[i];
                 reportDates[i].text = dates[i];
-                reportTypes[i].text = dates[i];
+                reportTypes[i].text = types[i];
                 reportIDs[i] = reportIDs[i];
             }
         }
@@ -422,36 +450,5 @@ public class TherapistView : MonoBehaviour
     }
     public void FillExercisesCompleted(string exerComp){
         exercisesCompleted.text = "Exercises Completed\n<size=14>" + exerComp;
-    }
-    // Method to Confirm Adding Patient
-    public void AddPatientButtonPressed()
-    {
-        string therapistId = RegisterController.TherapistId; // Use the actual therapist ID from RegisterController
-        string firstNameText = firstName.text;
-        string lastNameText = lastName.text;
-        string emailText = email.text;
-        string diagnosisText = diagnosis.text;
-
-        TherapistController.AddPatient(therapistId, firstNameText, lastNameText, emailText, diagnosisText);
-    }
-
-    public void HandleAddPatientError(string errorMessage)
-    {
-        Debug.LogError("Error adding patient: " + errorMessage);
-        // Display error message to the user
-    }
-
-    public void HandleAddPatientSuccess()
-    {
-        Debug.Log("Patient added successfully");
-        CloseAddPatientScreen();
-    }
-
-    // Method to Search Patients
-    public void SearchPatients(){
-        string searParams = searchBar.text;
-        Debug.Log("Search: " + searParams);
-        // TherapistController.Search(searchParams);
-        // then call the FillAllPatients
     }
 }

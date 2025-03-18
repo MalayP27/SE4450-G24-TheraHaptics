@@ -2372,7 +2372,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 70}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402742684
@@ -2419,9 +2419,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PReports
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientReports
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3613,9 +3613,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: Support
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientSupport
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4503,7 +4503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -41.4}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &870710487
@@ -4686,9 +4686,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: LogOut
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientLogOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5728,6 +5728,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868a35a326c76b94e9c674f88a7773f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameDataBox: {fileID: 0}
+  genderDataBox: {fileID: 0}
+  dobDataBox: {fileID: 0}
+  phoneDataBox: {fileID: 0}
+  emailDataBox: {fileID: 0}
+  addressDataBox: {fileID: 0}
+  patientExercises: {fileID: 0}
+  patientExerciseCompletions: {fileID: 0}
+  exerciseProgressBarFills: []
+  totalProgressBarFill: {fileID: 0}
+  planCompleted: {fileID: 0}
+  goals: {fileID: 0}
+  startDateBox: {fileID: 0}
+  endDateBox: {fileID: 0}
+  sessionsCompletedBox: {fileID: 0}
+  lastTime: {fileID: 0}
+  exercisesCompleted: {fileID: 0}
+  exerciseProgramName: {fileID: 0}
+  timeEst: {fileID: 0}
+  intensityEst: {fileID: 0}
+  currentExerciseName: {fileID: 0}
+  currentInstructions: {fileID: 0}
+  currentTargetTime: {fileID: 0}
+  currentTargetReps: {fileID: 0}
+  currentTime: {fileID: 0}
+  currentReps: {fileID: 0}
+  currentExerciseExample: {fileID: 0}
+  exerciseImages: []
+  pauseButton: {fileID: 0}
+  sessionIsPausedText: {fileID: 0}
+  painLocation: {fileID: 0}
+  painDescription: {fileID: 0}
+  painIntensitySlider: {fileID: 0}
+  sessionFeedback: {fileID: 0}
+  reportDates:
+  - {fileID: 239505101}
+  - {fileID: 328298468}
+  - {fileID: 331369118}
+  - {fileID: 1602413748}
+  - {fileID: 1566890526}
+  - {fileID: 1393286145}
+  - {fileID: 372422786}
+  - {fileID: 91740586}
+  - {fileID: 1297180850}
+  - {fileID: 423347333}
+  reportTypes:
+  - {fileID: 1140083373}
+  - {fileID: 954433596}
+  - {fileID: 2137563814}
+  - {fileID: 508985297}
+  - {fileID: 1297695950}
+  - {fileID: 292825790}
+  - {fileID: 480636550}
+  - {fileID: 1544930794}
+  - {fileID: 453208358}
+  - {fileID: 1865673455}
+  reportViewButtons:
+  - {fileID: 74780858}
+  - {fileID: 694598432}
+  - {fileID: 931624850}
+  - {fileID: 1696202058}
+  - {fileID: 1073785616}
+  - {fileID: 310470356}
+  - {fileID: 665110849}
+  - {fileID: 440871672}
+  - {fileID: 1549509104}
+  - {fileID: 1642363841}
+  searchBar: {fileID: 1817883651}
+  tempExerciseImage: {fileID: 0}
   helloMessage: {fileID: 0}
 --- !u!1 &1297180848
 GameObject:
@@ -6514,7 +6583,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7195,7 +7264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 50}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580526133
@@ -7242,9 +7311,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PAccount
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientAccount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7727,7 +7796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -19.8}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1652415572
@@ -8488,9 +8557,9 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
-        m_MethodName: SearchPatients
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: SearchReports
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8517,19 +8586,7 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TherapistView, Assembly-CSharp
-        m_MethodName: SearchPatients
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9007,7 +9064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000071526, y: 91.003}
+  m_AnchoredPosition: {x: -0.00000071526, y: 90}
   m_SizeDelta: {x: 91.496, y: 14.998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000120065
@@ -9054,9 +9111,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: PDashboard
+      - m_Target: {fileID: 1224689402}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientDashboard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

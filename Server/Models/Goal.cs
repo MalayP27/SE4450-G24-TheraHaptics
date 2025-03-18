@@ -4,10 +4,10 @@ using System.Text.Json.Serialization;
 
 namespace Server.Models;
 
-public class PainReport {
+public class Goal {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string? PainReportID { get; set; }
+    public string? GoalID { get; set; }
 
     [BsonElement("patient_id")]
     public string PatientID { get; set; } // Reference to Patient.patientID
@@ -15,21 +15,14 @@ public class PainReport {
     [BsonElement("description")]
     public string Description { get; set; }
 
-    [BsonElement("pain_level")]
-    public int PainLevel { get; set; }
-
-    [BsonElement("date_reported")]
-    public DateTime DateReported { get; set; }
-
     // Default constructor
-    public PainReport() { }
+    public Goal() { }
 
+    // Parameterized constructor
     [JsonConstructor]
-    public PainReport(string painReportID, string patientID, string description, int painLevel, DateTime dateReported) {
-        this.PainReportID = painReportID ?? throw new ArgumentNullException(nameof(painReportID));
+    public Goal(string goalID, string patientID, string description) {
+        this.GoalID = goalID ?? throw new ArgumentNullException(nameof(goalID));
         this.PatientID = patientID ?? throw new ArgumentNullException(nameof(patientID));
         this.Description = description ?? throw new ArgumentNullException(nameof(description));
-        this.PainLevel = painLevel;
-        this.DateReported = dateReported;
     }
 }

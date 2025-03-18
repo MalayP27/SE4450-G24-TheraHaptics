@@ -27,12 +27,17 @@ builder.Services.Configure<MongoDBSettings>(options => {
     var exerciseCollectionName = builder.Configuration.GetSection("MongoDB:ExerciseCollectionName").Value;
     var exerciseProgramCollectionName = builder.Configuration.GetSection("MongoDB:ExerciseProgramCollectionName").Value;
     var painReportCollectionName = builder.Configuration.GetSection("MongoDB:PainReportCollectionName").Value;
+    var progressReportCollectionName = builder.Configuration.GetSection("MongoDB:ProgressReportCollectionName").Value;
+    var sessionCollectionName = builder.Configuration.GetSection("MongoDB:SessionCollectionName").Value;
+    var goalCollectionName = builder.Configuration.GetSection("MongoDB:GoalCollectionName").Value;
 
     if (string.IsNullOrEmpty(connectionURI) || string.IsNullOrEmpty(databaseName) || 
         string.IsNullOrEmpty(playlistCollectionName) || string.IsNullOrEmpty(productKeyCollectionName) || 
         string.IsNullOrEmpty(userCollectionName) || string.IsNullOrEmpty(therapistCollectionName) || 
         string.IsNullOrEmpty(patientCollectionName) || string.IsNullOrEmpty(exerciseCollectionName) ||
-        string.IsNullOrEmpty(exerciseProgramCollectionName) || string.IsNullOrEmpty(painReportCollectionName)) {
+        string.IsNullOrEmpty(exerciseProgramCollectionName) || string.IsNullOrEmpty(painReportCollectionName)||
+        string.IsNullOrEmpty(progressReportCollectionName) || string.IsNullOrEmpty(sessionCollectionName) ||
+        string.IsNullOrEmpty(goalCollectionName)) {
         throw new ArgumentNullException("One or more MongoDB settings are missing.");
     }
 
@@ -46,6 +51,9 @@ builder.Services.Configure<MongoDBSettings>(options => {
     options.ExerciseCollectionName = exerciseCollectionName;
     options.ExerciseProgramCollectionName = exerciseProgramCollectionName;
     options.PainReportCollectionName = painReportCollectionName;
+    options.ProgressReportCollectionName = progressReportCollectionName;
+    options.SessionCollectionName = sessionCollectionName;
+    options.GoalCollectionName = goalCollectionName;
 });
 
 // Registers MongoDBService.cs as a singleton, this means that the same instance will be used throughout the application
