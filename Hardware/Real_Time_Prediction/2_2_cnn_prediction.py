@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler
 import time
 
 # Load trained model
-model = load_model("../Machine_Learning/emg_gesture_lstm_model.h5")
+model = load_model("../Machine_Learning/emg_gesture_cnn_model.h5")
 
 # Serial port configuration
 PORT = "COM11"  # Change if needed
