@@ -1319,14 +1319,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DashBoardUIManager, Assembly-CSharp
-        m_MethodName: StartSession
-        m_Mode: 1
+      - m_Target: {fileID: 1962272811}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientLoadNextExercise
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1506,6 +1506,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868a35a326c76b94e9c674f88a7773f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameDataBox: {fileID: 0}
+  genderDataBox: {fileID: 0}
+  dobDataBox: {fileID: 0}
+  phoneDataBox: {fileID: 0}
+  emailDataBox: {fileID: 0}
+  addressDataBox: {fileID: 0}
+  patientExercises: {fileID: 1455827671}
+  patientExerciseCompletions: {fileID: 0}
+  exerciseProgressBarFills: []
+  totalProgressBarFill: {fileID: 0}
+  planCompleted: {fileID: 0}
+  goals: {fileID: 0}
+  startDateBox: {fileID: 0}
+  endDateBox: {fileID: 0}
+  sessionsCompletedBox: {fileID: 0}
+  lastTime: {fileID: 0}
+  exercisesCompleted: {fileID: 0}
+  exerciseProgramName: {fileID: 599350434}
+  timeEst: {fileID: 2023278031}
+  intensityEst: {fileID: 168367470}
   helloMessage: {fileID: 0}
 --- !u!114 &1962272812
 MonoBehaviour:
