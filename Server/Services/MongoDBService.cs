@@ -222,4 +222,8 @@ public class MongoDBService {
     public async Task CreateSessionAsync(Session session) {
         await _sessionCollection.InsertOneAsync(session);
     }
+
+    public async Task<List<Session>> GetSessionsByPatientIdAsync(string patientId) {
+        return await _sessionCollection.Find(s => s.PatientID == patientId).ToListAsync();
+    }
 }
