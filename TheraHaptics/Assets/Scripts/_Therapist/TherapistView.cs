@@ -170,13 +170,13 @@ public class TherapistView : MonoBehaviour
         }
         if (currentScene.name=="TherapistSinglePatient"){
             Debug.Log("This is the TherapistSinglePatient Scene");
-            FillName(tempString, 0/*Zaiyan's Return Therapist Name Function*/);
-            FillGender(tempString/*Zaiyan's Return Therapist Gender Function*/);
-            FillDob(tempString/*Zaiyan's Return Therapist DOB Function*/);
-            FillPhoneNum(tempString/*Zaiyan's Return Therapist PhoneNum Function*/);
-            FillEmail(tempString/*Zaiyan's Return Therapist Email Function*/);
-            FillTimeTaken(tempString/*Zaiyan's Return Therapist Email Function*/);
-            FillExercisesCompleted(tempString/*Zaiyan's Return Therapist Email Function*/);
+            FillName(tempString, 0/*Zaiyan's Return Patient Name Function*/);
+            FillGender(tempString/*Zaiyan's Return Patient Gender Function*/);
+            FillDob(tempString/*Zaiyan's Return Patient DOB Function*/);
+            FillPhoneNum(tempString/*Zaiyan's Return Patient PhoneNum Function*/);
+            FillEmail(tempString/*Zaiyan's Return Patient Email Function*/);
+            FillTimeTaken(tempString/*Zaiyan's Return Last time taken Function*/);
+            FillExercisesCompleted(tempString/*Zaiyan's Return Exercises Completed Function*/);
             patientExercises.text = "";
             patientExerciseCompletions.text = "";
             for(int i = 0; i < 5; i++) {
@@ -343,7 +343,7 @@ public class TherapistView : MonoBehaviour
             for (int i = 0; i < patientNames.Length; i++) {
                 reportPatientNames[i].text = patientNames[i];
                 reportDates[i].text = dates[i];
-                reportTypes[i].text = dates[i];
+                reportTypes[i].text = types[i];
                 reportIDs[i] = reportIDs[i];
             }
             for (int i = patientNames.Length; i < listLength; i++) {
@@ -357,7 +357,7 @@ public class TherapistView : MonoBehaviour
             for (int i = 0; i < listLength; i++) {
                 reportPatientNames[i].text = patientNames[i];
                 reportDates[i].text = dates[i];
-                reportTypes[i].text = dates[i];
+                reportTypes[i].text = types[i];
                 reportIDs[i] = reportIDs[i];
             }
         }
