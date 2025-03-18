@@ -18,6 +18,9 @@ public class MongoDBService {
     private readonly IMongoCollection<Exercise> _exerciseCollection;
     private readonly IMongoCollection<ExerciseProgram> _exerciseProgramCollection;
     private readonly IMongoCollection<PainReport> _painReportCollection;
+    private readonly IMongoCollection<ProgressReport> _progreeReportCollection;
+    private readonly IMongoCollection<Session> _sessionCollection;
+    private readonly IMongoCollection<Goal> _goalCollection;
 
     public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings) {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
@@ -30,6 +33,9 @@ public class MongoDBService {
         _exerciseCollection = database.GetCollection<Exercise>(mongoDBSettings.Value.ExerciseCollectionName);
         _exerciseProgramCollection = database.GetCollection<ExerciseProgram>(mongoDBSettings.Value.ExerciseProgramCollectionName);
         _painReportCollection = database.GetCollection<PainReport>(mongoDBSettings.Value.PainReportCollectionName);
+        _progreeReportCollection = database.GetCollection<ProgressReport>(mongoDBSettings.Value.ProgressReportCollectionName);
+        _sessionCollection = database.GetCollection<Session>(mongoDBSettings.Value.SessionCollectionName);
+        _goalCollection = database.GetCollection<Goal>(mongoDBSettings.Value.GoalCollectionName);
 
         var collections = database.ListCollections().ToList();
         System.Console.WriteLine("Successfully connected to MongoDB. Collections found: " + collections.Count);
@@ -190,7 +196,30 @@ public class MongoDBService {
         return await _painReportCollection.Find(pr => pr.PatientID == patientId).ToListAsync();
     }
 
-    public async Task<List<PainReport>> GetPatientReportsAsync(string patientId) {
-    return await _painReportCollection.Find(pr => pr.PatientID == patientId).ToListAsync();
-}
+    public async Task<List<PainReport>> GetPatientPainReportsAsync(string patientId) {
+        return await _painReportCollection.Find(pr => pr.PatientID == patientId).ToListAsync();
+    }
+
+    // Patient Goals Endpoints DB Integration
+    public async Task CreateGoalAsync(Goal goal) {
+        await _goalCollection.InsertOneAsync(goal);
+    }
+
+    public async Task<List<Goal>> GetGoalsByPatientIdAsync(string patientId) {
+        return await _goalCollection.Find(g => g.PatientID == patientId).ToListAsync();
+    }   
+
+    // Progress Report Endpoints DB Integration
+    public async Task CreateProgressReportAsync(ProgressReport progressReport) {
+        await _progreeReportCollection.InsertOneAsync(progressReport);
+    }
+
+    public async Task<List<ProgressReport>> GetProgressReportsByPatientIdAsync(string patientId) {
+        return await _progreeReportCollection.Find(pr => pr.PatientID == patientId).ToListAsync();
+    }
+
+    // Session Endpoints DB Integration
+    public async Task CreateSessionAsync(Session session) {
+        await _sessionCollection.InsertOneAsync(session);
+    }
 }

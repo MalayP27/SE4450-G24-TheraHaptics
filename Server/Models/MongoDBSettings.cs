@@ -12,4 +12,7 @@ public class MongoDBSettings {
     public string ExerciseCollectionName { get; set; } = null!;
     public string ExerciseProgramCollectionName { get; set; } = null!;
     public string PainReportCollectionName { get; set; } = null!;
+    public string ProgressReportCollectionName { get; set; } = null!;
+    public string SessionCollectionName { get; set; } = null!;
+    public string GoalCollectionName { get; set; } = null!;
 }

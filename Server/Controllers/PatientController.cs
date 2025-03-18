@@ -114,8 +114,26 @@ public class PatientController : Controller {
         return Ok(patient);
     }
 
-    // Report Pain -- Email notification to therapist
-    //[Authorize(Policy = "PatientOnly")]
+    // Get Pain Reports
+    [Authorize (Policy = "TherapistAndPatient")]
+    [HttpGet("getPainReports/{patientId}")]
+    public async Task<IActionResult> GetPainReports(string patientId) {
+        // Validate patient ID format
+        if (!ObjectId.TryParse(patientId, out _)) {
+            return BadRequest(new { error = "Invalid patient ID format." });
+        }
+
+        var patient = await _mongoDBService.GetPatientByIdAsync(patientId);
+        if (patient == null) {
+            return NotFound(new { error = "Patient not found." });
+        }
+
+        var painReports = await _mongoDBService.GetPainReportsByPatientIdAsync(patientId);
+        return Ok(painReports);
+    }
+    
+    // Create Pain Report
+    [Authorize(Policy = "PatientOnly")]
     [HttpPost("reportPain/{patientId}")]
     public async Task<IActionResult> Post(string patientId, [FromBody] PainReportCreateDto request) {
         // Validate patient ID format
@@ -156,10 +174,10 @@ public class PatientController : Controller {
         });
     }
 
-    // View All Patient's Reports
-    [Authorize(Policy = "PatientOnly")]
-    [HttpGet("getPainReports/{patientId}")]
-    public async Task<IActionResult> GetPainReports(string patientId) {
+    // Get Progress Reports
+    [Authorize (Policy = "TherapistAndPatient")]
+    [HttpGet("getProgressReports/{patientId}")]
+    public async Task<IActionResult> GetProgressReports(string patientId) {
         // Validate patient ID format
         if (!ObjectId.TryParse(patientId, out ObjectId _)) {
             return BadRequest(new { error = "Invalid patient ID format." });
@@ -170,7 +188,147 @@ public class PatientController : Controller {
             return NotFound(new { error = "Patient not found." });
         }
 
-        var painReports = await _mongoDBService.GetPainReportsByPatientIdAsync(patientId);
-        return Ok(painReports);
+        var progressReports = await _mongoDBService.GetProgressReportsByPatientIdAsync(patientId);
+        return Ok(progressReports);
+    }
+
+    // Create Progress Report
+    [Authorize(Policy = "TherapistAndPatient")]
+    [HttpPost("createProgressReport/{patientId}")]
+    public async Task<IActionResult> CreateProgressReport(string patientId, [FromBody] ProgressReportCreateDto request) {
+        // Validate patient ID format
+        if (!ObjectId.TryParse(patientId, out ObjectId _)) {
+            return BadRequest(new { error = "Invalid patient ID format." });
+        }
+
+        if (request == null ||
+            string.IsNullOrEmpty(request.Description) ||
+            string.IsNullOrEmpty(request.TimeProgression) ||
+            string.IsNullOrEmpty(request.RepProgression) ||
+            string.IsNullOrEmpty(request.DifficultyImprovement) ||
+            request.DateReported == default) {
+            return BadRequest(new { error = "All fields are required and must be valid." });
+        }
+
+        // Fetch the existing patient using patientId
+        var patient = await _mongoDBService.GetPatientByIdAsync(patientId);
+        if (patient == null) {
+            return NotFound(new { error = "Patient not found." });
+        }
+
+        // Create a new ProgressReport object
+        var progressReport = new ProgressReport {
+            ProgressReportID = ObjectId.GenerateNewId().ToString(),
+            PatientID = patientId,
+            DateReported = request.DateReported,
+            Description = request.Description,
+            TimeProgression = request.TimeProgression,
+            RepProgression = request.RepProgression,
+            DifficultyImprovement = request.DifficultyImprovement
+        };
+
+        // Save the new progress report to the database
+        await _mongoDBService.CreateProgressReportAsync(progressReport);
+
+        return Ok(new {
+            message = "Progress report created successfully.",
+            progressReport
+        });
+    }
+
+    // Get Goals
+    [Authorize (Policy = "PatientOnly")]
+    [HttpGet("getGoals/{patientId}")]
+    public async Task<IActionResult> GetGoals(string patientId) {
+        // Validate patient ID format
+        if (!ObjectId.TryParse(patientId, out ObjectId _)) {
+            return BadRequest(new { error = "Invalid patient ID format." });
+        }
+
+        var patient = await _mongoDBService.GetPatientByIdAsync(patientId);
+        if (patient == null) {
+            return NotFound(new { error = "Patient not found." });
+        }
+
+        var goals = await _mongoDBService.GetGoalsByPatientIdAsync(patientId);
+        return Ok(goals);
+    }
+
+    // Create Patient Goal
+    [Authorize(Policy = "PatientOnly")]
+    [HttpPost("createPatientGoal/{patientId}")]
+    public async Task<IActionResult> CreatePatientGoal(string patientId, [FromBody] GoalCreateDto request) {
+        // Validate patient ID format
+        if (!ObjectId.TryParse(patientId, out ObjectId _)) {
+            return BadRequest(new { error = "Invalid patient ID format." });
+        }
+
+        if (request == null ||
+            string.IsNullOrEmpty(request.Description)) {
+            return BadRequest(new { error = "All fields are required and must be valid." });
+        }
+
+        // Fetch the existing patient using patientId
+        var patient = await _mongoDBService.GetPatientByIdAsync(patientId);
+        if (patient == null) {
+            return NotFound(new { error = "Patient not found." });
+        }
+
+        // Create a new Goal object
+        var goal = new Goal {
+            GoalID = ObjectId.GenerateNewId().ToString(),
+            PatientID = patientId,
+            Description = request.Description
+        };
+
+        // Save the new goal to the database
+        await _mongoDBService.CreateGoalAsync(goal);
+
+        return Ok(new {
+            message = "Goal created successfully.",
+            goal
+        });
+    }
+
+    // Create Session Ended
+    [Authorize (Policy = "PatientOnly")]
+    [HttpPost("createSessionEnded/{patientId}")]
+    public async Task<IActionResult> CreateSessionEnded(string patientId, [FromBody] SessionCreateDto request) {
+        // Validate patient ID format
+        if (!ObjectId.TryParse(patientId, out ObjectId _)) {
+            return BadRequest(new { error = "Invalid patient ID format." });
+        }
+
+        if (request == null ||
+            request.Date == default ||
+            request.Duration == default ||
+            string.IsNullOrEmpty(request.Feedback) ||
+            request.RepsCompleted <= 0) {
+            return BadRequest(new { error = "All fields are required and must be valid." });
+        }
+
+        // Fetch the existing patient using patientId
+        var patient = await _mongoDBService.GetPatientByIdAsync(patientId);
+        if (patient == null) {
+            return NotFound(new { error = "Patient not found." });
+        }
+
+        // Create a new Session object
+        var session = new Session {
+            SessionID = ObjectId.GenerateNewId().ToString(),
+            PatientID = patientId,
+            Date = request.Date,
+            Duration = request.Duration,
+            Feedback = request.Feedback,
+            RepsCompleted = request.RepsCompleted
+        };
+
+        // Save the new session to the database
+        await _mongoDBService.CreateSessionAsync(session);
+
+        return Ok(new {
+            message = "Session ended successfully.",
+            session
+        });
     }
 }

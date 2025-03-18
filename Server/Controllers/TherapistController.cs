@@ -263,8 +263,8 @@ public class TherapistController: Controller {
     }
     
     // View all Reports 
-    [HttpGet("getPatientReports/{patientId}")]
-    public async Task<IActionResult> GetPatientReports(string patientId) {
+    [HttpGet("getPatientPainReports/{patientId}")]
+    public async Task<IActionResult> GetPatientPainReports(string patientId) {
         // Validate patient ID format
         if (!ObjectId.TryParse(patientId, out ObjectId _)) {
             return BadRequest(new { error = "Invalid patient ID format." });
@@ -275,9 +275,11 @@ public class TherapistController: Controller {
             return NotFound(new { error = "Patient not found." });
         }
 
-        var reports = await _mongoDBService.GetPatientReportsAsync(patientId);
+        var reports = await _mongoDBService.GetPatientPainReportsAsync(patientId);
         return Ok(reports);
     }
+
+    
 
     
 }
