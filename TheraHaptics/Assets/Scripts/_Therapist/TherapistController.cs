@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text;
+using UnityEngine.Networking;
 
 public class TherapistController : MonoBehaviour
 {
@@ -59,7 +60,8 @@ public class TherapistController : MonoBehaviour
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
                     Debug.Log("Add patient successful. Response: " + responseBody);
-                    therapistView.CloseAddPatientScreen();                
+                    therapistView.CloseAddPatientScreen();     
+                    therapistView. TherapistDashboard();           
                 }
                 else
                 {
@@ -69,6 +71,50 @@ public class TherapistController : MonoBehaviour
             catch (Exception ex) //
             {
                 therapistView.HandleAddPatientError("Error during add patient: " + ex.Message);
+            }
+        }
+    }
+
+    public static IEnumerator GetPatientListDropdownCoroutine()
+    {
+        string therapistId = RegisterController.TherapistId; // Ensure this is set!
+        string url = $"http://localhost:5089/api/therapist/getPatientList/{therapistId}";
+
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                string responseBody = request.downloadHandler.text;
+                Debug.Log("Get patient list successful. Response: " + responseBody);
+                therapistView.HandleGetPatientListDropdownSuccess(responseBody);
+            }
+            else
+            {
+                therapistView.HandleGetPatientListError("Get patient list failed: " + request.error);
+            }
+        }
+    }
+
+       public static IEnumerator GetPatientListDashboardCoroutine()
+    {
+        string therapistId = RegisterController.TherapistId; // Ensure this is set!
+        string url = $"http://localhost:5089/api/therapist/getPatientList/{therapistId}";
+
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                string responseBody = request.downloadHandler.text;
+                Debug.Log("Get patient list successful. Response: " + responseBody);
+                therapistView.HandleGetPatientListDashboardSuccess(responseBody);
+            }
+            else
+            {
+                therapistView.HandleGetPatientListError("Get patient list failed: " + request.error);
             }
         }
     }
