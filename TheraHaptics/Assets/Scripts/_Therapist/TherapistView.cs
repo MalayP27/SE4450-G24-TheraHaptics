@@ -458,36 +458,10 @@ public class TherapistView : MonoBehaviour
         exercisesCompleted.text = "Exercises Completed\n<size=14>" + exerComp;
     }
     // Method to Confirm Adding Patient
-    public void AddPatientButtonPressed()
-    {
-        string therapistId = RegisterController.TherapistId; // Use the actual therapist ID from RegisterController
-        string firstNameText = firstName.text;
-        string lastNameText = lastName.text;
-        string emailText = email.text;
-        string diagnosisText = diagnosis.text;
-
-        TherapistController.AddPatient(therapistId, firstNameText, lastNameText, emailText, diagnosisText);
-
-    }
-
-    public void HandleAddPatientError(string errorMessage)
-    {
-        Debug.LogError("Error adding patient: " + errorMessage);
-        // Display error message to the user
-    }
-
     public void HandleAddPatientSuccess()
     {
         Debug.Log("Patient added successfully");
         CloseAddPatientScreen();
-    }
-
-    // Method to Search Patients
-    public void SearchPatients(){
-        string searParams = searchBar.text;
-        Debug.Log("Search: " + searParams);
-        // TherapistController.Search(searchParams);
-        // then call the FillAllPatients
     }
 
     public void HandleGetPatientListSuccess(string responseBody)
