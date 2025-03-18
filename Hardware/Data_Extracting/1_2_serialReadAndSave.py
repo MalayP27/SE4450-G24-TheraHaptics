@@ -8,8 +8,8 @@ PORT = "COM11"  # Change to match your ESP32's port
 BAUD_RATE = 115200
 SAMPLE_COUNT = 50  # Number of time steps per sample
 NUM_SENSORS = 6  # Number of EMG sensors
-GESTURE_LABEL = "thumbup"  # Label for the gesture being recorded
-FILENAME = "emg_training_data_thumbup_time_series.csv"
+GESTURE_LABEL = "close"  # Label for the gesture being recorded
+FILENAME = "emg_training_data_close_time_series.csv"
 
 # Connect to Serial
 try:
