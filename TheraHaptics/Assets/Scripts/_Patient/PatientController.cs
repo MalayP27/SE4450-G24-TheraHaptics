@@ -6,11 +6,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-
 
 public class PatientController : MonoBehaviour
 {
@@ -19,7 +17,7 @@ public class PatientController : MonoBehaviour
     public static int currentExerciseIndex = 0;
     public static List<Exercise> globalExercises = new List<Exercise>();
 
-    //HARDWARE Setup --------------------------------------------
+    // HARDWARE Setup --------------------------------------------
     private TcpClient client;
     private NetworkStream stream;
     private Thread receiveThread;
@@ -28,8 +26,10 @@ public class PatientController : MonoBehaviour
     private string serverIP = "127.0.0.1"; // Match your Python server IP
     private int serverPort = 9090;         // Match your Python server port
 
-    private Queue<string> predictionQueue = new Queue<string>(); // Stores received predictions
-    private const int MaxPredictions = 64; // Number of values to evaluate over 5 seconds (adjust if needed)
+    private int requiredConsecutiveCount = 3; // Number of times a gesture must repeat
+    private string lastPrediction = "";
+    private int consecutiveCount = 0;
+    private string predictedGesture = "none"; // This stores the final prediction safely
 
     private void Awake()
     {
@@ -40,12 +40,11 @@ public class PatientController : MonoBehaviour
     void Start()
     {   
         Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "PatientExercise"){
+        if (currentScene.name == "PatientExercise")
+        {
             ConnectToServer();
-            StartCoroutine(ProcessPredictions()); // Start averaging every 5 seconds
+            StartCoroutine(ProcessPredictions()); // Start checking predictions every 5 seconds
         }
-        
-        
     }
 
     void ConnectToServer()
@@ -68,7 +67,7 @@ public class PatientController : MonoBehaviour
         }
     }
 
-    void ReceiveData()
+    private void ReceiveData()
     {
         byte[] buffer = new byte[1024];
 
@@ -81,16 +80,10 @@ public class PatientController : MonoBehaviour
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
                     if (bytesRead > 0)
                     {
-                        string receivedMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                        //Debug.Log(receivedMessage);
-                        lock (predictionQueue)
-                        {
-                            if (predictionQueue.Count >= MaxPredictions)
-                            {
-                                predictionQueue.Dequeue(); // Remove oldest value if queue is full
-                            }
-                            predictionQueue.Enqueue(receivedMessage); // Store new prediction
-                        }
+                        string receivedMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead).Trim();
+                        //Debug.Log($"🛑 Received Prediction: {receivedMessage}");
+
+                        ProcessPrediction(receivedMessage);
                     }
                 }
             }
@@ -102,41 +95,55 @@ public class PatientController : MonoBehaviour
         }
     }
 
+    private void ProcessPrediction(string newPrediction)
+    {
+        if (newPrediction == lastPrediction)
+        {
+            consecutiveCount++;
+        }
+        else
+        {
+            lastPrediction = newPrediction;
+            consecutiveCount = 1;
+        }
+
+        if (consecutiveCount >= requiredConsecutiveCount)
+        {
+            //Debug.Log($"🎯 Storing Final Prediction: {lastPrediction}");
+
+            // Store the prediction but do NOT update UI here
+            predictedGesture = lastPrediction;
+
+            // Reset counter after storing prediction
+            consecutiveCount = 0;
+            lastPrediction = "";
+        }
+    }
+
     private IEnumerator ProcessPredictions()
     {
         while (isRunning)
         {
             yield return new WaitForSeconds(5.0f); // Process every 5 seconds
 
-            string finalPrediction = GetMostFrequentGesture();
-            
-            if(globalExercises[currentExerciseIndex].name == finalPrediction)
+            if (predictedGesture != "none")
             {
-                Debug.Log("Correct!");
-                patientView.SetCurrentExercise(globalExercises[currentExerciseIndex]);
-                patientView.AddRepetition();
-            }
-            else
-            {
-                Debug.Log("Incorrect!");
-            }
-            
-            
-            Debug.Log(finalPrediction);
-        }
-    }
+                //Debug.Log($"✅ Processing Prediction: {predictedGesture}");
 
-    private string GetMostFrequentGesture()
-    {
-        lock (predictionQueue)
-        {
-            if (predictionQueue.Count == 0)
-                return "none";
+                if (globalExercises.Count > currentExerciseIndex && globalExercises[currentExerciseIndex].name == predictedGesture)
+                {
+                    Debug.Log("✅ Correct Gesture Detected!");
+                    patientView.SetCurrentExercise(globalExercises[currentExerciseIndex]);
+                    patientView.AddRepetition();
+                }
+                else
+                {
+                    Debug.Log("❌ Incorrect Gesture!");
+                }
 
-            return predictionQueue
-                   .GroupBy(g => g)  // Group by gesture type
-                   .OrderByDescending(g => g.Count()) // Sort by frequency
-                   .First().Key; // Return most frequent
+                // Reset the stored prediction after processing
+                predictedGesture = "none";
+            }
         }
     }
 
@@ -147,7 +154,6 @@ public class PatientController : MonoBehaviour
         stream?.Close();
         client?.Close();
     }
-
     //HARDWARE Setup End --------------------------------------------
 
     [System.Serializable]
