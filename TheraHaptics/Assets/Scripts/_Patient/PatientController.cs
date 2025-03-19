@@ -5,11 +5,13 @@ using UnityEngine;
 using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class PatientController : MonoBehaviour
 {
     public static PatientView patientView;
     public static PatientModel patientModel;
+    public static int currentExerciseIndex = 0;
 
     private void Awake()
     {
@@ -85,7 +87,28 @@ public class PatientController : MonoBehaviour
                     List<ExerciseProgram> exercisePrograms = JsonUtility.FromJson<Wrapper<ExerciseProgram>>(wrappedJson).items;
 
                     if (patientView != null && exercisePrograms.Count > 0)
-                        patientView.SetExerciseProgram(exercisePrograms[0]);
+                    {
+                        // Get the current scene
+                        Scene currentScene = SceneManager.GetActiveScene();
+
+                        // If the current scene is PatientStartSession, set the exercise program
+                        if (currentScene.name == "PatientStartSession")
+                        {
+                            patientView.SetExerciseProgram(exercisePrograms[0]);
+                        }
+
+                        // If the current scene is PatientExercise, set the current exercise
+                        if (currentScene.name == "PatientExercise" && exercisePrograms[0].exercises.Count > 0)
+                        {
+                            if(currentExerciseIndex >= exercisePrograms[0].exercises.Count)
+                            {
+                                patientView.EndSession();
+                                return;
+                            }
+                            
+                            patientView.SetCurrentExercise(exercisePrograms[0].exercises[currentExerciseIndex]);
+                        }
+                    }
                 }
                 else
                 {

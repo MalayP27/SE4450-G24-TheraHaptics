@@ -1591,7 +1591,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1962272811}
         m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
-        m_MethodName: PatientLoadNextExercise
+        m_MethodName: PatientLoadStartExercise
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
