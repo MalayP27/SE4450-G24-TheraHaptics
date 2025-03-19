@@ -6,8 +6,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text;
 
+
 public class LoginController : MonoBehaviour
 {
+    public static PatientModel patientModel = new PatientModel();
     public static LoginModel loginModel = new LoginModel();
     [SerializeField] public static LoginView loginView = new LoginView();
 
@@ -19,6 +21,7 @@ public class LoginController : MonoBehaviour
         public string role;               // The role returned by the API (e.g., "patient" or "therapist")
         public bool isTemporaryPassword;  // Indicates whether the user has a temporary password.
         public string therapistId;        // The therapist ID returned by the API (if role is "therapist")
+        public string patientId;          // The patient ID returned by the API (if role is "patient")
     }
 
     // DTO class for Forgot Password payload (note: field names match server expectation)
@@ -87,7 +90,12 @@ public class LoginController : MonoBehaviour
                             RegisterController.TherapistId = loginResponse.therapistId;
                             Debug.Log("Therapist ID: " + RegisterController.TherapistId);
                         }
-
+                        else
+                        {
+                            
+                            patientModel.SetPatientID(loginResponse.patientId);
+                            Debug.Log("Patient ID: " + loginResponse.patientId);
+                        }
                         // Continue with the normal sign-in flow.
                         loginView.HandleSignInSuccess(loginResponse.role);
                     }

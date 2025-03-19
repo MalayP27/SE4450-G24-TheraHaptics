@@ -332,7 +332,7 @@ public class UserController: Controller {
         });
 
         // Return the JWT token as part of the response
-        return Ok(new { Token = token, Role = user.role, IsTemporaryPassword = user.isTemporaryPassword, TherapistId = therapistId });
+        return Ok(new { Token = token, Role = user.role, IsTemporaryPassword = user.isTemporaryPassword, TherapistId = therapistId, PatientId = patientId });
     }
 
     // When users log out, this endpoint deletes the cookies

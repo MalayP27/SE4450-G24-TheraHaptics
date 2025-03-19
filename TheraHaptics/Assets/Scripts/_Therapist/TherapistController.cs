@@ -139,11 +139,7 @@ public class TherapistController : MonoBehaviour
 
             // Start the request and wait for it to complete.
             var asyncOp = request.SendWebRequest();
-            while (!asyncOp.isDone)
-            {
-                // Optionally, yield return null if using this in a coroutine.
-            }
-
+            
             if (request.result == UnityWebRequest.Result.Success)
             {
                 string responseBody = request.downloadHandler.text;

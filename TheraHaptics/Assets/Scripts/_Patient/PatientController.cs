@@ -9,6 +9,12 @@ using UnityEngine.Networking;
 
     public class PatientController : MonoBehaviour
     {
+        public static PatientView patientView;
+        public static PatientModel patientModel;
+            private void Awake()
+        {
+            patientView = GetComponent<PatientView>();
+        }
         [System.Serializable]
         public class PatientResponse
         {
@@ -17,28 +23,31 @@ using UnityEngine.Networking;
             public string lastName;
         }
 
-        public static IEnumerator GetPatient()
+        public static IEnumerator GetPatientCoroutine()
         {
-            string patientId = RegisterController.PatientId; // Ensure this is set correctly
-            string url = $"http://localhost:5089/api/patient/{patientId}";
+            string patientId = LoginController.patientModel.GetPatientID(); // Ensure this is set correctly
+            Debug.Log("PatientController: " + patientId);
+            string url = $"http://localhost:5089/api/patient/getPatient/{patientId}";
 
             using (UnityWebRequest request = UnityWebRequest.Get(url))
             {
                 request.SetRequestHeader("Content-Type", "application/json");
                 request.SetRequestHeader("Accept", "application/json");
 
+                // Send the request and wait for it to complete
                 yield return request.SendWebRequest();
 
                 if (request.result == UnityWebRequest.Result.Success)
                 {
+                    Debug.Log("Get patient successful. Response: " + request.downloadHandler.text);
                     string responseBody = request.downloadHandler.text;
                     PatientResponse patient = JsonUtility.FromJson<PatientResponse>(responseBody);
                     if (patient != null)
                     {
                         string fullName = patient.firstName + " " + patient.lastName;
+
                         // Find the PatientView instance and update the welcome message
-                        PatientView patientView = FindObjectOfType<PatientView>();
-                        if(patientView != null)
+                        if (patientView != null)
                             patientView.setWelcomeMessage(fullName);
                     }
                     else
