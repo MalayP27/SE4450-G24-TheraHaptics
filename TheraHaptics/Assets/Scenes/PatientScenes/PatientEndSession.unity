@@ -2919,6 +2919,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1962272811}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientDashboard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1823987309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3093,6 +3105,10 @@ MonoBehaviour:
   painDescription: {fileID: 0}
   painIntensitySlider: {fileID: 0}
   sessionFeedback: {fileID: 1141673247}
+  reportDates: []
+  reportTypes: []
+  reportViewButtons: []
+  searchBar: {fileID: 0}
   tempExerciseImage: {fileID: 0}
   helloMessage: {fileID: 0}
 --- !u!114 &1962272812
