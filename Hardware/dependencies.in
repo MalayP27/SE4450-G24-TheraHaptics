@@ -2,3 +2,4 @@ pyserial
 jupyterlab
 websockets
 pandas
+tensorflow
