@@ -99,7 +99,7 @@ public class PatientController : Controller {
     }
 
     // Get patient by ID
-    [Authorize(Policy = "TherapistOnly")]
+  //[Authorize(Policy = "TherapistOnly")]
     [HttpGet("getPatient/{patientId}")]
     public async Task<IActionResult> Get(string patientId) {
         // Validate patient ID

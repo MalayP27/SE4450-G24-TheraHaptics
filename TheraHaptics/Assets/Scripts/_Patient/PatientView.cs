@@ -121,7 +121,7 @@ public class PatientView : MonoBehaviour
         if (currentScene.name=="PatientDashboard"){
             Debug.Log("This is the PatientDashboard Scene");
             // Start the coroutine to fetch and display the patient data instead of using the placeholder
-            StartCoroutine(PatientController.GetPatient());
+            StartCoroutine(PatientController.GetPatientCoroutine());
         //  setWelcomeMessage(tempString);
             FillTimeTaken(tempString/*Zaiyan's Return Last time taken Function*/);
             FillExercisesCompleted(tempString/*Zaiyan's Return Exercises Completed Function*/);
