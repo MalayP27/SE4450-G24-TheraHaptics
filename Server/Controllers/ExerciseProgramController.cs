@@ -18,21 +18,7 @@ public class ExerciseProgramController : Controller {
         _mongoDBService = mongoDBService;
     }
 
-    // Get all exercise programs
-    [Authorize(Policy = "Therapist")]
-    [HttpGet("getExerciseProgram/{exerciseId}")]
-    public async Task<IActionResult> GetExerciseProgramByIdAsync(string exerciseId) {
-        if (string.IsNullOrEmpty(exerciseId)) {
-            return BadRequest(new { error = "Exercise ID is required." });
-        }
-
-        var exerciseProgram = await _mongoDBService.GetExerciseProgramByIdAsync(exerciseId);
-        if (exerciseProgram == null) {
-            return NotFound(new { error = "Exercise program not found." });
-        }
-
-        return Ok(exerciseProgram);
-    }
+    
 
     // Create a new exercise program
     [Authorize(Policy = "TherapistOnly")]

@@ -99,7 +99,7 @@ public class PatientController : Controller {
     }
 
     // Get patient by ID
-    [Authorize(Policy = "PatientOnly")]
+    [Authorize(Policy = "TherapistOnly")]
     [HttpGet("getPatient/{patientId}")]
     public async Task<IActionResult> Get(string patientId) {
         // Validate patient ID
@@ -112,6 +112,28 @@ public class PatientController : Controller {
             return NotFound(new { error = "Patient not found." });
         }
         return Ok(patient);
+    }
+
+    // Get all exercise programs by patient ID
+    //[Authorize(Policy = "PatientOnly")]
+    [HttpGet("getExerciseProgramsByPatientId/{patientId}")]
+    public async Task<IActionResult> GetExerciseProgramsByPatientIdAsync(string patientId) {
+        if (string.IsNullOrEmpty(patientId)) {
+            return BadRequest(new { error = "Patient ID is required." });
+        }
+
+        // Validate patient ID format
+        if (!ObjectId.TryParse(patientId, out _)) {
+            return BadRequest(new { error = "Invalid patient ID format." });
+        }
+
+        // Fetch exercise programs for the given patient ID
+        var exercisePrograms = await _mongoDBService.GetExerciseProgramsByPatientIdAsync(patientId);
+        if (exercisePrograms == null || !exercisePrograms.Any()) {
+            return NotFound(new { error = "No exercise programs found for the specified patient." });
+        }
+
+        return Ok(exercisePrograms);
     }
 
     // Get Pain Reports
