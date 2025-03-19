@@ -25,7 +25,7 @@ scaler = StandardScaler()
 data_buffer = np.zeros((TIME_STEPS, NUM_SENSORS))
 
 # Gesture labels
-gesture_labels = ["thumbup", "fist"]
+gesture_labels = ["Thumbs Up", "Fist"]
 
 # Server Configuration
 HOST = "127.0.0.1"

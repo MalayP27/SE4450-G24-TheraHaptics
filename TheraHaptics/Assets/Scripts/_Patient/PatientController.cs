@@ -17,6 +17,7 @@ public class PatientController : MonoBehaviour
     public static PatientView patientView;
     public static PatientModel patientModel;
     public static int currentExerciseIndex = 0;
+    public static List<Exercise> globalExercises = new List<Exercise>();
 
     //HARDWARE Setup --------------------------------------------
     private TcpClient client;
@@ -37,9 +38,14 @@ public class PatientController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        ConnectToServer();
-        StartCoroutine(ProcessPredictions()); // Start averaging every 5 seconds
+    {   
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "PatientExercise"){
+            ConnectToServer();
+            StartCoroutine(ProcessPredictions()); // Start averaging every 5 seconds
+        }
+        
+        
     }
 
     void ConnectToServer()
@@ -62,7 +68,7 @@ public class PatientController : MonoBehaviour
         }
     }
 
-     void ReceiveData()
+    void ReceiveData()
     {
         byte[] buffer = new byte[1024];
 
@@ -103,6 +109,19 @@ public class PatientController : MonoBehaviour
             yield return new WaitForSeconds(5.0f); // Process every 5 seconds
 
             string finalPrediction = GetMostFrequentGesture();
+            
+            if(globalExercises[currentExerciseIndex].name == finalPrediction)
+            {
+                Debug.Log("Correct!");
+                patientView.SetCurrentExercise(globalExercises[currentExerciseIndex]);
+                currentExerciseIndex++;
+            }
+            else
+            {
+                Debug.Log("Incorrect!");
+            }
+            
+            
             Debug.Log(finalPrediction);
         }
     }
@@ -201,6 +220,14 @@ public class PatientController : MonoBehaviour
 
                     if (patientView != null && exercisePrograms.Count > 0)
                     {
+                        // Populate the global list with exercises
+                        globalExercises = exercisePrograms[0].exercises;
+                        foreach (Exercise exercise in globalExercises)
+                        {
+                            Debug.Log("Exercise: " + exercise.name);
+                        }
+                        
+                        
                         // Get the current scene
                         Scene currentScene = SceneManager.GetActiveScene();
 
@@ -212,7 +239,7 @@ public class PatientController : MonoBehaviour
 
                         // If the current scene is PatientExercise, set the current exercise
                         if (currentScene.name == "PatientExercise" && exercisePrograms[0].exercises.Count > 0)
-                        {
+                        {   
                             if(currentExerciseIndex >= exercisePrograms[0].exercises.Count)
                             {
                                 patientView.EndSession();
@@ -221,6 +248,8 @@ public class PatientController : MonoBehaviour
                             
                             patientView.SetCurrentExercise(exercisePrograms[0].exercises[currentExerciseIndex]);
                         }
+
+                        
                     }
                 }
                 else
