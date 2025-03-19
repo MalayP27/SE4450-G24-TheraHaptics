@@ -6,6 +6,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+
 
 public class PatientController : MonoBehaviour
 {
@@ -13,10 +18,118 @@ public class PatientController : MonoBehaviour
     public static PatientModel patientModel;
     public static int currentExerciseIndex = 0;
 
+    //HARDWARE Setup --------------------------------------------
+    private TcpClient client;
+    private NetworkStream stream;
+    private Thread receiveThread;
+    private bool isRunning = true;
+
+    private string serverIP = "127.0.0.1"; // Match your Python server IP
+    private int serverPort = 9090;         // Match your Python server port
+
+    private Queue<string> predictionQueue = new Queue<string>(); // Stores received predictions
+    private const int MaxPredictions = 64; // Number of values to evaluate over 5 seconds (adjust if needed)
+
     private void Awake()
     {
         patientView = GetComponent<PatientView>();
     }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        ConnectToServer();
+        StartCoroutine(ProcessPredictions()); // Start averaging every 5 seconds
+    }
+
+    void ConnectToServer()
+    {
+        try
+        {
+            client = new TcpClient();
+            client.Connect(serverIP, serverPort);
+            stream = client.GetStream();
+            Debug.Log("✅ Connected to Python server");
+
+            // Start a thread to receive data
+            receiveThread = new Thread(ReceiveData);
+            receiveThread.IsBackground = true;
+            receiveThread.Start();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("❌ Connection failed: " + e.Message);
+        }
+    }
+
+     void ReceiveData()
+    {
+        byte[] buffer = new byte[1024];
+
+        while (isRunning)
+        {
+            try
+            {
+                if (stream.CanRead)
+                {
+                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                    if (bytesRead > 0)
+                    {
+                        string receivedMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                        //Debug.Log(receivedMessage);
+                        lock (predictionQueue)
+                        {
+                            if (predictionQueue.Count >= MaxPredictions)
+                            {
+                                predictionQueue.Dequeue(); // Remove oldest value if queue is full
+                            }
+                            predictionQueue.Enqueue(receivedMessage); // Store new prediction
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("❌ Error receiving data: " + e.Message);
+                break;
+            }
+        }
+    }
+
+    private IEnumerator ProcessPredictions()
+    {
+        while (isRunning)
+        {
+            yield return new WaitForSeconds(5.0f); // Process every 5 seconds
+
+            string finalPrediction = GetMostFrequentGesture();
+            Debug.Log(finalPrediction);
+        }
+    }
+
+    private string GetMostFrequentGesture()
+    {
+        lock (predictionQueue)
+        {
+            if (predictionQueue.Count == 0)
+                return "none";
+
+            return predictionQueue
+                   .GroupBy(g => g)  // Group by gesture type
+                   .OrderByDescending(g => g.Count()) // Sort by frequency
+                   .First().Key; // Return most frequent
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        isRunning = false;
+        receiveThread?.Abort();
+        stream?.Close();
+        client?.Close();
+    }
+
+    //HARDWARE Setup End --------------------------------------------
 
     [System.Serializable]
     public class PatientResponse
