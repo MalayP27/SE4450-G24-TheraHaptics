@@ -89,6 +89,8 @@ public class PatientView : MonoBehaviour
     [Header("Misc")]
     // Temporary Sprite for exercise Screen
     [SerializeField] private Sprite tempExerciseImage;
+    [SerializeField] private Sprite thumbsUpExerciseImage;
+    [SerializeField] private Sprite fistExerciseImage;
     // Text Boxes
     [SerializeField] private TMP_Text helloMessage;
 
@@ -160,7 +162,7 @@ public class PatientView : MonoBehaviour
             // currentTargetTime.text = "Duration: " + tempString; // Replace with actual data Zaiyan
             // currentTargetReps.text = "Repetitions: " + tempString;
              currentReps.text = "Repetitions: " + reps; // Replace with actual data Zaiyan
-            // currentExerciseExample.sprite= tempExerciseImage; // Replace with exerciseImages[TherapistController.ReturnIndexOfExerciseImage()] 
+            //currentExerciseExample.sprite = tempExerciseImage; // Replace with exerciseImages[TherapistController.ReturnIndexOfExerciseImage()] 
             PatientController.GetExerciseProgram();
         }
         if (currentScene.name=="PatientEndSession"){
@@ -358,6 +360,21 @@ public class PatientView : MonoBehaviour
         currentTargetReps.text = "Repetitions: " + exercise.targetReps;
         timeEst.text = "<B>Estimated Time: </B>" + exercise.targetDuration + " minutes";
         intensityEst.text = "<B>Intensity Level: </B>" + exercise.intensity;
+        
+        // Determine which sprite to display based on the exercise name
+        if (exercise.name == "Thumbs Up")
+        {
+            currentExerciseExample.sprite = thumbsUpExerciseImage;
+        }
+        else if (exercise.name == "Fist")
+        {
+            currentExerciseExample.sprite = fistExerciseImage;
+        }
+        else
+        {
+            Debug.LogWarning("No matching sprite found for exercise: " + exercise.name);
+            currentExerciseExample.sprite = tempExerciseImage; // Fallback to a default image
+        }
     }
     public void AddRepetition (){
         reps += 1;

@@ -17,6 +17,8 @@ public class PatientController : MonoBehaviour
     public static int currentExerciseIndex = 0;
     public static List<Exercise> globalExercises = new List<Exercise>();
 
+    public Animator patientAnimator;
+
     // HARDWARE Setup --------------------------------------------
     private TcpClient client;
     private NetworkStream stream;
@@ -135,6 +137,19 @@ public class PatientController : MonoBehaviour
                     Debug.Log("✅ Correct Gesture Detected!");
                     patientView.SetCurrentExercise(globalExercises[currentExerciseIndex]);
                     patientView.AddRepetition();
+
+                    // Trigger the animation if the animator is assigned
+                    if (patientAnimator != null)
+                    {
+                        if (predictedGesture == "Thumbs Up")
+                        {
+                            patientAnimator.SetTrigger("CorrectThumbsUp");
+                        }
+                        else if (predictedGesture == "Fist")
+                        {
+                            patientAnimator.SetTrigger("CorrectFist");
+                        }
+                    }
                 }
                 else
                 {

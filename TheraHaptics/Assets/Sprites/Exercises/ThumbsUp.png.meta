@@ -1,0 +1,4074 @@
+fileFormatVersion: 2
+guid: 42648bc8a675f82419bac289725676f3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ThumbsUp_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0d1ec87f251ea468a312c090e8b3f9
+      internalID: 1849882933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_1
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f04289998d4434fa5d2dbc128ae70e
+      internalID: 1066245132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92c629cb9378614ba8cabb8c839a3f4
+      internalID: 2068874022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 349541cc6f994a54782c891cf033e2a0
+      internalID: 363410461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_4
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a90c138ca068b468cd15d8db28656d
+      internalID: -332162966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_5
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7fadc682017434e97ee593214ea2c1
+      internalID: 58562666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_6
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb91a9b56e2f1342a53211720965f71
+      internalID: 1788758711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_7
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1907812eb84d8e345bf7f30931b6badc
+      internalID: 299520380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_8
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2277a0014741bc64abc63109dd4b2087
+      internalID: 1422582401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_9
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 14518
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34cb132e2b8377468a913cdb6bab254
+      internalID: 596845159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1138d1308830314fb1e55e77d249b6e
+      internalID: -1521565057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_11
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c483547ad4d1204aacada50017ae0ed
+      internalID: 78815649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_12
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3783b488ed55844a8409eb64aacdf5f
+      internalID: -429508260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_13
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6902f1c5f338af249b082161dd7857a3
+      internalID: 1707835609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_14
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be4a0ba00a836474994c024aa3f4b2fc
+      internalID: -230643480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_15
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc48e7b7d6019e4fb716392ce004723
+      internalID: 1926439960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_16
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf552f7d96299094bb87bede696b4b4b
+      internalID: -201026300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_17
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3240244c0bcdcbb4cbeae84462a118b7
+      internalID: 961710317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_18
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b384078cab21cb848851248185ebd1da
+      internalID: 1726796461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_19
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 13664
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b663016bb78ca9d4db77ba1fd1da1c2e
+      internalID: -256281992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9498351e073c7b04fb99f2883b738f1a
+      internalID: -2111913963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_21
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba5a56d20cbc2545ad4c3b1a77785a8
+      internalID: 144232798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_22
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6854ae40aa299c41be6181f35705dc8
+      internalID: 240618701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_23
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90c02bf48a5e55438771f3be0a9a7d8
+      internalID: -263993673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_24
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e808fca1071d9e348820a28199702d38
+      internalID: 1549382615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_25
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c3090cf0d68b34fab96df032f6d2c5
+      internalID: 736347373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_26
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a939ddec598e7cb4d853576b89524dbc
+      internalID: 552011526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_27
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e388df666952f5243a71bb953ca81419
+      internalID: -389432204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_28
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beedbb7abaa07494a933191f1de7c005
+      internalID: -767840185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_29
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 12810
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2133f374ebf075f428768897a5e235ab
+      internalID: 323637588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec633a4342107e04885c6e60a7b7b969
+      internalID: -434812352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_31
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4737b4915dcb38f4f9e4fb34899ca3cb
+      internalID: 769129314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_32
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec3c20128c804247a27c545b617aef1
+      internalID: 1291033396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_33
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1da10e3e02a75b64da5bccea49d3f51f
+      internalID: -152056272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_34
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e692c071059824fa81a3ed646ef127
+      internalID: -2118668237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_35
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 765f626b1173323438f5f6a482d4b353
+      internalID: -875224827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_36
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bdfd1e3e8bbff244a1645966266dc94
+      internalID: 119681641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_37
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 301a018bd8f7a6f43b442dc1febd6ffb
+      internalID: -1647612878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_38
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b300595595bb19f448e74ad20b8c36a8
+      internalID: -1288245038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_39
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 11956
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d3fc56c7914d543b8f4c3d0c8422c7
+      internalID: -1805327496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61fba546f8b9694f9c2f731f0407c70
+      internalID: -36588592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_41
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fd9bac2bf810ae45a6e779f9b4ffdeb
+      internalID: -445083859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_42
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7277653fd505dfd4380757425eb3f54b
+      internalID: -1123941908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_43
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f8b6acbe0cfcc48aa1fda3b3764ee5
+      internalID: 532075948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_44
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38aa77b01d2810c49964b2e9873f5771
+      internalID: 1726310211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_45
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ee61385c97e0b242b0e600c2a30c5da
+      internalID: 417080028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_46
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd02a43a1ff17342a8a69780352d61c
+      internalID: 1368744806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_47
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee65945d99901304d8f9c2bb03025fd2
+      internalID: 1150057670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_48
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eac696c73b9a5749821e8c7b0f41fc4
+      internalID: 1809910876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_49
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa66cfce71d3dee4e8b0f2a29ffea09e
+      internalID: 553653147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434b39985e72d974baa844316c5152c4
+      internalID: -1614254360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_51
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f88d5f79cc7154492bba64669bafb3
+      internalID: -1530585308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_52
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07080ef7ea09f7947825a80919765f21
+      internalID: 742323484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_53
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f6adfd8c69985c4e8dc8c8cfeb7af2e
+      internalID: 1233794014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_54
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb59c78db00b24a449b664c19880cdf5
+      internalID: 432496522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_55
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca1cc2acc2eeda4aad8e1ff852b96a3
+      internalID: 360936082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_56
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e7bba92be1a96049a7bdb0430d1bf65
+      internalID: 314858296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_57
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcccb990c921cc242a88e0b763c3ae7a
+      internalID: -793735001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_58
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81c409a38b7a2fc49987fa70b99d4ade
+      internalID: 449829726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_59
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f26fc97d3a29674589c4c7082a37309
+      internalID: -426270306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17135ce5f6e8b4245899d78bcb310bc2
+      internalID: 99564767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_61
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba78f4069e2f84042b903dcf20619f95
+      internalID: 615779726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_62
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8a621aeaaa6dc4b83b587a1e1cb731
+      internalID: -1141906760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_63
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f929dd3f9e68b4dbaee4f969bd3564
+      internalID: -1721775978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_64
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a194bae464adf974ca80a627a96bca20
+      internalID: -1687455726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_65
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9adfe32f5770041b3c86282388d68c
+      internalID: 1693931133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_66
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8d72b5e40bb5c40b4a3aa09dd65087
+      internalID: 702946162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_67
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ed6c983c3643541a9f9cf70555eed2
+      internalID: 663192884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_68
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95aeb5d15d10adb44987b02d5b0bfa0c
+      internalID: 1415818625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_69
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c666107ecfb15f4786c5777d0b5301c
+      internalID: 218536856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d19f6695df3794093087728e466805
+      internalID: -1203111345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_71
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f8993cfceae40468b28c90f1428987
+      internalID: 1150134877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_72
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503e3e754dad76b41a0226a6a10a55a4
+      internalID: -905470358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_73
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bd728eebbb646f459bcb2451192843b
+      internalID: -886840976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_74
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2eb40388324504bab21672d14012dd
+      internalID: -1937368149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_75
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30691d84feea7da48948503072bc0260
+      internalID: 51824215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_76
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68d3d68c789cdb4c8099b49750ee236
+      internalID: -161973116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_77
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a6482d97f41e44a8f7728ce37555b9
+      internalID: 1557741025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_78
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e5cf63f18d2414da4ba0fc2e69abeb
+      internalID: 1793090199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_79
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b67c0db495f7d4ea6fc2d6341fea59
+      internalID: 1493786127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bec6cb8f042fa440a3e723ce5a1497e
+      internalID: -175475610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_81
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf39c72006cf5a145b8cad580116fd5d
+      internalID: -1360174402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_82
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fecbdbe8ea843f4fbb66b7923269708
+      internalID: 485583780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_83
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93debada4b5441439f254edeb05d471
+      internalID: -389594137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_84
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b861862f931991e4498fdb42dbdab716
+      internalID: 607733791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_85
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9689036aa979cb340bd45b7b868989d3
+      internalID: 443432319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_86
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf214c1393cbb1c4db393e6ddd835bfa
+      internalID: 295751937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_87
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b62879131366c54cac2cb7158a1ef8c
+      internalID: 122929085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_88
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5a3ff5c3513f84b808a04ad68817ae
+      internalID: -774970764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_89
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1cff4cd303f2f45a06cc04b7ded9e8
+      internalID: -266714950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af9758e74c1c7c4685486c5ae012e30
+      internalID: -789117027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_91
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0de8c7b692b62641ae11fb36537be56
+      internalID: -235134537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_92
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c26d2d37b50f364b962b03a0944d64a
+      internalID: 1912715505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_93
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acadbf439e4f83a45b730b9c029e6686
+      internalID: -2085219086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_94
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 050ee5de75539864db966b35633e72d8
+      internalID: -301711272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_95
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607e7c6b8b70f1a478d208039d6bfc59
+      internalID: 1431962108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_96
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4020637afd3794dbf2b38e04cb4d6b
+      internalID: -147828419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_97
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9bec296665dc0a44bde703471bfa1b7
+      internalID: 1227801110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_98
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc2c37d9bccb4424b817980e0590db6f
+      internalID: -435660688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_99
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3564fbd3cd443449ab402eb6e34282
+      internalID: 2092023168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e0c05449f92f549842d5d88a2da216
+      internalID: -1950443949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_101
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11fccdb7736227648a495a585547ecbf
+      internalID: -812552169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_102
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f33846eeecbadd244a79e65636ce5548
+      internalID: 301971642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_103
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b52a18c04b65e94db36cceea464a0d4
+      internalID: -1704393377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_104
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7a1ce29c1cb2c4890fd7a39ae56dd8
+      internalID: 1688044868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_105
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c4f66b02a295d4419205da160b55991
+      internalID: 686601457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_106
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde5a876fb0c74c4e83acc4ed4f7402d
+      internalID: -522541285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_107
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffcc9e65a3c1e334b8e7a21c231c3269
+      internalID: -1358144108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_108
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96e22ed8fa32d54c8467d4f0ec15b9a
+      internalID: 1401127015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_109
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3759326d75f16842882a1bb057d6531
+      internalID: -3509170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1e382935309f242bcd2e81b3d0b48f
+      internalID: 346693804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_111
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20eff9ca2c4f37e47a4413f4db5f9733
+      internalID: -1029910546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_112
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45aeb44dde90a6c4d89e63717bf90d32
+      internalID: -120519153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_113
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa64eb8c5b15301449c307fcc3de9483
+      internalID: -121963121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_114
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf23c59c2d7c6ea4a9999ec20f2b3b9c
+      internalID: 1512661383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_115
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb09f8c3744549c4492a250e956ba59d
+      internalID: 1285283333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_116
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c7e6f9f9720514a88cd52bd6e73d4b
+      internalID: 843468509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_117
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865d2ae85790d914091d64b881e2e831
+      internalID: 1688193005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_118
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: decceb64931b60f4ca65b376a8458b9b
+      internalID: -1844722138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_119
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a27cc5475454354fa26d5a868f40cbb
+      internalID: 823490037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1779869523b19764bb939f307807d112
+      internalID: 430295327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_121
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e0b048e9e64914bb0aea5c3ed573d0
+      internalID: -1053685752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_122
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 007263d79efd0c44287d4421eabc56b7
+      internalID: 1915970757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_123
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d15c163421677468e97e68e3ec61a1
+      internalID: 743708901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_124
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fad74eb574a7f64a9564934ce07b7b4
+      internalID: 442414491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_125
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab09ac4f05daff4fa5c70e86a191d88
+      internalID: 1301497724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_126
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b53bfd464090c04690943d6371df5bf
+      internalID: 1817390784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_127
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16d06385cb1c874f9ef6751a995c93d
+      internalID: 1984222616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_128
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e340e9399afb6a8449902537e21fe5c6
+      internalID: 1221015237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_129
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2950ad0f5e6816e4eaad67cf0b7d1d9e
+      internalID: 1693772473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6451653b07baed2499d385c63329ef85
+      internalID: 1841710272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_131
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4166d84bd331f947a8a43f0a49f767a
+      internalID: -381912570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_132
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc01d346e01f4424297c013432072359
+      internalID: -158234826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_133
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c4e5d07d6b909418c696269a092e45
+      internalID: -802684802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_134
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e98b49acbedf8bb47a0843e6ec46ce7b
+      internalID: 1954971288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_135
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79391176138496c4980b5c4712429b08
+      internalID: 1544804542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_136
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3af45371493430498128fa436569403
+      internalID: -956426775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_137
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c42cf80963d838b488c7398b930ff1e3
+      internalID: 543853659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_138
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c3938389d63f2d44bf9eb67e9c70da5
+      internalID: -1580417209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_139
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32ee12e783247945a0fc9b0012c615e
+      internalID: 608070999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c80026a4d887af4398832789ff649d4
+      internalID: 1257132319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_141
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e72dcce13c50fc4c92d4c3cda35577d
+      internalID: -915688661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_142
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 433d75f942245b543a7acc1c97a8507f
+      internalID: -1674765250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_143
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b384c3acd285ec84cb4e06a6ff161a7d
+      internalID: -949453983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_144
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5240e98134d1c094d8281cb451c02207
+      internalID: -1959227554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_145
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a3b70e4a4ae844f8e80d1b98d93915
+      internalID: -436914829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_146
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ba9f2a6b5a4e44fa19596500f6c4cd
+      internalID: -426100155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_147
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625b8b1d49b0c404eaaff51a322761c8
+      internalID: 1856265935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_148
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197980a51e0110d4b8da4cf8a09711fe
+      internalID: -1591683247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_149
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c0f08808325d84b8487f28654ad24b
+      internalID: 1624660821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_150
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1170c4775cffdd4ebc30b8c7242aefe
+      internalID: -107309088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_151
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52afdce2084b07d4f982c661d35d119a
+      internalID: -1688215817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_152
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a042ba18f05834bb7a3e06773a25fd
+      internalID: 295729812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_153
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10e06fdaf70dbde4db20c4fc6d217bf3
+      internalID: 213646813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_154
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc97a71efa4b82d42b23a97fc438bc8f
+      internalID: 1973649254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_155
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb4c59b79e0727438e57f54a3e5a629
+      internalID: -231805857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_156
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b9d45794b5e9140814bf24a26310eb
+      internalID: -198991389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_157
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2655b924bda8dba46bf69c98685aa3c5
+      internalID: -1634963495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_158
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0333c87f66a3a1442a7b78cffc4eec83
+      internalID: -1222032061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_159
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53bf989ce1a08a34093392b24b2cf8fc
+      internalID: 443741411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_160
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f5a8825870356b48b9b43dfc8b38193
+      internalID: -131056151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_161
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4bb08c405910894f9d91e950fccf707
+      internalID: 2044836472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_162
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce12e279dc980c449b58bae2ded6dfd0
+      internalID: 934275481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_163
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b094c0eae6546948972601b329bfad7
+      internalID: -1453363474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_164
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013433013f8f2894b98a7ca0a8850b08
+      internalID: -1354734938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_165
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9779348772b86b440bf729fe7b8fd933
+      internalID: 236417685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_166
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5564d3f39014bed4ab33d7c87f9ab9a2
+      internalID: 1760806573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_167
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641e9229fdfba33499ac139bc7181c8f
+      internalID: -1389792696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_168
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a51b536878e4740bb78103b535fafb
+      internalID: 1659583470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_169
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820762582c6e1fe4d95046647b9ee002
+      internalID: 2046837860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_170
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c34b7cdff117354dadf10130c06138c
+      internalID: -1484033380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_171
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ec3de49fa900e4fa35d861202e3c67
+      internalID: 670025270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_172
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1d32a8e84ba8834db84e4921030da67
+      internalID: 891325121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_173
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b115fcab9aa9441a1ddcd50c6834f0
+      internalID: -341391718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_174
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe47bc5fbb29cea439867bd7061e1b38
+      internalID: 151168847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_175
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79223437b5fe9645b256a8de40ca6af
+      internalID: 70033143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_176
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89e4d059034a4c44bfdc0350a6f7a6e
+      internalID: -133861230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_177
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b572e5aa147e84cb3163e603df2fef
+      internalID: 1416855342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_178
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd6ff432f3b4fc4e9aefcf3ed935f6e
+      internalID: 1901390610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ThumbsUp_179
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a3c60f3a4bcfa499e97f7fab5793f2
+      internalID: -1159046724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ThumbsUp_0: 1849882933
+      ThumbsUp_1: 1066245132
+      ThumbsUp_10: -1521565057
+      ThumbsUp_100: -1950443949
+      ThumbsUp_101: -812552169
+      ThumbsUp_102: 301971642
+      ThumbsUp_103: -1704393377
+      ThumbsUp_104: 1688044868
+      ThumbsUp_105: 686601457
+      ThumbsUp_106: -522541285
+      ThumbsUp_107: -1358144108
+      ThumbsUp_108: 1401127015
+      ThumbsUp_109: -3509170
+      ThumbsUp_11: 78815649
+      ThumbsUp_110: 346693804
+      ThumbsUp_111: -1029910546
+      ThumbsUp_112: -120519153
+      ThumbsUp_113: -121963121
+      ThumbsUp_114: 1512661383
+      ThumbsUp_115: 1285283333
+      ThumbsUp_116: 843468509
+      ThumbsUp_117: 1688193005
+      ThumbsUp_118: -1844722138
+      ThumbsUp_119: 823490037
+      ThumbsUp_12: -429508260
+      ThumbsUp_120: 430295327
+      ThumbsUp_121: -1053685752
+      ThumbsUp_122: 1915970757
+      ThumbsUp_123: 743708901
+      ThumbsUp_124: 442414491
+      ThumbsUp_125: 1301497724
+      ThumbsUp_126: 1817390784
+      ThumbsUp_127: 1984222616
+      ThumbsUp_128: 1221015237
+      ThumbsUp_129: 1693772473
+      ThumbsUp_13: 1707835609
+      ThumbsUp_130: 1841710272
+      ThumbsUp_131: -381912570
+      ThumbsUp_132: -158234826
+      ThumbsUp_133: -802684802
+      ThumbsUp_134: 1954971288
+      ThumbsUp_135: 1544804542
+      ThumbsUp_136: -956426775
+      ThumbsUp_137: 543853659
+      ThumbsUp_138: -1580417209
+      ThumbsUp_139: 608070999
+      ThumbsUp_14: -230643480
+      ThumbsUp_140: 1257132319
+      ThumbsUp_141: -915688661
+      ThumbsUp_142: -1674765250
+      ThumbsUp_143: -949453983
+      ThumbsUp_144: -1959227554
+      ThumbsUp_145: -436914829
+      ThumbsUp_146: -426100155
+      ThumbsUp_147: 1856265935
+      ThumbsUp_148: -1591683247
+      ThumbsUp_149: 1624660821
+      ThumbsUp_15: 1926439960
+      ThumbsUp_150: -107309088
+      ThumbsUp_151: -1688215817
+      ThumbsUp_152: 295729812
+      ThumbsUp_153: 213646813
+      ThumbsUp_154: 1973649254
+      ThumbsUp_155: -231805857
+      ThumbsUp_156: -198991389
+      ThumbsUp_157: -1634963495
+      ThumbsUp_158: -1222032061
+      ThumbsUp_159: 443741411
+      ThumbsUp_16: -201026300
+      ThumbsUp_160: -131056151
+      ThumbsUp_161: 2044836472
+      ThumbsUp_162: 934275481
+      ThumbsUp_163: -1453363474
+      ThumbsUp_164: -1354734938
+      ThumbsUp_165: 236417685
+      ThumbsUp_166: 1760806573
+      ThumbsUp_167: -1389792696
+      ThumbsUp_168: 1659583470
+      ThumbsUp_169: 2046837860
+      ThumbsUp_17: 961710317
+      ThumbsUp_170: -1484033380
+      ThumbsUp_171: 670025270
+      ThumbsUp_172: 891325121
+      ThumbsUp_173: -341391718
+      ThumbsUp_174: 151168847
+      ThumbsUp_175: 70033143
+      ThumbsUp_176: -133861230
+      ThumbsUp_177: 1416855342
+      ThumbsUp_178: 1901390610
+      ThumbsUp_179: -1159046724
+      ThumbsUp_18: 1726796461
+      ThumbsUp_19: -256281992
+      ThumbsUp_2: 2068874022
+      ThumbsUp_20: -2111913963
+      ThumbsUp_21: 144232798
+      ThumbsUp_22: 240618701
+      ThumbsUp_23: -263993673
+      ThumbsUp_24: 1549382615
+      ThumbsUp_25: 736347373
+      ThumbsUp_26: 552011526
+      ThumbsUp_27: -389432204
+      ThumbsUp_28: -767840185
+      ThumbsUp_29: 323637588
+      ThumbsUp_3: 363410461
+      ThumbsUp_30: -434812352
+      ThumbsUp_31: 769129314
+      ThumbsUp_32: 1291033396
+      ThumbsUp_33: -152056272
+      ThumbsUp_34: -2118668237
+      ThumbsUp_35: -875224827
+      ThumbsUp_36: 119681641
+      ThumbsUp_37: -1647612878
+      ThumbsUp_38: -1288245038
+      ThumbsUp_39: -1805327496
+      ThumbsUp_4: -332162966
+      ThumbsUp_40: -36588592
+      ThumbsUp_41: -445083859
+      ThumbsUp_42: -1123941908
+      ThumbsUp_43: 532075948
+      ThumbsUp_44: 1726310211
+      ThumbsUp_45: 417080028
+      ThumbsUp_46: 1368744806
+      ThumbsUp_47: 1150057670
+      ThumbsUp_48: 1809910876
+      ThumbsUp_49: 553653147
+      ThumbsUp_5: 58562666
+      ThumbsUp_50: -1614254360
+      ThumbsUp_51: -1530585308
+      ThumbsUp_52: 742323484
+      ThumbsUp_53: 1233794014
+      ThumbsUp_54: 432496522
+      ThumbsUp_55: 360936082
+      ThumbsUp_56: 314858296
+      ThumbsUp_57: -793735001
+      ThumbsUp_58: 449829726
+      ThumbsUp_59: -426270306
+      ThumbsUp_6: 1788758711
+      ThumbsUp_60: 99564767
+      ThumbsUp_61: 615779726
+      ThumbsUp_62: -1141906760
+      ThumbsUp_63: -1721775978
+      ThumbsUp_64: -1687455726
+      ThumbsUp_65: 1693931133
+      ThumbsUp_66: 702946162
+      ThumbsUp_67: 663192884
+      ThumbsUp_68: 1415818625
+      ThumbsUp_69: 218536856
+      ThumbsUp_7: 299520380
+      ThumbsUp_70: -1203111345
+      ThumbsUp_71: 1150134877
+      ThumbsUp_72: -905470358
+      ThumbsUp_73: -886840976
+      ThumbsUp_74: -1937368149
+      ThumbsUp_75: 51824215
+      ThumbsUp_76: -161973116
+      ThumbsUp_77: 1557741025
+      ThumbsUp_78: 1793090199
+      ThumbsUp_79: 1493786127
+      ThumbsUp_8: 1422582401
+      ThumbsUp_80: -175475610
+      ThumbsUp_81: -1360174402
+      ThumbsUp_82: 485583780
+      ThumbsUp_83: -389594137
+      ThumbsUp_84: 607733791
+      ThumbsUp_85: 443432319
+      ThumbsUp_86: 295751937
+      ThumbsUp_87: 122929085
+      ThumbsUp_88: -774970764
+      ThumbsUp_89: -266714950
+      ThumbsUp_9: 596845159
+      ThumbsUp_90: -789117027
+      ThumbsUp_91: -235134537
+      ThumbsUp_92: 1912715505
+      ThumbsUp_93: -2085219086
+      ThumbsUp_94: -301711272
+      ThumbsUp_95: 1431962108
+      ThumbsUp_96: -147828419
+      ThumbsUp_97: 1227801110
+      ThumbsUp_98: -435660688
+      ThumbsUp_99: 2092023168
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

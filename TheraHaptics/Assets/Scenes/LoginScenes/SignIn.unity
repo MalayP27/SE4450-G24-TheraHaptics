@@ -2683,11 +2683,12 @@ MonoBehaviour:
   userEmail: {fileID: 1848195578}
   userPassword: {fileID: 717557576}
   confirmPassword: {fileID: 0}
-  serialKey: {fileID: 0}
+  productKey: {fileID: 0}
   firstNameInput: {fileID: 0}
   lastNameInput: {fileID: 0}
   keepLoggedIn: {fileID: 648561265}
   showPassword: {fileID: 754045598}
+  submitProductKeyButton: {fileID: 0}
   errorMessage: {fileID: 1384414383}
   errorMessageText: {fileID: 1384414384}
 --- !u!114 &1224689405

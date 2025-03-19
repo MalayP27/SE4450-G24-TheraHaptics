@@ -1637,8 +1637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -195.98, y: -13.784}
+  m_SizeDelta: {x: 364.0818, y: 364.0818}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121347355
 MonoBehaviour:
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 94b460b8ac956fa4e8306c465c7d7dac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69df606eefeaeb94e8b7556763b5e60b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3121,6 +3121,9 @@ MonoBehaviour:
   exerciseProgramName: {fileID: 0}
   timeEst: {fileID: 2023278031}
   intensityEst: {fileID: 168367470}
+  programGoals: {fileID: 0}
+  startDate: {fileID: 0}
+  endDate: {fileID: 0}
   currentExerciseName: {fileID: 1358111107}
   currentInstructions: {fileID: 1213593153}
   currentTargetTime: {fileID: 861514810}
@@ -3131,7 +3134,17 @@ MonoBehaviour:
   exerciseImages: []
   pauseButton: {fileID: 1495547833}
   sessionIsPausedText: {fileID: 1205947544}
+  painLocation: {fileID: 0}
+  painDescription: {fileID: 0}
+  painIntensitySlider: {fileID: 0}
+  sessionFeedback: {fileID: 0}
+  reportDates: []
+  reportTypes: []
+  reportViewButtons: []
+  searchBar: {fileID: 0}
   tempExerciseImage: {fileID: 21300000, guid: 1aa028cfb4d20fe47afe1d2b8e62d18f, type: 3}
+  thumbsUpExerciseImage: {fileID: 1538050778, guid: 0d7501efc9beede4b989ab04066f6a06, type: 3}
+  fistExerciseImage: {fileID: 1849882933, guid: 42648bc8a675f82419bac289725676f3, type: 3}
   helloMessage: {fileID: 0}
 --- !u!114 &1962272812
 MonoBehaviour:
