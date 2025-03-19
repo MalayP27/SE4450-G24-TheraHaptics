@@ -150,17 +150,18 @@ public class PatientView : MonoBehaviour
             // exerciseProgramName.text = tempString;
             // timeEst.text = "<B>Estimated Time: </B>" + tempString + " minutes"; // Replace with actual data Zaiyan
             // intensityEst.text = "<B>Intensity Level: </B>" + tempString; // Replace with actual data Zaiyan
-        PatientController.GetExerciseProgram();
+            PatientController.GetExerciseProgram();
         }
         if (currentScene.name=="PatientExercise"){
-            currentExerciseName.text = tempString; // Replace with actual data Zaiyan
-            timeEst.text = "<B>Estimated Time: </B>" + tempString + " minutes"; // Replace with actual data Zaiyan
-            intensityEst.text = "<B>Intensity Level: </B>" + tempString; // Replace with actual data Zaiyan
-            currentInstructions.text = "<B>Instructions: </B>" + tempString; // Replace with actual data Zaiyan
-            currentTargetTime.text = "Duration: " + tempString; // Replace with actual data Zaiyan
-            currentTargetReps.text = "Repetitions: " + tempString;
-            currentReps.text = "Repetitions: " + reps; // Replace with actual data Zaiyan
-            currentExerciseExample.sprite= tempExerciseImage; // Replace with exerciseImages[TherapistController.ReturnIndexOfExerciseImage()] 
+            // currentExerciseName.text = tempString; // Replace with actual data Zaiyan
+            // timeEst.text = "<B>Estimated Time: </B>" + tempString + " minutes"; // Replace with actual data Zaiyan
+            // intensityEst.text = "<B>Intensity Level: </B>" + tempString; // Replace with actual data Zaiyan
+            // currentInstructions.text = "<B>Instructions: </B>" + tempString; // Replace with actual data Zaiyan
+            // currentTargetTime.text = "Duration: " + tempString; // Replace with actual data Zaiyan
+            // currentTargetReps.text = "Repetitions: " + tempString;
+            // currentReps.text = "Repetitions: " + reps; // Replace with actual data Zaiyan
+            // currentExerciseExample.sprite= tempExerciseImage; // Replace with exerciseImages[TherapistController.ReturnIndexOfExerciseImage()] 
+            PatientController.GetExerciseProgram();
         }
         if (currentScene.name=="PatientEndSession"){
             FillTimeTaken(tempString/*Zaiyan's Return Last time taken Function*/);
@@ -282,8 +283,14 @@ public class PatientView : MonoBehaviour
     
     // ==========PatientStartSession Scene Methods==========
     // Method to notify the controller to save the details for the next exercise to load and then load the scene where the awake method will load the saved details according to which exercise is next
+    public void PatientLoadStartExercise(int nextOrPrev){
+        // TherapistController.SaveCurrentAndGoNextExercise(int nextOrPrev, string timerText, int reps) (nextOrPrev is 0 for previous exercise, 1 for next, if they click previous on the first, either reload same one, or go to dashboard, if next on last, call the EndSession Function)
+        SceneManager.LoadScene("PatientExercise");
+    }
+    
     public void PatientLoadNextExercise(int nextOrPrev){
         // TherapistController.SaveCurrentAndGoNextExercise(int nextOrPrev, string timerText, int reps) (nextOrPrev is 0 for previous exercise, 1 for next, if they click previous on the first, either reload same one, or go to dashboard, if next on last, call the EndSession Function)
+        PatientController.currentExerciseIndex ++;
         SceneManager.LoadScene("PatientExercise");
     }
 
@@ -336,6 +343,22 @@ public class PatientView : MonoBehaviour
 
     // ==========PatientExercise Scene Methods==========
     // Method to add a repetition to the screen (call whenever the haptic glove detects a rep of the specified exercise)
+    
+    public void SetCurrentExercise(PatientController.Exercise exercise)
+    {
+        if (exercise == null)
+        {
+            Debug.LogError("Exercise is null!");
+            return;
+        }
+
+        currentExerciseName.text = exercise.name;
+        currentInstructions.text = "<B>Instructions: </B>" + exercise.instructions;
+        currentTargetTime.text = "Duration: " + exercise.targetDuration + " seconds";
+        currentTargetReps.text = "Repetitions: " + exercise.targetReps;
+        timeEst.text = "<B>Estimated Time: </B>" + exercise.targetDuration + " minutes";
+        intensityEst.text = "<B>Intensity Level: </B>" + exercise.intensity;
+    }
     public void AddRepetition (){
         reps += 1;
         currentReps.text = "Repetitions: " + reps;
@@ -359,6 +382,7 @@ public class PatientView : MonoBehaviour
     // Method to end the session
     public void EndSession(){
         // TherapistController.SaveLastExercise(string timerText,int reps)
+        PatientController.currentExerciseIndex = 0;
         SceneManager.LoadScene("PatientEndSession");
     }
     
@@ -376,6 +400,7 @@ public class PatientView : MonoBehaviour
     // Method to save and complete the current session
     public void SaveAndCompleteSession(){
         if (SceneManager.GetActiveScene().name == "PatientEndSession"){
+            PatientController.currentExerciseIndex = 0;
             string feedback = sessionFeedback.text;
             // TherapistController.SaveFeedbackToSession(feedback) and then call PatientDashboard
         }
@@ -386,6 +411,7 @@ public class PatientView : MonoBehaviour
 
     // Method to restart the session
     public void PatientRestartSession(){
+        PatientController.currentExerciseIndex = 0;
         SaveAndCompleteSession();
         PatientStartSession();
     }
