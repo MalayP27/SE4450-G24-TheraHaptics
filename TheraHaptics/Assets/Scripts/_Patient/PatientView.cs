@@ -145,6 +145,7 @@ public class PatientView : MonoBehaviour
             sessionsCompletedBox.text = "Sessions Completed: " + tempString; // Replace with actual data Zaiyan
         }
         if (currentScene.name=="PatientStartSession"){
+            PatientController.GetExerciseProgram();
             // patientExercises.text = "";
             // for(int i = 0; i < 5; i++) {
             //     patientExercises.text += (i+1) + ". " + tempExercises[i] + "\n"; // Replace with actual data Zaiyan
@@ -152,18 +153,21 @@ public class PatientView : MonoBehaviour
             // exerciseProgramName.text = tempString;
             // timeEst.text = "<B>Estimated Time: </B>" + tempString + " minutes"; // Replace with actual data Zaiyan
             // intensityEst.text = "<B>Intensity Level: </B>" + tempString; // Replace with actual data Zaiyan
-            PatientController.GetExerciseProgram();
+            
         }
         if (currentScene.name=="PatientExercise"){
+            PatientController.GetExerciseProgram();
+            currentReps.text = "Repetitions: " + reps;
+            
             // currentExerciseName.text = tempString; // Replace with actual data Zaiyan
             // timeEst.text = "<B>Estimated Time: </B>" + tempString + " minutes"; // Replace with actual data Zaiyan
             // intensityEst.text = "<B>Intensity Level: </B>" + tempString; // Replace with actual data Zaiyan
             // currentInstructions.text = "<B>Instructions: </B>" + tempString; // Replace with actual data Zaiyan
             // currentTargetTime.text = "Duration: " + tempString; // Replace with actual data Zaiyan
             // currentTargetReps.text = "Repetitions: " + tempString;
-             currentReps.text = "Repetitions: " + reps; // Replace with actual data Zaiyan
+              // Replace with actual data Zaiyan
             //currentExerciseExample.sprite = tempExerciseImage; // Replace with exerciseImages[TherapistController.ReturnIndexOfExerciseImage()] 
-            PatientController.GetExerciseProgram();
+            
         }
         if (currentScene.name=="PatientEndSession"){
             FillTimeTaken(tempString/*Zaiyan's Return Last time taken Function*/);
