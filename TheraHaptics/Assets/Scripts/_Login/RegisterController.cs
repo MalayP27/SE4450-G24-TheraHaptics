@@ -11,8 +11,10 @@ public class RegisterController : MonoBehaviour
     public static LoginModel loginModel = new LoginModel();
     [SerializeField] public static LoginView loginView = new LoginView();
 
-    // Static variable to store the therapistId
+    // Static variable to store the therapistId & patientId
     public static string TherapistId { get; set;}
+    public static string PatientId { get; set; }
+    public static string PatientEmail { get; set; }
 
     // This class is used to deserialize the GET response from the product key verification endpoint.
     [Serializable]
