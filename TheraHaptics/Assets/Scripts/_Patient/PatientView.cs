@@ -56,6 +56,9 @@ public class PatientView : MonoBehaviour
     [SerializeField] private TMP_Text exerciseProgramName;
     [SerializeField] private TMP_Text timeEst;
     [SerializeField] private TMP_Text intensityEst;
+    [SerializeField] private TMP_Text programGoals;
+    [SerializeField] private TMP_Text startDate;
+    [SerializeField] private TMP_Text endDate;
 
     [Header("Current Exercise Boxes")]
     [SerializeField] private TMP_Text currentExerciseName;
@@ -140,14 +143,14 @@ public class PatientView : MonoBehaviour
             sessionsCompletedBox.text = "Sessions Completed: " + tempString; // Replace with actual data Zaiyan
         }
         if (currentScene.name=="PatientStartSession"){
-            patientExercises.text = "";
-            for(int i = 0; i < 5; i++) {
-                patientExercises.text += (i+1) + ". " + tempExercises[i] + "\n"; // Replace with actual data Zaiyan
-            }
-            exerciseProgramName.text = tempString;
-            timeEst.text = "<B>Estimated Time: </B>" + tempString + " minutes"; // Replace with actual data Zaiyan
-            intensityEst.text = "<B>Intensity Level: </B>" + tempString; // Replace with actual data Zaiyan
-
+            // patientExercises.text = "";
+            // for(int i = 0; i < 5; i++) {
+            //     patientExercises.text += (i+1) + ". " + tempExercises[i] + "\n"; // Replace with actual data Zaiyan
+            // }
+            // exerciseProgramName.text = tempString;
+            // timeEst.text = "<B>Estimated Time: </B>" + tempString + " minutes"; // Replace with actual data Zaiyan
+            // intensityEst.text = "<B>Intensity Level: </B>" + tempString; // Replace with actual data Zaiyan
+        PatientController.GetExerciseProgram();
         }
         if (currentScene.name=="PatientExercise"){
             currentExerciseName.text = tempString; // Replace with actual data Zaiyan
@@ -283,6 +286,54 @@ public class PatientView : MonoBehaviour
         // TherapistController.SaveCurrentAndGoNextExercise(int nextOrPrev, string timerText, int reps) (nextOrPrev is 0 for previous exercise, 1 for next, if they click previous on the first, either reload same one, or go to dashboard, if next on last, call the EndSession Function)
         SceneManager.LoadScene("PatientExercise");
     }
+
+    public void SetExerciseProgram(PatientController.ExerciseProgram exerciseProgram)
+    {
+        // Check if the exerciseProgram is null
+        if (exerciseProgram == null)
+        {
+            Debug.LogError("ExerciseProgram is null!");
+            return;
+        }
+        // Check if the exercises list is null
+        if (exerciseProgram.exercises == null)
+        {
+            Debug.LogError("ExerciseProgram.exercises is null!");
+            return;
+        }
+
+        Debug.Log("Setting exercise program: " + exerciseProgram.name);
+
+        // Update UI elements with exercise program details
+        exerciseProgramName.text = exerciseProgram.name;
+        timeEst.text = "<B>Estimated Time: </B>" + exerciseProgram.estimatedTime + " minutes";
+        intensityEst.text = "<B>Intensity Level: </B>" + exerciseProgram.intensity;
+        programGoals.text = "<B>Program Goals: </B>" + exerciseProgram.planGoals;
+        startDate.text = "Start Date: " + exerciseProgram.startDate;
+        endDate.text = "End Date: " + exerciseProgram.endDate;
+
+        // Clear existing exercise texts
+        patientExercises.text = "";
+        // patientExerciseCompletions.text = "";
+
+        // Loop through each exercise in the program
+        for (int i = 0; i < exerciseProgram.exercises.Count; i++)
+        {
+            Debug.Log("gptpls");
+            PatientController.Exercise exercise = exerciseProgram.exercises[i];
+
+            if (exercise == null)
+            {
+                Debug.LogWarning("Exercise at index " + i + " is null!");
+                continue;
+            }
+
+            patientExercises.text += (i + 1) + ". " + exercise.name + "\n";
+    //      patientExerciseCompletions.text += exercise.targetReps + " reps, " + exercise.targetDuration + " seconds\n";
+        }
+        Debug.Log("Final patientExercises.text:\n" + patientExercises.text);
+    }
+
     // ==========PatientExercise Scene Methods==========
     // Method to add a repetition to the screen (call whenever the haptic glove detects a rep of the specified exercise)
     public void AddRepetition (){
