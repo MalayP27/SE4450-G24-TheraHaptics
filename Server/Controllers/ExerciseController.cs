@@ -66,7 +66,7 @@ public class ExerciseController : Controller {
         });
     }
 
-    [Authorize(Policy = "TherapistAndPatient")]
+    //[Authorize(Policy = "TherapistAndPatient")]
     [HttpGet("getAllExercises")]
     public async Task<IActionResult> GetAllExercises() {
         var exercises = await _mongoDBService.GetAllExercisesAsync();

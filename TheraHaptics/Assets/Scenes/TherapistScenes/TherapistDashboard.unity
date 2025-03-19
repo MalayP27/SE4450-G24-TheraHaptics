@@ -1137,7 +1137,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 927962771}
   - {fileID: 414003857}
   - {fileID: 666778684}
   - {fileID: 335211556}
@@ -1147,7 +1146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70.18597, y: -118.359634}
+  m_AnchoredPosition: {x: 70.18597, y: -138.9}
   m_SizeDelta: {x: 577.81, y: 165.4747}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &161573835
@@ -3707,12 +3706,12 @@ RectTransform:
   - {fileID: 1168045759}
   - {fileID: 1285175051}
   - {fileID: 1207530763}
-  m_Father: {fileID: 161573834}
+  m_Father: {fileID: 1983218414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 470.186, y: -268.2}
+  m_SizeDelta: {x: 577.81, y: 27.579117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &927962772
 MonoBehaviour:
@@ -4735,7 +4734,7 @@ MonoBehaviour:
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -8257,6 +8256,7 @@ RectTransform:
   - {fileID: 1604512871}
   - {fileID: 1214928402}
   - {fileID: 161573834}
+  - {fileID: 927962771}
   - {fileID: 1621922321}
   - {fileID: 1296371856}
   - {fileID: 1427326928}

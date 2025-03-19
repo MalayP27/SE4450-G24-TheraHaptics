@@ -118,4 +118,80 @@ public class TherapistController : MonoBehaviour
             }
         }
     }
+
+    
+    public class TherapistResponse
+    {
+        public string therapistId;
+        public string firstName;
+        public string lastName;
+    }
+    public static void GetTherapist()
+    {
+        string therapistId = RegisterController.TherapistId; // Ensure this is set!
+        // Adjust the URL to match the API route (no extra "getTherapist" segment needed).
+        string url = $"http://localhost:5089/api/therapist/{therapistId}";
+
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        {
+            request.SetRequestHeader("Content-Type", "application/json");
+            request.SetRequestHeader("Accept", "application/json");
+
+            // Start the request and wait for it to complete.
+            var asyncOp = request.SendWebRequest();
+            while (!asyncOp.isDone)
+            {
+                // Optionally, yield return null if using this in a coroutine.
+            }
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                string responseBody = request.downloadHandler.text;
+                Debug.Log("Get therapist successful. Response: " + responseBody);
+
+                // Deserialize the JSON response into a TherapistResponse object.
+                TherapistResponse therapist = JsonUtility.FromJson<TherapistResponse>(responseBody);
+                if (therapist != null)
+                {
+                    // Create the welcome message.
+                    string welcomeMessage = "Hi " + therapist.firstName + " " + therapist.lastName;
+                    // Set the welcome message in the UI.
+                    therapistView.setWelcomeMessage(welcomeMessage);
+                }
+                else
+                {
+                    Debug.LogError("Failed to parse therapist information.");
+                }
+            }
+            else
+            {
+        //        therapistView.HandleGetTherapistError("Get therapist failed: " + request.error);
+            }
+       }   
+    }
+
+        public static IEnumerator GetAllExercisesCoroutine()
+        {
+            // Corrected URL:
+            string url = "http://localhost:5089/api/exercise/getAllExercises";
+
+            using (UnityWebRequest request = UnityWebRequest.Get(url))
+            {
+                request.SetRequestHeader("Content-Type", "application/json");
+                request.SetRequestHeader("Accept", "application/json");
+
+                yield return request.SendWebRequest();
+
+                if (request.result == UnityWebRequest.Result.Success)
+                {
+                    string responseBody = request.downloadHandler.text;
+                    Debug.Log("Get all exercises successful. Response: " + responseBody);
+                    therapistView.HandleGetAllExercisesSuccess(responseBody);
+                }
+                else
+                {
+                    Debug.LogError("Get all exercises failed: " + request.error);
+                }
+            }
+        }
 }
