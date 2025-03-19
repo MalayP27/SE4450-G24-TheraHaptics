@@ -1614,6 +1614,7 @@ GameObject:
   - component: {fileID: 1121347354}
   - component: {fileID: 1121347356}
   - component: {fileID: 1121347355}
+  - component: {fileID: 1121347357}
   m_Layer: 0
   m_Name: ExampleImage
   m_TagString: Untagged
@@ -1678,6 +1679,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121347353}
   m_CullTransparentMesh: 1
+--- !u!95 &1121347357
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121347353}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8230f69517e5634299b63dcc2f3f703, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1205947544
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,6 +3111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f7cd616e36f5b428a06d01fab5bb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patientAnimator: {fileID: 1121347357}
 --- !u!114 &1962272811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3143,8 +3166,8 @@ MonoBehaviour:
   reportViewButtons: []
   searchBar: {fileID: 0}
   tempExerciseImage: {fileID: 21300000, guid: 1aa028cfb4d20fe47afe1d2b8e62d18f, type: 3}
-  thumbsUpExerciseImage: {fileID: 1538050778, guid: 0d7501efc9beede4b989ab04066f6a06, type: 3}
-  fistExerciseImage: {fileID: 1849882933, guid: 42648bc8a675f82419bac289725676f3, type: 3}
+  thumbsUpExerciseImage: {fileID: 1849882933, guid: 42648bc8a675f82419bac289725676f3, type: 3}
+  fistExerciseImage: {fileID: 1538050778, guid: 0d7501efc9beede4b989ab04066f6a06, type: 3}
   helloMessage: {fileID: 0}
 --- !u!114 &1962272812
 MonoBehaviour:
