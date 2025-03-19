@@ -18,7 +18,8 @@ public class ExerciseController : Controller {
         _mongoDBService = mongoDBService;
     }
 
-    [Authorize(Policy = "TherapistAndPatient")]
+    
+    //[Authorize(Policy = "TherapistAndPatient")]
     [HttpGet("getExercise/{exerciseId}")]
     public async Task<IActionResult> GetExerciseByIdAsync(string exerciseId) {
         // Validate exercise ID

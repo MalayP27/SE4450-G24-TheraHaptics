@@ -21,7 +21,7 @@ public class ExerciseProgramController : Controller {
     
 
     // Create a new exercise program
-    [Authorize(Policy = "TherapistOnly")]
+  //[Authorize(Policy = "TherapistOnly")]
     [HttpPost("createExerciseProgram")]
     public async Task<IActionResult> CreateExerciseProgram([FromBody] ExerciseProgramCreateDto request) {
         if (request == null ||

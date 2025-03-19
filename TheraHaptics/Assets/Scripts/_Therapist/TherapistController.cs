@@ -194,4 +194,150 @@ public class TherapistController : MonoBehaviour
                 }
             }
         }
+        
+    [Serializable]
+     public class ExerciseDto
+    {
+        public string exerciseId;     // string: e.g., a MongoDB ObjectId (or empty if not available)
+        public string Name;           // string: exercise name
+        public string Instructions;   // string: instructions (optional, can be left empty)
+        public int TargetReps;        // int: target repetitions
+        public int TargetDuration;    // int: target duration in minutes
+        public string Intensity;      // string: intensity (converted from numeric slider)
+    }
+
+    // DTO for the entire exercise program.
+    [Serializable]
+    public class ExerciseProgramCreateDto
+    {
+        public string Name;                  // string: e.g., "New Exercise Program"
+        public string PatientId;             // string: selected patient's ID
+        public List<ExerciseDto> Exercises;  // list of exercises
+        public string StartDate;           
+        public string EndDate;             
+        public string PlanGoals;             // string: doctor's notes
+        public string Intensity;             // string: overall intensity (converted from slider)
+        public int EstimatedTime;            // int: total estimated time (e.g., sum of all target durations)
+    }
+
+    /// <summary>
+    /// Submits the exercise program by creating a DTO and calling the API endpoint.
+    /// </summary>
+    public static async void SubmitExercisePlan(
+        int numOfExercises,
+        string[] exercisesInPlan, 
+        float[] timeNums, 
+        int[] repNums, 
+        string startDateText, 
+        string endDateText, 
+        string intensity, 
+        string planGoals, 
+        string patientId,
+        string[] exerciseIds)
+    {
+        // Build a list of exercises.
+        List<ExerciseDto> exerciseList = new List<ExerciseDto>();
+        Debug.Log(exerciseIds + "ersrs");
+        for (int i = 0; i < numOfExercises; i++)
+        {
+            // Call the API to get the exercise details by ID.
+            ExerciseDto exercise = await GetExerciseById(exerciseIds[i]);
+            if (exercise != null)
+            {
+                exercise.exerciseId = exerciseIds[i];
+                exercise.Name = exercisesInPlan[i];
+                exercise.Instructions= "Instructions"; // Or obtain from a dedicated UI input
+                exercise.TargetReps = repNums[i];
+                exercise.TargetDuration = (int)timeNums[i];
+                exercise.Intensity = intensity.ToString(); // Convert numeric intensity to string
+                exerciseList.Add(exercise);
+            }
+        }
+
+        // Parse start and end dates from input strings.
+        // DateTime startDate = DateTime.Parse(startDateText);
+        // DateTime endDate = DateTime.Parse(endDateText);
+        DateTime startDate = DateTime.Now;
+        DateTime endDate = DateTime.Now.AddDays(7);
+
+        // Calculate estimated time as the sum of all target durations.
+        int estimatedTime = 0;
+        foreach (var t in timeNums)
+        {
+            estimatedTime += (int)t;
+        }
+
+        // Build the overall exercise program DTO.
+        ExerciseProgramCreateDto programDto = new ExerciseProgramCreateDto
+        {
+            Name = "New Exercise Program", // Or obtain from a dedicated UI input
+            PatientId = patientId,
+            Exercises = exerciseList,
+            StartDate = startDate.ToString("o"),
+            EndDate = endDate.ToString("o"),
+            PlanGoals = planGoals,
+            Intensity = intensity.ToString(), // Overall intensity as string
+            EstimatedTime = estimatedTime
+        };
+
+        // Serialize the DTO to JSON.
+        string jsonPayload = JsonUtility.ToJson(programDto);
+        Debug.Log("JSON Payload: " + jsonPayload);
+
+        // Call the API endpoint.
+        using (HttpClient client = new HttpClient())
+        {
+            try
+            {
+                StringContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync("http://localhost:5089/api/exerciseprogram/createExerciseProgram", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Debug.Log("Exercise program created successfully. Response: " + responseBody);
+                    // Optionally, trigger a success UI update.
+                }
+                else
+                {
+                    Debug.LogError("Failed to create exercise program: " + response.ReasonPhrase);
+                    // Handle the error appropriately.
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Exception during API call: " + ex.Message);
+            }
+        }
+    }
+
+    private static async Task<ExerciseDto> GetExerciseById(string exerciseId)
+    {
+        string url = $"http://localhost:5089/api/exercise/getExercise/{exerciseId}";
+
+        using (HttpClient client = new HttpClient())
+        {
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Debug.Log("Get exercise by ID successful. Response: " + responseBody);
+                    return JsonUtility.FromJson<ExerciseDto>(responseBody);
+                }
+                else
+                {
+                    Debug.LogError("Failed to get exercise by ID: " + response.ReasonPhrase);
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Exception during API call: " + ex.Message);
+                return null;
+            }
+        }
+    }
 }
