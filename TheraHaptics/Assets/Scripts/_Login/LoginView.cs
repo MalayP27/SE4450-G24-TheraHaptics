@@ -139,7 +139,7 @@ public class LoginView : MonoBehaviour
     // Method for when the save new Password button is pressed on the ForgotPassword2 Scene
     public void SaveNewPasswordPressed(){
         Debug.Log("Save Password Pressed");
-        // LoginController.xyz(userPassword.text, confirmPassword.text);
+        LoginController.ChangePassword(userPassword.text, confirmPassword.text);
     }
 
     // Method for new password saved successfully

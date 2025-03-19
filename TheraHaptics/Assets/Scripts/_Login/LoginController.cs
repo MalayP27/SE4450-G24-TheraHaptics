@@ -75,6 +75,7 @@ public class LoginController : MonoBehaviour
 
                     if (loginResponse.isTemporaryPassword)
                     {
+                        RegisterController.PatientEmail = email;
                         // Navigate to the password reset scene (ForgotPassword2)
                         UnityEngine.SceneManagement.SceneManager.LoadScene("ForgotPassword2");
                     }
@@ -144,8 +145,9 @@ public class LoginController : MonoBehaviour
     }
 
     /// Sends a change password request to the API using the provided email, temporary password, and new password.
-    public static async void ChangePassword(string email, string tempPassword, string newPassword)
+    public static async void ChangePassword(string tempPassword, string newPassword)
     {
+        string email = RegisterController.PatientEmail;
         if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(tempPassword) || string.IsNullOrEmpty(newPassword))
         {
             loginView.HandleSignInError("All fields are required for changing password.");
