@@ -159,7 +159,7 @@ public class PatientView : MonoBehaviour
             // currentInstructions.text = "<B>Instructions: </B>" + tempString; // Replace with actual data Zaiyan
             // currentTargetTime.text = "Duration: " + tempString; // Replace with actual data Zaiyan
             // currentTargetReps.text = "Repetitions: " + tempString;
-            // currentReps.text = "Repetitions: " + reps; // Replace with actual data Zaiyan
+             currentReps.text = "Repetitions: " + reps; // Replace with actual data Zaiyan
             // currentExerciseExample.sprite= tempExerciseImage; // Replace with exerciseImages[TherapistController.ReturnIndexOfExerciseImage()] 
             PatientController.GetExerciseProgram();
         }

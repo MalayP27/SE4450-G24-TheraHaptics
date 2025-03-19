@@ -114,7 +114,7 @@ public class PatientController : MonoBehaviour
             {
                 Debug.Log("Correct!");
                 patientView.SetCurrentExercise(globalExercises[currentExerciseIndex]);
-                currentExerciseIndex++;
+                patientView.AddRepetition();
             }
             else
             {
