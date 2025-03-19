@@ -185,6 +185,10 @@ public class MongoDBService {
         var filter = Builders<ExerciseProgram>.Filter.Eq(ep => ep.ProgramID, exerciseProgramId);
         await _exerciseProgramCollection.DeleteOneAsync(filter);
     }
+
+    public async Task<List<ExerciseProgram>> GetExerciseProgramsByPatientIdAsync(string patientId) {
+        return await _exerciseProgramCollection.Find(ep => ep.PatientId == patientId).ToListAsync();
+    }
     
 
     // Pain Report Endpoints DB Integration
