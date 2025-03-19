@@ -28,6 +28,9 @@ public class TherapistView : MonoBehaviour
     // List of exercise choices
     string[] exercises = new string[numExerciseChoices];
     
+    // List of exercise IDs
+    string[] exerciseIds = new string[numExerciseChoices];
+
     // List of exercises in plan, their time, and their reps and intensity
 
     int numOfCurrentExercises = 0;
@@ -389,7 +392,6 @@ public class TherapistView : MonoBehaviour
     }
 
     // ==========TherapistCreateExercisePlan Scene Methods==========
-
     [Serializable]
     public class ExerciseListResponse
     {
@@ -399,11 +401,12 @@ public class TherapistView : MonoBehaviour
     [Serializable]
     public class Exercise
     {
+        public string exerciseId; // Add this field to store the exercise ID
         public string name;
         // You can add additional properties if needed (instructions, target_reps, etc.)
     }
 
-    public void HandleGetAllExercisesSuccess(string responseBody)
+        public void HandleGetAllExercisesSuccess(string responseBody)
     {
         Debug.Log("Exercises retrieved successfully: " + responseBody);
 
@@ -411,10 +414,12 @@ public class TherapistView : MonoBehaviour
         string wrappedJson = "{\"exercises\":" + responseBody + "}";
         ExerciseListResponse exerciseList = JsonUtility.FromJson<ExerciseListResponse>(wrappedJson);
         
-        // Populate the exercises array with the exercise names.
+        // Populate the exercises and exerciseIds arrays with the exercise names and IDs.
         for (int i = 0; i < exerciseList.exercises.Length && i < exercises.Length; i++)
         {
             exercises[i] = exerciseList.exercises[i].name;
+            exerciseIds[i] = exerciseList.exercises[i].exerciseId; // updated property name
+            Debug.Log("Exercise ID: " + exerciseIds[i]);
         }
 
         // Optionally update the UI elements (e.g., the exercise choices text) with the new data.
@@ -455,25 +460,65 @@ public class TherapistView : MonoBehaviour
     }
 
     // Method to submit Exercise Plan
-    public void SubmitPlanButtonClicked(){
-        for (int i = 0; i < numOfCurrentExercises; i++) {
-            exercisesInPlan[i] = planExercises[i].text;
-            if (times[i].text == ""){
-                timeNums[i] = 0;
-            }
-            else{
-                timeNums[i] = float.Parse(times[i].text);
-            }
-            if (reps[i].text == ""){
-                repNums[i] = 0;
-            }
-            else{
-                repNums[i] = int.Parse(reps[i].text);            
-            }
+            public void SubmitPlanButtonClicked()
+    {
+        // Assume 'numOfCurrentExercises' is the count of exercises currently added.
+        int currentExercises = numOfCurrentExercises; // e.g., this.numOfCurrentExercises
+
+        // Arrays to capture UI data for each exercise.
+        string[] exercisesInPlanData = new string[5];
+        float[] timeNumsData = new float[5];
+        int[] repNumsData = new int[5];
+        
+        // Gather data from each added exercise.
+        for (int i = 0; i < currentExercises; i++)
+        {
+            exercisesInPlanData[i] = planExercises[i].text;
+            timeNumsData[i] = string.IsNullOrEmpty(times[i].text) ? 0 : float.Parse(times[i].text);
+            repNumsData[i] = string.IsNullOrEmpty(reps[i].text) ? 0 : int.Parse(reps[i].text);
         }
-        intensity = Convert.ToInt32(intensitySlider.value);
-        Debug.Log(numOfCurrentExercises + ", " + string.Join("|", exercisesInPlan) + ", " + string.Join("|", timeNums) + ", " + string.Join("|", repNums) + ", " + startDate.text + ", " + endDate.text + ", " + intensity + ", " + doctorsNotes.text);
-        // TherapistController.SubmitExercisePlan(int numOfCurrentExercises, string[] exercisesInPlan[],float[] timeNums[],int[] repNums[],string startDate.text,string endDate.text,int intensity, string doctorsNotes.text);
+        
+        // Retrieve overall intensity from the slider.
+        int overallIntensity = Convert.ToInt32(intensitySlider.value);
+        string intensityText = "";
+        if (overallIntensity == 1)
+        {
+            intensityText = "Easy";
+        }
+        else if (overallIntensity == 2)
+        {
+            intensityText = "Medium";
+        }
+        else if (overallIntensity == 3)
+        {
+            intensityText = "Hard";
+        }
+        else if (overallIntensity == 4)
+        {
+            intensityText = "Intense";
+        }
+        
+        // Get the start and end dates from the input fields.
+        string startDateStr = startDate.text;
+        string endDateStr = endDate.text;
+        
+        // Retrieve doctor's notes from the input field.
+        string doctorsNotesText = doctorsNotes.text;
+        
+        // Retrieve the selected patient ID.
+        string selectedPatientId = patientIds[patientDropdown.value];
+        
+        Debug.Log("Submitting Exercise Program with the following details:");
+        Debug.Log("Exercises: " + string.Join(", ", exercisesInPlanData));
+        Debug.Log("Times: " + string.Join(", ", timeNumsData));
+        Debug.Log("Reps: " + string.Join(", ", repNumsData));
+        Debug.Log("Start Date: " + startDateStr + ", End Date: " + endDateStr);
+        Debug.Log("Intensity: " + intensityText);
+        Debug.Log("Doctor's Notes: " + doctorsNotesText);
+        Debug.Log("Patient ID: " + selectedPatientId);
+        
+        // Call the submission method.
+        TherapistController.SubmitExercisePlan(currentExercises, exercisesInPlanData, timeNumsData, repNumsData, startDateStr, endDateStr, intensityText, doctorsNotesText, selectedPatientId, exerciseIds);
     }
 
     // Method to show error message when exercise plan is created wrong
@@ -523,11 +568,15 @@ public class TherapistView : MonoBehaviour
         List<string> patientNames = new List<string>();
         PatientListWrapper patientList = JsonUtility.FromJson<PatientListWrapper>(wrappedJson);
 
+        // Clear the existing patient IDs list
+        patientIds.Clear();
         foreach (var patient in patientList.patients)
         {
             Debug.Log("Patient: " + patient.firstName + " " + patient.lastName);
             patientDropdown.gameObject.SetActive(true);
             patientNames.Add(patient.firstName + " " + patient.lastName);
+            patientIds.Add(patient.patientId); // Store the patient ID
+
         }
 
         // Populate the dropdown list
