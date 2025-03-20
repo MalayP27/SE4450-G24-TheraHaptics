@@ -144,12 +144,12 @@ public class PatientController : MonoBehaviour
                         if (predictedGesture == "Thumbs Up")
                         {
                             patientAnimator.SetTrigger("CorrectThumbsUp");
-                            StartCoroutine(ResetAnimationTrigger("CorrectThumbsUp", 1.0f));
+                            StartCoroutine(ResetAnimationTrigger("CorrectThumbsUp", 0.1f));
                         }
                         else if (predictedGesture == "Fist")
                         {
                             patientAnimator.SetTrigger("CorrectFist");
-                            StartCoroutine(ResetAnimationTrigger("CorrectFist", 1.0f));
+                            StartCoroutine(ResetAnimationTrigger("CorrectFist", 0.1f));
                         }
                     }
                 }
