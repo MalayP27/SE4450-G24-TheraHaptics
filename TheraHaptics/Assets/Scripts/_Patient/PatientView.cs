@@ -86,6 +86,11 @@ public class PatientView : MonoBehaviour
     [SerializeField] private GameObject[] reportViewButtons;
     [SerializeField] private TMP_InputField searchBar;
 
+    [Header("Patient Goals")]
+    [SerializeField] private TMP_Text patientGoalsBox;
+    [SerializeField] private GameObject addGoalScreen;
+    [SerializeField] private Button addGoalButton;
+
     [Header("Misc")]
     // Temporary Sprite for exercise Screen
     [SerializeField] private Sprite tempExerciseImage;
@@ -139,7 +144,7 @@ public class PatientView : MonoBehaviour
             }
             totalProgressBarFill.fillAmount = tempProgress[2]/100; // Replace with actual data Zaiyan
             planCompleted.text = tempProgress[2].ToString() + "% Plan Completed"; // Replace with actual data Zaiyan
-            goals.text = tempString;
+            //goals.text = tempString;
             startDateBox.text = "Start Date: " + tempString; // Replace with actual data Zaiyan
             endDateBox.text = "End Date: " + tempString; // Replace with actual data Zaiyan
             sessionsCompletedBox.text = "Sessions Completed: " + tempString; // Replace with actual data Zaiyan
@@ -479,6 +484,21 @@ public class PatientView : MonoBehaviour
                 reportIDs[i] = reportIDs[i];
             }
         }
+    }
+
+    public void AddGoalPressed(){
+        string description = patientGoalsBox.text;
+        goals.text += description + "\n";
+        PatientController.AddGoal(description); 
+    }
+
+    public void AddGoalScreen(){
+        addGoalScreen.SetActive(true);
+        
+    }
+
+    public void CloseAddGoalScreen(){
+        addGoalScreen.SetActive(false);
     }
 
     // Method to Search Reports
