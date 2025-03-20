@@ -460,7 +460,7 @@ public class TherapistView : MonoBehaviour
     }
 
     // Method to submit Exercise Plan
-            public void SubmitPlanButtonClicked()
+    public void SubmitPlanButtonClicked()
     {
         // Assume 'numOfCurrentExercises' is the count of exercises currently added.
         int currentExercises = numOfCurrentExercises; // e.g., this.numOfCurrentExercises
