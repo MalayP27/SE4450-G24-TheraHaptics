@@ -287,6 +287,56 @@ public class PatientController : MonoBehaviour
         }
     }
 
+    // Coroutine to send the pain report to the backend
+    public IEnumerator SendPainReportCoroutine()
+    {
+        // Retrieve the patient ID from your LoginController's patientModel
+        string patientId = LoginController.patientModel.GetPatientID();
+        Debug.Log("PatientController: " + patientId);
+        string url = $"http://localhost:5089/api/patient/reportPain/{patientId}";
+
+        // Create the DTO object based on the PainReportCreateDto structure.
+        // Note: We no longer send any ClickMover data.
+        PainReportCreateDto report = new PainReportCreateDto
+        {
+            Description = patientView.painDescription.text,
+            PainLevel = (int)patientView.painIntensitySlider.value
+        };
+
+        // Convert the object to JSON
+        string jsonData = JsonUtility.ToJson(report);
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonData);
+
+        Debug.Log("Sending pain report: " + jsonData);
+
+        // Setup the POST request with headers
+        UnityWebRequest request = new UnityWebRequest(url, "POST");
+        request.uploadHandler = new UploadHandlerRaw(jsonToSend);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        // Send the request and wait for a response
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Pain report sent successfully.");
+            // Optionally, update the UI or navigate to another scene here.
+        }
+        else
+        {
+            Debug.LogError("Error sending pain report: " + request.error);
+        }
+    }
+
+    // DTO for pain report (matches your PainReportCreateDto model)
+    [System.Serializable]
+    public class PainReportCreateDto
+    {
+        public string Description;
+        public int PainLevel;
+    }
+
     [System.Serializable]
     public class Exercise
     {
