@@ -196,7 +196,7 @@ public class TherapistController : MonoBehaviour
     {
         public string exerciseId;     // string: e.g., a MongoDB ObjectId (or empty if not available)
         public string Name;           // string: exercise name
-        public string Instructions;   // string: instructions (optional, can be left empty)
+        public string instructions;   // string: instructions (optional, can be left empty)
         public int TargetReps;        // int: target repetitions
         public int TargetDuration;    // int: target duration in minutes
         public string Intensity;      // string: intensity (converted from numeric slider)
@@ -233,7 +233,7 @@ public class TherapistController : MonoBehaviour
     {
         // Build a list of exercises.
         List<ExerciseDto> exerciseList = new List<ExerciseDto>();
-        Debug.Log(exerciseIds + "ersrs");
+        //Debug.Log(exerciseIds + "ersrs");
         for (int i = 0; i < numOfExercises; i++)
         {
             // Call the API to get the exercise details by ID.
@@ -242,7 +242,7 @@ public class TherapistController : MonoBehaviour
             {
                 exercise.exerciseId = exerciseIds[i];
                 exercise.Name = exercisesInPlan[i];
-                exercise.Instructions= "Instructions"; // Or obtain from a dedicated UI input
+                //exercise.Instructions; // Use a default value if null
                 exercise.TargetReps = repNums[i];
                 exercise.TargetDuration = (int)timeNums[i];
                 exercise.Intensity = intensity.ToString(); // Convert numeric intensity to string

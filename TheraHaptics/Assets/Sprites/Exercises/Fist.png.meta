@@ -1,0 +1,3194 @@
+fileFormatVersion: 2
+guid: 0d7501efc9beede4b989ab04066f6a06
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fist_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3274543eb9638842951302990987b1d
+      internalID: 1538050778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_1
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fed267efebc3b640b57d58d48a8fa5f
+      internalID: -1307288006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_2
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b4aee17c5b6e044b04a897d1f82d6e
+      internalID: 890736021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_3
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f7a15e718228b4bafc1848ba07f555
+      internalID: -455492392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_4
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704fc495f4fc93c459382bc82361f137
+      internalID: -1620942481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_5
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b9ef3298d73124eb258a063296f022
+      internalID: 1221157746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_6
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd1ee3761cc51b840910122582d5ab1c
+      internalID: 1870291994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_7
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6acf3a7e9ec00848a3b566f513cc95d
+      internalID: 732209202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_8
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43633e8732dcab742bfdb7b797e1ac21
+      internalID: 300464684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_9
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 11102
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d72b1a009428f5438bd23216121777f
+      internalID: 4449753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4a3dea4ade7d4747a2ce2e1f34314e1
+      internalID: -968825087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_11
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a05f72204c44d14f83038c8e8662ab2
+      internalID: -855056979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_12
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58785eb1280d49b40b3346b007134b07
+      internalID: 1973165083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_13
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1d803f2cfd66c49aa97818e0f2d113
+      internalID: -1285168832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_14
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7126756410e8f6445802aac3d2f3b378
+      internalID: 941735254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_15
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab2bf17df51766c4eb3416098a103f80
+      internalID: -1421594077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_16
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5861d974ff0dc14c9ce85799b4b4414
+      internalID: 2011477683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_17
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa91048a19016384a80ea160be6cb991
+      internalID: 688356907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_18
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0793aef333b5d2644bfa66d5956024dc
+      internalID: -724811602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_19
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 10248
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac7bce19ffbf624c8ef26e786b6f220
+      internalID: -1119066634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b74c876c29086a498c58d0e45237fbd
+      internalID: 710247605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_21
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc04f4640cbabb5479116bc9f281210e
+      internalID: 1782988688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_22
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18e4eb5be113894e924409d548436fd
+      internalID: 1935797175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_23
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e885a18dba764354986656086e9dd818
+      internalID: 1640704470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_24
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf4f348d97905a49bcc96769a48fcac
+      internalID: 22550896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_25
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fd382b7cf2fad74bb3d10a309259816
+      internalID: -1531482630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_26
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d82cca88d102284eb4e6a584f19c396
+      internalID: 1405278477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_27
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4faa27339ef58e4fbbe93ae87cc8178
+      internalID: -1511962508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_28
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b46d2b4e84ebd4284b7c17dd77581f
+      internalID: -109310162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_29
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 9394
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a64588f569cd445857f847b5b03ecd
+      internalID: 1988428250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b9676eb8b83ab74eb919c6db6a58e6c
+      internalID: -1470954192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_31
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb24a8b688f239a4eb82ba575ac47489
+      internalID: 429611668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_32
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7a1dd25675bf7148acf9ff35b1a85db
+      internalID: 1178956185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_33
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced76909112769d4bb59d405036017fa
+      internalID: -1613685318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_34
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5843304f6310974f994b30fa1d9038a
+      internalID: -263580798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_35
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8622a8826bb72c54f93b34e409a71a9d
+      internalID: 1745614645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_36
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0645c4b6d4c8fa942bf7bde0ff1d9d61
+      internalID: 1785772480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_37
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8144712aa41776842a108e1f4bd5ad56
+      internalID: 1115495420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_38
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1264f10f758b03e4bb8eada08dec5935
+      internalID: 1365383341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_39
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 8540
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8568ae5441f770646aec1a66b34827ea
+      internalID: -2013652951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11efd85af86e9f9488fdd7c685d05437
+      internalID: -283935262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_41
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1034b14b5abdaa3439e62b7fcc009cea
+      internalID: -867668077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_42
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2da4bf59ffebe408e96ee42ffe5e70
+      internalID: -979111494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_43
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 191787cbea48e944f86adedd6e5df593
+      internalID: -474792418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_44
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95db35ded75019946b32ffba7b4dfc1f
+      internalID: -1202075551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_45
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bcd8ee11f3845a48ab6b566e30010f2
+      internalID: -1116388075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_46
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274b3eaee45780b43a08c1bb5dd2a475
+      internalID: 553411966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_47
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafbcc7b04a44f94882c529176e5d5ea
+      internalID: 1236074003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_48
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 590b1fb805b6f5444baea55979fbd4c8
+      internalID: -235490766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_49
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 7686
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a51464c747c47746a425af0beefd466
+      internalID: -1738143739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d72ed6b03fd66541b7af158f2dfae7d
+      internalID: -835344073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_51
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bfe30c494f0e24a98c723d39189d92
+      internalID: 1495098932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_52
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 747dd510ee5c22f4898459280767613a
+      internalID: 1169650597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_53
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb7c27fc0101da499b39ca0b8c358b4
+      internalID: 1121724920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_54
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3074284a4f3e31a42b4c457d1f9c3422
+      internalID: -2078333392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_55
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 191bd404aae9c8a40b42181f1a0097df
+      internalID: -1277633826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_56
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d0a3de72d0028469c4561b851e7998
+      internalID: -2092512598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_57
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa0e05536f02c244a59274676af17a2
+      internalID: 1275772031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_58
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc4a891a4ddbd34ea75166f795adb9e
+      internalID: -699670016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_59
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 6832
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44406e8264dccb4a8c50385e859e431
+      internalID: 999693365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4abe154ae78bb542b90700b76bec152
+      internalID: 458397461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_61
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37adcbbc7ca337b4bad0067835e95792
+      internalID: -1178913940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_62
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b8651d5502dd2f43a2989888641bfa6
+      internalID: -951681997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_63
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c23eb2139685784ea30bd1be69bdd18
+      internalID: 1348940549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_64
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa5d5ce6ab18ad4ab0d25eb6bb1a055
+      internalID: 975476608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_65
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad010c634765944fa0c894f3a434f7a
+      internalID: -1896723029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_66
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511cfe31a511d5241afe35412ad25de1
+      internalID: -1681436108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_67
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a03b9e90b81bd104eb6dc1e184fe43d8
+      internalID: -394140409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_68
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 455d97b91dfc4b34fb98a688c78fcaab
+      internalID: 1730996138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_69
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 5978
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02aaab27e1d1274fbcbbbca575edee1
+      internalID: -652012557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd007ac80af65c643847d446aa6b0eca
+      internalID: 814980921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_71
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff2db7c42ec6bf43afdb163e2b0a220
+      internalID: 1345435073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_72
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c18ab6a7df830240a8db6b86dfb36f8
+      internalID: 2104981431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_73
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b607af1d7d0d69a4faaee990fe3936ba
+      internalID: 1896809060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_74
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7947a79ebbd746845a148e6d4cd0a459
+      internalID: 528796469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_75
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404bbce9bbedae44c818904a7b7aac25
+      internalID: 1048223028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_76
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 643e073f7c3ac7848ab28a1a3430d43d
+      internalID: -2053106118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_77
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ba4a40247520240ad4fff2e2e3a01b
+      internalID: 1130369748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_78
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d003336deb274c49bce8a99f52ba2d2
+      internalID: 506473582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_79
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 5124
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cfc8a10ad8375f46914d179cfbf4da2
+      internalID: 1732231944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d8b9d011e0e19f4db08c38abce03a3e
+      internalID: 1766616705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_81
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dbb2af3bfdaacd44bae715d8d2aa9b4
+      internalID: -253446835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_82
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4e67eab14072f419062504b258cc1e
+      internalID: 1136385045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_83
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2ab7502f3efe14da8a8aea90492dd6
+      internalID: 1032339216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_84
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63311f0b7aacb3c448370af3074add91
+      internalID: -198143555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_85
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8916118c742d1674daae1c2f60e941d6
+      internalID: -1088254656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_86
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00806bfc29a7a2e479889de5a4dfe2a7
+      internalID: -1327169261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_87
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d591714b8b3d3f94cb055e99038c0d46
+      internalID: -1296242611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_88
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e674ed071a68414fbc2626f36e94940
+      internalID: -1500683712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_89
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 4270
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d616e3ece44d7145ad1c28880e953e5
+      internalID: 2141782254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc2393b1fb3bea44aaee85e14425eda
+      internalID: -13495198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_91
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd1bb4d0f9178da4292d43fb0930fbe3
+      internalID: 599272924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_92
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a157b607d86fb3948860841fcd933598
+      internalID: -982087997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_93
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c08658f21613f43b17beb39770947a
+      internalID: 100181099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_94
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd645f277c8a73498bf1febc33edfe5
+      internalID: 121879859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_95
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f147c586347f356438a2c847f6b3e85a
+      internalID: 785105816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_96
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38415163e42802d438bc79428d15f100
+      internalID: -563997562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_97
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38baba122909daa4cafe22948771eaad
+      internalID: -2117784959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_98
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75b55085d860cc4ca36981f2df3ef15
+      internalID: 855357831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_99
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 3416
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43c1ca17795b5284d9ffe55a9aaf3bfe
+      internalID: -1294782549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b8ec59081b26d946a7844e2313eb0a4
+      internalID: -1825420338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_101
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad7e163460a301e41af7be325682c4ca
+      internalID: 1345337476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_102
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7277fa45df2b19c4b89c05d87c5b1521
+      internalID: -1647487546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_103
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5628f952ceb449745aab9caa0379a39a
+      internalID: -1138194068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_104
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af9de5d20d7b9d241bfe995fcaf34f7e
+      internalID: 1858202339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_105
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8857dedefa828104d82e8250bb031432
+      internalID: -1453380827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_106
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 534dec7b6fa2a754fbbf666589aa5b9a
+      internalID: -189621172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_107
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a560f28ffff4bf428229dd22b8b237d
+      internalID: -1823365574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_108
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca292e9097ef1b1479be65b212fe11ec
+      internalID: 1568798015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_109
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 2562
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89752539a0255064a9d973cedc8d8427
+      internalID: 1356490909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66f626bfa88a82d4b87c4f57df05b377
+      internalID: -1814950610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_111
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39fe753c64f70fb45bd34438ea0da256
+      internalID: -400332666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_112
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a6bb4c62bb1d94085e704218605535
+      internalID: 1291660512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_113
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001f131ac59272b409e9cb9167cd2711
+      internalID: 1486529914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_114
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145a6e07958ff7841aba2a100bd84836
+      internalID: 761300945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_115
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf1d81cb5447b24c8bf7bb104c21c65
+      internalID: -329849311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_116
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 500a33fc318be61489a87c0885964299
+      internalID: 325197522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_117
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d009586054144e443a69a98d759c93d6
+      internalID: -870082940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_118
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 381a6d5a612cd4749a9285deb49c34a7
+      internalID: -453456113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_119
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 1708
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af183fc4c64a2434988e620d008e03a4
+      internalID: 1637461251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac1d10e3d9d8194d96c9f6145fe3404
+      internalID: 1040921842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_121
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ed43b1ce139554c9eb0757cfcfc249
+      internalID: -404329743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_122
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a01ec8ae4ecd14ea616ca1600851bb
+      internalID: 1099077280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_123
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06047c22d2cfddc4184cf2f9634806fc
+      internalID: 1723673214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_124
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e75c0699867bf547af41c4618ec1f5a
+      internalID: -626855582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_125
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc88753828d22d44cb5d2712894836c4
+      internalID: 187481898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_126
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2082e6ae1c8bae64d9e342847e64d256
+      internalID: -257064451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_127
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59c0cc9eab36cc4eaf1b24a34bcb50f
+      internalID: 1754103911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_128
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160ddc6ccb11f4b4784bf75857158e5d
+      internalID: 545143975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_129
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 854
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd4c83cbe27f4a48b8b6fad6842a0b0
+      internalID: -1138177348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f58fa52af8d84f4ca34e0dca0b79695
+      internalID: -739433813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_131
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9453d48d19f8f2a45ba25a89ec4c2fa1
+      internalID: -379510493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_132
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4013b990dd7a7324583b73f9b6ca932d
+      internalID: -847555333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_133
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f37e11fa873044429fb80e6fdfde457
+      internalID: -623117802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_134
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c02f8fae59a50f46a567b57c80b228d
+      internalID: -1716235020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_135
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c772603bef61249ba38b4d77a32ceb
+      internalID: -2120217865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_136
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f65e8d26103664099e75aef73b933c
+      internalID: -1798142158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_137
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8b7c7ed507dd044a60f27facdad992
+      internalID: -1437051333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_138
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc4959162c786543a69dc8c350e63a0
+      internalID: 1437758110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fist_139
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 480
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb9f9752d6082d4e9e6eb02df066078
+      internalID: -294465814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Fist_0: 1538050778
+      Fist_1: -1307288006
+      Fist_10: -968825087
+      Fist_100: -1825420338
+      Fist_101: 1345337476
+      Fist_102: -1647487546
+      Fist_103: -1138194068
+      Fist_104: 1858202339
+      Fist_105: -1453380827
+      Fist_106: -189621172
+      Fist_107: -1823365574
+      Fist_108: 1568798015
+      Fist_109: 1356490909
+      Fist_11: -855056979
+      Fist_110: -1814950610
+      Fist_111: -400332666
+      Fist_112: 1291660512
+      Fist_113: 1486529914
+      Fist_114: 761300945
+      Fist_115: -329849311
+      Fist_116: 325197522
+      Fist_117: -870082940
+      Fist_118: -453456113
+      Fist_119: 1637461251
+      Fist_12: 1973165083
+      Fist_120: 1040921842
+      Fist_121: -404329743
+      Fist_122: 1099077280
+      Fist_123: 1723673214
+      Fist_124: -626855582
+      Fist_125: 187481898
+      Fist_126: -257064451
+      Fist_127: 1754103911
+      Fist_128: 545143975
+      Fist_129: -1138177348
+      Fist_13: -1285168832
+      Fist_130: -739433813
+      Fist_131: -379510493
+      Fist_132: -847555333
+      Fist_133: -623117802
+      Fist_134: -1716235020
+      Fist_135: -2120217865
+      Fist_136: -1798142158
+      Fist_137: -1437051333
+      Fist_138: 1437758110
+      Fist_139: -294465814
+      Fist_14: 941735254
+      Fist_15: -1421594077
+      Fist_16: 2011477683
+      Fist_17: 688356907
+      Fist_18: -724811602
+      Fist_19: -1119066634
+      Fist_2: 890736021
+      Fist_20: 710247605
+      Fist_21: 1782988688
+      Fist_22: 1935797175
+      Fist_23: 1640704470
+      Fist_24: 22550896
+      Fist_25: -1531482630
+      Fist_26: 1405278477
+      Fist_27: -1511962508
+      Fist_28: -109310162
+      Fist_29: 1988428250
+      Fist_3: -455492392
+      Fist_30: -1470954192
+      Fist_31: 429611668
+      Fist_32: 1178956185
+      Fist_33: -1613685318
+      Fist_34: -263580798
+      Fist_35: 1745614645
+      Fist_36: 1785772480
+      Fist_37: 1115495420
+      Fist_38: 1365383341
+      Fist_39: -2013652951
+      Fist_4: -1620942481
+      Fist_40: -283935262
+      Fist_41: -867668077
+      Fist_42: -979111494
+      Fist_43: -474792418
+      Fist_44: -1202075551
+      Fist_45: -1116388075
+      Fist_46: 553411966
+      Fist_47: 1236074003
+      Fist_48: -235490766
+      Fist_49: -1738143739
+      Fist_5: 1221157746
+      Fist_50: -835344073
+      Fist_51: 1495098932
+      Fist_52: 1169650597
+      Fist_53: 1121724920
+      Fist_54: -2078333392
+      Fist_55: -1277633826
+      Fist_56: -2092512598
+      Fist_57: 1275772031
+      Fist_58: -699670016
+      Fist_59: 999693365
+      Fist_6: 1870291994
+      Fist_60: 458397461
+      Fist_61: -1178913940
+      Fist_62: -951681997
+      Fist_63: 1348940549
+      Fist_64: 975476608
+      Fist_65: -1896723029
+      Fist_66: -1681436108
+      Fist_67: -394140409
+      Fist_68: 1730996138
+      Fist_69: -652012557
+      Fist_7: 732209202
+      Fist_70: 814980921
+      Fist_71: 1345435073
+      Fist_72: 2104981431
+      Fist_73: 1896809060
+      Fist_74: 528796469
+      Fist_75: 1048223028
+      Fist_76: -2053106118
+      Fist_77: 1130369748
+      Fist_78: 506473582
+      Fist_79: 1732231944
+      Fist_8: 300464684
+      Fist_80: 1766616705
+      Fist_81: -253446835
+      Fist_82: 1136385045
+      Fist_83: 1032339216
+      Fist_84: -198143555
+      Fist_85: -1088254656
+      Fist_86: -1327169261
+      Fist_87: -1296242611
+      Fist_88: -1500683712
+      Fist_89: 2141782254
+      Fist_9: 4449753
+      Fist_90: -13495198
+      Fist_91: 599272924
+      Fist_92: -982087997
+      Fist_93: 100181099
+      Fist_94: 121879859
+      Fist_95: 785105816
+      Fist_96: -563997562
+      Fist_97: -2117784959
+      Fist_98: 855357831
+      Fist_99: -1294782549
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
