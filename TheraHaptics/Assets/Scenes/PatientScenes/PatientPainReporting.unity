@@ -2676,6 +2676,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1962272811}
+        m_TargetAssemblyTypeName: PatientView, Assembly-CSharp
+        m_MethodName: PatientDashboard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1823987309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2747,6 +2759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f7cd616e36f5b428a06d01fab5bb83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patientAnimator: {fileID: 0}
 --- !u!114 &1962272811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2779,6 +2792,9 @@ MonoBehaviour:
   exerciseProgramName: {fileID: 0}
   timeEst: {fileID: 0}
   intensityEst: {fileID: 0}
+  programGoals: {fileID: 0}
+  startDate: {fileID: 0}
+  endDate: {fileID: 0}
   currentExerciseName: {fileID: 0}
   currentInstructions: {fileID: 0}
   currentTargetTime: {fileID: 0}
@@ -2789,10 +2805,16 @@ MonoBehaviour:
   exerciseImages: []
   pauseButton: {fileID: 0}
   sessionIsPausedText: {fileID: 0}
-  painLocation: {fileID: 777222270}
   painDescription: {fileID: 302438769}
   painIntensitySlider: {fileID: 772256546}
+  sessionFeedback: {fileID: 0}
+  reportDates: []
+  reportTypes: []
+  reportViewButtons: []
+  searchBar: {fileID: 0}
   tempExerciseImage: {fileID: 0}
+  thumbsUpExerciseImage: {fileID: 0}
+  fistExerciseImage: {fileID: 0}
   helloMessage: {fileID: 0}
 --- !u!114 &1962272812
 MonoBehaviour:

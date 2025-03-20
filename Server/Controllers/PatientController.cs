@@ -275,7 +275,7 @@ public class PatientController : Controller {
     }
 
     // Create Patient Goal
-    [Authorize(Policy = "PatientOnly")]
+    // [Authorize(Policy = "PatientOnly")]
     [HttpPost("createPatientGoal/{patientId}")]
     public async Task<IActionResult> CreatePatientGoal(string patientId, [FromBody] GoalCreateDto request) {
         // Validate patient ID format

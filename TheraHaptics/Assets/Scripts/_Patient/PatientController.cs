@@ -329,12 +329,58 @@ public class PatientController : MonoBehaviour
         }
     }
 
+    public static IEnumerator AddGoal(string goalDescription)
+    {
+        string patientId = LoginController.patientModel.GetPatientID();
+        string url = $"http://localhost:5089/api/patient/createPatientGoal/{patientId}";
+
+        Goal goal = new Goal
+        {
+            Description = goalDescription
+        };
+
+        string jsonData = JsonUtility.ToJson(goal);
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonData);
+
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        {
+            request.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            yield return request.SendWebRequest(); 
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Goal added successfully.");
+                // Optionally, update the UI or navigate to another scene here.
+            }
+            else
+            {
+                Debug.LogError("Error adding goal: " + request.error);
+            }
+        }
+    }
+
+
+
+
+
+
+
     // DTO for pain report (matches your PainReportCreateDto model)
     [System.Serializable]
     public class PainReportCreateDto
     {
         public string Description;
         public int PainLevel;
+    }
+
+    // DTO for pain report (matches your PainReportCreateDto model)
+    [System.Serializable]
+    public class Goal
+    {
+        public string Description;
     }
 
     [System.Serializable]
