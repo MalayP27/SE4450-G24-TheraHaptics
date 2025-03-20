@@ -73,9 +73,9 @@ public class PatientView : MonoBehaviour
     [SerializeField] private GameObject sessionIsPausedText;
 
     [Header("PainReportingDetails")]
-    [SerializeField] private ClickMover painLocation;
-    [SerializeField] private TMP_InputField painDescription;
-    [SerializeField] private Slider painIntensitySlider;
+    //[SerializeField] private ClickMover painLocation;
+    [SerializeField] public TMP_InputField painDescription;
+    [SerializeField] public Slider painIntensitySlider;
 
     [Header("Session Finish Details")]
     [SerializeField] private TMP_InputField sessionFeedback;
@@ -409,12 +409,29 @@ public class PatientView : MonoBehaviour
     
     // ==========PatientPainReporting Scene Methods==========
     // Method for when the Pain Report is submitted
-    public void SendPainReport () {
-        int painX = ClickMover.getX();
-        int painY = ClickMover.getY();
+    public void SendPainReport()
+    {
+        // Retrieve pain report details from the UI.
         int painIntensity = Convert.ToInt32(painIntensitySlider.value);
         string painDescriptionText = painDescription.text;
-        // TherapistController.SavePainReport(painY, painX, painIntensity, painDescriptionText) then call PatientDashboard() (no point in continuing session if patient feels pain, better to stop);
+
+        // Optional: Validate input (e.g., ensure description is not empty and intensity is valid)
+        if (string.IsNullOrEmpty(painDescriptionText) || painIntensity <= 0)
+        {
+            Debug.LogError("Pain description is empty or pain intensity is not valid.");
+            return;
+        }
+
+        // Find the PatientController instance and start the pain report coroutine.
+        PatientController patientController = FindObjectOfType<PatientController>();
+        if (patientController != null)
+        {
+            StartCoroutine(patientController.SendPainReportCoroutine());
+        }
+        else
+        {
+            Debug.LogError("PatientController instance not found!");
+        }
     }
 
     // ==========PatientEndSession Scene Methods==========
